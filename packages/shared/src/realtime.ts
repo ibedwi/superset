@@ -5,6 +5,7 @@ export const REALTIME_NUDGE_KINDS = [
 	"hosts",
 	"cloud_workspaces",
 	"automation_runs",
+	"workflow_runs",
 	"pull_requests",
 	"plugins",
 ] as const;

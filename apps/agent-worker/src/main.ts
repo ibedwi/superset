@@ -15,7 +15,9 @@ import {
 } from "@temporalio/client";
 import { NativeConnection, Worker } from "@temporalio/worker";
 import { createActivities } from "./activities/createActivities";
+import { createWorkflowActivities } from "./activities/workflowActivities";
 import { workerApi } from "./clients/workerApi";
+import { workflowApi } from "./clients/workflowApi";
 
 const need = (name: string) => {
 	const value = process.env[name];
@@ -67,22 +69,30 @@ const worker = await Worker.create({
 	defaultHeartbeatThrottleInterval: "2 seconds",
 	maxHeartbeatThrottleInterval: "2 seconds",
 	...workflowSource(),
-	activities: createActivities({
-		credentials: api.credentials,
-		settler: api.settler,
-		roomPoster: api.roomPoster,
-		reconcile: api.reconcile,
-		pdev: {
-			command: pdevBin,
-			workRoot: process.env.AGENT_WORK_ROOT ?? join(tmpdir(), "agent-sessions"),
-			...(process.env.AGENT_MODEL ? { model: process.env.AGENT_MODEL } : {}),
-			...(process.env.AGENT_MAIN_MODEL
-				? { mainModel: process.env.AGENT_MAIN_MODEL }
-				: {}),
-		},
-		turnSteers: (workflowId, turnId) =>
-			client.workflow.getHandle(workflowId).query(turnSteersQuery, turnId),
-	}),
+	activities: {
+		...createActivities({
+			credentials: api.credentials,
+			settler: api.settler,
+			roomPoster: api.roomPoster,
+			reconcile: api.reconcile,
+			pdev: {
+				command: pdevBin,
+				workRoot: process.env.AGENT_WORK_ROOT ?? join(tmpdir(), "agent-sessions"),
+				...(process.env.AGENT_MODEL ? { model: process.env.AGENT_MODEL } : {}),
+				...(process.env.AGENT_MAIN_MODEL
+					? { mainModel: process.env.AGENT_MAIN_MODEL }
+					: {}),
+			},
+			turnSteers: (workflowId, turnId) =>
+				client.workflow.getHandle(workflowId).query(turnSteersQuery, turnId),
+		}),
+		...createWorkflowActivities({
+			api: workflowApi({
+				apiUrl: need("AGENT_API_URL"),
+				workerSecret: need("AGENT_WORKER_SECRET"),
+			}),
+		}),
+	},
 	// The container host waits 15 minutes after SIGTERM; a turn still running after this resumes elsewhere.
 	shutdownGraceTime: "5 minutes",
 });

@@ -132,6 +132,10 @@
 			"types": "./src/router/automation/dispatch.ts",
 			"default": "./src/router/automation/dispatch.ts"
 		},
+		"./workflow-dispatch": {
+			"types": "./src/router/workflow/dispatch.ts",
+			"default": "./src/router/workflow/dispatch.ts"
+		},
 		"./automation-webhook-secret": {
 			"types": "./src/router/automation/webhookSecret.ts",
 			"default": "./src/router/automation/webhookSecret.ts"

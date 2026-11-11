@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "node --import tsx src/main.ts",
 		"test": "bun test --pass-with-no-tests",
-		"test:node": "node --import tsx --test src/workflows/agentSession/agentSession.node-test.ts",
+		"test:node": "node --import tsx --test src/workflows/agentSession/agentSession.node-test.ts src/workflows/workflowRun/workflowRun.node-test.ts",
 		"typecheck": "tsc --noEmit --emitDeclarationOnly false && tsc --noEmit -p cloudflare",
 		"temporal:dev": "node --import tsx scripts/temporal-dev.ts",
 		"send": "bun run scripts/send.ts",

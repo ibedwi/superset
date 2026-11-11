@@ -143,7 +143,7 @@ const cliConfig = cliConfigDraft.extend({
 	target: cliTargetSchema,
 });
 
-function nodeSchema<C extends z.ZodType>(type: string, config: C) {
+function nodeSchema<T extends string, C extends z.ZodType>(type: T, config: C) {
 	return z.object({
 		id: nodeIdSchema,
 		type: z.literal(type),
