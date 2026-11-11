@@ -2627,6 +2627,9 @@ msgstr "Desde siempre"
 msgid "All updates"
 msgstr "Todas las actualizaciones"
 
+msgid "All workflow runs"
+msgstr "Todas las ejecuciones de flujos de trabajo"
+
 msgid "All workspaces"
 msgstr "Todos los espacios de trabajo"
 
@@ -3245,6 +3248,10 @@ msgstr "El archivo adjunto no se subió — envía primero los datos"
 msgid "Attachments need an online host"
 msgstr "Los adjuntos requieren un host en línea"
 
+#. placeholder {0}: step.attempt
+msgid "attempt {0}"
+msgstr "intento {0}"
+
 msgid "Attempt before checks pass"
 msgstr "Intentar antes de las comprobaciones"
 
@@ -3445,6 +3452,9 @@ msgstr "Volver a la lista"
 
 msgid "Back to current"
 msgstr "Volver a la actual"
+
+msgid "Back to editor"
+msgstr "Volver al editor"
 
 msgid "Back to GitHub issues"
 msgstr "Volver a los issues de GitHub"
@@ -4009,8 +4019,17 @@ msgstr "Cancelar el plan"
 msgid "Cancel reply"
 msgstr "Cancelar respuesta"
 
+msgid "Cancel run"
+msgstr "Cancelar ejecución"
+
 msgid "Cancel the automatic resume"
 msgstr "Cancelar la reanudación automática"
+
+msgid "Cancel this run?"
+msgstr "¿Cancelar esta ejecución?"
+
+msgid "canceled"
+msgstr "cancelada"
 
 msgid "Canceled"
 msgstr "Cancelado"
@@ -6081,6 +6100,9 @@ msgstr "No se pudo conectar (error {status}). Inténtalo de nuevo."
 msgid "Couldn't convert to draft"
 msgstr "No se pudo convertir en borrador"
 
+msgid "Couldn't copy"
+msgstr "No se pudo copiar"
+
 msgid "Couldn't copy comment"
 msgstr "No se pudo copiar el comentario"
 
@@ -8027,6 +8049,9 @@ msgstr "esc para descartar"
 msgid "esc to exit"
 msgstr "esc para salir"
 
+msgid "event"
+msgstr "evento"
+
 msgid "Event"
 msgstr "Evento"
 
@@ -8324,6 +8349,9 @@ msgstr "No se pudo archivar el flujo de trabajo"
 
 msgid "Failed to cancel invitation"
 msgstr "No se pudo cancelar la invitación"
+
+msgid "Failed to cancel run"
+msgstr "No se pudo cancelar la ejecución"
 
 msgid "Failed to change base branch"
 msgstr "No se pudo cambiar la rama base"
@@ -10881,6 +10909,9 @@ msgstr "Seguir editando"
 msgid "Keep paused"
 msgstr "Mantener en pausa"
 
+msgid "Keep running"
+msgstr "Dejar en ejecución"
+
 msgid "Keep typing an email to invite"
 msgstr "Sigue escribiendo un correo para invitar"
 
@@ -11748,6 +11779,9 @@ msgstr "Administrado por"
 
 msgid "Managed by your organization admin."
 msgstr "Lo gestiona el administrador de tu organización."
+
+msgid "manual"
+msgstr "manual"
 
 msgid "Manual"
 msgstr "Manual"
@@ -13158,6 +13192,9 @@ msgstr "Ningún puesto encaja conmigo. ¿Debería escribirles igualmente?"
 
 msgid "No runs yet"
 msgstr "Aún no hay ejecuciones"
+
+msgid "No runs yet. Use Run now to start one."
+msgstr "Aún no hay ejecuciones. Usa «Ejecutar ahora» para iniciar una."
 
 msgid "No screenshots yet"
 msgstr "Aún no hay capturas"
@@ -14894,6 +14931,9 @@ msgstr "PDF"
 
 msgid "Peak pace"
 msgstr "Ritmo máximo"
+
+msgid "pending"
+msgstr "pendiente"
 
 msgid "Pending Invitations"
 msgstr "Invitaciones pendientes"
@@ -16828,6 +16868,9 @@ msgstr "Restaurando…"
 msgid "Result"
 msgstr "Resultado"
 
+msgid "Result JSON"
+msgstr "JSON del resultado"
+
 msgid "Results"
 msgstr "Resultados"
 
@@ -17115,6 +17158,9 @@ msgstr "Ejecuta agentes de programación en espacios de trabajo en la nube que s
 msgid "Run commands and navigate the application."
 msgstr "Ejecutar comandos y navegar por la aplicación."
 
+msgid "Run history"
+msgstr "Historial de ejecuciones"
+
 msgid "Run History"
 msgstr "Historial de ejecuciones"
 
@@ -17205,8 +17251,14 @@ msgstr "Ejecutando ahora"
 msgid "Running terminal processes continue, but older output may no longer be available after restarting the app."
 msgstr "Los procesos de terminal en marcha continúan, pero puede que la salida más antigua deje de estar disponible al reiniciar la app."
 
+msgid "Runs"
+msgstr "Ejecuciones"
+
 msgid "Runs a local command on your machine"
 msgstr "Ejecuta un comando local en tu equipo"
+
+msgid "Runs appear here once a workflow fires."
+msgstr "Las ejecuciones aparecen aquí cuando se activa un flujo de trabajo."
 
 msgid "Runs appear here once an automation fires."
 msgstr "Las ejecuciones aparecen aquí cuando se activa una automatización."
@@ -17337,6 +17389,9 @@ msgstr "Escanea para descargar Paradev para iPhone"
 
 msgid "Scanning transcript logs…"
 msgstr "Analizando los logs de transcripción…"
+
+msgid "schedule"
+msgstr "programación"
 
 msgid "Schedule"
 msgstr "Programación"
@@ -17705,6 +17760,9 @@ msgstr "Selecciona un archivo para verlo aquí"
 
 msgid "Select a node to configure it."
 msgstr "Selecciona un nodo para configurarlo."
+
+msgid "Select a node to see its step."
+msgstr "Selecciona un nodo para ver su paso."
 
 msgid "Select a project"
 msgstr "Selecciona un proyecto"
@@ -18622,6 +18680,9 @@ msgstr "Omitir todo"
 msgid "Skip for now"
 msgstr "Omitir por ahora"
 
+msgid "skipped"
+msgstr "omitida"
+
 msgid "Skipped"
 msgstr "Omitido"
 
@@ -19153,6 +19214,9 @@ msgstr "Paso 2 de 2"
 msgid "Steps 3 and 4 repeat until the page is right."
 msgstr "Los pasos 3 y 4 se repiten hasta que la página quede bien."
 
+msgid "Steps that are still running will be stopped. Finished steps keep their results."
+msgstr "Los pasos que siguen en ejecución se detendrán. Los pasos terminados conservan sus resultados."
+
 msgid "Still asks in Full access mode"
 msgstr "Sigue preguntando en el modo Acceso total"
 
@@ -19283,6 +19347,9 @@ msgstr "suscripción"
 
 msgid "Subscription"
 msgstr "Suscripción"
+
+msgid "succeeded"
+msgstr "completada"
 
 msgid "Success"
 msgstr "Éxito"
@@ -20826,6 +20893,9 @@ msgstr "Tiempo hasta el primer espacio de trabajo"
 
 msgid "Time zone"
 msgstr "Zona horaria"
+
+msgid "timed out"
+msgstr "tiempo agotado"
 
 msgid "Timeout (minutes)"
 msgstr "Tiempo de espera (minutos)"
@@ -22409,6 +22479,9 @@ msgstr "Trabajó {0} min {1} s"
 
 msgid "Worked for {seconds}s"
 msgstr "Trabajó {seconds} s"
+
+msgid "Workflow"
+msgstr "Flujo de trabajo"
 
 msgid "Workflow actions"
 msgstr "Acciones del flujo de trabajo"

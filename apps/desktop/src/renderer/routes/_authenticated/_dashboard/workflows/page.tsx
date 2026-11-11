@@ -28,7 +28,7 @@ import {
 } from "@superset/ui/table";
 import { useMutation } from "@tanstack/react-query";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { LuEllipsisVertical } from "react-icons/lu";
+import { LuEllipsisVertical, LuHistory } from "react-icons/lu";
 import { useNow } from "renderer/hooks/useNow";
 import { apiTrpcClient } from "renderer/lib/api-trpc-client";
 import { cloudTrpc } from "renderer/lib/cloud-trpc";
@@ -110,7 +110,18 @@ function WorkflowsListPage() {
 						}}
 					/>
 
-					<div className="mt-5">
+					<div className="mt-3 flex justify-end">
+						<Button
+							variant="ghost"
+							size="sm"
+							onClick={() => void navigate({ to: "/workflows/runs" })}
+						>
+							<LuHistory className="size-3.5" />
+							<Trans>All runs</Trans>
+						</Button>
+					</div>
+
+					<div className="mt-2">
 						{workflowsQuery.isPending ? (
 							<div className="flex flex-col gap-2">
 								{["a", "b", "c"].map((key) => (

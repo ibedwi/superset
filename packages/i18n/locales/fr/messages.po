@@ -2627,6 +2627,9 @@ msgstr "Depuis le début"
 msgid "All updates"
 msgstr "Toutes les nouveautés"
 
+msgid "All workflow runs"
+msgstr "Toutes les exécutions de workflows"
+
 msgid "All workspaces"
 msgstr "Tous les espaces de travail"
 
@@ -3245,6 +3248,10 @@ msgstr "La pièce jointe n'a pas été téléversée — envoyez d'abord les don
 msgid "Attachments need an online host"
 msgstr "Les pièces jointes nécessitent un hôte en ligne"
 
+#. placeholder {0}: step.attempt
+msgid "attempt {0}"
+msgstr "tentative {0}"
+
 msgid "Attempt before checks pass"
 msgstr "Tenter avant la réussite des vérifications"
 
@@ -3445,6 +3452,9 @@ msgstr "Retour à la liste de contrôle"
 
 msgid "Back to current"
 msgstr "Revenir à la version actuelle"
+
+msgid "Back to editor"
+msgstr "Retour à l'éditeur"
 
 msgid "Back to GitHub issues"
 msgstr "Retour aux issues GitHub"
@@ -4009,8 +4019,17 @@ msgstr "Annuler le forfait"
 msgid "Cancel reply"
 msgstr "Annuler la réponse"
 
+msgid "Cancel run"
+msgstr "Annuler l'exécution"
+
 msgid "Cancel the automatic resume"
 msgstr "Annuler la reprise automatique"
+
+msgid "Cancel this run?"
+msgstr "Annuler cette exécution ?"
+
+msgid "canceled"
+msgstr "annulée"
 
 msgid "Canceled"
 msgstr "Annulées"
@@ -6081,6 +6100,9 @@ msgstr "Connexion impossible (erreur {status}). Réessayez."
 msgid "Couldn't convert to draft"
 msgstr "Impossible de convertir en brouillon"
 
+msgid "Couldn't copy"
+msgstr "Impossible de copier"
+
 msgid "Couldn't copy comment"
 msgstr "Impossible de copier le commentaire"
 
@@ -8027,6 +8049,9 @@ msgstr "esc pour fermer"
 msgid "esc to exit"
 msgstr "esc pour quitter"
 
+msgid "event"
+msgstr "événement"
+
 msgid "Event"
 msgstr "Événement"
 
@@ -8324,6 +8349,9 @@ msgstr "Échec de l'archivage du workflow"
 
 msgid "Failed to cancel invitation"
 msgstr "Échec de l'annulation de l'invitation"
+
+msgid "Failed to cancel run"
+msgstr "Impossible d'annuler l'exécution"
 
 msgid "Failed to change base branch"
 msgstr "Échec du changement de branche de base"
@@ -10881,6 +10909,9 @@ msgstr "Continuer à modifier"
 msgid "Keep paused"
 msgstr "Laisser en pause"
 
+msgid "Keep running"
+msgstr "Laisser tourner"
+
 msgid "Keep typing an email to invite"
 msgstr "Continuez à saisir un e-mail pour inviter"
 
@@ -11748,6 +11779,9 @@ msgstr "Géré par"
 
 msgid "Managed by your organization admin."
 msgstr "Géré par l'administrateur de votre organisation."
+
+msgid "manual"
+msgstr "manuel"
 
 msgid "Manual"
 msgstr "Manuel"
@@ -13158,6 +13192,9 @@ msgstr "Aucun poste ne me correspond. Dois-je quand même vous contacter ?"
 
 msgid "No runs yet"
 msgstr "Aucune exécution pour l'instant"
+
+msgid "No runs yet. Use Run now to start one."
+msgstr "Aucune exécution pour l'instant. Utilisez « Exécuter maintenant » pour en lancer une."
 
 msgid "No screenshots yet"
 msgstr "Aucune capture d'écran pour l'instant"
@@ -14894,6 +14931,9 @@ msgstr "PDF"
 
 msgid "Peak pace"
 msgstr "Rythme maximal"
+
+msgid "pending"
+msgstr "en attente"
 
 msgid "Pending Invitations"
 msgstr "Invitations en attente"
@@ -16828,6 +16868,9 @@ msgstr "Restauration…"
 msgid "Result"
 msgstr "Résultat"
 
+msgid "Result JSON"
+msgstr "JSON du résultat"
+
 msgid "Results"
 msgstr "Résultats"
 
@@ -17115,6 +17158,9 @@ msgstr "Exécutez des agents de code dans des espaces de travail cloud qui conti
 msgid "Run commands and navigate the application."
 msgstr "Exécuter des commandes et naviguer dans l'application."
 
+msgid "Run history"
+msgstr "Historique des exécutions"
+
 msgid "Run History"
 msgstr "Historique des exécutions"
 
@@ -17205,8 +17251,14 @@ msgstr "Exécution en cours"
 msgid "Running terminal processes continue, but older output may no longer be available after restarting the app."
 msgstr "Les processus de terminal en cours continuent, mais les sorties plus anciennes pourraient ne plus être disponibles après un redémarrage de l'application."
 
+msgid "Runs"
+msgstr "Exécutions"
+
 msgid "Runs a local command on your machine"
 msgstr "Exécute une commande locale sur votre machine"
+
+msgid "Runs appear here once a workflow fires."
+msgstr "Les exécutions apparaissent ici dès qu'un workflow se déclenche."
 
 msgid "Runs appear here once an automation fires."
 msgstr "Les exécutions apparaissent ici dès qu'une automatisation se déclenche."
@@ -17337,6 +17389,9 @@ msgstr "Scannez pour télécharger Paradev pour iPhone"
 
 msgid "Scanning transcript logs…"
 msgstr "Analyse des journaux de transcription…"
+
+msgid "schedule"
+msgstr "planification"
 
 msgid "Schedule"
 msgstr "Planification"
@@ -17705,6 +17760,9 @@ msgstr "Sélectionnez un fichier pour l’afficher ici"
 
 msgid "Select a node to configure it."
 msgstr "Sélectionnez un nœud pour le configurer."
+
+msgid "Select a node to see its step."
+msgstr "Sélectionnez un nœud pour voir son étape."
 
 msgid "Select a project"
 msgstr "Sélectionnez un projet"
@@ -18622,6 +18680,9 @@ msgstr "Tout ignorer"
 msgid "Skip for now"
 msgstr "Passer pour l'instant"
 
+msgid "skipped"
+msgstr "ignorée"
+
 msgid "Skipped"
 msgstr "Ignorée"
 
@@ -19153,6 +19214,9 @@ msgstr "Étape 2 sur 2"
 msgid "Steps 3 and 4 repeat until the page is right."
 msgstr "Les étapes 3 et 4 se répètent jusqu'à ce que la page soit juste."
 
+msgid "Steps that are still running will be stopped. Finished steps keep their results."
+msgstr "Les étapes encore en cours seront arrêtées. Les étapes terminées conservent leurs résultats."
+
 msgid "Still asks in Full access mode"
 msgstr "Demande quand même en mode Accès complet"
 
@@ -19283,6 +19347,9 @@ msgstr "abonnement"
 
 msgid "Subscription"
 msgstr "Abonnement"
+
+msgid "succeeded"
+msgstr "réussie"
 
 msgid "Success"
 msgstr "Succès"
@@ -20826,6 +20893,9 @@ msgstr "Délai avant le premier espace de travail"
 
 msgid "Time zone"
 msgstr "Fuseau horaire"
+
+msgid "timed out"
+msgstr "délai dépassé"
 
 msgid "Timeout (minutes)"
 msgstr "Délai d'expiration (minutes)"
@@ -22409,6 +22479,9 @@ msgstr "A travaillé {0} min {1} s"
 
 msgid "Worked for {seconds}s"
 msgstr "A travaillé {seconds} s"
+
+msgid "Workflow"
+msgstr "Workflow"
 
 msgid "Workflow actions"
 msgstr "Actions du workflow"

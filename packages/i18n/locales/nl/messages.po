@@ -2627,6 +2627,9 @@ msgstr "Aller tijden"
 msgid "All updates"
 msgstr "Alle updates"
 
+msgid "All workflow runs"
+msgstr "Alle workflow-runs"
+
 msgid "All workspaces"
 msgstr "Alle werkruimtes"
 
@@ -3245,6 +3248,10 @@ msgstr "Bijlage is niet geüpload — verstuur eerst de gegevens"
 msgid "Attachments need an online host"
 msgstr "Bijlagen vereisen een online host"
 
+#. placeholder {0}: step.attempt
+msgid "attempt {0}"
+msgstr "poging {0}"
+
 msgid "Attempt before checks pass"
 msgstr "Proberen vóór de checks slagen"
 
@@ -3445,6 +3452,9 @@ msgstr "Terug naar checklist"
 
 msgid "Back to current"
 msgstr "Terug naar huidige"
+
+msgid "Back to editor"
+msgstr "Terug naar de editor"
 
 msgid "Back to GitHub issues"
 msgstr "Terug naar GitHub-issues"
@@ -4009,8 +4019,17 @@ msgstr "Plan opzeggen"
 msgid "Cancel reply"
 msgstr "Antwoord annuleren"
 
+msgid "Cancel run"
+msgstr "Run annuleren"
+
 msgid "Cancel the automatic resume"
 msgstr "Automatisch hervatten annuleren"
+
+msgid "Cancel this run?"
+msgstr "Deze run annuleren?"
+
+msgid "canceled"
+msgstr "geannuleerd"
 
 msgid "Canceled"
 msgstr "Geannuleerd"
@@ -6081,6 +6100,9 @@ msgstr "Verbinden mislukt (fout {status}). Probeer het opnieuw."
 msgid "Couldn't convert to draft"
 msgstr "Kon niet omzetten naar concept"
 
+msgid "Couldn't copy"
+msgstr "Kopiëren mislukt"
+
 msgid "Couldn't copy comment"
 msgstr "Kan opmerking niet kopiëren"
 
@@ -8027,6 +8049,9 @@ msgstr "esc om te sluiten"
 msgid "esc to exit"
 msgstr "esc om te verlaten"
 
+msgid "event"
+msgstr "gebeurtenis"
+
 msgid "Event"
 msgstr "Gebeurtenis"
 
@@ -8324,6 +8349,9 @@ msgstr "Workflow archiveren mislukt"
 
 msgid "Failed to cancel invitation"
 msgstr "Annuleren van uitnodiging mislukt"
+
+msgid "Failed to cancel run"
+msgstr "Run annuleren mislukt"
 
 msgid "Failed to change base branch"
 msgstr "Wijzigen van basisbranch mislukt"
@@ -10881,6 +10909,9 @@ msgstr "Verder bewerken"
 msgid "Keep paused"
 msgstr "Gepauzeerd laten"
 
+msgid "Keep running"
+msgstr "Laten doorlopen"
+
 msgid "Keep typing an email to invite"
 msgstr "Typ verder een e-mailadres om uit te nodigen"
 
@@ -11748,6 +11779,9 @@ msgstr "Beheerd door"
 
 msgid "Managed by your organization admin."
 msgstr "Beheerd door de beheerder van je organisatie."
+
+msgid "manual"
+msgstr "handmatig"
 
 msgid "Manual"
 msgstr "Handmatig"
@@ -13158,6 +13192,9 @@ msgstr "Geen enkele vacature past bij mij. Moet ik toch contact opnemen?"
 
 msgid "No runs yet"
 msgstr "Nog geen runs"
+
+msgid "No runs yet. Use Run now to start one."
+msgstr "Nog geen runs. Gebruik 'Nu uitvoeren' om er een te starten."
 
 msgid "No screenshots yet"
 msgstr "Nog geen screenshots"
@@ -14894,6 +14931,9 @@ msgstr "PDF"
 
 msgid "Peak pace"
 msgstr "Piektempo"
+
+msgid "pending"
+msgstr "in afwachting"
 
 msgid "Pending Invitations"
 msgstr "Openstaande uitnodigingen"
@@ -16828,6 +16868,9 @@ msgstr "Herstellen…"
 msgid "Result"
 msgstr "Resultaat"
 
+msgid "Result JSON"
+msgstr "Resultaat-JSON"
+
 msgid "Results"
 msgstr "Resultaten"
 
@@ -17115,6 +17158,9 @@ msgstr "Draai codeeragents in cloudwerkruimtes die doorwerken als je laptop dich
 msgid "Run commands and navigate the application."
 msgstr "Opdrachten uitvoeren en door de app navigeren."
 
+msgid "Run history"
+msgstr "Rungeschiedenis"
+
 msgid "Run History"
 msgstr "Runs"
 
@@ -17205,8 +17251,14 @@ msgstr "Wordt nu uitgevoerd"
 msgid "Running terminal processes continue, but older output may no longer be available after restarting the app."
 msgstr "Draaiende terminalprocessen gaan door, maar oudere uitvoer is na het herstarten van de app mogelijk niet meer beschikbaar."
 
+msgid "Runs"
+msgstr "Runs"
+
 msgid "Runs a local command on your machine"
 msgstr "Voert een lokaal commando uit op je machine"
+
+msgid "Runs appear here once a workflow fires."
+msgstr "Runs verschijnen hier zodra een workflow wordt geactiveerd."
 
 msgid "Runs appear here once an automation fires."
 msgstr "Runs verschijnen hier zodra een automatisering wordt geactiveerd."
@@ -17337,6 +17389,9 @@ msgstr "Scan om Paradev voor iPhone te downloaden"
 
 msgid "Scanning transcript logs…"
 msgstr "Transcriptlogs scannen…"
+
+msgid "schedule"
+msgstr "schema"
 
 msgid "Schedule"
 msgstr "Schema"
@@ -17705,6 +17760,9 @@ msgstr "Selecteer een bestand om het hier te bekijken"
 
 msgid "Select a node to configure it."
 msgstr "Selecteer een node om die te configureren."
+
+msgid "Select a node to see its step."
+msgstr "Selecteer een node om de stap te bekijken."
 
 msgid "Select a project"
 msgstr "Kies een project"
@@ -18622,6 +18680,9 @@ msgstr "Alles overslaan"
 msgid "Skip for now"
 msgstr "Nu overslaan"
 
+msgid "skipped"
+msgstr "overgeslagen"
+
 msgid "Skipped"
 msgstr "Overgeslagen"
 
@@ -19153,6 +19214,9 @@ msgstr "Stap 2 van 2"
 msgid "Steps 3 and 4 repeat until the page is right."
 msgstr "Stap 3 en 4 herhalen zich tot de pagina klopt."
 
+msgid "Steps that are still running will be stopped. Finished steps keep their results."
+msgstr "Stappen die nog lopen worden gestopt. Voltooide stappen behouden hun resultaten."
+
 msgid "Still asks in Full access mode"
 msgstr "Vraagt nog steeds in de modus Volledige toegang"
 
@@ -19283,6 +19347,9 @@ msgstr "abonnement"
 
 msgid "Subscription"
 msgstr "Abonnement"
+
+msgid "succeeded"
+msgstr "geslaagd"
 
 msgid "Success"
 msgstr "Geslaagd"
@@ -20826,6 +20893,9 @@ msgstr "Tijd tot eerste werkruimte"
 
 msgid "Time zone"
 msgstr "Tijdzone"
+
+msgid "timed out"
+msgstr "time-out"
 
 msgid "Timeout (minutes)"
 msgstr "Time-out (minuten)"
@@ -22409,6 +22479,9 @@ msgstr "{0} min {1} s gewerkt"
 
 msgid "Worked for {seconds}s"
 msgstr "{seconds} s gewerkt"
+
+msgid "Workflow"
+msgstr "Workflow"
 
 msgid "Workflow actions"
 msgstr "Workflowacties"

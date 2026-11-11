@@ -2627,6 +2627,9 @@ msgstr "Toàn thời gian"
 msgid "All updates"
 msgstr "Tất cả cập nhật"
 
+msgid "All workflow runs"
+msgstr "Tất cả lần chạy quy trình"
+
 msgid "All workspaces"
 msgstr "Tất cả workspace"
 
@@ -3245,6 +3248,10 @@ msgstr "Tệp đính kèm chưa được tải lên — hãy gửi dữ liệu t
 msgid "Attachments need an online host"
 msgstr "Đính kèm cần một host đang trực tuyến"
 
+#. placeholder {0}: step.attempt
+msgid "attempt {0}"
+msgstr "lần thử {0}"
+
 msgid "Attempt before checks pass"
 msgstr "Thử trước khi các check qua"
 
@@ -3445,6 +3452,9 @@ msgstr "Quay lại danh sách kiểm"
 
 msgid "Back to current"
 msgstr "Quay lại bản hiện tại"
+
+msgid "Back to editor"
+msgstr "Quay lại trình chỉnh sửa"
 
 msgid "Back to GitHub issues"
 msgstr "Quay lại issue GitHub"
@@ -4009,8 +4019,17 @@ msgstr "Hủy gói"
 msgid "Cancel reply"
 msgstr "Hủy trả lời"
 
+msgid "Cancel run"
+msgstr "Hủy lần chạy"
+
 msgid "Cancel the automatic resume"
 msgstr "Hủy tự động tiếp tục"
+
+msgid "Cancel this run?"
+msgstr "Hủy lần chạy này?"
+
+msgid "canceled"
+msgstr "đã hủy"
 
 msgid "Canceled"
 msgstr "Đã hủy"
@@ -6081,6 +6100,9 @@ msgstr "Không thể kết nối (lỗi {status}). Vui lòng thử lại."
 msgid "Couldn't convert to draft"
 msgstr "Không thể chuyển thành bản nháp"
 
+msgid "Couldn't copy"
+msgstr "Không thể sao chép"
+
 msgid "Couldn't copy comment"
 msgstr "Không thể sao chép bình luận"
 
@@ -8027,6 +8049,9 @@ msgstr "esc để đóng"
 msgid "esc to exit"
 msgstr "esc để thoát"
 
+msgid "event"
+msgstr "sự kiện"
+
 msgid "Event"
 msgstr "Sự kiện"
 
@@ -8324,6 +8349,9 @@ msgstr "Không thể lưu trữ quy trình"
 
 msgid "Failed to cancel invitation"
 msgstr "Không thể hủy lời mời"
+
+msgid "Failed to cancel run"
+msgstr "Không thể hủy lần chạy"
 
 msgid "Failed to change base branch"
 msgstr "Không thể đổi nhánh gốc"
@@ -10881,6 +10909,9 @@ msgstr "Tiếp tục chỉnh sửa"
 msgid "Keep paused"
 msgstr "Giữ tạm dừng"
 
+msgid "Keep running"
+msgstr "Tiếp tục chạy"
+
 msgid "Keep typing an email to invite"
 msgstr "Tiếp tục nhập email để mời"
 
@@ -11748,6 +11779,9 @@ msgstr "Quản lý bởi"
 
 msgid "Managed by your organization admin."
 msgstr "Do admin tổ chức của bạn quản lý."
+
+msgid "manual"
+msgstr "thủ công"
 
 msgid "Manual"
 msgstr "Thủ công"
@@ -13158,6 +13192,9 @@ msgstr "Không có vị trí nào phù hợp với tôi. Tôi có nên liên h�
 
 msgid "No runs yet"
 msgstr "Chưa có lần chạy nào"
+
+msgid "No runs yet. Use Run now to start one."
+msgstr "Chưa có lần chạy nào. Dùng \"Chạy ngay\" để bắt đầu."
 
 msgid "No screenshots yet"
 msgstr "Chưa có ảnh chụp màn hình nào"
@@ -14894,6 +14931,9 @@ msgstr "PDF"
 
 msgid "Peak pace"
 msgstr "Tốc độ đỉnh"
+
+msgid "pending"
+msgstr "đang chờ"
 
 msgid "Pending Invitations"
 msgstr "Lời mời đang chờ"
@@ -16828,6 +16868,9 @@ msgstr "Đang khôi phục…"
 msgid "Result"
 msgstr "Kết quả"
 
+msgid "Result JSON"
+msgstr "JSON kết quả"
+
 msgid "Results"
 msgstr "Kết quả"
 
@@ -17115,6 +17158,9 @@ msgstr "Chạy agent lập trình trong không gian làm việc đám mây, vẫ
 msgid "Run commands and navigate the application."
 msgstr "Chạy lệnh và điều hướng trong ứng dụng."
 
+msgid "Run history"
+msgstr "Lịch sử chạy"
+
 msgid "Run History"
 msgstr "Lịch sử chạy"
 
@@ -17205,8 +17251,14 @@ msgstr "Đang chạy ngay"
 msgid "Running terminal processes continue, but older output may no longer be available after restarting the app."
 msgstr "Các tiến trình terminal đang chạy vẫn tiếp tục, nhưng kết quả cũ có thể không còn sau khi khởi động lại ứng dụng."
 
+msgid "Runs"
+msgstr "Lần chạy"
+
 msgid "Runs a local command on your machine"
 msgstr "Chạy một lệnh cục bộ trên máy bạn"
+
+msgid "Runs appear here once a workflow fires."
+msgstr "Các lần chạy sẽ xuất hiện ở đây khi quy trình được kích hoạt."
 
 msgid "Runs appear here once an automation fires."
 msgstr "Các lần chạy sẽ xuất hiện ở đây khi một tự động hóa được kích hoạt."
@@ -17337,6 +17389,9 @@ msgstr "Quét để tải Paradev cho iPhone"
 
 msgid "Scanning transcript logs…"
 msgstr "Đang quét log transcript…"
+
+msgid "schedule"
+msgstr "lịch trình"
 
 msgid "Schedule"
 msgstr "Lịch"
@@ -17705,6 +17760,9 @@ msgstr "Chọn một tệp để xem tại đây"
 
 msgid "Select a node to configure it."
 msgstr "Chọn một nút để cấu hình."
+
+msgid "Select a node to see its step."
+msgstr "Chọn một nút để xem bước của nó."
 
 msgid "Select a project"
 msgstr "Chọn một dự án"
@@ -18622,6 +18680,9 @@ msgstr "Bỏ qua tất cả"
 msgid "Skip for now"
 msgstr "Bỏ qua bây giờ"
 
+msgid "skipped"
+msgstr "bỏ qua"
+
 msgid "Skipped"
 msgstr "Đã bỏ qua"
 
@@ -19153,6 +19214,9 @@ msgstr "Bước 2/2"
 msgid "Steps 3 and 4 repeat until the page is right."
 msgstr "Bước 3 và 4 lặp lại cho đến khi trang ổn."
 
+msgid "Steps that are still running will be stopped. Finished steps keep their results."
+msgstr "Các bước đang chạy sẽ bị dừng. Các bước đã hoàn thành vẫn giữ kết quả."
+
 msgid "Still asks in Full access mode"
 msgstr "Vẫn hỏi ở chế độ Toàn quyền truy cập"
 
@@ -19283,6 +19347,9 @@ msgstr "gói đăng ký"
 
 msgid "Subscription"
 msgstr "Gói đăng ký"
+
+msgid "succeeded"
+msgstr "thành công"
 
 msgid "Success"
 msgstr "Thành công"
@@ -20826,6 +20893,9 @@ msgstr "Thời gian đến workspace đầu tiên"
 
 msgid "Time zone"
 msgstr "Múi giờ"
+
+msgid "timed out"
+msgstr "hết thời gian"
 
 msgid "Timeout (minutes)"
 msgstr "Thời gian chờ (phút)"
@@ -22409,6 +22479,9 @@ msgstr "Đã chạy {0} phút {1} giây"
 
 msgid "Worked for {seconds}s"
 msgstr "Đã chạy {seconds} giây"
+
+msgid "Workflow"
+msgstr "Quy trình"
 
 msgid "Workflow actions"
 msgstr "Thao tác quy trình"

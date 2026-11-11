@@ -2627,6 +2627,9 @@ msgstr "All time"
 msgid "All updates"
 msgstr "All updates"
 
+msgid "All workflow runs"
+msgstr "All workflow runs"
+
 msgid "All workspaces"
 msgstr "All workspaces"
 
@@ -3245,6 +3248,10 @@ msgstr "Attachment was not uploaded — send the bytes first"
 msgid "Attachments need an online host"
 msgstr "Attachments need an online host"
 
+#. placeholder {0}: step.attempt
+msgid "attempt {0}"
+msgstr "attempt {0}"
+
 msgid "Attempt before checks pass"
 msgstr "Attempt before checks pass"
 
@@ -3445,6 +3452,9 @@ msgstr "Back to checklist"
 
 msgid "Back to current"
 msgstr "Back to current"
+
+msgid "Back to editor"
+msgstr "Back to editor"
 
 msgid "Back to GitHub issues"
 msgstr "Back to GitHub issues"
@@ -4009,8 +4019,17 @@ msgstr "Cancel plan"
 msgid "Cancel reply"
 msgstr "Cancel reply"
 
+msgid "Cancel run"
+msgstr "Cancel run"
+
 msgid "Cancel the automatic resume"
 msgstr "Cancel the automatic resume"
+
+msgid "Cancel this run?"
+msgstr "Cancel this run?"
+
+msgid "canceled"
+msgstr "canceled"
 
 msgid "Canceled"
 msgstr "Canceled"
@@ -6081,6 +6100,9 @@ msgstr "Couldn't connect (error {status}). Please try again."
 msgid "Couldn't convert to draft"
 msgstr "Couldn't convert to draft"
 
+msgid "Couldn't copy"
+msgstr "Couldn't copy"
+
 msgid "Couldn't copy comment"
 msgstr "Couldn't copy comment"
 
@@ -8027,6 +8049,9 @@ msgstr "esc to dismiss"
 msgid "esc to exit"
 msgstr "esc to exit"
 
+msgid "event"
+msgstr "event"
+
 msgid "Event"
 msgstr "Event"
 
@@ -8324,6 +8349,9 @@ msgstr "Failed to archive workflow"
 
 msgid "Failed to cancel invitation"
 msgstr "Failed to cancel invitation"
+
+msgid "Failed to cancel run"
+msgstr "Failed to cancel run"
 
 msgid "Failed to change base branch"
 msgstr "Failed to change base branch"
@@ -10881,6 +10909,9 @@ msgstr "Keep editing"
 msgid "Keep paused"
 msgstr "Keep paused"
 
+msgid "Keep running"
+msgstr "Keep running"
+
 msgid "Keep typing an email to invite"
 msgstr "Keep typing an email to invite"
 
@@ -11748,6 +11779,9 @@ msgstr "Managed by"
 
 msgid "Managed by your organization admin."
 msgstr "Managed by your organization admin."
+
+msgid "manual"
+msgstr "manual"
 
 msgid "Manual"
 msgstr "Manual"
@@ -13158,6 +13192,9 @@ msgstr "No role fits me. Should I still reach out?"
 
 msgid "No runs yet"
 msgstr "No runs yet"
+
+msgid "No runs yet. Use Run now to start one."
+msgstr "No runs yet. Use Run now to start one."
 
 msgid "No screenshots yet"
 msgstr "No screenshots yet"
@@ -14894,6 +14931,9 @@ msgstr "PDF"
 
 msgid "Peak pace"
 msgstr "Peak pace"
+
+msgid "pending"
+msgstr "pending"
 
 msgid "Pending Invitations"
 msgstr "Pending Invitations"
@@ -16828,6 +16868,9 @@ msgstr "Restoring…"
 msgid "Result"
 msgstr "Result"
 
+msgid "Result JSON"
+msgstr "Result JSON"
+
 msgid "Results"
 msgstr "Results"
 
@@ -17115,6 +17158,9 @@ msgstr "Run coding agents in cloud workspaces that keep working when your laptop
 msgid "Run commands and navigate the application."
 msgstr "Run commands and navigate the application."
 
+msgid "Run history"
+msgstr "Run history"
+
 msgid "Run History"
 msgstr "Run History"
 
@@ -17205,8 +17251,14 @@ msgstr "Running now"
 msgid "Running terminal processes continue, but older output may no longer be available after restarting the app."
 msgstr "Running terminal processes continue, but older output may no longer be available after restarting the app."
 
+msgid "Runs"
+msgstr "Runs"
+
 msgid "Runs a local command on your machine"
 msgstr "Runs a local command on your machine"
+
+msgid "Runs appear here once a workflow fires."
+msgstr "Runs appear here once a workflow fires."
 
 msgid "Runs appear here once an automation fires."
 msgstr "Runs appear here once an automation fires."
@@ -17337,6 +17389,9 @@ msgstr "Scan to download Paradev for iPhone"
 
 msgid "Scanning transcript logs…"
 msgstr "Scanning transcript logs…"
+
+msgid "schedule"
+msgstr "schedule"
 
 msgid "Schedule"
 msgstr "Schedule"
@@ -17705,6 +17760,9 @@ msgstr "Select a file to view it here"
 
 msgid "Select a node to configure it."
 msgstr "Select a node to configure it."
+
+msgid "Select a node to see its step."
+msgstr "Select a node to see its step."
 
 msgid "Select a project"
 msgstr "Select a project"
@@ -18622,6 +18680,9 @@ msgstr "Skip All"
 msgid "Skip for now"
 msgstr "Skip for now"
 
+msgid "skipped"
+msgstr "skipped"
+
 msgid "Skipped"
 msgstr "Skipped"
 
@@ -19153,6 +19214,9 @@ msgstr "Step 2 of 2"
 msgid "Steps 3 and 4 repeat until the page is right."
 msgstr "Steps 3 and 4 repeat until the page is right."
 
+msgid "Steps that are still running will be stopped. Finished steps keep their results."
+msgstr "Steps that are still running will be stopped. Finished steps keep their results."
+
 msgid "Still asks in Full access mode"
 msgstr "Still asks in Full access mode"
 
@@ -19283,6 +19347,9 @@ msgstr "subscription"
 
 msgid "Subscription"
 msgstr "Subscription"
+
+msgid "succeeded"
+msgstr "succeeded"
 
 msgid "Success"
 msgstr "Success"
@@ -20826,6 +20893,9 @@ msgstr "Time to first workspace"
 
 msgid "Time zone"
 msgstr "Time zone"
+
+msgid "timed out"
+msgstr "timed out"
 
 msgid "Timeout (minutes)"
 msgstr "Timeout (minutes)"
@@ -22409,6 +22479,9 @@ msgstr "Worked for {0}m {1}s"
 
 msgid "Worked for {seconds}s"
 msgstr "Worked for {seconds}s"
+
+msgid "Workflow"
+msgstr "Workflow"
 
 msgid "Workflow actions"
 msgstr "Workflow actions"

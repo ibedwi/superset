@@ -2627,6 +2627,9 @@ msgstr "Cały czas"
 msgid "All updates"
 msgstr "Wszystkie aktualizacje"
 
+msgid "All workflow runs"
+msgstr "Wszystkie uruchomienia przepływów pracy"
+
 msgid "All workspaces"
 msgstr "Wszystkie obszary robocze"
 
@@ -3245,6 +3248,10 @@ msgstr "Załącznik nie został przesłany — najpierw wyślij dane"
 msgid "Attachments need an online host"
 msgstr "Załączniki wymagają hosta online"
 
+#. placeholder {0}: step.attempt
+msgid "attempt {0}"
+msgstr "próba {0}"
+
 msgid "Attempt before checks pass"
 msgstr "Spróbuj przed przejściem kontroli"
 
@@ -3445,6 +3452,9 @@ msgstr "Wróć do listy kontrolnej"
 
 msgid "Back to current"
 msgstr "Wróć do bieżącej"
+
+msgid "Back to editor"
+msgstr "Wróć do edytora"
 
 msgid "Back to GitHub issues"
 msgstr "Wróć do zgłoszeń GitHub"
@@ -4009,8 +4019,17 @@ msgstr "Anuluj plan"
 msgid "Cancel reply"
 msgstr "Anuluj odpowiedź"
 
+msgid "Cancel run"
+msgstr "Anuluj uruchomienie"
+
 msgid "Cancel the automatic resume"
 msgstr "Anuluj automatyczne wznowienie"
+
+msgid "Cancel this run?"
+msgstr "Anulować to uruchomienie?"
+
+msgid "canceled"
+msgstr "anulowane"
 
 msgid "Canceled"
 msgstr "Anulowane"
@@ -6081,6 +6100,9 @@ msgstr "Nie udało się połączyć (błąd {status}). Spróbuj ponownie."
 msgid "Couldn't convert to draft"
 msgstr "Nie udało się zamienić na wersję roboczą"
 
+msgid "Couldn't copy"
+msgstr "Nie udało się skopiować"
+
 msgid "Couldn't copy comment"
 msgstr "Nie udało się skopiować komentarza"
 
@@ -8027,6 +8049,9 @@ msgstr "esc aby zamknąć"
 msgid "esc to exit"
 msgstr "esc aby wyjść"
 
+msgid "event"
+msgstr "zdarzenie"
+
 msgid "Event"
 msgstr "Zdarzenie"
 
@@ -8324,6 +8349,9 @@ msgstr "Nie udało się zarchiwizować przepływu pracy"
 
 msgid "Failed to cancel invitation"
 msgstr "Nie udało się anulować zaproszenia"
+
+msgid "Failed to cancel run"
+msgstr "Nie udało się anulować uruchomienia"
 
 msgid "Failed to change base branch"
 msgstr "Nie udało się zmienić gałęzi bazowej"
@@ -10881,6 +10909,9 @@ msgstr "Kontynuuj edycję"
 msgid "Keep paused"
 msgstr "Pozostaw wstrzymane"
 
+msgid "Keep running"
+msgstr "Pozwól dokończyć"
+
 msgid "Keep typing an email to invite"
 msgstr "Wpisuj dalej adres e-mail, aby zaprosić"
 
@@ -11748,6 +11779,9 @@ msgstr "Zarządzany przez"
 
 msgid "Managed by your organization admin."
 msgstr "Zarządzane przez administratora Twojej organizacji."
+
+msgid "manual"
+msgstr "ręczne"
 
 msgid "Manual"
 msgstr "Ręczny"
@@ -13158,6 +13192,9 @@ msgstr "Żadne stanowisko do mnie nie pasuje. Czy mimo to warto się odezwać?"
 
 msgid "No runs yet"
 msgstr "Brak uruchomień"
+
+msgid "No runs yet. Use Run now to start one."
+msgstr "Brak uruchomień. Użyj „Uruchom teraz”, aby rozpocząć."
 
 msgid "No screenshots yet"
 msgstr "Brak zrzutów ekranu"
@@ -14894,6 +14931,9 @@ msgstr "PDF"
 
 msgid "Peak pace"
 msgstr "Szczytowe tempo"
+
+msgid "pending"
+msgstr "oczekujące"
 
 msgid "Pending Invitations"
 msgstr "Oczekujące zaproszenia"
@@ -16828,6 +16868,9 @@ msgstr "Przywracanie…"
 msgid "Result"
 msgstr "Wynik"
 
+msgid "Result JSON"
+msgstr "JSON wyniku"
+
 msgid "Results"
 msgstr "Wyniki"
 
@@ -17115,6 +17158,9 @@ msgstr "Uruchamiaj agentów kodujących w chmurowych obszarach roboczych, które
 msgid "Run commands and navigate the application."
 msgstr "Uruchamiaj polecenia i nawiguj po aplikacji."
 
+msgid "Run history"
+msgstr "Historia uruchomień"
+
 msgid "Run History"
 msgstr "Historia uruchomień"
 
@@ -17205,8 +17251,14 @@ msgstr "Uruchamianie teraz"
 msgid "Running terminal processes continue, but older output may no longer be available after restarting the app."
 msgstr "Działające procesy terminala nie zostaną przerwane, ale starsze wyjście może być niedostępne po ponownym uruchomieniu aplikacji."
 
+msgid "Runs"
+msgstr "Uruchomienia"
+
 msgid "Runs a local command on your machine"
 msgstr "Uruchamia lokalne polecenie na Twojej maszynie"
+
+msgid "Runs appear here once a workflow fires."
+msgstr "Uruchomienia pojawią się tutaj, gdy przepływ pracy zostanie wyzwolony."
 
 msgid "Runs appear here once an automation fires."
 msgstr "Uruchomienia pojawią się tutaj, gdy automatyzacja zostanie wyzwolona."
@@ -17337,6 +17389,9 @@ msgstr "Zeskanuj, aby pobrać Paradev na iPhone’a"
 
 msgid "Scanning transcript logs…"
 msgstr "Skanowanie logów transkryptów…"
+
+msgid "schedule"
+msgstr "harmonogram"
 
 msgid "Schedule"
 msgstr "Harmonogram"
@@ -17705,6 +17760,9 @@ msgstr "Wybierz plik, aby go tutaj wyświetlić"
 
 msgid "Select a node to configure it."
 msgstr "Wybierz węzeł, aby go skonfigurować."
+
+msgid "Select a node to see its step."
+msgstr "Wybierz węzeł, aby zobaczyć jego krok."
 
 msgid "Select a project"
 msgstr "Wybierz projekt"
@@ -18622,6 +18680,9 @@ msgstr "Pomiń wszystkie"
 msgid "Skip for now"
 msgstr "Pomiń na razie"
 
+msgid "skipped"
+msgstr "pominięte"
+
 msgid "Skipped"
 msgstr "Pominięte"
 
@@ -19153,6 +19214,9 @@ msgstr "Krok 2 z 2"
 msgid "Steps 3 and 4 repeat until the page is right."
 msgstr "Kroki 3 i 4 powtarzają się, aż strona będzie dobra."
 
+msgid "Steps that are still running will be stopped. Finished steps keep their results."
+msgstr "Kroki, które wciąż trwają, zostaną zatrzymane. Ukończone kroki zachowają swoje wyniki."
+
 msgid "Still asks in Full access mode"
 msgstr "Nadal pyta w trybie Pełny dostęp"
 
@@ -19283,6 +19347,9 @@ msgstr "subskrypcję"
 
 msgid "Subscription"
 msgstr "Subskrypcja"
+
+msgid "succeeded"
+msgstr "ukończone"
 
 msgid "Success"
 msgstr "Sukces"
@@ -20826,6 +20893,9 @@ msgstr "Czas do pierwszego obszaru roboczego"
 
 msgid "Time zone"
 msgstr "Strefa czasowa"
+
+msgid "timed out"
+msgstr "przekroczono limit czasu"
 
 msgid "Timeout (minutes)"
 msgstr "Limit czasu (minuty)"
@@ -22409,6 +22479,9 @@ msgstr "Pracował {0} min {1} s"
 
 msgid "Worked for {seconds}s"
 msgstr "Pracował {seconds} s"
+
+msgid "Workflow"
+msgstr "Przepływ pracy"
 
 msgid "Workflow actions"
 msgstr "Akcje przepływu pracy"

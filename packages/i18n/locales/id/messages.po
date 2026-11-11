@@ -2627,6 +2627,9 @@ msgstr "Sepanjang waktu"
 msgid "All updates"
 msgstr "Semua pembaruan"
 
+msgid "All workflow runs"
+msgstr "Semua run alur kerja"
+
 msgid "All workspaces"
 msgstr "Semua workspace"
 
@@ -3245,6 +3248,10 @@ msgstr "Lampiran belum diunggah — kirim datanya terlebih dahulu"
 msgid "Attachments need an online host"
 msgstr "Lampiran memerlukan host yang online"
 
+#. placeholder {0}: step.attempt
+msgid "attempt {0}"
+msgstr "percobaan {0}"
+
 msgid "Attempt before checks pass"
 msgstr "Coba sebelum check lulus"
 
@@ -3445,6 +3452,9 @@ msgstr "Kembali ke checklist"
 
 msgid "Back to current"
 msgstr "Kembali ke versi saat ini"
+
+msgid "Back to editor"
+msgstr "Kembali ke editor"
 
 msgid "Back to GitHub issues"
 msgstr "Kembali ke issue GitHub"
@@ -4009,8 +4019,17 @@ msgstr "Batalkan paket"
 msgid "Cancel reply"
 msgstr "Batalkan balasan"
 
+msgid "Cancel run"
+msgstr "Batalkan run"
+
 msgid "Cancel the automatic resume"
 msgstr "Batalkan lanjutan otomatis"
+
+msgid "Cancel this run?"
+msgstr "Batalkan run ini?"
+
+msgid "canceled"
+msgstr "dibatalkan"
 
 msgid "Canceled"
 msgstr "Dibatalkan"
@@ -6081,6 +6100,9 @@ msgstr "Tidak dapat terhubung (kesalahan {status}). Coba lagi."
 msgid "Couldn't convert to draft"
 msgstr "Tidak dapat mengubah menjadi draf"
 
+msgid "Couldn't copy"
+msgstr "Tidak dapat menyalin"
+
 msgid "Couldn't copy comment"
 msgstr "Tidak bisa menyalin komentar"
 
@@ -8027,6 +8049,9 @@ msgstr "esc untuk menutup"
 msgid "esc to exit"
 msgstr "esc untuk keluar"
 
+msgid "event"
+msgstr "peristiwa"
+
 msgid "Event"
 msgstr "Peristiwa"
 
@@ -8324,6 +8349,9 @@ msgstr "Gagal mengarsipkan alur kerja"
 
 msgid "Failed to cancel invitation"
 msgstr "Gagal membatalkan undangan"
+
+msgid "Failed to cancel run"
+msgstr "Gagal membatalkan run"
 
 msgid "Failed to change base branch"
 msgstr "Gagal mengubah branch dasar"
@@ -10881,6 +10909,9 @@ msgstr "Lanjutkan mengedit"
 msgid "Keep paused"
 msgstr "Biarkan dijeda"
 
+msgid "Keep running"
+msgstr "Biarkan berjalan"
+
 msgid "Keep typing an email to invite"
 msgstr "Terus ketik email untuk mengundang"
 
@@ -11748,6 +11779,9 @@ msgstr "Dikelola oleh"
 
 msgid "Managed by your organization admin."
 msgstr "Dikelola oleh admin organisasi Anda."
+
+msgid "manual"
+msgstr "manual"
 
 msgid "Manual"
 msgstr "Manual"
@@ -13158,6 +13192,9 @@ msgstr "Tidak ada posisi yang cocok untuk saya. Apakah saya tetap boleh menghubu
 
 msgid "No runs yet"
 msgstr "Belum ada run"
+
+msgid "No runs yet. Use Run now to start one."
+msgstr "Belum ada run. Gunakan \"Jalankan sekarang\" untuk memulai."
 
 msgid "No screenshots yet"
 msgstr "Belum ada tangkapan layar"
@@ -14894,6 +14931,9 @@ msgstr "PDF"
 
 msgid "Peak pace"
 msgstr "Laju puncak"
+
+msgid "pending"
+msgstr "menunggu"
 
 msgid "Pending Invitations"
 msgstr "Undangan Tertunda"
@@ -16828,6 +16868,9 @@ msgstr "Memulihkan…"
 msgid "Result"
 msgstr "Hasil"
 
+msgid "Result JSON"
+msgstr "JSON hasil"
+
 msgid "Results"
 msgstr "Hasil"
 
@@ -17115,6 +17158,9 @@ msgstr "Jalankan agen coding di workspace cloud yang tetap bekerja saat laptop A
 msgid "Run commands and navigate the application."
 msgstr "Jalankan perintah dan navigasi aplikasi."
 
+msgid "Run history"
+msgstr "Riwayat run"
+
 msgid "Run History"
 msgstr "Riwayat Run"
 
@@ -17205,8 +17251,14 @@ msgstr "Berjalan sekarang"
 msgid "Running terminal processes continue, but older output may no longer be available after restarting the app."
 msgstr "Proses terminal yang berjalan tetap lanjut, tapi output lama mungkin tidak tersedia lagi setelah aplikasi dimulai ulang."
 
+msgid "Runs"
+msgstr "Run"
+
 msgid "Runs a local command on your machine"
 msgstr "Menjalankan perintah lokal di mesin Anda"
+
+msgid "Runs appear here once a workflow fires."
+msgstr "Run akan muncul di sini saat alur kerja terpicu."
 
 msgid "Runs appear here once an automation fires."
 msgstr "Run muncul di sini setelah otomatisasi terpicu."
@@ -17337,6 +17389,9 @@ msgstr "Pindai untuk mengunduh Paradev untuk iPhone"
 
 msgid "Scanning transcript logs…"
 msgstr "Memindai log transkrip…"
+
+msgid "schedule"
+msgstr "jadwal"
 
 msgid "Schedule"
 msgstr "Jadwal"
@@ -17705,6 +17760,9 @@ msgstr "Pilih file untuk melihatnya di sini"
 
 msgid "Select a node to configure it."
 msgstr "Pilih node untuk mengonfigurasinya."
+
+msgid "Select a node to see its step."
+msgstr "Pilih node untuk melihat langkahnya."
 
 msgid "Select a project"
 msgstr "Pilih sebuah proyek"
@@ -18622,6 +18680,9 @@ msgstr "Lewati Semua"
 msgid "Skip for now"
 msgstr "Lewati dulu"
 
+msgid "skipped"
+msgstr "dilewati"
+
 msgid "Skipped"
 msgstr "Dilewati"
 
@@ -19153,6 +19214,9 @@ msgstr "Langkah 2 dari 2"
 msgid "Steps 3 and 4 repeat until the page is right."
 msgstr "Langkah 3 dan 4 diulang sampai halamannya pas."
 
+msgid "Steps that are still running will be stopped. Finished steps keep their results."
+msgstr "Langkah yang masih berjalan akan dihentikan. Langkah yang selesai tetap menyimpan hasilnya."
+
 msgid "Still asks in Full access mode"
 msgstr "Tetap bertanya dalam mode Akses penuh"
 
@@ -19283,6 +19347,9 @@ msgstr "langganan"
 
 msgid "Subscription"
 msgstr "Langganan"
+
+msgid "succeeded"
+msgstr "berhasil"
 
 msgid "Success"
 msgstr "Berhasil"
@@ -20826,6 +20893,9 @@ msgstr "Waktu ke workspace pertama"
 
 msgid "Time zone"
 msgstr "Zona waktu"
+
+msgid "timed out"
+msgstr "waktu habis"
 
 msgid "Timeout (minutes)"
 msgstr "Batas waktu (menit)"
@@ -22409,6 +22479,9 @@ msgstr "Bekerja {0} mnt {1} dtk"
 
 msgid "Worked for {seconds}s"
 msgstr "Bekerja {seconds} dtk"
+
+msgid "Workflow"
+msgstr "Alur kerja"
 
 msgid "Workflow actions"
 msgstr "Tindakan alur kerja"

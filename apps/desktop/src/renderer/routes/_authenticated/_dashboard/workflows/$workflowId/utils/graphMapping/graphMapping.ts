@@ -5,7 +5,15 @@ import type {
 } from "@superset/shared/workflow-graph";
 import type { Edge, Node, Viewport } from "@xyflow/react";
 
-export type CanvasNodeData = { wf: DraftWorkflowNode };
+export type StepStatus =
+	| "pending"
+	| "running"
+	| "succeeded"
+	| "failed"
+	| "skipped"
+	| "canceled";
+
+export type CanvasNodeData = { wf: DraftWorkflowNode; stepStatus?: StepStatus };
 export type CanvasNode = Node<CanvasNodeData>;
 export type CanvasEdge = Edge;
 
@@ -46,6 +54,46 @@ export function fromCanvas(
 				: {}),
 		})),
 		...(viewport ? { viewport } : {}),
+	};
+}
+
+/**
+ * Overlays a run's step statuses onto canvas nodes and edges. Nodes without a
+ * step row are pending (the engine writes rows as it reaches them). Edges on a
+ * skipped side dim; the edge into a running node animates.
+ */
+export function applyRunSteps(
+	nodes: CanvasNode[],
+	edges: CanvasEdge[],
+	steps: { nodeId: string; status: StepStatus }[],
+): { nodes: CanvasNode[]; edges: CanvasEdge[] } {
+	const byNode = new Map(steps.map((step) => [step.nodeId, step.status]));
+	const statusOf = (nodeId: string): StepStatus =>
+		// Trigger nodes have no step row; the run reaching any step means the
+		// trigger fired.
+		byNode.get(nodeId) ?? (steps.length > 0 ? "succeeded" : "pending");
+	return {
+		nodes: nodes.map((node) => ({
+			...node,
+			draggable: false,
+			data: {
+				...node.data,
+				stepStatus:
+					node.data.wf.type === "trigger"
+						? statusOf(node.id)
+						: (byNode.get(node.id) ?? "pending"),
+			},
+		})),
+		edges: edges.map((edge) => {
+			const sourceStatus = statusOf(edge.source);
+			const targetStatus = byNode.get(edge.target) ?? "pending";
+			const dimmed = sourceStatus === "skipped" || targetStatus === "skipped";
+			return {
+				...edge,
+				animated: targetStatus === "running",
+				style: dimmed ? { opacity: 0.3 } : undefined,
+			};
+		}),
 	};
 }
 

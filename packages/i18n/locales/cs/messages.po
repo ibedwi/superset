@@ -2627,6 +2627,9 @@ msgstr "Celkově"
 msgid "All updates"
 msgstr "Všechny novinky"
 
+msgid "All workflow runs"
+msgstr "Všechny běhy pracovních postupů"
+
 msgid "All workspaces"
 msgstr "Všechny pracovní prostory"
 
@@ -3245,6 +3248,10 @@ msgstr "Příloha nebyla nahrána — nejdřív odešlete data"
 msgid "Attachments need an online host"
 msgstr "Přílohy vyžadují hosta online"
 
+#. placeholder {0}: step.attempt
+msgid "attempt {0}"
+msgstr "pokus {0}"
+
 msgid "Attempt before checks pass"
 msgstr "Zkusit ještě před dokončením kontrol"
 
@@ -3445,6 +3452,9 @@ msgstr "Zpět na seznam kroků"
 
 msgid "Back to current"
 msgstr "Zpět na aktuální"
+
+msgid "Back to editor"
+msgstr "Zpět do editoru"
 
 msgid "Back to GitHub issues"
 msgstr "Zpět na GitHub issues"
@@ -4009,8 +4019,17 @@ msgstr "Zrušit tarif"
 msgid "Cancel reply"
 msgstr "Zrušit odpověď"
 
+msgid "Cancel run"
+msgstr "Zrušit běh"
+
 msgid "Cancel the automatic resume"
 msgstr "Zrušit automatické pokračování"
+
+msgid "Cancel this run?"
+msgstr "Zrušit tento běh?"
+
+msgid "canceled"
+msgstr "zrušeno"
 
 msgid "Canceled"
 msgstr "Zrušeno"
@@ -6081,6 +6100,9 @@ msgstr "Připojení se nezdařilo (chyba {status}). Zkuste to znovu."
 msgid "Couldn't convert to draft"
 msgstr "Nepodařilo se převést na koncept"
 
+msgid "Couldn't copy"
+msgstr "Kopírování se nezdařilo"
+
 msgid "Couldn't copy comment"
 msgstr "Komentář se nepodařilo zkopírovat"
 
@@ -8027,6 +8049,9 @@ msgstr "esc zavře"
 msgid "esc to exit"
 msgstr "esc pro ukončení"
 
+msgid "event"
+msgstr "událost"
+
 msgid "Event"
 msgstr "Událost"
 
@@ -8324,6 +8349,9 @@ msgstr "Pracovní postup se nepodařilo archivovat"
 
 msgid "Failed to cancel invitation"
 msgstr "Nepodařilo se zrušit pozvánku"
+
+msgid "Failed to cancel run"
+msgstr "Běh se nepodařilo zrušit"
 
 msgid "Failed to change base branch"
 msgstr "Nepodařilo se změnit základní větev"
@@ -10881,6 +10909,9 @@ msgstr "Pokračovat v úpravách"
 msgid "Keep paused"
 msgstr "Ponechat pozastavené"
 
+msgid "Keep running"
+msgstr "Nechat doběhnout"
+
 msgid "Keep typing an email to invite"
 msgstr "Pokračujte v psaní e-mailu pro pozvání"
 
@@ -11748,6 +11779,9 @@ msgstr "Spravuje"
 
 msgid "Managed by your organization admin."
 msgstr "Spravuje správce vaší organizace."
+
+msgid "manual"
+msgstr "ruční"
 
 msgid "Manual"
 msgstr "Manuální"
@@ -13158,6 +13192,9 @@ msgstr "Žádná pozice mi nesedí. Mám se i tak ozvat?"
 
 msgid "No runs yet"
 msgstr "Zatím žádné běhy"
+
+msgid "No runs yet. Use Run now to start one."
+msgstr "Zatím žádné běhy. Spusťte jeden přes „Spustit teď“."
 
 msgid "No screenshots yet"
 msgstr "Zatím žádné snímky obrazovky"
@@ -14894,6 +14931,9 @@ msgstr "PDF"
 
 msgid "Peak pace"
 msgstr "Nejvyšší tempo"
+
+msgid "pending"
+msgstr "čeká"
 
 msgid "Pending Invitations"
 msgstr "Čekající pozvánky"
@@ -16828,6 +16868,9 @@ msgstr "Obnovuji…"
 msgid "Result"
 msgstr "Výsledek"
 
+msgid "Result JSON"
+msgstr "JSON výsledku"
+
 msgid "Results"
 msgstr "Výsledky"
 
@@ -17115,6 +17158,9 @@ msgstr "Spouštějte programovací agenty v cloudových pracovních prostorech, 
 msgid "Run commands and navigate the application."
 msgstr "Spouštějte příkazy a procházejte aplikaci."
 
+msgid "Run history"
+msgstr "Historie běhů"
+
 msgid "Run History"
 msgstr "Historie běhů"
 
@@ -17205,8 +17251,14 @@ msgstr "Spouštím"
 msgid "Running terminal processes continue, but older output may no longer be available after restarting the app."
 msgstr "Běžící procesy v terminálu poběží dál, ale starší výstup po restartu aplikace už nemusí být k dispozici."
 
+msgid "Runs"
+msgstr "Běhy"
+
 msgid "Runs a local command on your machine"
 msgstr "Spouští lokální příkaz na vašem počítači"
+
+msgid "Runs appear here once a workflow fires."
+msgstr "Běhy se zde objeví, jakmile se pracovní postup spustí."
 
 msgid "Runs appear here once an automation fires."
 msgstr "Běhy se zde objeví, jakmile se automatizace spustí."
@@ -17337,6 +17389,9 @@ msgstr "Naskenujte a stáhněte Paradev pro iPhone"
 
 msgid "Scanning transcript logs…"
 msgstr "Procházím logy přepisů…"
+
+msgid "schedule"
+msgstr "plán"
 
 msgid "Schedule"
 msgstr "Plán"
@@ -17705,6 +17760,9 @@ msgstr "Vyberte soubor a zobrazí se zde"
 
 msgid "Select a node to configure it."
 msgstr "Vyberte uzel, který chcete nakonfigurovat."
+
+msgid "Select a node to see its step."
+msgstr "Vyberte uzel, abyste viděli jeho krok."
 
 msgid "Select a project"
 msgstr "Vyberte projekt"
@@ -18622,6 +18680,9 @@ msgstr "Přeskočit vše"
 msgid "Skip for now"
 msgstr "Zatím přeskočit"
 
+msgid "skipped"
+msgstr "přeskočeno"
+
 msgid "Skipped"
 msgstr "Přeskočeno"
 
@@ -19153,6 +19214,9 @@ msgstr "Krok 2 ze 2"
 msgid "Steps 3 and 4 repeat until the page is right."
 msgstr "Kroky 3 a 4 se opakují, dokud stránka není správně."
 
+msgid "Steps that are still running will be stopped. Finished steps keep their results."
+msgstr "Kroky, které stále běží, budou zastaveny. Dokončené kroky si ponechají výsledky."
+
 msgid "Still asks in Full access mode"
 msgstr "V režimu Plný přístup se stále ptá"
 
@@ -19283,6 +19347,9 @@ msgstr "předplatné"
 
 msgid "Subscription"
 msgstr "Předplatné"
+
+msgid "succeeded"
+msgstr "úspěšné"
 
 msgid "Success"
 msgstr "Úspěch"
@@ -20826,6 +20893,9 @@ msgstr "Čas do prvního pracovního prostoru"
 
 msgid "Time zone"
 msgstr "Časové pásmo"
+
+msgid "timed out"
+msgstr "vypršel čas"
 
 msgid "Timeout (minutes)"
 msgstr "Časový limit (minuty)"
@@ -22409,6 +22479,9 @@ msgstr "Pracoval {0} m {1} s"
 
 msgid "Worked for {seconds}s"
 msgstr "Pracoval {seconds} s"
+
+msgid "Workflow"
+msgstr "Pracovní postup"
 
 msgid "Workflow actions"
 msgstr "Akce pracovního postupu"

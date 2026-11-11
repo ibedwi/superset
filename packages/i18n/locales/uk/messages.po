@@ -2621,6 +2621,9 @@ msgstr "За весь час"
 msgid "All updates"
 msgstr "Усі оновлення"
 
+msgid "All workflow runs"
+msgstr "Усі запуски воркфлоу"
+
 msgid "All workspaces"
 msgstr "Усі робочі простори"
 
@@ -3239,6 +3242,10 @@ msgstr "Вкладення не завантажено — спочатку на
 msgid "Attachments need an online host"
 msgstr "Для вкладень потрібен хост у мережі"
 
+#. placeholder {0}: step.attempt
+msgid "attempt {0}"
+msgstr "спроба {0}"
+
 msgid "Attempt before checks pass"
 msgstr "Спробувати до проходження перевірок"
 
@@ -3439,6 +3446,9 @@ msgstr "Назад до чекліста"
 
 msgid "Back to current"
 msgstr "Повернутися до поточної"
+
+msgid "Back to editor"
+msgstr "Назад до редактора"
 
 msgid "Back to GitHub issues"
 msgstr "Назад до issues з GitHub"
@@ -4003,8 +4013,17 @@ msgstr "Скасувати підписку"
 msgid "Cancel reply"
 msgstr "Скасувати відповідь"
 
+msgid "Cancel run"
+msgstr "Скасувати запуск"
+
 msgid "Cancel the automatic resume"
 msgstr "Скасувати автоматичне відновлення"
+
+msgid "Cancel this run?"
+msgstr "Скасувати цей запуск?"
+
+msgid "canceled"
+msgstr "скасовано"
 
 msgid "Canceled"
 msgstr "Скасовано"
@@ -6075,6 +6094,9 @@ msgstr "Не вдалося підключитися (помилка {status}). 
 msgid "Couldn't convert to draft"
 msgstr "Не вдалося перетворити на чернетку"
 
+msgid "Couldn't copy"
+msgstr "Не вдалося скопіювати"
+
 msgid "Couldn't copy comment"
 msgstr "Не вдалося скопіювати коментар"
 
@@ -8021,6 +8043,9 @@ msgstr "esc, щоб закрити"
 msgid "esc to exit"
 msgstr "esc, щоб вийти"
 
+msgid "event"
+msgstr "подія"
+
 msgid "Event"
 msgstr "Подія"
 
@@ -8318,6 +8343,9 @@ msgstr "Не вдалося архівувати воркфлоу"
 
 msgid "Failed to cancel invitation"
 msgstr "Не вдалося скасувати запрошення"
+
+msgid "Failed to cancel run"
+msgstr "Не вдалося скасувати запуск"
 
 msgid "Failed to change base branch"
 msgstr "Не вдалося змінити базову гілку"
@@ -10875,6 +10903,9 @@ msgstr "Продовжити редагування"
 msgid "Keep paused"
 msgstr "Залишити на паузі"
 
+msgid "Keep running"
+msgstr "Не скасовувати"
+
 msgid "Keep typing an email to invite"
 msgstr "Продовжуйте вводити адресу, щоб запросити"
 
@@ -11742,6 +11773,9 @@ msgstr "Керує"
 
 msgid "Managed by your organization admin."
 msgstr "Керується адміністратором вашої організації."
+
+msgid "manual"
+msgstr "вручну"
 
 msgid "Manual"
 msgstr "Вручну"
@@ -13152,6 +13186,9 @@ msgstr "Мені не підходить жодна роль. Чи варто в
 
 msgid "No runs yet"
 msgstr "Запусків ще немає"
+
+msgid "No runs yet. Use Run now to start one."
+msgstr "Запусків ще немає. Натисніть «Запустити зараз», щоб почати."
 
 msgid "No screenshots yet"
 msgstr "Знімків екрана ще немає"
@@ -14888,6 +14925,9 @@ msgstr "PDF"
 
 msgid "Peak pace"
 msgstr "Піковий темп"
+
+msgid "pending"
+msgstr "в очікуванні"
 
 msgid "Pending Invitations"
 msgstr "Очікувані запрошення"
@@ -16822,6 +16862,9 @@ msgstr "Відновлення…"
 msgid "Result"
 msgstr "Результат"
 
+msgid "Result JSON"
+msgstr "JSON результату"
+
 msgid "Results"
 msgstr "Результати"
 
@@ -17109,6 +17152,9 @@ msgstr "Запускайте кодинг-агентів у хмарних ро�
 msgid "Run commands and navigate the application."
 msgstr "Виконуйте команди й переходьте між розділами застосунку."
 
+msgid "Run history"
+msgstr "Історія запусків"
+
 msgid "Run History"
 msgstr "Історія запусків"
 
@@ -17199,8 +17245,14 @@ msgstr "Виконується зараз"
 msgid "Running terminal processes continue, but older output may no longer be available after restarting the app."
 msgstr "Запущені процеси термінала продовжать роботу, але старіший вивід може стати недоступним після перезапуску застосунку."
 
+msgid "Runs"
+msgstr "Запуски"
+
 msgid "Runs a local command on your machine"
 msgstr "Виконує локальну команду на вашому комп'ютері"
+
+msgid "Runs appear here once a workflow fires."
+msgstr "Запуски з'являться тут, щойно спрацює воркфлоу."
 
 msgid "Runs appear here once an automation fires."
 msgstr "Запуски з'являться тут, щойно спрацює автоматизація."
@@ -17331,6 +17383,9 @@ msgstr "Відскануйте, щоб завантажити Paradev для iPh
 
 msgid "Scanning transcript logs…"
 msgstr "Сканування логів транскриптів…"
+
+msgid "schedule"
+msgstr "розклад"
 
 msgid "Schedule"
 msgstr "Розклад"
@@ -17699,6 +17754,9 @@ msgstr "Виберіть файл, щоб переглянути його тут
 
 msgid "Select a node to configure it."
 msgstr "Виберіть вузол, щоб налаштувати його."
+
+msgid "Select a node to see its step."
+msgstr "Виберіть вузол, щоб побачити його крок."
 
 msgid "Select a project"
 msgstr "Виберіть проєкт"
@@ -18616,6 +18674,9 @@ msgstr "Пропустити все"
 msgid "Skip for now"
 msgstr "Поки пропустити"
 
+msgid "skipped"
+msgstr "пропущено"
+
 msgid "Skipped"
 msgstr "Пропущено"
 
@@ -19147,6 +19208,9 @@ msgstr "Крок 2 з 2"
 msgid "Steps 3 and 4 repeat until the page is right."
 msgstr "Кроки 3 і 4 повторюються, доки сторінка не стане такою, як треба."
 
+msgid "Steps that are still running will be stopped. Finished steps keep their results."
+msgstr "Кроки, що ще виконуються, буде зупинено. Завершені кроки збережуть свої результати."
+
 msgid "Still asks in Full access mode"
 msgstr "Запитує навіть у режимі «Повний доступ»"
 
@@ -19277,6 +19341,9 @@ msgstr "підписку"
 
 msgid "Subscription"
 msgstr "Підписка"
+
+msgid "succeeded"
+msgstr "успішно"
 
 msgid "Success"
 msgstr "Успіх"
@@ -20820,6 +20887,9 @@ msgstr "Час до першого робочого простору"
 
 msgid "Time zone"
 msgstr "Часовий пояс"
+
+msgid "timed out"
+msgstr "час вичерпано"
 
 msgid "Timeout (minutes)"
 msgstr "Таймаут (хвилини)"
@@ -22403,6 +22473,9 @@ msgstr "Працював {0} хв {1} с"
 
 msgid "Worked for {seconds}s"
 msgstr "Працював {seconds} с"
+
+msgid "Workflow"
+msgstr "Воркфлоу"
 
 msgid "Workflow actions"
 msgstr "Дії з воркфлоу"

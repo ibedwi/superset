@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import type { DraftWorkflowGraph } from "@superset/shared/workflow-graph";
 import {
+	applyRunSteps,
 	createNode,
 	fromCanvas,
 	nextNodeId,
@@ -67,5 +68,38 @@ describe("graph mapping", () => {
 			type: "http",
 			position: { x: 1, y: 2 },
 		});
+	});
+});
+
+describe("applyRunSteps", () => {
+	const nodes = toCanvasNodes(graph);
+	const edges = toCanvasEdges(graph);
+
+	test("maps step statuses onto nodes, pending when unreached", () => {
+		const { nodes: decorated } = applyRunSteps(nodes, edges, [
+			{ nodeId: "agent", status: "running" },
+		]);
+		const byId = new Map(decorated.map((node) => [node.id, node]));
+		expect(byId.get("agent")!.data.stepStatus).toBe("running");
+		expect(byId.get("gate")!.data.stepStatus).toBe("pending");
+		// The trigger has no step row; any step existing means it fired.
+		expect(byId.get("start")!.data.stepStatus).toBe("succeeded");
+		expect(decorated.every((node) => node.draggable === false)).toBe(true);
+	});
+
+	test("trigger stays pending before any step exists", () => {
+		const { nodes: decorated } = applyRunSteps(nodes, edges, []);
+		const start = decorated.find((node) => node.id === "start")!;
+		expect(start.data.stepStatus).toBe("pending");
+	});
+
+	test("animates the edge into a running node and dims skipped sides", () => {
+		const { edges: decorated } = applyRunSteps(nodes, edges, [
+			{ nodeId: "agent", status: "running" },
+			{ nodeId: "gate", status: "skipped" },
+		]);
+		const byId = new Map(decorated.map((edge) => [edge.id, edge]));
+		expect(byId.get("e1")!.animated).toBe(true);
+		expect(byId.get("e2")!.style).toEqual({ opacity: 0.3 });
 	});
 });

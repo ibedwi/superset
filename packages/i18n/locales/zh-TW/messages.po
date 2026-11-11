@@ -2627,6 +2627,9 @@ msgstr "全部時間"
 msgid "All updates"
 msgstr "全部更新"
 
+msgid "All workflow runs"
+msgstr "所有工作流程執行"
+
 msgid "All workspaces"
 msgstr "全部工作區"
 
@@ -3245,6 +3248,10 @@ msgstr "附件尚未上傳 — 請先傳送資料"
 msgid "Attachments need an online host"
 msgstr "附件需要主機線上"
 
+#. placeholder {0}: step.attempt
+msgid "attempt {0}"
+msgstr "第 {0} 次嘗試"
+
 msgid "Attempt before checks pass"
 msgstr "在檢查通過前就嘗試"
 
@@ -3445,6 +3452,9 @@ msgstr "返回清單"
 
 msgid "Back to current"
 msgstr "返回目前版本"
+
+msgid "Back to editor"
+msgstr "返回編輯器"
 
 msgid "Back to GitHub issues"
 msgstr "返回GitHub議題"
@@ -4009,8 +4019,17 @@ msgstr "取消方案"
 msgid "Cancel reply"
 msgstr "取消回覆"
 
+msgid "Cancel run"
+msgstr "取消執行"
+
 msgid "Cancel the automatic resume"
 msgstr "取消自動繼續"
+
+msgid "Cancel this run?"
+msgstr "取消此次執行？"
+
+msgid "canceled"
+msgstr "已取消"
 
 msgid "Canceled"
 msgstr "已取消"
@@ -6081,6 +6100,9 @@ msgstr "無法連線（錯誤 {status}）。請重試。"
 msgid "Couldn't convert to draft"
 msgstr "無法轉為草稿"
 
+msgid "Couldn't copy"
+msgstr "無法複製"
+
 msgid "Couldn't copy comment"
 msgstr "無法複製評論"
 
@@ -8027,6 +8049,9 @@ msgstr "按esc關閉"
 msgid "esc to exit"
 msgstr "esc退出"
 
+msgid "event"
+msgstr "事件"
+
 msgid "Event"
 msgstr "事件"
 
@@ -8324,6 +8349,9 @@ msgstr "無法封存工作流程"
 
 msgid "Failed to cancel invitation"
 msgstr "取消邀請失敗"
+
+msgid "Failed to cancel run"
+msgstr "無法取消執行"
 
 msgid "Failed to change base branch"
 msgstr "更改基準分支失敗"
@@ -10881,6 +10909,9 @@ msgstr "繼續編輯"
 msgid "Keep paused"
 msgstr "保持暫停"
 
+msgid "Keep running"
+msgstr "繼續執行"
+
 msgid "Keep typing an email to invite"
 msgstr "繼續輸入電子郵件以邀請"
 
@@ -11748,6 +11779,9 @@ msgstr "管理者"
 
 msgid "Managed by your organization admin."
 msgstr "由你所在組織的管理員管理。"
+
+msgid "manual"
+msgstr "手動"
 
 msgid "Manual"
 msgstr "手動"
@@ -13158,6 +13192,9 @@ msgstr "沒有適合我的職位，還可以聯絡你們嗎？"
 
 msgid "No runs yet"
 msgstr "還沒有執行過"
+
+msgid "No runs yet. Use Run now to start one."
+msgstr "還沒有執行過。點選「立即執行」開始。"
 
 msgid "No screenshots yet"
 msgstr "暫無截圖"
@@ -14894,6 +14931,9 @@ msgstr "PDF"
 
 msgid "Peak pace"
 msgstr "峰值速度"
+
+msgid "pending"
+msgstr "等待中"
 
 msgid "Pending Invitations"
 msgstr "待處理邀請"
@@ -16828,6 +16868,9 @@ msgstr "正在還原…"
 msgid "Result"
 msgstr "結果"
 
+msgid "Result JSON"
+msgstr "結果 JSON"
+
 msgid "Results"
 msgstr "結果"
 
@@ -17115,6 +17158,9 @@ msgstr "在雲端工作區中執行程式設計代理程式，筆電闔上也能
 msgid "Run commands and navigate the application."
 msgstr "執行命令並在應用中導航。"
 
+msgid "Run history"
+msgstr "執行歷史"
+
 msgid "Run History"
 msgstr "執行歷史"
 
@@ -17205,8 +17251,14 @@ msgstr "正在執行"
 msgid "Running terminal processes continue, but older output may no longer be available after restarting the app."
 msgstr "執行中的終端處理程序會繼續，但重啟應用後可能無法再看到較早的輸出。"
 
+msgid "Runs"
+msgstr "執行"
+
 msgid "Runs a local command on your machine"
 msgstr "在你的機器上執行本地命令"
+
+msgid "Runs appear here once a workflow fires."
+msgstr "工作流程觸發後，執行會顯示在這裡。"
 
 msgid "Runs appear here once an automation fires."
 msgstr "自動化觸發後，執行會顯示在這裡。"
@@ -17337,6 +17389,9 @@ msgstr "掃碼下載 iPhone 版 Paradev"
 
 msgid "Scanning transcript logs…"
 msgstr "正在掃描會話記錄日誌…"
+
+msgid "schedule"
+msgstr "排程"
 
 msgid "Schedule"
 msgstr "計劃"
@@ -17705,6 +17760,9 @@ msgstr "選取檔案以在此處檢視"
 
 msgid "Select a node to configure it."
 msgstr "選擇一個節點進行設定。"
+
+msgid "Select a node to see its step."
+msgstr "選擇一個節點查看其步驟。"
 
 msgid "Select a project"
 msgstr "請選擇專案"
@@ -18622,6 +18680,9 @@ msgstr "全部跳過"
 msgid "Skip for now"
 msgstr "暫時跳過"
 
+msgid "skipped"
+msgstr "已略過"
+
 msgid "Skipped"
 msgstr "已跳過"
 
@@ -19153,6 +19214,9 @@ msgstr "第 2 步，共 2 步"
 msgid "Steps 3 and 4 repeat until the page is right."
 msgstr "步驟 3 和 4 會重複，直到頁面滿意為止。"
 
+msgid "Steps that are still running will be stopped. Finished steps keep their results."
+msgstr "仍在執行的步驟將被停止。已完成的步驟保留其結果。"
+
 msgid "Still asks in Full access mode"
 msgstr "完整存取模式下仍會詢問"
 
@@ -19283,6 +19347,9 @@ msgstr "訂閱"
 
 msgid "Subscription"
 msgstr "訂閱"
+
+msgid "succeeded"
+msgstr "成功"
 
 msgid "Success"
 msgstr "成功"
@@ -20826,6 +20893,9 @@ msgstr "到第一個工作區的時間"
 
 msgid "Time zone"
 msgstr "時區"
+
+msgid "timed out"
+msgstr "逾時"
 
 msgid "Timeout (minutes)"
 msgstr "逾時（分鐘）"
@@ -22409,6 +22479,9 @@ msgstr "用時 {0} 分 {1} 秒"
 
 msgid "Worked for {seconds}s"
 msgstr "用時 {seconds} 秒"
+
+msgid "Workflow"
+msgstr "工作流程"
 
 msgid "Workflow actions"
 msgstr "工作流程動作"

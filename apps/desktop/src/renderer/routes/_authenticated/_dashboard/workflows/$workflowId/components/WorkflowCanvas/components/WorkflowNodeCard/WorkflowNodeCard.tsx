@@ -1,4 +1,5 @@
 import { Trans } from "@lingui/react/macro";
+import { i18n } from "@superset/i18n";
 import type { DraftWorkflowNode } from "@superset/shared/workflow-graph";
 import { cn } from "@superset/ui/utils";
 import { Handle, type NodeProps, Position } from "@xyflow/react";
@@ -11,6 +12,7 @@ import {
 	LuSplit,
 	LuTerminal,
 } from "react-icons/lu";
+import { STEP_STATUS_META } from "../../../../../utils/runStatus";
 import type { CanvasNode } from "../../../../utils/graphMapping";
 
 const NODE_ICONS: Record<DraftWorkflowNode["type"], ReactNode> = {
@@ -50,14 +52,24 @@ function summary(node: DraftWorkflowNode): string {
 	}
 }
 
+const STEP_RING: Record<string, string> = {
+	running: "border-amber-500",
+	succeeded: "border-emerald-500",
+	failed: "border-red-500",
+	canceled: "border-amber-500",
+};
+
 export function WorkflowNodeCard({ data, selected }: NodeProps<CanvasNode>) {
 	const node = data.wf;
 	const detail = summary(node);
+	const step = data.stepStatus ? STEP_STATUS_META[data.stepStatus] : null;
 	return (
 		<div
 			className={cn(
 				"w-56 rounded-lg border bg-card px-3 py-2 shadow-sm transition-colors",
 				selected ? "border-primary ring-1 ring-primary" : "border-border",
+				data.stepStatus && STEP_RING[data.stepStatus],
+				data.stepStatus === "skipped" && "opacity-50",
 			)}
 		>
 			{node.type !== "trigger" && (
@@ -76,6 +88,12 @@ export function WorkflowNodeCard({ data, selected }: NodeProps<CanvasNode>) {
 						{NODE_LABELS[node.type]}
 					</div>
 				</div>
+				{step && (
+					<span className="flex items-center gap-1 text-[10px] text-muted-foreground">
+						<span className={cn("size-1.5 rounded-full", step.dot)} />
+						{i18n._(step.label)}
+					</span>
+				)}
 			</div>
 			{detail && (
 				<div className="mt-1.5 line-clamp-2 break-all text-xs text-muted-foreground">

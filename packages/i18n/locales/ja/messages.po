@@ -2627,6 +2627,9 @@ msgstr "全期間"
 msgid "All updates"
 msgstr "すべてのアップデート"
 
+msgid "All workflow runs"
+msgstr "すべてのワークフロー実行"
+
 msgid "All workspaces"
 msgstr "すべてのワークスペース"
 
@@ -3245,6 +3248,10 @@ msgstr "添付ファイルがアップロードされていません — 先に�
 msgid "Attachments need an online host"
 msgstr "添付にはオンラインのホストが必要です"
 
+#. placeholder {0}: step.attempt
+msgid "attempt {0}"
+msgstr "試行 {0}"
+
 msgid "Attempt before checks pass"
 msgstr "チェック通過前に実行"
 
@@ -3445,6 +3452,9 @@ msgstr "チェックリストに戻る"
 
 msgid "Back to current"
 msgstr "最新に戻る"
+
+msgid "Back to editor"
+msgstr "エディターに戻る"
 
 msgid "Back to GitHub issues"
 msgstr "GitHub issueに戻る"
@@ -4009,8 +4019,17 @@ msgstr "プランをキャンセル"
 msgid "Cancel reply"
 msgstr "返信をキャンセル"
 
+msgid "Cancel run"
+msgstr "実行をキャンセル"
+
 msgid "Cancel the automatic resume"
 msgstr "自動再開をキャンセル"
+
+msgid "Cancel this run?"
+msgstr "この実行をキャンセルしますか?"
+
+msgid "canceled"
+msgstr "キャンセル済み"
 
 msgid "Canceled"
 msgstr "キャンセル済み"
@@ -6081,6 +6100,9 @@ msgstr "接続できませんでした（エラー {status}）。もう一度お
 msgid "Couldn't convert to draft"
 msgstr "ドラフトに変換できませんでした"
 
+msgid "Couldn't copy"
+msgstr "コピーできませんでした"
+
 msgid "Couldn't copy comment"
 msgstr "コメントをコピーできませんでした"
 
@@ -8027,6 +8049,9 @@ msgstr "escで閉じる"
 msgid "esc to exit"
 msgstr "escで終了"
 
+msgid "event"
+msgstr "イベント"
+
 msgid "Event"
 msgstr "イベント"
 
@@ -8324,6 +8349,9 @@ msgstr "ワークフローをアーカイブできませんでした"
 
 msgid "Failed to cancel invitation"
 msgstr "招待のキャンセルに失敗しました"
+
+msgid "Failed to cancel run"
+msgstr "実行をキャンセルできませんでした"
 
 msgid "Failed to change base branch"
 msgstr "ベースブランチの変更に失敗しました"
@@ -10881,6 +10909,9 @@ msgstr "編集を続ける"
 msgid "Keep paused"
 msgstr "一時停止のままにする"
 
+msgid "Keep running"
+msgstr "実行を続ける"
+
 msgid "Keep typing an email to invite"
 msgstr "招待するにはメールアドレスを入力し続けてください"
 
@@ -11748,6 +11779,9 @@ msgstr "管理者"
 
 msgid "Managed by your organization admin."
 msgstr "組織の管理者によって管理されています。"
+
+msgid "manual"
+msgstr "手動"
 
 msgid "Manual"
 msgstr "手作業"
@@ -13158,6 +13192,9 @@ msgstr "合うポジションがありません。それでも連絡してよい
 
 msgid "No runs yet"
 msgstr "実行はまだありません"
+
+msgid "No runs yet. Use Run now to start one."
+msgstr "実行はまだありません。「今すぐ実行」で開始できます。"
 
 msgid "No screenshots yet"
 msgstr "スクリーンショットはまだありません"
@@ -14894,6 +14931,9 @@ msgstr "PDF"
 
 msgid "Peak pace"
 msgstr "最速ペース"
+
+msgid "pending"
+msgstr "待機中"
 
 msgid "Pending Invitations"
 msgstr "保留中の招待"
@@ -16828,6 +16868,9 @@ msgstr "復元中…"
 msgid "Result"
 msgstr "結果"
 
+msgid "Result JSON"
+msgstr "結果のJSON"
+
 msgid "Results"
 msgstr "結果"
 
@@ -17115,6 +17158,9 @@ msgstr "ノートパソコンを閉じても動き続けるクラウドワーク
 msgid "Run commands and navigate the application."
 msgstr "コマンドを実行し、アプリ内を移動します。"
 
+msgid "Run history"
+msgstr "実行履歴"
+
 msgid "Run History"
 msgstr "実行履歴"
 
@@ -17205,8 +17251,14 @@ msgstr "実行中"
 msgid "Running terminal processes continue, but older output may no longer be available after restarting the app."
 msgstr "実行中のターミナルプロセスは継続しますが、アプリ再起動後に古い出力が利用できなくなる場合があります。"
 
+msgid "Runs"
+msgstr "実行"
+
 msgid "Runs a local command on your machine"
 msgstr "マシン上でローカルコマンドを実行します"
+
+msgid "Runs appear here once a workflow fires."
+msgstr "ワークフローが起動すると、実行がここに表示されます。"
 
 msgid "Runs appear here once an automation fires."
 msgstr "オートメーションが起動すると、ここに実行が表示されます。"
@@ -17337,6 +17389,9 @@ msgstr "スキャンして iPhone 用 Paradev をダウンロード"
 
 msgid "Scanning transcript logs…"
 msgstr "トランスクリプトログをスキャン中…"
+
+msgid "schedule"
+msgstr "スケジュール"
 
 msgid "Schedule"
 msgstr "スケジュール"
@@ -17705,6 +17760,9 @@ msgstr "ファイルを選択するとここに表示されます"
 
 msgid "Select a node to configure it."
 msgstr "設定するノードを選択してください。"
+
+msgid "Select a node to see its step."
+msgstr "ステップを見るノードを選択してください。"
 
 msgid "Select a project"
 msgstr "プロジェクトを選択してください"
@@ -18622,6 +18680,9 @@ msgstr "すべてスキップ"
 msgid "Skip for now"
 msgstr "今はスキップ"
 
+msgid "skipped"
+msgstr "スキップ"
+
 msgid "Skipped"
 msgstr "スキップ"
 
@@ -19153,6 +19214,9 @@ msgstr "ステップ 2/2"
 msgid "Steps 3 and 4 repeat until the page is right."
 msgstr "ページが仕上がるまでステップ3と4を繰り返します。"
 
+msgid "Steps that are still running will be stopped. Finished steps keep their results."
+msgstr "実行中のステップは停止されます。完了したステップの結果は保持されます。"
+
 msgid "Still asks in Full access mode"
 msgstr "フルアクセスでも確認が必要です"
 
@@ -19283,6 +19347,9 @@ msgstr "サブスクリプション"
 
 msgid "Subscription"
 msgstr "サブスクリプション"
+
+msgid "succeeded"
+msgstr "成功"
 
 msgid "Success"
 msgstr "成功"
@@ -20826,6 +20893,9 @@ msgstr "最初のワークスペースまでの時間"
 
 msgid "Time zone"
 msgstr "タイムゾーン"
+
+msgid "timed out"
+msgstr "タイムアウト"
 
 msgid "Timeout (minutes)"
 msgstr "タイムアウト（分）"
@@ -22409,6 +22479,9 @@ msgstr "作業時間 {0}分{1}秒"
 
 msgid "Worked for {seconds}s"
 msgstr "作業時間 {seconds}秒"
+
+msgid "Workflow"
+msgstr "ワークフロー"
 
 msgid "Workflow actions"
 msgstr "ワークフローの操作"

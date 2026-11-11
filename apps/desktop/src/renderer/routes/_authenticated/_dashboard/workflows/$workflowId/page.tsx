@@ -3,6 +3,10 @@ import { Trans, useLingui } from "@lingui/react/macro";
 import { i18n } from "@superset/i18n";
 import { errorMessage } from "@superset/i18n/errors";
 import {
+	formatCompactRelativeTime,
+	formatElapsed,
+} from "@superset/i18n/format";
+import {
 	type DraftWorkflowNode,
 	type GraphProblem,
 	validateGraph,
@@ -21,6 +25,7 @@ import {
 import { Button } from "@superset/ui/button";
 import { toast } from "@superset/ui/sonner";
 import { Switch } from "@superset/ui/switch";
+import { cn } from "@superset/ui/utils";
 import { useMutation } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { TRPCClientError } from "@trpc/client";
@@ -32,15 +37,27 @@ import {
 	type EdgeChange,
 	type NodeChange,
 } from "@xyflow/react";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { LuChevronLeft, LuPlay, LuSave } from "react-icons/lu";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+	LuChevronLeft,
+	LuCircleStop,
+	LuHistory,
+	LuPlay,
+	LuSave,
+	LuX,
+} from "react-icons/lu";
+import { useNow } from "renderer/hooks/useNow";
 import { apiTrpcClient } from "renderer/lib/api-trpc-client";
 import { authClient } from "renderer/lib/auth-client";
 import { cloudTrpc } from "renderer/lib/cloud-trpc";
 import { EditableTitle } from "renderer/routes/_authenticated/_dashboard/components/EditableTitle";
+import { isActiveRunStatus, RUN_STATUS_META } from "../utils/runStatus";
 import { NodeConfigPanel } from "./components/NodeConfigPanel";
+import { RunStepPanel, type RunStepRow } from "./components/RunStepPanel";
+import { RunsPanel } from "./components/RunsPanel";
 import { WorkflowCanvas } from "./components/WorkflowCanvas";
 import {
+	applyRunSteps,
 	type CanvasEdge,
 	type CanvasNode,
 	createNode,
@@ -53,6 +70,8 @@ export const Route = createFileRoute(
 	"/_authenticated/_dashboard/workflows/$workflowId/",
 )({
 	component: WorkflowEditorPage,
+	validateSearch: (search: Record<string, unknown>): { runId?: string } =>
+		typeof search.runId === "string" ? { runId: search.runId } : {},
 });
 
 const EMPTY_GRAPH = {
@@ -107,11 +126,37 @@ function problemText(problem: GraphProblem): string {
 function WorkflowEditorPage() {
 	const { t } = useLingui();
 	const { workflowId } = Route.useParams();
+	const { runId } = Route.useSearch();
+	const navigate = Route.useNavigate();
 	const { data: session } = authClient.useSession();
 	const utils = cloudTrpc.useUtils();
+	const now = useNow(10_000);
 
 	const workflowQuery = cloudTrpc.workflow.get.useQuery({ id: workflowId });
 	const workflow = workflowQuery.data;
+
+	const [panelTab, setPanelTab] = useState<"config" | "runs">("config");
+
+	const runQuery = cloudTrpc.workflow.getRun.useQuery(
+		{ runId: runId ?? "" },
+		{
+			enabled: !!runId,
+			refetchInterval: (query) => {
+				const status = query.state.data?.status;
+				return status === undefined || isActiveRunStatus(status) ? 2000 : false;
+			},
+		},
+	);
+	const run = runId ? runQuery.data : undefined;
+
+	// The run executes a pinned version; fetch it when it is not the live one.
+	const liveVersionId = workflow?.liveGraph?.id;
+	const needsPinnedVersion =
+		!!run && !!liveVersionId && run.versionId !== liveVersionId;
+	const pinnedVersionQuery = cloudTrpc.workflow.getVersion.useQuery(
+		{ workflowId, versionId: run?.versionId ?? "" },
+		{ enabled: needsPinnedVersion, staleTime: Number.POSITIVE_INFINITY },
+	);
 
 	const [nodes, setNodes] = useState<CanvasNode[]>([]);
 	const [edges, setEdges] = useState<CanvasEdge[]>([]);
@@ -299,10 +344,72 @@ function WorkflowEditorPage() {
 
 	const runNowMutation = useMutation({
 		mutationFn: () => apiTrpcClient.workflow.runNow.mutate({ workflowId }),
-		onSuccess: () => toast.success(t({ message: "Running now" })),
+		onSuccess: (started) => {
+			toast.success(t({ message: "Running now" }));
+			void utils.workflow.listRuns.invalidate({ workflowId });
+			void navigate({ search: { runId: started.runId } });
+		},
 		onError: (error) =>
 			toast.error(errorMessage(error, t({ message: "Failed to start run" }))),
 	});
+
+	const [cancelOpen, setCancelOpen] = useState(false);
+	const cancelMutation = useMutation({
+		mutationFn: (id: string) =>
+			apiTrpcClient.workflow.cancelRun.mutate({ runId: id }),
+		onSuccess: () => {
+			void utils.workflow.getRun.invalidate({ runId: runId ?? "" });
+			void utils.workflow.listRuns.invalidate({ workflowId });
+		},
+		onError: (error) =>
+			toast.error(errorMessage(error, t({ message: "Failed to cancel run" }))),
+	});
+
+	const exitRunView = useCallback(() => {
+		setSelectedNodeId(null);
+		void navigate({ search: {} });
+	}, [navigate]);
+
+	const selectRun = useCallback(
+		(id: string) => {
+			setSelectedNodeId(null);
+			void navigate({ search: { runId: id } });
+		},
+		[navigate],
+	);
+
+	// Run view renders the pinned graph, decorated with step statuses, instead
+	// of the editable canvas state.
+	const runGraph = useMemo(() => {
+		if (!run) return null;
+		if (needsPinnedVersion) return pinnedVersionQuery.data?.graph ?? null;
+		return workflow?.liveGraph?.graph ?? null;
+	}, [run, needsPinnedVersion, pinnedVersionQuery.data, workflow]);
+
+	const runCanvas = useMemo(() => {
+		if (!run || !runGraph) return null;
+		const decorated = applyRunSteps(
+			toCanvasNodes(runGraph),
+			toCanvasEdges(runGraph),
+			run.steps,
+		);
+		return {
+			nodes: decorated.nodes.map((node) => ({
+				...node,
+				selected: node.id === selectedNodeId,
+			})),
+			edges: decorated.edges,
+		};
+	}, [run, runGraph, selectedNodeId]);
+
+	const selectedStep: RunStepRow | null = useMemo(() => {
+		if (!run || !selectedNodeId) return null;
+		return (
+			(run.steps.find((step) => step.nodeId === selectedNodeId) as
+				| RunStepRow
+				| undefined) ?? null
+		);
+	}, [run, selectedNodeId]);
 
 	if (!workflow) {
 		if (workflowQuery.isPending) return null;
@@ -358,30 +465,115 @@ function WorkflowEditorPage() {
 						<LuSave className="size-3.5" />
 						<Trans>Save</Trans>
 					</Button>
+					<Button
+						variant={panelTab === "runs" ? "secondary" : "ghost"}
+						size="sm"
+						onClick={() =>
+							setPanelTab((tab) => (tab === "runs" ? "config" : "runs"))
+						}
+						aria-label={t({ message: "Run history" })}
+					>
+						<LuHistory className="size-3.5" />
+						<Trans>Runs</Trans>
+					</Button>
 				</div>
 			</div>
 
+			{run && (
+				<div className="flex items-center gap-3 border-b bg-muted/40 px-4 py-1.5 text-sm">
+					<span
+						className={cn(
+							"size-2 rounded-full",
+							RUN_STATUS_META[run.status].dot,
+						)}
+					/>
+					<span className="font-medium">
+						{i18n._(RUN_STATUS_META[run.status].label)}
+					</span>
+					<span className="text-xs text-muted-foreground">
+						{formatCompactRelativeTime(
+							new Date(run.startedAt ?? run.createdAt),
+							now,
+						)}
+						{run.startedAt && run.finishedAt && (
+							<>
+								{" · "}
+								{formatElapsed(
+									new Date(run.startedAt),
+									new Date(run.finishedAt),
+								)}
+							</>
+						)}
+					</span>
+					{run.error && (
+						<span className="min-w-0 truncate text-xs text-red-500">
+							{run.error}
+						</span>
+					)}
+					<div className="ml-auto flex items-center gap-2">
+						{isActiveRunStatus(run.status) && (
+							<Button
+								variant="outline"
+								size="sm"
+								onClick={() => setCancelOpen(true)}
+								disabled={cancelMutation.isPending}
+							>
+								<LuCircleStop className="size-3.5" />
+								<Trans>Cancel run</Trans>
+							</Button>
+						)}
+						<Button variant="ghost" size="sm" onClick={exitRunView}>
+							<LuX className="size-3.5" />
+							<Trans>Back to editor</Trans>
+						</Button>
+					</div>
+				</div>
+			)}
+
 			<div className="flex min-h-0 flex-1">
 				<div className="min-w-0 flex-1">
-					<WorkflowCanvas
-						nodes={nodes}
-						edges={edges}
-						onNodesChange={onNodesChange}
-						onEdgesChange={onEdgesChange}
-						onConnect={onConnect}
-						onSelectNode={setSelectedNodeId}
-						onAddNode={onAddNode}
-						readOnly={readOnly}
-					/>
+					{run && runCanvas ? (
+						<WorkflowCanvas
+							nodes={runCanvas.nodes}
+							edges={runCanvas.edges}
+							onNodesChange={() => {}}
+							onEdgesChange={() => {}}
+							onConnect={() => {}}
+							onSelectNode={setSelectedNodeId}
+							onAddNode={() => {}}
+							readOnly
+						/>
+					) : (
+						<WorkflowCanvas
+							nodes={nodes}
+							edges={edges}
+							onNodesChange={onNodesChange}
+							onEdgesChange={onEdgesChange}
+							onConnect={onConnect}
+							onSelectNode={setSelectedNodeId}
+							onAddNode={onAddNode}
+							readOnly={readOnly}
+						/>
+					)}
 				</div>
 				<div className="w-80 shrink-0 border-l">
-					<NodeConfigPanel
-						workflowId={workflowId}
-						node={selectedNode}
-						onChangeNode={onChangeNode}
-						onDeleteNode={onDeleteNode}
-						readOnly={readOnly}
-					/>
+					{panelTab === "runs" ? (
+						<RunsPanel
+							workflowId={workflowId}
+							selectedRunId={runId ?? null}
+							onSelectRun={selectRun}
+						/>
+					) : run ? (
+						<RunStepPanel step={selectedStep} />
+					) : (
+						<NodeConfigPanel
+							workflowId={workflowId}
+							node={selectedNode}
+							onChangeNode={onChangeNode}
+							onDeleteNode={onDeleteNode}
+							readOnly={readOnly}
+						/>
+					)}
 				</div>
 			</div>
 
@@ -405,6 +597,34 @@ function WorkflowEditorPage() {
 						</AlertDialogCancel>
 						<AlertDialogAction onClick={reloadLatest}>
 							<Trans>Reload latest</Trans>
+						</AlertDialogAction>
+					</AlertDialogFooter>
+				</AlertDialogContent>
+			</AlertDialog>
+
+			<AlertDialog open={cancelOpen} onOpenChange={setCancelOpen}>
+				<AlertDialogContent>
+					<AlertDialogHeader>
+						<AlertDialogTitle>
+							<Trans>Cancel this run?</Trans>
+						</AlertDialogTitle>
+						<AlertDialogDescription>
+							<Trans>
+								Steps that are still running will be stopped. Finished steps
+								keep their results.
+							</Trans>
+						</AlertDialogDescription>
+					</AlertDialogHeader>
+					<AlertDialogFooter>
+						<AlertDialogCancel>
+							<Trans>Keep running</Trans>
+						</AlertDialogCancel>
+						<AlertDialogAction
+							onClick={() => {
+								if (runId) cancelMutation.mutate(runId);
+							}}
+						>
+							<Trans>Cancel run</Trans>
 						</AlertDialogAction>
 					</AlertDialogFooter>
 				</AlertDialogContent>

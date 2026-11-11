@@ -2627,6 +2627,9 @@ msgstr "Tüm zamanlar"
 msgid "All updates"
 msgstr "Tüm güncellemeler"
 
+msgid "All workflow runs"
+msgstr "Tüm iş akışı çalıştırmaları"
+
 msgid "All workspaces"
 msgstr "Tüm çalışma alanları"
 
@@ -3245,6 +3248,10 @@ msgstr "Ek yüklenmedi — önce verileri gönderin"
 msgid "Attachments need an online host"
 msgstr "Ekler için çevrimiçi bir host gerekir"
 
+#. placeholder {0}: step.attempt
+msgid "attempt {0}"
+msgstr "deneme {0}"
+
 msgid "Attempt before checks pass"
 msgstr "Kontroller geçmeden dene"
 
@@ -3445,6 +3452,9 @@ msgstr "Kontrol listesine dön"
 
 msgid "Back to current"
 msgstr "Güncel sürüme dön"
+
+msgid "Back to editor"
+msgstr "Düzenleyiciye dön"
 
 msgid "Back to GitHub issues"
 msgstr "GitHub issue'larına dön"
@@ -4009,8 +4019,17 @@ msgstr "Planı iptal et"
 msgid "Cancel reply"
 msgstr "Yanıtı iptal et"
 
+msgid "Cancel run"
+msgstr "Çalıştırmayı iptal et"
+
 msgid "Cancel the automatic resume"
 msgstr "Otomatik devam etmeyi iptal et"
+
+msgid "Cancel this run?"
+msgstr "Bu çalıştırma iptal edilsin mi?"
+
+msgid "canceled"
+msgstr "iptal edildi"
 
 msgid "Canceled"
 msgstr "İptal edildi"
@@ -6081,6 +6100,9 @@ msgstr "Bağlanılamadı (hata {status}). Lütfen tekrar deneyin."
 msgid "Couldn't convert to draft"
 msgstr "Taslağa dönüştürülemedi"
 
+msgid "Couldn't copy"
+msgstr "Kopyalanamadı"
+
 msgid "Couldn't copy comment"
 msgstr "Yorum kopyalanamadı"
 
@@ -8027,6 +8049,9 @@ msgstr "kapatmak için esc"
 msgid "esc to exit"
 msgstr "çıkmak için esc"
 
+msgid "event"
+msgstr "olay"
+
 msgid "Event"
 msgstr "Olay"
 
@@ -8324,6 +8349,9 @@ msgstr "İş akışı arşivlenemedi"
 
 msgid "Failed to cancel invitation"
 msgstr "Davet iptal edilemedi"
+
+msgid "Failed to cancel run"
+msgstr "Çalıştırma iptal edilemedi"
 
 msgid "Failed to change base branch"
 msgstr "Temel dal değiştirilemedi"
@@ -10881,6 +10909,9 @@ msgstr "Düzenlemeye devam et"
 msgid "Keep paused"
 msgstr "Duraklatılmış kalsın"
 
+msgid "Keep running"
+msgstr "Çalışmaya devam et"
+
 msgid "Keep typing an email to invite"
 msgstr "Davet etmek için e-postayı yazmaya devam edin"
 
@@ -11748,6 +11779,9 @@ msgstr "Yöneten"
 
 msgid "Managed by your organization admin."
 msgstr "Kuruluş yöneticiniz tarafından yönetiliyor."
+
+msgid "manual"
+msgstr "manuel"
 
 msgid "Manual"
 msgstr "Elle"
@@ -13158,6 +13192,9 @@ msgstr "Bana uyan bir pozisyon yok. Yine de iletişime geçmeli miyim?"
 
 msgid "No runs yet"
 msgstr "Henüz çalıştırma yok"
+
+msgid "No runs yet. Use Run now to start one."
+msgstr "Henüz çalıştırma yok. Başlatmak için «Şimdi çalıştır»ı kullanın."
 
 msgid "No screenshots yet"
 msgstr "Henüz ekran görüntüsü yok"
@@ -14894,6 +14931,9 @@ msgstr "PDF"
 
 msgid "Peak pace"
 msgstr "Zirve hız"
+
+msgid "pending"
+msgstr "beklemede"
 
 msgid "Pending Invitations"
 msgstr "Bekleyen davetler"
@@ -16828,6 +16868,9 @@ msgstr "Geri yükleniyor…"
 msgid "Result"
 msgstr "Sonuç"
 
+msgid "Result JSON"
+msgstr "Sonuç JSON'u"
+
 msgid "Results"
 msgstr "Sonuçlar"
 
@@ -17115,6 +17158,9 @@ msgstr "Kodlama ajanlarını, dizüstünüz kapalıyken de çalışmaya devam ed
 msgid "Run commands and navigate the application."
 msgstr "Komutları çalıştırın ve uygulamada gezinin."
 
+msgid "Run history"
+msgstr "Çalıştırma geçmişi"
+
 msgid "Run History"
 msgstr "Çalıştırma geçmişi"
 
@@ -17205,8 +17251,14 @@ msgstr "Şimdi çalıştırılıyor"
 msgid "Running terminal processes continue, but older output may no longer be available after restarting the app."
 msgstr "Çalışan terminal süreçleri devam eder, ancak uygulama yeniden başlatıldıktan sonra eski çıktı artık kullanılamayabilir."
 
+msgid "Runs"
+msgstr "Çalıştırmalar"
+
 msgid "Runs a local command on your machine"
 msgstr "Makinenizde yerel bir komut çalıştırır"
+
+msgid "Runs appear here once a workflow fires."
+msgstr "Bir iş akışı tetiklendiğinde çalıştırmalar burada görünür."
 
 msgid "Runs appear here once an automation fires."
 msgstr "Bir otomasyon tetiklendiğinde çalıştırmalar burada görünür."
@@ -17337,6 +17389,9 @@ msgstr "iPhone için Paradev’i indirmek üzere tarayın"
 
 msgid "Scanning transcript logs…"
 msgstr "Kayıt günlükleri taranıyor…"
+
+msgid "schedule"
+msgstr "zamanlama"
 
 msgid "Schedule"
 msgstr "Zamanlama"
@@ -17705,6 +17760,9 @@ msgstr "Burada görüntülemek için bir dosya seçin"
 
 msgid "Select a node to configure it."
 msgstr "Yapılandırmak için bir düğüm seçin."
+
+msgid "Select a node to see its step."
+msgstr "Adımını görmek için bir düğüm seçin."
 
 msgid "Select a project"
 msgstr "Bir proje seçin"
@@ -18622,6 +18680,9 @@ msgstr "Tümünü atla"
 msgid "Skip for now"
 msgstr "Şimdilik atla"
 
+msgid "skipped"
+msgstr "atlandı"
+
 msgid "Skipped"
 msgstr "Atlandı"
 
@@ -19153,6 +19214,9 @@ msgstr "Adım 2/2"
 msgid "Steps 3 and 4 repeat until the page is right."
 msgstr "Sayfa doğru olana kadar 3. ve 4. adımlar tekrarlanır."
 
+msgid "Steps that are still running will be stopped. Finished steps keep their results."
+msgstr "Hâlâ çalışan adımlar durdurulur. Tamamlanan adımlar sonuçlarını korur."
+
 msgid "Still asks in Full access mode"
 msgstr "Tam erişim modunda bile sorar"
 
@@ -19283,6 +19347,9 @@ msgstr "abonelik"
 
 msgid "Subscription"
 msgstr "Abonelik"
+
+msgid "succeeded"
+msgstr "başarılı"
 
 msgid "Success"
 msgstr "Başarılı"
@@ -20826,6 +20893,9 @@ msgstr "İlk çalışma alanına kadar geçen süre"
 
 msgid "Time zone"
 msgstr "Saat dilimi"
+
+msgid "timed out"
+msgstr "zaman aşımı"
 
 msgid "Timeout (minutes)"
 msgstr "Zaman aşımı (dakika)"
@@ -22409,6 +22479,9 @@ msgstr "{0} dk {1} sn çalıştı"
 
 msgid "Worked for {seconds}s"
 msgstr "{seconds} sn çalıştı"
+
+msgid "Workflow"
+msgstr "İş akışı"
 
 msgid "Workflow actions"
 msgstr "İş akışı eylemleri"

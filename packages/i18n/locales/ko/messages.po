@@ -2627,6 +2627,9 @@ msgstr "전체 기간"
 msgid "All updates"
 msgstr "모든 업데이트"
 
+msgid "All workflow runs"
+msgstr "모든 워크플로 실행"
+
 msgid "All workspaces"
 msgstr "모든 워크스페이스"
 
@@ -3245,6 +3248,10 @@ msgstr "첨부 파일이 업로드되지 않았습니다 — 먼저 데이터를
 msgid "Attachments need an online host"
 msgstr "첨부하려면 호스트가 온라인이어야 합니다"
 
+#. placeholder {0}: step.attempt
+msgid "attempt {0}"
+msgstr "시도 {0}"
+
 msgid "Attempt before checks pass"
 msgstr "검사 통과 전에 시도"
 
@@ -3445,6 +3452,9 @@ msgstr "체크리스트로 돌아가기"
 
 msgid "Back to current"
 msgstr "현재 버전으로 돌아가기"
+
+msgid "Back to editor"
+msgstr "편집기로 돌아가기"
 
 msgid "Back to GitHub issues"
 msgstr "GitHub 이슈로 돌아가기"
@@ -4009,8 +4019,17 @@ msgstr "플랜 해지"
 msgid "Cancel reply"
 msgstr "답글 취소"
 
+msgid "Cancel run"
+msgstr "실행 취소"
+
 msgid "Cancel the automatic resume"
 msgstr "자동 재개 취소"
+
+msgid "Cancel this run?"
+msgstr "이 실행을 취소할까요?"
+
+msgid "canceled"
+msgstr "취소됨"
 
 msgid "Canceled"
 msgstr "취소됨"
@@ -6081,6 +6100,9 @@ msgstr "연결하지 못했어요(오류 {status}). 다시 시도해 주세요."
 msgid "Couldn't convert to draft"
 msgstr "초안으로 전환할 수 없습니다"
 
+msgid "Couldn't copy"
+msgstr "복사하지 못했습니다"
+
 msgid "Couldn't copy comment"
 msgstr "코멘트를 복사하지 못했습니다"
 
@@ -8027,6 +8049,9 @@ msgstr "esc로 닫기"
 msgid "esc to exit"
 msgstr "esc로 종료"
 
+msgid "event"
+msgstr "이벤트"
+
 msgid "Event"
 msgstr "이벤트"
 
@@ -8324,6 +8349,9 @@ msgstr "워크플로를 보관하지 못했습니다"
 
 msgid "Failed to cancel invitation"
 msgstr "초대를 취소하지 못했습니다"
+
+msgid "Failed to cancel run"
+msgstr "실행을 취소하지 못했습니다"
 
 msgid "Failed to change base branch"
 msgstr "기준 브랜치를 변경하지 못했습니다"
@@ -10881,6 +10909,9 @@ msgstr "계속 편집"
 msgid "Keep paused"
 msgstr "일시 중지 상태로 두기"
 
+msgid "Keep running"
+msgstr "계속 실행"
+
 msgid "Keep typing an email to invite"
 msgstr "초대하려면 이메일을 계속 입력하세요"
 
@@ -11748,6 +11779,9 @@ msgstr "관리자"
 
 msgid "Managed by your organization admin."
 msgstr "조직 관리자가 관리합니다."
+
+msgid "manual"
+msgstr "수동"
 
 msgid "Manual"
 msgstr "수동"
@@ -13158,6 +13192,9 @@ msgstr "맞는 포지션이 없어요. 그래도 연락해도 될까요?"
 
 msgid "No runs yet"
 msgstr "아직 실행 기록이 없습니다"
+
+msgid "No runs yet. Use Run now to start one."
+msgstr "아직 실행 기록이 없습니다. \"지금 실행\"으로 시작하세요."
 
 msgid "No screenshots yet"
 msgstr "아직 스크린샷이 없습니다"
@@ -14894,6 +14931,9 @@ msgstr "PDF"
 
 msgid "Peak pace"
 msgstr "최고 속도"
+
+msgid "pending"
+msgstr "대기 중"
 
 msgid "Pending Invitations"
 msgstr "대기 중인 초대"
@@ -16828,6 +16868,9 @@ msgstr "복원 중…"
 msgid "Result"
 msgstr "결과"
 
+msgid "Result JSON"
+msgstr "결과 JSON"
+
 msgid "Results"
 msgstr "결과"
 
@@ -17115,6 +17158,9 @@ msgstr "노트북을 덮어도 계속 작업하는 클라우드 워크스페이�
 msgid "Run commands and navigate the application."
 msgstr "명령을 실행하고 앱을 탐색합니다."
 
+msgid "Run history"
+msgstr "실행 기록"
+
 msgid "Run History"
 msgstr "실행 기록"
 
@@ -17205,8 +17251,14 @@ msgstr "지금 실행 중"
 msgid "Running terminal processes continue, but older output may no longer be available after restarting the app."
 msgstr "실행 중인 터미널 프로세스는 계속되지만, 앱을 다시 시작한 뒤에는 이전 출력을 볼 수 없을 수 있습니다."
 
+msgid "Runs"
+msgstr "실행"
+
 msgid "Runs a local command on your machine"
 msgstr "내 컴퓨터에서 로컬 명령을 실행합니다"
+
+msgid "Runs appear here once a workflow fires."
+msgstr "워크플로가 실행되면 여기에 표시됩니다."
 
 msgid "Runs appear here once an automation fires."
 msgstr "자동화가 실행되면 여기에 표시됩니다."
@@ -17337,6 +17389,9 @@ msgstr "스캔하여 iPhone용 Paradev 다운로드"
 
 msgid "Scanning transcript logs…"
 msgstr "트랜스크립트 로그를 스캔하는 중…"
+
+msgid "schedule"
+msgstr "일정"
 
 msgid "Schedule"
 msgstr "일정"
@@ -17705,6 +17760,9 @@ msgstr "파일을 선택하면 여기에 표시됩니다"
 
 msgid "Select a node to configure it."
 msgstr "설정할 노드를 선택하세요."
+
+msgid "Select a node to see its step."
+msgstr "단계를 보려면 노드를 선택하세요."
 
 msgid "Select a project"
 msgstr "프로젝트를 선택하세요"
@@ -18622,6 +18680,9 @@ msgstr "모두 건너뛰기"
 msgid "Skip for now"
 msgstr "지금은 건너뛰기"
 
+msgid "skipped"
+msgstr "건너뜀"
+
 msgid "Skipped"
 msgstr "건너뜀"
 
@@ -19153,6 +19214,9 @@ msgstr "2단계 중 2단계"
 msgid "Steps 3 and 4 repeat until the page is right."
 msgstr "페이지가 완성될 때까지 3단계와 4단계를 반복합니다."
 
+msgid "Steps that are still running will be stopped. Finished steps keep their results."
+msgstr "아직 실행 중인 단계는 중지됩니다. 완료된 단계의 결과는 유지됩니다."
+
 msgid "Still asks in Full access mode"
 msgstr "전체 액세스 모드에서도 확인을 요청합니다"
 
@@ -19283,6 +19347,9 @@ msgstr "구독"
 
 msgid "Subscription"
 msgstr "구독"
+
+msgid "succeeded"
+msgstr "성공"
 
 msgid "Success"
 msgstr "성공"
@@ -20826,6 +20893,9 @@ msgstr "첫 워크스페이스까지 걸린 시간"
 
 msgid "Time zone"
 msgstr "시간대"
+
+msgid "timed out"
+msgstr "시간 초과"
 
 msgid "Timeout (minutes)"
 msgstr "시간 제한(분)"
@@ -22409,6 +22479,9 @@ msgstr "{0}분 {1}초 동안 작업함"
 
 msgid "Worked for {seconds}s"
 msgstr "{seconds}초 동안 작업함"
+
+msgid "Workflow"
+msgstr "워크플로"
 
 msgid "Workflow actions"
 msgstr "워크플로 작업"
