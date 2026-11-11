@@ -51,11 +51,18 @@ import { apiTrpcClient } from "renderer/lib/api-trpc-client";
 import { authClient } from "renderer/lib/auth-client";
 import { cloudTrpc } from "renderer/lib/cloud-trpc";
 import { EditableTitle } from "renderer/routes/_authenticated/_dashboard/components/EditableTitle";
+import { ResizablePanel } from "renderer/screens/main/components/ResizablePanel";
 import { isActiveRunStatus, RUN_STATUS_META } from "../utils/runStatus";
 import { NodeConfigPanel } from "./components/NodeConfigPanel";
 import { RunStepPanel, type RunStepRow } from "./components/RunStepPanel";
 import { RunsPanel } from "./components/RunsPanel";
 import { WorkflowCanvas } from "./components/WorkflowCanvas";
+import {
+	DEFAULT_WORKFLOW_SIDE_PANEL_WIDTH,
+	MAX_WORKFLOW_SIDE_PANEL_WIDTH,
+	MIN_WORKFLOW_SIDE_PANEL_WIDTH,
+	useWorkflowSidePanelStore,
+} from "./stores/workflowSidePanelStore";
 import {
 	applyRunSteps,
 	type CanvasEdge,
@@ -136,6 +143,8 @@ function WorkflowEditorPage() {
 	const workflow = workflowQuery.data;
 
 	const [panelTab, setPanelTab] = useState<"config" | "runs">("config");
+	const sidePanelWidth = useWorkflowSidePanelStore((s) => s.width);
+	const setSidePanelWidth = useWorkflowSidePanelStore((s) => s.setWidth);
 
 	const runQuery = cloudTrpc.workflow.getRun.useQuery(
 		{ runId: runId ?? "" },
@@ -161,6 +170,10 @@ function WorkflowEditorPage() {
 	const [nodes, setNodes] = useState<CanvasNode[]>([]);
 	const [edges, setEdges] = useState<CanvasEdge[]>([]);
 	const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
+	const selectNode = useCallback((nodeId: string | null) => {
+		setSelectedNodeId(nodeId);
+		if (nodeId) setPanelTab("config");
+	}, []);
 	const [dirty, setDirty] = useState(false);
 	const [conflictOpen, setConflictOpen] = useState(false);
 	// The version the loaded graph was built on; saves race against it.
@@ -539,7 +552,7 @@ function WorkflowEditorPage() {
 							onNodesChange={() => {}}
 							onEdgesChange={() => {}}
 							onConnect={() => {}}
-							onSelectNode={setSelectedNodeId}
+							onSelectNode={selectNode}
 							onAddNode={() => {}}
 							readOnly
 						/>
@@ -550,13 +563,23 @@ function WorkflowEditorPage() {
 							onNodesChange={onNodesChange}
 							onEdgesChange={onEdgesChange}
 							onConnect={onConnect}
-							onSelectNode={setSelectedNodeId}
+							onSelectNode={selectNode}
 							onAddNode={onAddNode}
 							readOnly={readOnly}
 						/>
 					)}
 				</div>
-				<div className="w-[360px] shrink-0 border-l">
+				<ResizablePanel
+					width={sidePanelWidth}
+					onWidthChange={setSidePanelWidth}
+					minWidth={MIN_WORKFLOW_SIDE_PANEL_WIDTH}
+					maxWidth={MAX_WORKFLOW_SIDE_PANEL_WIDTH}
+					handleSide="left"
+					commitOnRelease
+					onDoubleClickHandle={() =>
+						setSidePanelWidth(DEFAULT_WORKFLOW_SIDE_PANEL_WIDTH)
+					}
+				>
 					{panelTab === "runs" ? (
 						<RunsPanel
 							workflowId={workflowId}
@@ -576,7 +599,7 @@ function WorkflowEditorPage() {
 							readOnly={readOnly}
 						/>
 					)}
-				</div>
+				</ResizablePanel>
 			</div>
 
 			<AlertDialog open={conflictOpen} onOpenChange={setConflictOpen}>

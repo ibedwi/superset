@@ -183,6 +183,10 @@ export const PERSISTED_KEY_REGISTRY: ReadonlyArray<
 		["pull-requests-split-view-state"],
 	],
 	[
+		"src/renderer/routes/_authenticated/_dashboard/workflows/$workflowId/stores/workflowSidePanelStore/workflowSidePanelStore.ts",
+		["workflow-side-panel-state"],
+	],
+	[
 		"src/renderer/components/PostHogUserIdentifier/PostHogUserIdentifier.tsx",
 		["active_organization_id"],
 	],

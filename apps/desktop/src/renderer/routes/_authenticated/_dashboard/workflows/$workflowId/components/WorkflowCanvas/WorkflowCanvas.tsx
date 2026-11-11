@@ -87,9 +87,8 @@ export function WorkflowCanvas({
 			onEdgesChange={onEdgesChange}
 			onConnect={onConnect}
 			isValidConnection={isValidConnection}
-			onSelectionChange={({ nodes: selected }) =>
-				onSelectNode(selected[0]?.id ?? null)
-			}
+			onNodeClick={(_, node) => onSelectNode(node.id)}
+			onPaneClick={() => onSelectNode(null)}
 			nodesDraggable={!readOnly}
 			nodesConnectable={!readOnly}
 			elementsSelectable
