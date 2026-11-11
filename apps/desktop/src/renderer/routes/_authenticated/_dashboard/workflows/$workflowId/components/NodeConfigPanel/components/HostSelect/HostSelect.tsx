@@ -1,4 +1,3 @@
-import { useLingui } from "@lingui/react/macro";
 import { CLOUD_HOST_ID } from "@superset/shared/host-routing";
 import {
 	Select,
@@ -22,23 +21,18 @@ export function HostSelect({
 	allowCloud,
 	disabled,
 }: HostSelectProps) {
-	const { t } = useLingui();
 	const { localHostId, currentDeviceName, otherHosts } =
 		useWorkspaceHostOptions();
 	return (
 		<Select value={value ?? ""} onValueChange={onChange} disabled={disabled}>
 			<SelectTrigger size="sm" className="w-full">
-				<SelectValue placeholder={t({ message: "Select a device" })} />
+				<SelectValue placeholder="Select a device" />
 			</SelectTrigger>
 			<SelectContent>
-				{allowCloud && (
-					<SelectItem value={CLOUD_HOST_ID}>
-						{t({ message: "Cloud" })}
-					</SelectItem>
-				)}
+				{allowCloud && <SelectItem value={CLOUD_HOST_ID}>Cloud</SelectItem>}
 				{localHostId && (
 					<SelectItem value={localHostId}>
-						{currentDeviceName ?? t({ message: "This device" })}
+						{currentDeviceName ?? "This device"}
 					</SelectItem>
 				)}
 				{otherHosts.map((host) => (

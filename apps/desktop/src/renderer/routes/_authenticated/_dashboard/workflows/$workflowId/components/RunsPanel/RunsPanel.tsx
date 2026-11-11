@@ -1,5 +1,3 @@
-import { Trans } from "@lingui/react/macro";
-import { i18n } from "@superset/i18n";
 import {
 	formatCompactRelativeTime,
 	formatElapsed,
@@ -57,7 +55,7 @@ export function RunsPanel({
 	if (runs.length === 0) {
 		return (
 			<div className="flex h-full items-center justify-center p-6 text-center text-sm text-muted-foreground">
-				<Trans>No runs yet. Use Run now to start one.</Trans>
+				No runs yet. Use Run now to start one.
 			</div>
 		);
 	}
@@ -80,15 +78,13 @@ export function RunsPanel({
 							>
 								<span className="flex items-center gap-2">
 									<span className={cn("size-2 rounded-full", meta.dot)} />
-									<span className="text-sm font-medium">
-										{i18n._(meta.label)}
-									</span>
+									<span className="text-sm font-medium">{meta.label}</span>
 									<span className="ml-auto text-xs text-muted-foreground">
 										{formatCompactRelativeTime(new Date(started), now)}
 									</span>
 								</span>
 								<span className="flex items-center gap-2 text-xs text-muted-foreground">
-									<span>{i18n._(RUN_CAUSE_LABELS[runCause(run)])}</span>
+									<span>{RUN_CAUSE_LABELS[runCause(run)]}</span>
 									{run.startedAt && run.finishedAt && (
 										<span>
 											{formatElapsed(
@@ -111,11 +107,7 @@ export function RunsPanel({
 						disabled={isFetchingNextPage}
 						onClick={() => void fetchNextPage()}
 					>
-						{isFetchingNextPage ? (
-							<Trans>Loading…</Trans>
-						) : (
-							<Trans>Load more</Trans>
-						)}
+						{isFetchingNextPage ? "Loading…" : "Load more"}
 					</Button>
 				</div>
 			)}

@@ -1,4 +1,3 @@
-import { Trans } from "@lingui/react/macro";
 import { cn } from "@superset/ui/utils";
 
 interface ConfigStateLineProps {
@@ -19,11 +18,9 @@ export function ConfigStateLine({
 					: "text-muted-foreground",
 			)}
 		>
-			{configured ? (
-				<Trans>Configured · {timeoutMinutes} min limit</Trans>
-			) : (
-				<Trans>Needs configuration</Trans>
-			)}
+			{configured
+				? `Configured · ${timeoutMinutes} min limit`
+				: "Needs configuration"}
 		</div>
 	);
 }

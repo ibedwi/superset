@@ -1,4 +1,3 @@
-import { Trans, useLingui } from "@lingui/react/macro";
 import { formatList } from "@superset/i18n/format";
 import {
 	getAgentEfforts,
@@ -38,7 +37,6 @@ export function AgentNodeForm({
 	onChange,
 	disabled,
 }: AgentNodeFormProps) {
-	const { t } = useLingui();
 	const hostId = config.target?.hostId;
 	const { agents } = useWorkflowAgentChoices(hostId);
 	const agent = agents.find((candidate) => candidate.id === config.agent);
@@ -51,28 +49,24 @@ export function AgentNodeForm({
 	const modelLabel = config.model
 		? (modelSupport?.models.find((model) => model.id === config.model)?.label ??
 			config.model)
-		: t({ message: "Default model" });
+		: "Default model";
 	const effortLabel =
 		efforts.find((option) => option.id === selectedEffort)?.label ??
-		t({ message: "Default effort" });
+		"Default effort";
 	const timeoutMinutes = config.timeoutMinutes ?? DEFAULT_TIMEOUT_MINUTES;
 	const missing = [
-		!hostId && t({ message: "device" }),
-		!config.agent && t({ message: "agent" }),
-		!config.prompt && t({ message: "prompt" }),
+		!hostId && "device",
+		!config.agent && "agent",
+		!config.prompt && "prompt",
 	].filter((field): field is string => !!field);
 	const missingText = formatList(missing);
 
 	return (
 		<div className="flex flex-col gap-4">
-			<PanelSectionLabel>
-				<Trans>Execution</Trans>
-			</PanelSectionLabel>
+			<PanelSectionLabel>Execution</PanelSectionLabel>
 
 			<div className="flex flex-col gap-1.5">
-				<Label>
-					<Trans>Run on</Trans>
-				</Label>
+				<Label>Run on</Label>
 				<HostSelect
 					value={hostId}
 					onChange={(nextHostId) =>
@@ -88,14 +82,12 @@ export function AgentNodeForm({
 					disabled={disabled}
 				/>
 				<p className="text-xs text-muted-foreground">
-					<Trans>Changing device clears agent, model and effort.</Trans>
+					Changing device clears agent, model and effort.
 				</p>
 			</div>
 
 			<div className="flex flex-col gap-1.5">
-				<Label>
-					<Trans>Agent</Trans>
-				</Label>
+				<Label>Agent</Label>
 				<Select
 					value={config.agent || ""}
 					onValueChange={(agent) =>
@@ -105,11 +97,7 @@ export function AgentNodeForm({
 				>
 					<SelectTrigger size="sm" className="w-full">
 						<SelectValue
-							placeholder={
-								hostId
-									? t({ message: "Select an agent" })
-									: t({ message: "Choose a device first" })
-							}
+							placeholder={hostId ? "Select an agent" : "Choose a device first"}
 						/>
 					</SelectTrigger>
 					<SelectContent>
@@ -121,20 +109,18 @@ export function AgentNodeForm({
 					</SelectContent>
 				</Select>
 				<p className="text-xs text-muted-foreground">
-					<Trans>Available agents depend on the selected device.</Trans>
+					Available agents depend on the selected device.
 				</p>
 			</div>
 
 			{modelSupport && (
 				<DisclosureSection
 					boxed
-					title={<Trans>Launch options</Trans>}
+					title="Launch options"
 					summary={`${modelLabel} · ${effortLabel}`}
 				>
 					<div className="flex flex-col gap-1.5">
-						<Label>
-							<Trans>Model</Trans>
-						</Label>
+						<Label>Model</Label>
 						<AgentModelSelect
 							models={modelSupport.models}
 							value={config.model ?? null}
@@ -151,16 +137,14 @@ export function AgentNodeForm({
 											: undefined,
 								})
 							}
-							defaultLabel={t({ message: "Default model" })}
+							defaultLabel="Default model"
 							triggerClassName="w-full h-8"
 							disabled={disabled}
 						/>
 					</div>
 					{efforts.length > 0 && (
 						<div className="flex flex-col gap-1.5">
-							<Label>
-								<Trans>Effort</Trans>
-							</Label>
+							<Label>Effort</Label>
 							<Select
 								value={selectedEffort ?? "__default__"}
 								onValueChange={(effort) =>
@@ -175,9 +159,7 @@ export function AgentNodeForm({
 									<SelectValue />
 								</SelectTrigger>
 								<SelectContent>
-									<SelectItem value="__default__">
-										<Trans>Default effort</Trans>
-									</SelectItem>
+									<SelectItem value="__default__">Default effort</SelectItem>
 									{efforts.map((effort) => (
 										<SelectItem key={effort.id} value={effort.id}>
 											{effort.label}
@@ -193,17 +175,13 @@ export function AgentNodeForm({
 			<div className="border-t" />
 
 			<div className="flex flex-col gap-1.5">
-				<Label>
-					<Trans>Prompt</Trans>
-				</Label>
+				<Label>Prompt</Label>
 				<Textarea
 					value={config.prompt ?? ""}
 					onChange={(event) =>
 						onChange({ ...config, prompt: event.target.value })
 					}
-					placeholder={t({
-						message: "What should the agent do?",
-					})}
+					placeholder="What should the agent do?"
 					rows={8}
 					disabled={disabled}
 					className="min-h-36 text-sm"
@@ -211,18 +189,16 @@ export function AgentNodeForm({
 			</div>
 
 			<DisclosureSection
-				title={<Trans>Limits</Trans>}
+				title="Limits"
 				summary={
-					timeoutMinutes === DEFAULT_TIMEOUT_MINUTES ? (
-						<Trans>Timeout {timeoutMinutes} min · Default</Trans>
-					) : (
-						<Trans>Timeout {timeoutMinutes} min</Trans>
-					)
+					timeoutMinutes === DEFAULT_TIMEOUT_MINUTES
+						? `Timeout ${timeoutMinutes} min · Default`
+						: `Timeout ${timeoutMinutes} min`
 				}
 			>
 				<BoundedNumberField
-					label={<Trans>Timeout</Trans>}
-					unit={<Trans>minutes</Trans>}
+					label="Timeout"
+					unit="minutes"
 					value={timeoutMinutes}
 					min={1}
 					max={240}
@@ -246,17 +222,15 @@ export function AgentNodeForm({
 					{missing.length === 0 ? (
 						<>
 							<LuCheck className="size-3.5" />
-							<Trans>Required fields complete</Trans>
+							Required fields complete
 						</>
 					) : (
-						<Trans>Missing: {missingText}</Trans>
+						`Missing: ${missingText}`
 					)}
 				</div>
 				<p className="text-xs text-muted-foreground">
-					<Trans>
-						Configuration check only; availability is checked when the workflow
-						runs.
-					</Trans>
+					Configuration check only; availability is checked when the workflow
+					runs.
 				</p>
 			</div>
 		</div>

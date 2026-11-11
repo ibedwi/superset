@@ -469,10 +469,6 @@ msgstr "{0} uitgeschakeld"
 msgid "{0} Documentation"
 msgstr "Documentatie van {0}"
 
-#. placeholder {0}: i18n._(LLM_EFFORT_LABELS[config.effort])
-msgid "{0} effort"
-msgstr "{0}-inspanning"
-
 #. placeholder {0}: skill.name
 #. placeholder {0}: variables.name
 msgid "{0} enabled"
@@ -888,9 +884,6 @@ msgstr "{count, plural, one {# opmerking} other {# opmerkingen}}"
 msgid "{count, plural, one {# file} other {# files}}"
 msgstr "{count, plural, one {# bestand} other {# bestanden}}"
 
-msgid "{count, plural, one {# header} other {# headers}}"
-msgstr "{count, plural, one {# header} other {# headers}}"
-
 msgid "{count, plural, one {# new message} other {# new messages}}"
 msgstr "{count, plural, one {# nieuw bericht} other {# nieuwe berichten}}"
 
@@ -995,9 +988,6 @@ msgstr "{current} van {total}+"
 
 msgid "{currentPage} of {totalBranches}"
 msgstr "{currentPage} van {totalBranches}"
-
-msgid "{day}, {time}"
-msgstr "{day}, {time}"
 
 msgid "{days} at {time}"
 msgstr "{days} om {time}"
@@ -1355,14 +1345,8 @@ msgstr "Nog {remaining} tokens over"
 msgid "{restoredCount, plural, one {Undid the changes to # file.} other {Undid the changes to # files.}}"
 msgstr "{restoredCount, plural, one {Wijzigingen in # bestand ongedaan gemaakt.} other {Wijzigingen in # bestanden ongedaan gemaakt.}}"
 
-msgid "{scheduleCount, plural, one {Manual + # schedule} other {Manual + # schedules}}"
-msgstr "{scheduleCount, plural, one {Handmatig + # schema} other {Handmatig + # schema's}}"
-
 msgid "{seconds}s"
 msgstr "{seconds} s"
-
-msgid "{seconds}s timeout"
-msgstr "Time-out {seconds} s"
 
 msgid "{selectedCount} selected"
 msgstr "{selectedCount} geselecteerd"
@@ -1407,9 +1391,6 @@ msgstr "{teardownFailureCount, plural, one {Toch verwijderen} other {Toch # verw
 
 msgid "{threshold, plural, one {# agent PR merged} other {# agent PRs merged}}"
 msgstr "{threshold, plural, one {# agent-PR gemerged} other {# agent-PR's gemerged}}"
-
-msgid "{timeoutMinutes} min"
-msgstr "{timeoutMinutes} min"
 
 msgid "{toolName} interrupted"
 msgstr "{toolName} onderbroken"
@@ -1654,9 +1635,6 @@ msgstr "1 u"
 
 msgid "1 user"
 msgstr "1 gebruiker"
-
-msgid "1–300 seconds. The request fails when it takes longer."
-msgstr "1–300 seconden. Het verzoek mislukt als het langer duurt."
 
 msgid "10+ concurrent workstreams without dropped state"
 msgstr "10+ gelijktijdige werkstromen zonder verlies van context"
@@ -2064,15 +2042,6 @@ msgstr "Voeg een project toe om GitHub-issues te zien."
 msgid "Add a project to see pull requests."
 msgstr "Voeg een project toe om pull requests te zien."
 
-msgid "Add a prompt for the agent."
-msgstr "Voeg een prompt voor de agent toe."
-
-msgid "Add a prompt to define this step."
-msgstr "Voeg een prompt toe om deze stap te definiëren."
-
-msgid "Add a shell command"
-msgstr "Voeg een shellcommando toe"
-
 msgid "Add a short summary…"
 msgstr "Voeg een korte samenvatting toe…"
 
@@ -2096,9 +2065,6 @@ msgstr "Een account toevoegen in de gebruiksinstellingen"
 
 msgid "add an agent"
 msgstr "een agent toevoegen"
-
-msgid "Add an endpoint URL"
-msgstr "Voeg een endpoint-URL toe"
 
 msgid "Add an environment in Settings before creating a cloud workspace"
 msgstr "Voeg een omgeving toe in Instellingen voordat je een cloudwerkruimte aanmaakt"
@@ -2124,9 +2090,6 @@ msgstr "Opmerking toevoegen"
 msgid "Add custom audio"
 msgstr "Eigen audio toevoegen"
 
-msgid "Add daily schedule"
-msgstr "Dagelijks schema toevoegen"
-
 msgid "Add Description"
 msgstr "Beschrijving toevoegen"
 
@@ -2148,9 +2111,6 @@ msgstr "Bestanden, apps en meer toevoegen (@)"
 msgid "Add GitHub organization"
 msgstr "GitHub-organisatie toevoegen"
 
-msgid "Add header"
-msgstr "Header toevoegen"
-
 msgid "Add instructions"
 msgstr "Instructies toevoegen"
 
@@ -2169,9 +2129,6 @@ msgstr "Lid toevoegen"
 
 msgid "Add more…"
 msgstr "Meer toevoegen…"
-
-msgid "Add node"
-msgstr "Node toevoegen"
 
 msgid "Add one from the menu in the sidebar to get started."
 msgstr "Voeg er een toe via het menu in de zijbalk om te beginnen."
@@ -2290,18 +2247,12 @@ msgstr "Alleen toegevoegd bij starten met een prompt, bijv. <0>--</0>, <1>--prom
 msgid "Added to agent input"
 msgstr "Toegevoegd aan de invoer van de agent"
 
-msgid "Adding a schedule keeps manual runs available."
-msgstr "Als je een schema toevoegt, blijven handmatige runs beschikbaar."
-
 #. placeholder {0}: COMPANY.DOMAIN
 msgid "Adding people to {organizationName} needs a paid plan. Your organization's plan is managed by its owner at {0}."
 msgstr "Voor het toevoegen van mensen aan {organizationName} is een betaald abonnement nodig. Het abonnement van je organisatie wordt beheerd door de eigenaar op {0}."
 
 msgid "Adding..."
 msgstr "Toevoegen..."
-
-msgid "Adding…"
-msgstr "Toevoegen…"
 
 msgid "Address Comments with Agent"
 msgstr "Opmerkingen afhandelen met agent"
@@ -2330,9 +2281,6 @@ msgstr "Koppel v1-werkruimten aan hun geïmporteerde v2-project."
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-msgid "Advanced · reference path"
-msgstr "Geavanceerd · referentiepad"
-
 msgid "Advanced options"
 msgstr "Geavanceerde opties"
 
@@ -2347,9 +2295,6 @@ msgstr "Ten opzichte van basis"
 
 msgid "Against Main"
 msgstr "Ten opzichte van main"
-
-msgid "agent"
-msgstr "agent"
 
 msgid "Agent"
 msgstr "Agent"
@@ -2673,9 +2618,6 @@ msgstr "Aller tijden"
 msgid "All updates"
 msgstr "Alle updates"
 
-msgid "All workflow runs"
-msgstr "Alle workflow-runs"
-
 msgid "All workspaces"
 msgstr "Alle werkruimtes"
 
@@ -2790,9 +2732,6 @@ msgstr "Een agent schrijft hele functies en bestanden terwijl een mens elke stap
 msgid "An automation can only use a cloud workspace you created"
 msgstr "Een automatisering kan alleen een cloudwerkruimte gebruiken die je zelf hebt aangemaakt"
 
-msgid "An edge points at a missing node."
-msgstr "Een verbinding wijst naar een ontbrekende node."
-
 msgid "An environment holds your repositories, variables, and region. Start as many workspaces from it as you need."
 msgstr "Een omgeving bevat je repository's, variabelen en regio. Start er zoveel werkruimtes uit als je nodig hebt."
 
@@ -2861,9 +2800,6 @@ msgstr "Heeft {who} geantwoord in #{channel}"
 
 msgid "Answered you in #{channel}"
 msgstr "Heeft je geantwoord in #{channel}"
-
-msgid "Anthropic"
-msgstr "Anthropic"
 
 msgid "Anthropic rejected this API key."
 msgstr "Anthropic heeft deze API-sleutel geweigerd."
@@ -3297,10 +3233,6 @@ msgstr "Bijlage is niet geüpload — verstuur eerst de gegevens"
 msgid "Attachments need an online host"
 msgstr "Bijlagen vereisen een online host"
 
-#. placeholder {0}: step.attempt
-msgid "attempt {0}"
-msgstr "poging {0}"
-
 msgid "Attempt before checks pass"
 msgstr "Proberen vóór de checks slagen"
 
@@ -3327,9 +3259,6 @@ msgstr "Authenticatie"
 
 msgid "Authentication Code"
 msgstr "Authenticatiecode"
-
-msgid "Authentication uses request headers."
-msgstr "Authenticatie gebruikt request-headers."
 
 msgid "Author"
 msgstr "Auteur"
@@ -3446,9 +3375,6 @@ msgctxt "plugin access"
 msgid "Available"
 msgstr "Beschikbaar"
 
-msgid "Available agents depend on the selected device."
-msgstr "Beschikbare agents zijn afhankelijk van het geselecteerde apparaat."
-
 msgid "Available plugins show on each role's Plugins page. Installed plugins are installed for everyone in the role, who can disable but not remove them."
 msgstr "Beschikbare plugins verschijnen op de Plugins-pagina van elke rol. Geïnstalleerde plugins worden voor iedereen in de rol geïnstalleerd; zij kunnen ze uitschakelen, maar niet verwijderen."
 
@@ -3508,9 +3434,6 @@ msgstr "Terug naar checklist"
 msgid "Back to current"
 msgstr "Terug naar huidige"
 
-msgid "Back to editor"
-msgstr "Terug naar de editor"
-
 msgid "Back to GitHub issues"
 msgstr "Terug naar GitHub-issues"
 
@@ -3528,9 +3451,6 @@ msgstr "Terug naar pagina's"
 
 msgid "Back to the leaderboard"
 msgstr "Terug naar de ranglijst"
-
-msgid "Back to workflows"
-msgstr "Terug naar workflows"
 
 msgid "Backed by"
 msgstr "Gesteund door"
@@ -3672,9 +3592,6 @@ msgstr "Bord"
 
 msgid "Board view"
 msgstr "Bordweergave"
-
-msgid "Body"
-msgstr "Body"
 
 msgid "Bold"
 msgstr "Vet"
@@ -3847,9 +3764,6 @@ msgstr "Bug"
 
 msgid "Bug reports"
 msgstr "Bugmeldingen"
-
-msgid "Build a canvas of agent, LLM, API, and command steps that runs on a schedule or an event."
-msgstr "Bouw een canvas van agent-, LLM-, API- en commandostappen dat draait op een schema of een gebeurtenis."
 
 msgid "Build in public"
 msgstr "Bouwen in het openbaar"
@@ -4074,17 +3988,8 @@ msgstr "Plan opzeggen"
 msgid "Cancel reply"
 msgstr "Antwoord annuleren"
 
-msgid "Cancel run"
-msgstr "Run annuleren"
-
 msgid "Cancel the automatic resume"
 msgstr "Automatisch hervatten annuleren"
-
-msgid "Cancel this run?"
-msgstr "Deze run annuleren?"
-
-msgid "canceled"
-msgstr "geannuleerd"
 
 msgid "Canceled"
 msgstr "Geannuleerd"
@@ -4249,9 +4154,6 @@ msgstr "Wijzigingen gevraagd"
 
 msgid "Changes saved"
 msgstr "Wijzigingen opgeslagen"
-
-msgid "Changing device clears agent, model and effort."
-msgstr "Als je het apparaat wijzigt, worden agent, model en inspanning gewist."
 
 msgid "Changing..."
 msgstr "Wijzigen..."
@@ -4425,20 +4327,11 @@ msgstr "Kies een {pluginLabel}-account"
 msgid "Choose a device"
 msgstr "Kies een apparaat"
 
-msgid "Choose a device first"
-msgstr "Kies eerst een apparaat"
-
-msgid "Choose a device to continue"
-msgstr "Kies een apparaat om door te gaan"
-
 msgid "Choose a fighter"
 msgstr "Kies een vechter"
 
 msgid "Choose a folder"
 msgstr "Kies een map"
-
-msgid "Choose a model"
-msgstr "Kies een model"
 
 msgid "Choose a parent directory"
 msgstr "Kies een bovenliggende map"
@@ -4452,20 +4345,8 @@ msgstr "Kies een project om in de issues ervan te zoeken"
 msgid "Choose a project to search its pull requests"
 msgstr "Kies een project om in de pull requests ervan te zoeken"
 
-msgid "Choose a reference…"
-msgstr "Kies een referentie…"
-
 msgid "Choose a section."
 msgstr "Kies een onderdeel."
-
-msgid "Choose a source value for this test."
-msgstr "Kies een bronwaarde voor deze test."
-
-msgid "Choose a time."
-msgstr "Kies een tijd."
-
-msgid "Choose a value to test"
-msgstr "Kies een waarde om te testen"
 
 msgid "Choose agent"
 msgstr "Kies agent"
@@ -4508,9 +4389,6 @@ msgstr "Kies wanneer Paradev je een seintje geeft."
 
 msgid "Choose where agents started from comments, design mode, and Pages open."
 msgstr "Kies waar agents worden geopend die vanuit opmerkingen, de ontwerpmodus en Pages worden gestart."
-
-msgid "Choose where this runs"
-msgstr "Kies waar dit draait"
 
 msgid "Choose your default skin tone"
 msgstr "Kies je standaard huidskleur"
@@ -5051,9 +4929,6 @@ msgstr "Commando is verplicht voor terminalagents."
 msgid "Command Palette"
 msgstr "Opdrachtenpalet"
 
-msgid "Command preview"
-msgstr "Voorbeeld van commando"
-
 msgid "Command to start your dev server, triggered via keyboard shortcut."
 msgstr "Opdracht om de ontwikkelserver via een sneltoets te starten."
 
@@ -5166,9 +5041,6 @@ msgstr "Vergelijk Paradev met Cursor, Claude Code, Codex, Windsurf, Devin, GitHu
 msgid "Compare plans"
 msgstr "Plannen vergelijken"
 
-msgid "Compare to"
-msgstr "Vergelijken met"
-
 msgid "Compared against the default style"
 msgstr "Vergeleken met de standaardstijl"
 
@@ -5187,9 +5059,6 @@ msgstr "component-showcase"
 
 msgid "Composable form layout — pairs with @superset/ui/form for react-hook-form"
 msgstr "Samenstelbare formulierlay-out — combineert met @superset/ui/form voor react-hook-form"
-
-msgid "Condition"
-msgstr "Voorwaarde"
 
 msgid "Conductor chat history. Export it in Conductor under Settings → Account"
 msgstr "Conductor-chatgeschiedenis. Exporteer die in Conductor onder Settings → Account"
@@ -5230,9 +5099,6 @@ msgstr "Inhoud van het configuratiebestand"
 msgid "config.json must be a JSON object"
 msgstr "config.json moet een JSON-object zijn"
 
-msgid "Configuration check only; availability is checked when the workflow runs."
-msgstr "Alleen configuratiecontrole; beschikbaarheid wordt gecontroleerd wanneer de workflow draait."
-
 msgid "Configure"
 msgstr "Configureren"
 
@@ -5268,9 +5134,6 @@ msgstr "Bepaal welke agents in launchers verschijnen en hoe hun starts worden op
 
 msgid "Configure workspace run command"
 msgstr "Run-commando van werkruimte configureren"
-
-msgid "Configured · {timeoutMinutes} min limit"
-msgstr "Geconfigureerd · limiet {timeoutMinutes} min"
 
 msgid "Configured for {agent}"
 msgstr "Ingesteld voor {agent}"
@@ -5323,9 +5186,6 @@ msgstr "Verbind Claude, Codex, Cursor of elke <0>MCP</0>-client en laat je agent
 
 msgid "Connect Claude, Codex, Cursor, or any MCP client to {companyName}. Create tasks, spin up workspaces, launch agents, and run automations straight from your AI agent."
 msgstr "Verbind Claude, Codex, Cursor of elke MCP-client met {companyName}. Maak taken aan, start werkruimtes op, lanceer agents en draai automatiseringen rechtstreeks vanuit je AI-agent."
-
-msgid "Connect condition branches from their yes/no handles."
-msgstr "Verbind conditietakken via hun ja/nee-aansluitpunten."
 
 msgid "Connect external services to sync data with your organization."
 msgstr "Verbind externe diensten om gegevens met je organisatie te synchroniseren."
@@ -5541,12 +5401,6 @@ msgstr "Contact met support"
 
 msgid "Contact Us"
 msgstr "Contact opnemen"
-
-msgid "Contains"
-msgstr "Bevat"
-
-msgid "contains {value}"
-msgstr "bevat {value}"
 
 msgid "Contains this text..."
 msgstr "Bevat deze tekst..."
@@ -5850,9 +5704,6 @@ msgstr "Kon agent niet toevoegen"
 msgid "Could not add repository"
 msgstr "Kan repository niet toevoegen"
 
-msgid "Could not add schedule. Try again."
-msgstr "Kan schema niet toevoegen. Probeer het opnieuw."
-
 msgid "Could not answer the agent"
 msgstr "Kan de agent niet antwoorden"
 
@@ -5965,9 +5816,6 @@ msgstr "Plugins konden niet worden geladen. Controleer je verbinding en probeer 
 msgid "Could not load presets from the host"
 msgstr "Kan presets van de host niet laden"
 
-msgid "Could not load schedules. Automatic starts may still be active."
-msgstr "Kan schema's niet laden. Automatische starts kunnen nog actief zijn."
-
 msgid "Could not load this diff"
 msgstr "Kan deze diff niet laden"
 
@@ -6060,9 +5908,6 @@ msgstr "Kan toegang niet verwijderen"
 
 msgid "Could not remove repository"
 msgstr "Kan repository niet verwijderen"
-
-msgid "Could not remove the schedule. Try again."
-msgstr "Kan het schema niet verwijderen. Probeer het opnieuw."
 
 msgid "Could not rename the session"
 msgstr "Kan de naam van de sessie niet wijzigen"
@@ -6205,9 +6050,6 @@ msgstr "Verbinden mislukt (fout {status}). Probeer het opnieuw."
 
 msgid "Couldn't convert to draft"
 msgstr "Kon niet omzetten naar concept"
-
-msgid "Couldn't copy"
-msgstr "Kopiëren mislukt"
 
 msgid "Couldn't copy comment"
 msgstr "Kan opmerking niet kopiëren"
@@ -6720,9 +6562,6 @@ msgstr "ENG-142 aangemaakt: Inloggen mislukt in Safari"
 msgid "Created team \"{trimmedName}\""
 msgstr "Team \"{trimmedName}\" aangemaakt"
 
-msgid "Creates an additional daily start. Existing schedules stay active."
-msgstr "Maakt een extra dagelijkse start aan. Bestaande schema's blijven actief."
-
 msgid "creating"
 msgstr "aanmaken"
 
@@ -7094,9 +6933,6 @@ msgstr "Lokale branch verwijderen bij verwijderen werkruimte"
 msgid "Delete message"
 msgstr "Bericht verwijderen"
 
-msgid "Delete node"
-msgstr "Node verwijderen"
-
 msgid "Delete organization"
 msgstr "Organisatie verwijderen"
 
@@ -7365,15 +7201,6 @@ msgstr "Ontwikkelaars"
 msgid "Development build"
 msgstr "Ontwikkelbuild"
 
-msgid "device"
-msgstr "apparaat"
-
-msgid "Device"
-msgstr "Apparaat"
-
-msgid "Device timezone"
-msgstr "Tijdzone van apparaat"
-
 msgid "Device: {selectedLabel}"
 msgstr "Apparaat: {selectedLabel}"
 
@@ -7442,9 +7269,6 @@ msgstr "Directe berichten"
 
 msgid "Direct mode"
 msgstr "Directe modus"
-
-msgid "Direct model call"
-msgstr "Direct modelaanroep"
 
 msgid "Directory"
 msgstr "Map"
@@ -7817,9 +7641,6 @@ msgstr "Dropdown-, context- en applicatiemenu's"
 msgid "Due today"
 msgstr "Vandaag te betalen"
 
-msgid "Duplicate node id: {nodeId}"
-msgstr "Dubbele node-id: {nodeId}"
-
 msgid "Duration"
 msgstr "Duur"
 
@@ -7905,9 +7726,6 @@ msgstr "{name} behaald"
 
 msgid "Earned {name} ×{tier}"
 msgstr "{name} ×{tier} behaald"
-
-msgid "Edges cannot point into the trigger."
-msgstr "Verbindingen kunnen niet naar de trigger wijzen."
 
 msgid "Edit"
 msgstr "Bewerken"
@@ -8071,9 +7889,6 @@ msgstr "Schakel externe toegang in en houd deze computer wakker met Paradev acti
 msgid "Enable skill"
 msgstr "Skill inschakelen"
 
-msgid "Enabled"
-msgstr "Ingeschakeld"
-
 msgid "End repeat"
 msgstr "Herhaling eindigt"
 
@@ -8085,9 +7900,6 @@ msgstr "Beëindigd"
 
 msgid "Ending the call"
 msgstr "Gesprek wordt beëindigd"
-
-msgid "Endpoint URL"
-msgstr "Endpoint-URL"
 
 msgid "Ensure no regression"
 msgstr "Zorg dat er geen regressie is"
@@ -8122,12 +7934,6 @@ msgstr "Voer een geheel getal in"
 msgid "Enter a whole number from {minHours} to {maxHours} GB-hours."
 msgstr "Voer een heel getal in van {minHours} tot {maxHours} GB-uren."
 
-msgid "Enter a whole number from {minText} to {maxText}. Default: {defaultText}."
-msgstr "Voer een geheel getal in van {minText} tot {maxText}. Standaard: {defaultText}."
-
-msgid "Enter raw request body…"
-msgstr "Voer ruwe request-body in…"
-
 msgid "Enter this code when OpenAI asks for it:"
 msgstr "Voer deze code in wanneer OpenAI erom vraagt:"
 
@@ -8136,9 +7942,6 @@ msgstr "Voer URL of zoekterm in..."
 
 msgid "Enter URL..."
 msgstr "Voer URL in..."
-
-msgid "Enter workspace ID manually…"
-msgstr "Voer werkruimte-ID handmatig in…"
 
 msgid "Enterprise"
 msgstr "Enterprise"
@@ -8178,9 +7981,6 @@ msgstr "esc om te sluiten"
 
 msgid "esc to exit"
 msgstr "esc om te verlaten"
-
-msgid "event"
-msgstr "gebeurtenis"
 
 msgid "Event"
 msgstr "Gebeurtenis"
@@ -8296,15 +8096,6 @@ msgstr "Alles wat je hebt gepubliceerd wordt verwijderd, niet verborgen. Je kunt
 msgid "Executable"
 msgstr "Uitvoerbaar bestand"
 
-msgid "Execution"
-msgstr "Uitvoering"
-
-msgid "Execution context"
-msgstr "Uitvoeringscontext"
-
-msgid "Execution limits"
-msgstr "Uitvoeringslimieten"
-
 msgid "Existing repo path"
 msgstr "Pad van bestaande repo"
 
@@ -8313,12 +8104,6 @@ msgstr "Pad van bestaande repo op {hostName}"
 
 msgid "Existing worktrees under the old path will be orphaned. You can re-import them from the worktrees flow."
 msgstr "Bestaande worktrees onder het oude pad raken los. Je kunt ze opnieuw importeren via de worktree-flow."
-
-msgid "exists"
-msgstr "bestaat"
-
-msgid "Exists"
-msgstr "Bestaat"
 
 #. placeholder {0}: content.exitCode
 msgid "exit {0}"
@@ -8489,14 +8274,8 @@ msgstr "Toevoegen van lid mislukt"
 msgid "Failed to archive automation"
 msgstr "Automatisering archiveren mislukt"
 
-msgid "Failed to archive workflow"
-msgstr "Workflow archiveren mislukt"
-
 msgid "Failed to cancel invitation"
 msgstr "Annuleren van uitnodiging mislukt"
-
-msgid "Failed to cancel run"
-msgstr "Run annuleren mislukt"
 
 msgid "Failed to change base branch"
 msgstr "Wijzigen van basisbranch mislukt"
@@ -8593,9 +8372,6 @@ msgstr "Terminal maken mislukt"
 
 msgid "Failed to create thread"
 msgstr "Aanmaken van thread mislukt"
-
-msgid "Failed to create workflow"
-msgstr "Workflow aanmaken mislukt"
 
 msgid "Failed to create workspace"
 msgstr "Aanmaken van werkruimte mislukt"
@@ -8839,9 +8615,6 @@ msgstr "Opslaan van setupconfiguratie mislukt"
 msgid "Failed to save team"
 msgstr "Opslaan van team mislukt"
 
-msgid "Failed to save workflow"
-msgstr "Workflow opslaan mislukt"
-
 msgid "Failed to send"
 msgstr "Versturen mislukt"
 
@@ -8871,9 +8644,6 @@ msgstr "Inloggen mislukt. Probeer het opnieuw."
 
 msgid "Failed to sign up. Please try again."
 msgstr "Registreren mislukt. Probeer het opnieuw."
-
-msgid "Failed to start run"
-msgstr "Uitvoering starten mislukt"
 
 msgid "Failed to start the selected automations"
 msgstr "Kan de geselecteerde automatiseringen niet starten"
@@ -8941,9 +8711,6 @@ msgstr "Bijwerken van team mislukt. Probeer het opnieuw."
 msgid "Failed to update URL"
 msgstr "Bijwerken van URL mislukt"
 
-msgid "Failed to update workflow"
-msgstr "Workflow bijwerken mislukt"
-
 msgid "Failed to update workspace"
 msgstr "Workspace bijwerken mislukt"
 
@@ -8955,9 +8722,6 @@ msgstr "Uploaden van logo mislukt"
 
 msgid "Failure"
 msgstr "Mislukt"
-
-msgid "False for empty text, 0, false, null and missing values."
-msgstr "Onwaar voor lege tekst, 0, false, null en ontbrekende waarden."
 
 msgid "FAQ"
 msgstr "FAQ"
@@ -9199,9 +8963,6 @@ msgstr "klaar · 7s gewerkt"
 msgid "Finishing the move…"
 msgstr "Verplaatsing afronden…"
 
-msgid "First scheduled run"
-msgstr "Eerste geplande run"
-
 msgid "Fit"
 msgstr "Passend"
 
@@ -9225,9 +8986,6 @@ msgstr "Bevindingen oplossen"
 
 msgid "Fix new errors in web. Reproduce each one in a test and open a draft pull request."
 msgstr "Los nieuwe fouten in web op. Reproduceer elke fout in een test en open een draft pull request."
-
-msgid "Fix the graph before saving"
-msgstr "Herstel de graaf voordat je opslaat"
 
 msgid "fix-auth-redirect"
 msgstr "fix-auth-redirect"
@@ -9593,9 +9351,6 @@ msgstr "Genereren"
 msgid "Generate a key to use with MCP servers."
 msgstr "Genereer een sleutel om te gebruiken met MCP-servers."
 
-msgid "Generate a response from a prompt. For workspace tasks and tools, use Agent."
-msgstr "Genereer een antwoord op basis van een prompt. Gebruik Agent voor taken en tools in een werkruimte."
-
 msgid "Generate API key"
 msgstr "API-sleutel genereren"
 
@@ -9616,9 +9371,6 @@ msgstr "Genereren..."
 
 msgid "Generating…"
 msgstr "Genereren…"
-
-msgid "Generation settings"
-msgstr "Generatie-instellingen"
 
 msgid "Get {plan}"
 msgstr "{plan} nemen"
@@ -9916,12 +9668,6 @@ msgstr "Heeft niet-gepushte commits"
 
 msgid "Head-to-Head Comparisons"
 msgstr "Directe vergelijkingen"
-
-msgid "Header name"
-msgstr "Headernaam"
-
-msgid "Headers"
-msgstr "Headers"
 
 msgid "Heading 1"
 msgstr "Kop 1"
@@ -10235,9 +9981,6 @@ msgstr "Hoe je agents inloggen binnen cloudwerkruimtes. Anderen koppelen hun eig
 
 msgid "HTML preview"
 msgstr "HTML-voorbeeld"
-
-msgid "HTTP request"
-msgstr "HTTP-verzoek"
 
 msgid "https://"
 msgstr "https://"
@@ -10813,44 +10556,8 @@ msgstr "iPhone en iPad"
 msgid "Is {companyName} open source?"
 msgstr "Is {companyName} open source?"
 
-msgid "Is at least"
-msgstr "Is minstens"
-
-msgid "is at least {value}"
-msgstr "is minstens {value}"
-
-msgid "Is at most"
-msgstr "Is hoogstens"
-
-msgid "is at most {value}"
-msgstr "is hoogstens {value}"
-
-msgid "Is equal to"
-msgstr "Is gelijk aan"
-
-msgid "is equal to {value}"
-msgstr "is gelijk aan {value}"
-
-msgid "Is greater than"
-msgstr "Is groter dan"
-
-msgid "is greater than {value}"
-msgstr "is groter dan {value}"
-
-msgid "Is less than"
-msgstr "Is kleiner dan"
-
-msgid "is less than {value}"
-msgstr "is kleiner dan {value}"
-
 msgid "Is my data secure?"
 msgstr "Zijn mijn gegevens veilig?"
-
-msgid "Is not equal to"
-msgstr "Is niet gelijk aan"
-
-msgid "is not equal to {value}"
-msgstr "is niet gelijk aan {value}"
 
 msgid "is now signed in here."
 msgstr "is nu hier ingelogd."
@@ -10872,12 +10579,6 @@ msgstr "is ingelogd."
 
 msgid "Is there a free plan?"
 msgstr "Is er een gratis plan?"
-
-msgid "is truthy"
-msgstr "is waar"
-
-msgid "Is truthy"
-msgstr "Is waar"
 
 msgid "Issue"
 msgstr "Issue"
@@ -11102,9 +10803,6 @@ msgstr "Verder bewerken"
 msgid "Keep paused"
 msgstr "Gepauzeerd laten"
 
-msgid "Keep running"
-msgstr "Laten doorlopen"
-
 msgid "Keep typing an email to invite"
 msgstr "Typ verder een e-mailadres om uit te nodigen"
 
@@ -11301,9 +10999,6 @@ msgstr "Starten"
 msgid "Launch mode"
 msgstr "Startmodus"
 
-msgid "Launch options"
-msgstr "Startopties"
-
 msgid "Launch this terminal script when a new workspace is created."
 msgstr "Start dit terminalscript wanneer er een nieuwe werkruimte wordt aangemaakt."
 
@@ -11476,9 +11171,6 @@ msgstr "Beperken tot {organizationName}?"
 msgid "Limit to people invited?"
 msgstr "Beperken tot uitgenodigde personen?"
 
-msgid "Limits"
-msgstr "Limieten"
-
 #. placeholder {0}: m.startLine
 #. placeholder {0}: metadata.startLine
 msgid "Line {0}"
@@ -11617,12 +11309,6 @@ msgstr "Live in de app."
 
 msgid "Live preview"
 msgstr "Live preview"
-
-msgid "LLM"
-msgstr "LLM"
-
-msgid "LLM · Direct model call"
-msgstr "LLM · Direct modelaanroep"
 
 msgid "llms.txt (index for AI agents)"
 msgstr "llms.txt (index voor AI-agents)"
@@ -11982,9 +11668,6 @@ msgstr "Beheerd door"
 msgid "Managed by your organization admin."
 msgstr "Beheerd door de beheerder van je organisatie."
 
-msgid "manual"
-msgstr "handmatig"
-
 msgid "Manual"
 msgstr "Handmatig"
 
@@ -11999,9 +11682,6 @@ msgstr "handmatig inloggen"
 
 msgid "Manual sign-in"
 msgstr "Handmatig inloggen"
-
-msgid "Manual start only"
-msgstr "Alleen handmatig starten"
 
 msgid "Mark all read"
 msgstr "Alles als gelezen markeren"
@@ -12065,15 +11745,6 @@ msgstr "Koppel sneltoetsen aan de opschriften op je toetsenbord (bijv. ⌘Z werk
 
 msgid "Max"
 msgstr "Max"
-
-msgid "Max tokens"
-msgstr "Max. tokens"
-
-msgid "Max tokens {maxTokensText}"
-msgstr "Max. tokens {maxTokensText}"
-
-msgid "Max tokens {maxTokensText} · default"
-msgstr "Max. tokens {maxTokensText} · standaard"
 
 msgid "Maximum"
 msgstr "Maximaal"
@@ -12247,9 +11918,6 @@ msgstr "Berichten"
 msgid "Messages with these words notify you like a mention. Separate them with commas."
 msgstr "Berichten met deze woorden geven je een melding zoals een vermelding. Scheid ze met komma's."
 
-msgid "Method"
-msgstr "Methode"
-
 msgid "Microphone"
 msgstr "Microfoon"
 
@@ -12296,9 +11964,6 @@ msgstr "GitHub-issues minimaliseren"
 msgid "Minimum contrast"
 msgstr "Minimumcontrast"
 
-msgid "minutes"
-msgstr "minuten"
-
 msgid "missed"
 msgstr "gemist"
 
@@ -12326,9 +11991,6 @@ msgstr "Verplichte velden ontbreken."
 #. js-lingui-explicit-id
 msgid "serverError.plugins.missingInput"
 msgstr "Verplichte invoer {input} ontbreekt"
-
-msgid "Missing: {missingText}"
-msgstr "Ontbreekt: {missingText}"
 
 msgid "MIT License"
 msgstr "MIT-licentie"
@@ -12623,9 +12285,6 @@ msgstr "Actie nodig"
 msgid "Needs attention"
 msgstr "Vraagt aandacht"
 
-msgid "Needs configuration"
-msgstr "Configuratie nodig"
-
 msgid "Needs input"
 msgstr "Invoer nodig"
 
@@ -12785,9 +12444,6 @@ msgstr "Nieuw venster"
 msgid "New Window"
 msgstr "Nieuw venster"
 
-msgid "New workflow"
-msgstr "Nieuwe workflow"
-
 msgid "New workspace"
 msgstr "Nieuwe werkruimte"
 
@@ -12821,10 +12477,6 @@ msgstr "Volgende"
 msgid "Next (Enter)"
 msgstr "Volgende (Enter)"
 
-#. placeholder {0}: formatNextRun( new Date(trigger.nextRunAt), now, schedule?.timezone, )
-msgid "Next {0}"
-msgstr "Volgende {0}"
-
 msgid "Next branch"
 msgstr "Volgende branch"
 
@@ -12850,9 +12502,6 @@ msgstr "Volgend tabblad in de rechterzijbalk"
 msgid "Next run {0}"
 msgstr "Volgende run {0}"
 
-msgid "Next scheduled run"
-msgstr "Volgende geplande run"
-
 msgid "Next slide"
 msgstr "Volgende slide"
 
@@ -12870,11 +12519,6 @@ msgstr "Chat van de volgende generatie"
 
 msgid "Next:"
 msgstr "Volgende:"
-
-#. placeholder {0}: formatNextRun(next.at, now, next.timeZone)
-#. placeholder {1}: next.timeZone ? timeZoneShortName(next.timeZone, next.at) : ""
-msgid "Next: {0} {1}"
-msgstr "Volgende: {0} {1}"
 
 msgid "Next: {nextLabel}"
 msgstr "Volgende: {nextLabel}"
@@ -12964,9 +12608,6 @@ msgstr "Geen auteurs gevonden."
 
 msgid "No automations match"
 msgstr "Geen overeenkomende automatiseringen"
-
-msgid "No body"
-msgstr "Geen body"
 
 msgid "No branches found"
 msgstr "Geen branches gevonden"
@@ -13229,9 +12870,6 @@ msgstr "Geen overeenkomende pagina's"
 msgid "No matching pull requests"
 msgstr "Geen overeenkomende pull requests"
 
-msgid "No matching sources."
-msgstr "Geen overeenkomende bronnen."
-
 msgid "No matching tasks"
 msgstr "Geen overeenkomende taken"
 
@@ -13431,12 +13069,6 @@ msgstr "Geen enkele vacature past bij mij. Moet ik toch contact opnemen?"
 msgid "No runs yet"
 msgstr "Nog geen runs"
 
-msgid "No runs yet. Use Run now to start one."
-msgstr "Nog geen runs. Gebruik 'Nu uitvoeren' om er een te starten."
-
-msgid "No scheduled runs"
-msgstr "Geen geplande runs"
-
 msgid "No screenshots yet"
 msgstr "Nog geen screenshots"
 
@@ -13553,12 +13185,6 @@ msgstr "Nog geen versies"
 
 msgid "No versions yet."
 msgstr "Nog geen versies."
-
-msgid "No workflows yet"
-msgstr "Nog geen workflows"
-
-msgid "No workspace"
-msgstr "Geen werkruimte"
 
 msgid "No workspace run command configured"
 msgstr "Geen run-commando voor de werkruimte geconfigureerd"
@@ -13805,9 +13431,6 @@ msgstr "Inmiddels hebben we geld opgehaald bij de beste investeerders in Silicon
 msgid "Numbered list"
 msgstr "Genummerde lijst"
 
-msgid "Numeric comparisons accept numeric text."
-msgstr "Numerieke vergelijkingen accepteren numerieke tekst."
-
 msgid "OAuth 2.0"
 msgstr "OAuth 2.0"
 
@@ -13973,9 +13596,6 @@ msgstr "Alleen beschikbaar op macOS."
 msgid "Only channel admins can do that"
 msgstr "Alleen kanaalbeheerders kunnen dat doen"
 
-msgid "Only condition nodes have branch handles."
-msgstr "Alleen voorwaardenodes hebben takaansluitpunten."
-
 msgid "Only host owners can change membership"
 msgstr "Alleen eigenaren van de host kunnen het lidmaatschap wijzigen"
 
@@ -13993,9 +13613,6 @@ msgstr "Alleen de maker of een organisatiebeheerder kan deze agent wijzigen"
 
 msgid "Only on this machine: gitignored, and applied to every worktree of this repository. Any key set here replaces the shared one."
 msgstr "Alleen op deze machine: genegeerd door git en toegepast op elke worktree van deze repository. Elke sleutel die je hier instelt, vervangt de gedeelde."
-
-msgid "Only one trigger node is allowed."
-msgstr "Er is maar één triggernode toegestaan."
 
 msgid "Only organization owners and admins can connect GitHub accounts. Ask one of them to connect it."
 msgstr "Alleen eigenaren en beheerders van de organisatie kunnen GitHub-accounts koppelen. Vraag een van hen om het account te koppelen."
@@ -14616,14 +14233,8 @@ msgstr "Optionele context die in de lijst met terminalscripts wordt getoond."
 msgid "Optional flags appended after the prompt payload"
 msgstr "Optionele flags achter de promptpayload"
 
-msgid "Optional. GET and HEAD usually leave this empty."
-msgstr "Optioneel. GET en HEAD laten dit meestal leeg."
-
 msgid "Optional. Helps us learn what works."
 msgstr "Optioneel. Helpt ons te zien wat werkt."
-
-msgid "Optional. Set Content-Type in Headers when your endpoint expects a specific body format."
-msgstr "Optioneel. Stel Content-Type in bij Headers als je endpoint een specifiek body-formaat verwacht."
 
 msgid "Options"
 msgstr "Opties"
@@ -14715,9 +14326,6 @@ msgstr "Andere hosts"
 
 msgid "Other people are using this project. Type <0>{projectName}</0> to confirm."
 msgstr "Anderen gebruiken dit project. Typ <0>{projectName}</0> om te bevestigen."
-
-msgid "Other sources"
-msgstr "Andere bronnen"
 
 msgid "Other Team Members"
 msgstr "Andere teamleden"
@@ -15185,12 +14793,6 @@ msgstr "PDF"
 msgid "Peak pace"
 msgstr "Piektempo"
 
-msgid "pending"
-msgstr "in afwachting"
-
-msgid "Pending"
-msgstr "In afwachting"
-
 msgid "Pending Invitations"
 msgstr "Openstaande uitnodigingen"
 
@@ -15362,9 +14964,6 @@ msgstr "PK"
 
 msgid "Plain text"
 msgstr "Platte tekst"
-
-msgid "Plain text · wraps long lines"
-msgstr "Platte tekst · lange regels worden afgebroken"
 
 msgid "Plan"
 msgstr "Plan"
@@ -15834,9 +15433,6 @@ msgstr "De host van het project is onbereikbaar. Naam kan nu niet worden gewijzi
 msgid "Projects"
 msgstr "Projecten"
 
-msgid "prompt"
-msgstr "prompt"
-
 msgid "Prompt"
 msgstr "Prompt"
 
@@ -16130,12 +15726,6 @@ msgstr "Limiet overschreden."
 msgid "Rate limits"
 msgstr "Gebruikslimieten"
 
-msgid "Raw body"
-msgstr "Ruwe body"
-
-msgid "Raw text sent with this request."
-msgstr "Ruwe tekst die met dit verzoek wordt verzonden."
-
 msgid "Reach this Mac from anywhere via the Paradev relay, or spin up cloud workspaces. Connect from any client."
 msgstr "Bereik deze Mac van overal via de Paradev-relay, of start cloudwerkruimtes. Verbind vanaf elke client."
 
@@ -16295,9 +15885,6 @@ msgstr "Alle commits opnieuw toepassen"
 msgid "Reasoning"
 msgstr "Redeneren"
 
-msgid "Reasoning effort · available for this model"
-msgstr "Redeneerinspanning · beschikbaar voor dit model"
-
 msgid "Reassign"
 msgstr "Opnieuw toewijzen"
 
@@ -16394,9 +15981,6 @@ msgstr "Verminder doorzichtigheid"
 msgid "Ref {ref} · Path {path}"
 msgstr "Ref {ref} · Pad {path}"
 
-msgid "Reference path"
-msgstr "Referentiepad"
-
 msgid "Referenced, not demoed"
 msgstr "Genoemd, niet gedemonstreerd"
 
@@ -16477,9 +16061,6 @@ msgstr "App herladen"
 
 msgid "Reload from disk"
 msgstr "Opnieuw laden vanaf schijf"
-
-msgid "Reload latest"
-msgstr "Laatste versie laden"
 
 msgid "Reload Paradev to refresh the workspace list."
 msgstr "Herlaad Paradev om de lijst met werkruimtes te verversen."
@@ -16580,9 +16161,6 @@ msgstr "Uit zijbalk verwijderen"
 msgid "Remove from Sidebar"
 msgstr "Uit zijbalk verwijderen"
 
-msgid "Remove header"
-msgstr "Header verwijderen"
-
 msgid "Remove icon"
 msgstr "Icoon verwijderen"
 
@@ -16615,9 +16193,6 @@ msgstr "Bericht uit wachtrij verwijderen"
 
 msgid "Remove repository"
 msgstr "Repository verwijderen"
-
-msgid "Remove schedule"
-msgstr "Schema verwijderen"
 
 msgid "Remove script"
 msgstr "Script verwijderen"
@@ -16862,14 +16437,8 @@ msgstr "Aanvragen"
 msgid "Request a trial"
 msgstr "Proefperiode aanvragen"
 
-msgid "Request body"
-msgstr "Request-body"
-
 msgid "Request Body"
 msgstr "Request body"
-
-msgid "Request timeout"
-msgstr "Request-time-out"
 
 msgid "requested changes"
 msgstr "heeft wijzigingen aangevraagd"
@@ -16882,9 +16451,6 @@ msgstr "verplicht"
 
 msgid "Required"
 msgstr "Verplicht"
-
-msgid "Required fields complete"
-msgstr "Verplichte velden ingevuld"
 
 msgid "Required version: {minimumVersion}+"
 msgstr "Vereiste versie: {minimumVersion}+"
@@ -17012,9 +16578,6 @@ msgstr "Resources"
 
 msgid "Response"
 msgstr "Response"
-
-msgid "Response limit. Raise it only for longer replies."
-msgstr "Responslimiet. Verhoog deze alleen voor langere antwoorden."
 
 msgid "Restart"
 msgstr "Opnieuw starten"
@@ -17156,9 +16719,6 @@ msgstr "Herstellen…"
 
 msgid "Result"
 msgstr "Resultaat"
-
-msgid "Result JSON"
-msgstr "Resultaat-JSON"
 
 msgid "Results"
 msgstr "Resultaten"
@@ -17447,14 +17007,8 @@ msgstr "Draai codeeragents in cloudwerkruimtes die doorwerken als je laptop dich
 msgid "Run commands and navigate the application."
 msgstr "Opdrachten uitvoeren en door de app navigeren."
 
-msgid "Run history"
-msgstr "Rungeschiedenis"
-
 msgid "Run History"
 msgstr "Runs"
-
-msgid "Run ID"
-msgstr "Run-ID"
 
 msgid "Run in a terminal on this host; paste your key when asked:"
 msgstr "Voer dit uit in een terminal op deze host en plak je sleutel wanneer daarom wordt gevraagd:"
@@ -17470,9 +17024,6 @@ msgstr "issues in werkruimtes uitvoeren"
 
 msgid "Run now"
 msgstr "Nu uitvoeren"
-
-msgid "Run on"
-msgstr "Uitvoeren op"
 
 msgid "Run on a schedule or on events, run on demand, pause, resume, and read logs."
 msgstr "Draai volgens schema of bij gebeurtenissen, op aanvraag, pauzeer, hervat en lees logs."
@@ -17546,14 +17097,8 @@ msgstr "Wordt nu uitgevoerd"
 msgid "Running terminal processes continue, but older output may no longer be available after restarting the app."
 msgstr "Draaiende terminalprocessen gaan door, maar oudere uitvoer is na het herstarten van de app mogelijk niet meer beschikbaar."
 
-msgid "Runs"
-msgstr "Runs"
-
 msgid "Runs a local command on your machine"
 msgstr "Voert een lokaal commando uit op je machine"
-
-msgid "Runs appear here once a workflow fires."
-msgstr "Runs verschijnen hier zodra een workflow wordt geactiveerd."
 
 msgid "Runs appear here once an automation fires."
 msgstr "Runs verschijnen hier zodra een automatisering wordt geactiveerd."
@@ -17561,17 +17106,11 @@ msgstr "Runs verschijnen hier zodra een automatisering wordt geactiveerd."
 msgid "Runs in"
 msgstr "Draait in"
 
-msgid "Runs in the selected workspace's working directory on this device."
-msgstr "Draait in de werkmap van de geselecteerde werkruimte op dit apparaat."
-
 msgid "Runs inside the Paradev app on that device, so updating it means updating the app there."
 msgstr "Draait in de Paradev-app op dat apparaat, dus bijwerken betekent de app daar bijwerken."
 
 msgid "Runs land in a workspace. Review the diff, merge what's good."
 msgstr "Runs komen in een werkruimte terecht. Bekijk de diff, merge wat goed is."
-
-msgid "Runs on a connected device. Cloud is unavailable."
-msgstr "Draait op een verbonden apparaat. Cloud is niet beschikbaar."
 
 msgid "Runs that found no host online"
 msgstr "Runs die geen host online vonden"
@@ -17691,9 +17230,6 @@ msgstr "Scan om Paradev voor iPhone te downloaden"
 msgid "Scanning transcript logs…"
 msgstr "Transcriptlogs scannen…"
 
-msgid "schedule"
-msgstr "schema"
-
 msgid "Schedule"
 msgstr "Schema"
 
@@ -17706,17 +17242,8 @@ msgstr "Vergaderingen plannen"
 msgid "Scheduled and event-triggered agents (cron, GitHub, Slack, Linear, Sentry, Notion, Microsoft Teams, webhooks) with ready-made templates."
 msgstr "Geplande en door gebeurtenissen getriggerde agents (cron, GitHub, Slack, Linear, Sentry, Notion, Microsoft Teams, webhooks) met kant-en-klare sjablonen."
 
-msgid "Schedules · {scheduleCount}"
-msgstr "Schema's · {scheduleCount}"
-
 msgid "Schedules repeat — remove COUNT or UNTIL."
 msgstr "Schema's herhalen — verwijder COUNT of UNTIL."
-
-msgid "Schedules save immediately."
-msgstr "Schema's worden direct opgeslagen."
-
-msgid "Schedules unavailable"
-msgstr "Schema's niet beschikbaar"
 
 msgid "Schematic, by autonomy level. Hover for values."
 msgstr "Schematisch, per autonomieniveau. Beweeg over de lijn voor waarden."
@@ -17870,9 +17397,6 @@ msgstr "MCP-servers zoeken…"
 msgid "Search models"
 msgstr "Modellen zoeken"
 
-msgid "Search nodes or enter a path"
-msgstr "Zoek nodes of voer een pad in"
-
 msgid "Search pages"
 msgstr "Pagina's zoeken"
 
@@ -17986,9 +17510,6 @@ msgstr "Plekken die halverwege de periode zijn verwijderd, blijven actief tot {0
 msgid "Secondary"
 msgstr "Secundair"
 
-msgid "seconds"
-msgstr "seconden"
-
 msgid "Secret Shift Lead"
 msgstr "Geheime Ploegleider"
 
@@ -18068,26 +17589,8 @@ msgstr "Select"
 msgid "Select {0}"
 msgstr "{0} selecteren"
 
-msgid "Select a device"
-msgstr "Selecteer een apparaat"
-
-msgid "Select a device to browse its workspaces."
-msgstr "Selecteer een apparaat om de werkruimtes te bekijken."
-
 msgid "Select a file to view it here"
 msgstr "Selecteer een bestand om het hier te bekijken"
-
-msgid "Select a model…"
-msgstr "Selecteer een model…"
-
-msgid "Select a node to configure it."
-msgstr "Selecteer een node om die te configureren."
-
-msgid "Select a node to see its step."
-msgstr "Selecteer een node om de stap te bekijken."
-
-msgid "Select a node, then enter its output path. Fields are known only after a run."
-msgstr "Selecteer een node en voer het uitvoerpad in. Velden zijn pas na een run bekend."
 
 msgid "Select a project"
 msgstr "Kies een project"
@@ -18412,9 +17915,6 @@ msgstr "Project instellen…"
 msgid "Set Run"
 msgstr "Run instellen"
 
-msgid "Set the model's role and response rules."
-msgstr "Stel de rol en de antwoordregels van het model in."
-
 msgid "Set this project"
 msgstr "Dit project instellen"
 
@@ -18568,9 +18068,6 @@ msgstr "Sheet"
 
 msgid "Shell"
 msgstr "Shell"
-
-msgid "Shell command"
-msgstr "Shellcommando"
 
 msgid "Shift+click"
 msgstr "Shift+klik"
@@ -19011,9 +18508,6 @@ msgstr "Alles overslaan"
 msgid "Skip for now"
 msgstr "Nu overslaan"
 
-msgid "skipped"
-msgstr "overgeslagen"
-
 msgid "Skipped"
 msgstr "Overgeslagen"
 
@@ -19141,9 +18635,6 @@ msgstr "Iemand verplaatst deze werkruimte…"
 
 msgid "Someone on the Paradev team will review this page. We only follow up if we need more from you."
 msgstr "Iemand van het Paradev-team beoordeelt deze pagina. We nemen alleen contact op als we meer van je nodig hebben."
-
-msgid "Someone saved a newer version of this workflow. Reload to get their changes, or keep editing and save again to retry on top of your copy."
-msgstr "Iemand heeft een nieuwere versie van deze workflow opgeslagen. Herlaad om die wijzigingen op te halen, of blijf bewerken en sla opnieuw op over je eigen kopie."
 
 msgid "Something else"
 msgstr "Iets anders"
@@ -19545,9 +19036,6 @@ msgstr "Stap 2 van 2"
 msgid "Steps 3 and 4 repeat until the page is right."
 msgstr "Stap 3 en 4 herhalen zich tot de pagina klopt."
 
-msgid "Steps that are still running will be stopped. Finished steps keep their results."
-msgstr "Stappen die nog lopen worden gestopt. Voltooide stappen behouden hun resultaten."
-
 msgid "Still asks in Full access mode"
 msgstr "Vraagt nog steeds in de modus Volledige toegang"
 
@@ -19678,12 +19166,6 @@ msgstr "abonnement"
 
 msgid "Subscription"
 msgstr "Abonnement"
-
-msgid "succeeded"
-msgstr "geslaagd"
-
-msgid "Succeeded"
-msgstr "Geslaagd"
 
 msgid "Success"
 msgstr "Geslaagd"
@@ -19909,14 +19391,8 @@ msgstr "Systeem"
 msgid "System design"
 msgstr "Systeemontwerp"
 
-msgid "System instructions"
-msgstr "Systeeminstructies"
-
 msgid "System memory"
 msgstr "Systeemgeheugen"
-
-msgid "System prompt"
-msgstr "Systeemprompt"
 
 msgid "System RAM share"
 msgstr "Aandeel systeem-RAM"
@@ -20442,12 +19918,6 @@ msgstr "De fondsen en angels die ons team steunen."
 msgid "The future home for reusable Paradev agent configs, prompts, and setup guides."
 msgstr "De toekomstige plek voor herbruikbare Paradev-agentconfigs, prompts en setupgidsen."
 
-msgid "The graph has a cycle through: {nodeIds}"
-msgstr "De graaf bevat een cyclus via: {nodeIds}"
-
-msgid "The graph needs a trigger node."
-msgstr "De graaf heeft een triggernode nodig."
-
 #. placeholder {0}: info.version
 msgid "The host came back on {0}, not {targetVersion}."
 msgstr "De host kwam terug op {0}, niet op {targetVersion}."
@@ -20658,9 +20128,6 @@ msgstr "Het startpunt waarvandaan een cloudwerkruimte opstart — een base image
 
 msgid "the target host"
 msgstr "de doelhost"
-
-msgid "The task and input sent to the model."
-msgstr "De taak en invoer die naar het model worden gestuurd."
 
 msgid "The team"
 msgstr "Het team"
@@ -21231,18 +20698,6 @@ msgstr "Tijd tot eerste werkruimte"
 msgid "Time zone"
 msgstr "Tijdzone"
 
-msgid "timed out"
-msgstr "time-out"
-
-msgid "Timeout"
-msgstr "Time-out"
-
-msgid "Timeout {timeoutMinutes} min"
-msgstr "Time-out {timeoutMinutes} min"
-
-msgid "Timeout {timeoutMinutes} min · Default"
-msgstr "Time-out {timeoutMinutes} min · Standaard"
-
 msgid "Tinted"
 msgstr "Getint"
 
@@ -21519,9 +20974,6 @@ msgstr "Automatiseringen starten vanuit Gmail."
 msgid "Trigger automations from Teams channel messages."
 msgstr "Trigger automatiseringen vanuit berichten in Teams-kanalen."
 
-msgid "Trigger data"
-msgstr "Triggergegevens"
-
 msgid "Trigger not found"
 msgstr "Trigger niet gevonden"
 
@@ -21530,9 +20982,6 @@ msgstr "Triggers"
 
 msgid "True for routine work, not yet for gnarly refactors."
 msgstr "Waar voor routinewerk, nog niet voor lastige refactors."
-
-msgid "True when the value is neither null nor missing. Empty text, 0 and false still exist."
-msgstr "Waar als de waarde niet null is en niet ontbreekt. Lege tekst, 0 en false bestaan nog steeds."
 
 msgid "Trusted by builders from"
 msgstr "Vertrouwd door bouwers van"
@@ -21860,9 +21309,6 @@ msgstr "Geen positie"
 msgid "Unranked until {0} days carry usage."
 msgstr "Geen positie tot {0} dagen gebruik tonen."
 
-msgid "Unreachable nodes: {nodeIds}"
-msgstr "Onbereikbare nodes: {nodeIds}"
-
 msgid "Unresolve"
 msgstr "Heropenen"
 
@@ -22043,9 +21489,6 @@ msgstr "Bestanden uploaden"
 msgid "Upload image…"
 msgstr "Afbeelding uploaden…"
 
-msgid "Upstream nodes"
-msgstr "Upstream-nodes"
-
 msgid "Uptime"
 msgstr "Uptime"
 
@@ -22137,12 +21580,6 @@ msgstr "Gebruik Paradev op je mobiel"
 msgid "Use Paradev on your phone with Pro."
 msgstr "Gebruik Paradev op je telefoon met Pro."
 
-msgid "Use path <0>{path}</0>"
-msgstr "Gebruik pad <0>{path}</0>"
-
-msgid "Use Run now in the toolbar to start this workflow. No automatic runs are scheduled."
-msgstr "Gebruik Nu uitvoeren in de werkbalk om deze workflow te starten. Er zijn geen automatische runs gepland."
-
 msgid "Use the agent plans and API keys you already have. Model calls go straight to your provider."
 msgstr "Gebruik de agentabonnementen en API-sleutels die je al hebt. Modelaanroepen gaan rechtstreeks naar je provider."
 
@@ -22169,9 +21606,6 @@ msgstr "Gebruik dit bij het aanroepen van de Paradev-API."
 
 msgid "Use voice transcription and push-to-talk features."
 msgstr "Spraaktranscriptie en push-to-talk gebruiken."
-
-msgid "Use workspace picker"
-msgstr "Gebruik werkruimtekiezer"
 
 msgid "Used"
 msgstr "Gebruikt"
@@ -22218,12 +21652,6 @@ msgstr "gebruiker@host, ssh://gebruiker@host:2222 of een alias uit je ssh-config
 
 msgid "v2ProjectId does not match the workspace's project"
 msgstr "v2ProjectId komt niet overeen met het project van de werkruimte"
-
-msgid "Value"
-msgstr "Waarde"
-
-msgid "Value to test"
-msgstr "Te testen waarde"
 
 msgid "Variables"
 msgstr "Variabelen"
@@ -22670,12 +22098,6 @@ msgstr "Wat er is uitgebracht"
 msgid "What should run automatically?"
 msgstr "Wat moet automatisch draaien?"
 
-msgid "What should the agent do?"
-msgstr "Wat moet de agent doen?"
-
-msgid "What should the model do?"
-msgstr "Wat moet het model doen?"
-
 msgid "What should the page show?"
 msgstr "Wat moet de pagina laten zien?"
 
@@ -22717,9 +22139,6 @@ msgstr "Wat is er nieuw"
 
 msgid "What's next"
 msgstr "Wat volgt"
-
-msgid "When"
-msgstr "Wanneer"
 
 msgid "When a channel notifies you"
 msgstr "Als een kanaal je een melding geeft"
@@ -22841,29 +22260,8 @@ msgstr "{0} min {1} s gewerkt"
 msgid "Worked for {seconds}s"
 msgstr "{seconds} s gewerkt"
 
-msgid "Workflow"
-msgstr "Workflow"
-
-msgid "Workflow actions"
-msgstr "Workflowacties"
-
-msgid "Workflow archived"
-msgstr "Workflow gearchiveerd"
-
-msgid "Workflow changed elsewhere"
-msgstr "Workflow elders gewijzigd"
-
-msgid "Workflow name"
-msgstr "Workflownaam"
-
-msgid "Workflow not found."
-msgstr "Workflow niet gevonden."
-
 msgid "Workflow run completed…"
 msgstr "Workflow-run afgerond…"
-
-msgid "Workflow saved"
-msgstr "Workflow opgeslagen"
 
 msgid "Workflow Tutorials"
 msgstr "Workflow-tutorials"
@@ -22937,9 +22335,6 @@ msgstr "Werkruimte aangemaakt"
 
 msgid "Workspace details"
 msgstr "Werkruimtedetails"
-
-msgid "Workspace ID"
-msgstr "Werkruimte-ID"
 
 msgid "Workspace ID copied"
 msgstr "Werkruimte-ID gekopieerd"
@@ -23097,9 +22492,6 @@ msgstr "Geel"
 msgid "Yes"
 msgstr "Ja"
 
-msgid "Yes when the test is true. No otherwise. Connect destinations on the canvas."
-msgstr "Ja als de test waar is, anders nee. Verbind bestemmingen op het canvas."
-
 msgid "Yes, demote me"
 msgstr "Ja, degradeer mij"
 
@@ -23158,9 +22550,6 @@ msgstr "JIJ"
 msgid "You appear to be offline"
 msgstr "Je lijkt offline te zijn"
 
-msgid "You are a concise code reviewer."
-msgstr "Je bent een beknopte code-reviewer."
-
 msgid "You are not a member of that organization."
 msgstr "Je bent geen lid van die organisatie."
 
@@ -23185,9 +22574,6 @@ msgstr "Je hebt geen positie tot {0} dagen gebruik tonen. De score start zodra h
 
 msgid "You are viewing version {version}, read-only"
 msgstr "Je bekijkt versie {version}, alleen-lezen"
-
-msgid "You can also use Run now at any time."
-msgstr "Je kunt ook altijd Nu uitvoeren gebruiken."
 
 msgid "You can attach up to {MAX_ATTACHMENTS} files"
 msgstr "Je kunt maximaal {MAX_ATTACHMENTS} bestanden toevoegen"
@@ -23361,9 +22747,6 @@ msgstr "Je download start automatisch."
 
 msgid "Your email (optional)"
 msgstr "Je e-mailadres (optioneel)"
-
-msgid "Your existing schedules are unchanged."
-msgstr "Je bestaande schema's zijn ongewijzigd."
 
 msgid "Your first agent"
 msgstr "Je eerste agent"

@@ -1,4 +1,3 @@
-import { Trans } from "@lingui/react/macro";
 import type { DraftWorkflowNode } from "@superset/shared/workflow-graph";
 import {
 	httpEndpointParts,
@@ -21,7 +20,7 @@ export function HttpCardBody({ config }: { config: HttpConfig }) {
 						{endpoint?.path ??
 							(url || (
 								<span className="font-sans text-muted-foreground">
-									<Trans>Add an endpoint URL</Trans>
+									Add an endpoint URL
 								</span>
 							))}
 					</span>

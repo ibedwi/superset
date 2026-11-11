@@ -1,5 +1,3 @@
-import { Trans, useLingui } from "@lingui/react/macro";
-import { i18n } from "@superset/i18n";
 import { errorMessage } from "@superset/i18n/errors";
 import {
 	formatCompactRelativeTime,
@@ -49,7 +47,6 @@ export const Route = createFileRoute(
 const PAGE_SIZE = 50;
 
 function WorkflowRunsPage() {
-	const { t } = useLingui();
 	const navigate = useNavigate();
 	const now = useNow(30_000);
 
@@ -90,12 +87,12 @@ function WorkflowRunsPage() {
 							variant="ghost"
 							size="icon-sm"
 							onClick={() => navigate({ to: "/workflows" })}
-							aria-label={t({ message: "Back to workflows" })}
+							aria-label="Back to workflows"
 						>
 							<LuArrowLeft className="size-4" />
 						</Button>
 						<h1 className="font-semibold text-xl tracking-tight">
-							<Trans>All workflow runs</Trans>
+							All workflow runs
 						</h1>
 					</div>
 
@@ -115,11 +112,9 @@ function WorkflowRunsPage() {
 									>
 										<LuTriangleAlert />
 									</EmptyMedia>
-									<EmptyTitle>
-										<Trans>Couldn't load runs</Trans>
-									</EmptyTitle>
+									<EmptyTitle>Couldn't load runs</EmptyTitle>
 									<EmptyDescription className="select-text cursor-text">
-										{errorMessage(error, t({ message: "The request failed." }))}
+										{errorMessage(error, "The request failed.")}
 									</EmptyDescription>
 								</EmptyHeader>
 								<Button
@@ -130,7 +125,7 @@ function WorkflowRunsPage() {
 									}}
 								>
 									<LuRotateCw className="size-4" />
-									<Trans>Try again</Trans>
+									Try again
 								</Button>
 							</Empty>
 						) : runs.length === 0 ? (
@@ -142,11 +137,9 @@ function WorkflowRunsPage() {
 									>
 										<LuHistory />
 									</EmptyMedia>
-									<EmptyTitle>
-										<Trans>No runs yet</Trans>
-									</EmptyTitle>
+									<EmptyTitle>No runs yet</EmptyTitle>
 									<EmptyDescription>
-										<Trans>Runs appear here once a workflow fires.</Trans>
+										Runs appear here once a workflow fires.
 									</EmptyDescription>
 								</EmptyHeader>
 							</Empty>
@@ -156,27 +149,27 @@ function WorkflowRunsPage() {
 									<TableHeader className="sticky top-0 z-10 shadow-[inset_0_-1px_0_0_var(--color-border)] [&_th]:bg-background [&_tr>th:first-child]:rounded-tl-xl [&_tr>th:last-child]:rounded-tr-xl [&_tr]:border-b-0">
 										<TableRow className="hover:bg-transparent">
 											<TableHead className={cn(DATA_TABLE_HEAD_CELL, "pl-4")}>
-												<Trans>Workflow</Trans>
+												Workflow
 											</TableHead>
 											<TableHead
 												className={cn(DATA_TABLE_HEAD_CELL, "w-[16%]")}
 											>
-												<Trans>Status</Trans>
+												Status
 											</TableHead>
 											<TableHead
 												className={cn(DATA_TABLE_HEAD_CELL, "w-[14%]")}
 											>
-												<Trans>Trigger</Trans>
+												Trigger
 											</TableHead>
 											<TableHead
 												className={cn(DATA_TABLE_HEAD_CELL, "w-[18%]")}
 											>
-												<Trans>Started</Trans>
+												Started
 											</TableHead>
 											<TableHead
 												className={cn(DATA_TABLE_HEAD_CELL, "w-[14%] pr-4")}
 											>
-												<Trans>Duration</Trans>
+												Duration
 											</TableHead>
 										</TableRow>
 									</TableHeader>
@@ -207,12 +200,12 @@ function WorkflowRunsPage() {
 																)}
 															/>
 															<span className="truncate text-sm">
-																{i18n._(meta.label)}
+																{meta.label}
 															</span>
 														</span>
 													</TableCell>
 													<TableCell className="text-muted-foreground">
-														{i18n._(RUN_CAUSE_LABELS[runCause(run)])}
+														{RUN_CAUSE_LABELS[runCause(run)]}
 													</TableCell>
 													<TableCell className="text-muted-foreground">
 														{formatCompactRelativeTime(
@@ -248,11 +241,7 @@ function WorkflowRunsPage() {
 									void fetchNextPage();
 								}}
 							>
-								{isFetchingNextPage ? (
-									<Trans>Loading…</Trans>
-								) : (
-									<Trans>Load more</Trans>
-								)}
+								{isFetchingNextPage ? "Loading…" : "Load more"}
 							</Button>
 						</div>
 					)}

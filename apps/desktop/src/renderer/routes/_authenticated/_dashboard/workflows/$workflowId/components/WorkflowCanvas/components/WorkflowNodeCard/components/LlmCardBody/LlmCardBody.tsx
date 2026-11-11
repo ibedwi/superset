@@ -1,4 +1,3 @@
-import { Trans, useLingui } from "@lingui/react/macro";
 import {
 	type DraftWorkflowNode,
 	getWorkflowLlmEfforts,
@@ -11,28 +10,23 @@ import {
 type LlmConfig = Extract<DraftWorkflowNode, { type: "llm" }>["config"];
 
 export function LlmCardBody({ config }: { config: LlmConfig }) {
-	const { t, i18n } = useLingui();
 	const model = config.model ?? "";
 	const supportsEffort = getWorkflowLlmEfforts(model).length > 0;
 	const effort = config.effort
-		? t({
-				message: `${i18n._(LLM_EFFORT_LABELS[config.effort])} effort`,
-			})
-		: t({ message: "Default effort" });
+		? `${LLM_EFFORT_LABELS[config.effort]} effort`
+		: "Default effort";
 	return (
 		<>
 			<div className="line-clamp-2 text-sm text-muted-foreground">
-				{config.prompt || <Trans>Add a prompt to define this step.</Trans>}
+				{config.prompt || "Add a prompt to define this step."}
 			</div>
 			<div className="border-t" />
 			<div className="truncate text-xs text-muted-foreground">
-				{model ? (
-					[llmModelLabel(model), supportsEffort ? effort : null]
-						.filter(Boolean)
-						.join(" · ")
-				) : (
-					<Trans>Choose a model</Trans>
-				)}
+				{model
+					? [llmModelLabel(model), supportsEffort ? effort : null]
+							.filter(Boolean)
+							.join(" · ")
+					: "Choose a model"}
 			</div>
 		</>
 	);

@@ -1,7 +1,3 @@
-import type { MessageDescriptor } from "@lingui/core";
-import { msg } from "@lingui/core/macro";
-import { Trans } from "@lingui/react/macro";
-import { i18n } from "@superset/i18n";
 import type { DraftWorkflowNode } from "@superset/shared/workflow-graph";
 import { cn } from "@superset/ui/utils";
 import { Handle, type NodeProps, Position } from "@xyflow/react";
@@ -25,42 +21,42 @@ import { LlmCardBody } from "./components/LlmCardBody";
 import { TriggerCardBody } from "./components/TriggerCardBody";
 
 const SUBTITLES: Partial<Record<DraftWorkflowNode["type"], ReactNode>> = {
-	trigger: <Trans>Trigger</Trans>,
-	http: <Trans>HTTP request</Trans>,
+	trigger: "Trigger",
+	http: "HTTP request",
 };
 
 const STEP_LINES: Record<
 	StepStatus,
-	{ icon: IconType; label: MessageDescriptor; className: string }
+	{ icon: IconType; label: string; className: string }
 > = {
 	pending: {
 		icon: LuCircleDashed,
-		label: msg({ message: "Pending" }),
+		label: "Pending",
 		className: "text-muted-foreground",
 	},
 	running: {
 		icon: LuLoaderCircle,
-		label: msg({ message: "Running" }),
+		label: "Running",
 		className: "text-amber-600 dark:text-amber-400 [&_svg]:animate-spin",
 	},
 	succeeded: {
 		icon: LuCircleCheck,
-		label: msg({ message: "Succeeded" }),
+		label: "Succeeded",
 		className: "text-emerald-600 dark:text-emerald-400",
 	},
 	failed: {
 		icon: LuCircleAlert,
-		label: msg({ message: "Failed" }),
+		label: "Failed",
 		className: "text-red-600 dark:text-red-400",
 	},
 	skipped: {
 		icon: LuSkipForward,
-		label: msg({ message: "Skipped" }),
+		label: "Skipped",
 		className: "text-muted-foreground",
 	},
 	canceled: {
 		icon: LuBan,
-		label: msg({ message: "Canceled" }),
+		label: "Canceled",
 		className: "text-amber-600 dark:text-amber-400",
 	},
 };
@@ -94,11 +90,7 @@ export function WorkflowNodeCard({ data, selected }: NodeProps<CanvasNode>) {
 	const stepStatus = data.stepStatus;
 	const step = stepStatus ? STEP_LINES[stepStatus] : null;
 	const subtitle =
-		node.type === "llm" ? (
-			<Trans>LLM · Direct model call</Trans>
-		) : (
-			SUBTITLES[node.type]
-		);
+		node.type === "llm" ? "LLM · Direct model call" : SUBTITLES[node.type];
 	return (
 		<div
 			className={cn(
@@ -139,7 +131,7 @@ export function WorkflowNodeCard({ data, selected }: NodeProps<CanvasNode>) {
 					className={cn("flex items-center gap-1.5 text-xs", step.className)}
 				>
 					<step.icon className="size-3.5" />
-					{i18n._(step.label)}
+					{step.label}
 				</div>
 			)}
 

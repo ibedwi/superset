@@ -1,4 +1,3 @@
-import { Trans } from "@lingui/react/macro";
 import type { DraftWorkflowNode } from "@superset/shared/workflow-graph";
 import { useHostLabel } from "../../../../../../hooks/useHostLabel";
 import { useWorkflowAgentChoices } from "../../../../../../hooks/useWorkflowAgentChoices";
@@ -22,15 +21,13 @@ export function AgentCardBody({ config, stepStatus }: AgentCardBodyProps) {
 	return (
 		<>
 			<div className="line-clamp-2 text-sm text-muted-foreground">
-				{config.prompt || <Trans>Add a prompt for the agent.</Trans>}
+				{config.prompt || "Add a prompt for the agent."}
 			</div>
 			<div className="border-t" />
 			<div className="truncate text-xs text-muted-foreground">
-				{hostLabel ? (
-					[hostLabel, agentLabel].filter(Boolean).join(" · ")
-				) : (
-					<Trans>Choose where this runs</Trans>
-				)}
+				{hostLabel
+					? [hostLabel, agentLabel].filter(Boolean).join(" · ")
+					: "Choose where this runs"}
 			</div>
 			{!stepStatus && (
 				<ConfigStateLine

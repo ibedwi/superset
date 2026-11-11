@@ -1,4 +1,3 @@
-import { Trans } from "@lingui/react/macro";
 import type { DraftWorkflowNode } from "@superset/shared/workflow-graph";
 import { Button } from "@superset/ui/button";
 import { Input } from "@superset/ui/input";
@@ -15,12 +14,12 @@ import { LlmNodeForm } from "./components/LlmNodeForm";
 import { TriggerNodeSection } from "./components/TriggerNodeSection";
 
 const TITLES: Record<DraftWorkflowNode["type"], ReactNode> = {
-	trigger: <Trans>Trigger</Trans>,
-	agent: <Trans>Agent</Trans>,
-	llm: <Trans>LLM</Trans>,
-	http: <Trans>HTTP request</Trans>,
-	condition: <Trans>Condition</Trans>,
-	cli: <Trans>Command</Trans>,
+	trigger: "Trigger",
+	agent: "Agent",
+	llm: "LLM",
+	http: "HTTP request",
+	condition: "Condition",
+	cli: "Command",
 };
 
 interface NodeConfigPanelProps {
@@ -45,7 +44,7 @@ export function NodeConfigPanel({
 	if (!node) {
 		return (
 			<div className="flex h-full items-center justify-center p-6 text-center text-sm text-muted-foreground">
-				<Trans>Select a node to configure it.</Trans>
+				Select a node to configure it.
 			</div>
 		);
 	}
@@ -66,22 +65,20 @@ export function NodeConfigPanel({
 						</div>
 						{wf.type === "llm" && (
 							<div className="text-xs text-muted-foreground">
-								<Trans>Direct model call</Trans>
+								Direct model call
 							</div>
 						)}
 					</div>
 				</div>
 				{wf.type === "llm" && (
 					<p className="text-xs text-muted-foreground">
-						<Trans>
-							Generate a response from a prompt. For workspace tasks and tools,
-							use Agent.
-						</Trans>
+						Generate a response from a prompt. For workspace tasks and tools,
+						use Agent.
 					</p>
 				)}
 				{/* The id is referenced by downstream templates, so it is fixed at creation. */}
 				<div className="text-xs text-muted-foreground">
-					<Trans>ID</Trans>{" "}
+					ID{" "}
 					<span className="select-all font-mono text-foreground/80">
 						{wf.id}
 					</span>
@@ -91,9 +88,7 @@ export function NodeConfigPanel({
 			<div className="border-t" />
 
 			<div className="flex flex-col gap-1.5">
-				<Label>
-					<Trans>Name</Trans>
-				</Label>
+				<Label>Name</Label>
 				<Input
 					value={wf.name ?? ""}
 					onChange={(event) =>
@@ -156,7 +151,7 @@ export function NodeConfigPanel({
 						onClick={() => onDeleteNode(node.id)}
 					>
 						<LuTrash2 className="size-3.5" />
-						<Trans>Delete node</Trans>
+						Delete node
 					</Button>
 				</>
 			)}

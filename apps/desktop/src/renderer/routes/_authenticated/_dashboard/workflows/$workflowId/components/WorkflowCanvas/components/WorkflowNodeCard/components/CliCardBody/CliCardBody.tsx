@@ -1,4 +1,3 @@
-import { Trans } from "@lingui/react/macro";
 import type { DraftWorkflowNode } from "@superset/shared/workflow-graph";
 import { useHostWorkspaces } from "renderer/routes/_authenticated/providers/HostWorkspacesProvider";
 import { useHostLabel } from "../../../../../../hooks/useHostLabel";
@@ -24,21 +23,17 @@ export function CliCardBody({ config, stepStatus }: CliCardBodyProps) {
 	return (
 		<>
 			<div className="text-[10px] uppercase tracking-wide text-muted-foreground">
-				<Trans>Command</Trans>
+				Command
 			</div>
 			<div className="line-clamp-3 whitespace-pre-wrap break-all rounded-md border bg-muted/50 px-2.5 py-2 font-mono text-xs dark:bg-black/30">
 				{config.command || (
-					<span className="text-muted-foreground">
-						<Trans>Add a shell command</Trans>
-					</span>
+					<span className="text-muted-foreground">Add a shell command</span>
 				)}
 			</div>
 			<div className="truncate text-xs text-muted-foreground">
-				{hostLabel ? (
-					[hostLabel, workspaceLabel].filter(Boolean).join(" · ")
-				) : (
-					<Trans>Choose a device to continue</Trans>
-				)}
+				{hostLabel
+					? [hostLabel, workspaceLabel].filter(Boolean).join(" · ")
+					: "Choose a device to continue"}
 			</div>
 			{!stepStatus && (
 				<ConfigStateLine

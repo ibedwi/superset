@@ -1,5 +1,3 @@
-import type { MessageDescriptor } from "@lingui/core";
-import { msg } from "@lingui/core/macro";
 import type {
 	SelectWorkflowRun,
 	SelectWorkflowRunStep,
@@ -10,7 +8,7 @@ export type WorkflowStepStatus = SelectWorkflowRunStep["status"];
 
 export interface StatusMeta {
 	dot: string;
-	label: MessageDescriptor;
+	label: string;
 	/** True while the status can still change, so views keep polling. */
 	active: boolean;
 }
@@ -18,32 +16,32 @@ export interface StatusMeta {
 export const RUN_STATUS_META: Record<WorkflowRunStatus, StatusMeta> = {
 	pending: {
 		dot: "bg-slate-400",
-		label: msg({ message: "pending" }),
+		label: "pending",
 		active: true,
 	},
 	running: {
 		dot: "bg-amber-500 animate-pulse",
-		label: msg({ message: "running" }),
+		label: "running",
 		active: true,
 	},
 	succeeded: {
 		dot: "bg-emerald-500",
-		label: msg({ message: "succeeded" }),
+		label: "succeeded",
 		active: false,
 	},
 	failed: {
 		dot: "bg-red-500",
-		label: msg({ message: "failed" }),
+		label: "failed",
 		active: false,
 	},
 	canceled: {
 		dot: "bg-amber-500",
-		label: msg({ message: "canceled" }),
+		label: "canceled",
 		active: false,
 	},
 	timed_out: {
 		dot: "bg-red-500",
-		label: msg({ message: "timed out" }),
+		label: "timed out",
 		active: false,
 	},
 };
@@ -51,32 +49,32 @@ export const RUN_STATUS_META: Record<WorkflowRunStatus, StatusMeta> = {
 export const STEP_STATUS_META: Record<WorkflowStepStatus, StatusMeta> = {
 	pending: {
 		dot: "bg-slate-400",
-		label: msg({ message: "pending" }),
+		label: "pending",
 		active: true,
 	},
 	running: {
 		dot: "bg-amber-500 animate-pulse",
-		label: msg({ message: "running" }),
+		label: "running",
 		active: true,
 	},
 	succeeded: {
 		dot: "bg-emerald-500",
-		label: msg({ message: "succeeded" }),
+		label: "succeeded",
 		active: false,
 	},
 	failed: {
 		dot: "bg-red-500",
-		label: msg({ message: "failed" }),
+		label: "failed",
 		active: false,
 	},
 	skipped: {
 		dot: "bg-slate-300 dark:bg-slate-600",
-		label: msg({ message: "skipped" }),
+		label: "skipped",
 		active: false,
 	},
 	canceled: {
 		dot: "bg-amber-500",
-		label: msg({ message: "canceled" }),
+		label: "canceled",
 		active: false,
 	},
 };
@@ -97,8 +95,8 @@ export function runCause(run: {
 	return "manual";
 }
 
-export const RUN_CAUSE_LABELS: Record<RunCause, MessageDescriptor> = {
-	manual: msg({ message: "manual" }),
-	schedule: msg({ message: "schedule" }),
-	event: msg({ message: "event" }),
+export const RUN_CAUSE_LABELS: Record<RunCause, string> = {
+	manual: "manual",
+	schedule: "schedule",
+	event: "event",
 };

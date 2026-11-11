@@ -469,10 +469,6 @@ msgstr "{0}を無効にしました"
 msgid "{0} Documentation"
 msgstr "{0}ドキュメント"
 
-#. placeholder {0}: i18n._(LLM_EFFORT_LABELS[config.effort])
-msgid "{0} effort"
-msgstr "{0}エフォート"
-
 #. placeholder {0}: skill.name
 #. placeholder {0}: variables.name
 msgid "{0} enabled"
@@ -888,9 +884,6 @@ msgstr "{count, plural, one {#件のコメント} other {#件のコメント}}"
 msgid "{count, plural, one {# file} other {# files}}"
 msgstr "{count, plural, one {#件のファイル} other {#件のファイル}}"
 
-msgid "{count, plural, one {# header} other {# headers}}"
-msgstr "{count, plural, one {#件のヘッダー} other {#件のヘッダー}}"
-
 msgid "{count, plural, one {# new message} other {# new messages}}"
 msgstr "{count, plural, other {# 件の新着メッセージ}}"
 
@@ -995,9 +988,6 @@ msgstr "{total}+ 件中 {current} 件目"
 
 msgid "{currentPage} of {totalBranches}"
 msgstr "{currentPage}/{totalBranches}"
-
-msgid "{day}, {time}"
-msgstr "{day} {time}"
 
 msgid "{days} at {time}"
 msgstr "{days} {time}"
@@ -1355,14 +1345,8 @@ msgstr "残り {remaining} トークン"
 msgid "{restoredCount, plural, one {Undid the changes to # file.} other {Undid the changes to # files.}}"
 msgstr "{restoredCount, plural, one {#件のファイルの変更を取り消しました。} other {#件のファイルの変更を取り消しました。}}"
 
-msgid "{scheduleCount, plural, one {Manual + # schedule} other {Manual + # schedules}}"
-msgstr "{scheduleCount, plural, one {手動 + #件のスケジュール} other {手動 + #件のスケジュール}}"
-
 msgid "{seconds}s"
 msgstr "{seconds}秒"
-
-msgid "{seconds}s timeout"
-msgstr "タイムアウト{seconds}秒"
 
 msgid "{selectedCount} selected"
 msgstr "{selectedCount}件選択中"
@@ -1407,9 +1391,6 @@ msgstr "{teardownFailureCount, plural, one {それでも削除} other {それで
 
 msgid "{threshold, plural, one {# agent PR merged} other {# agent PRs merged}}"
 msgstr "{threshold, plural, other {#件のエージェントPRをマージ}}"
-
-msgid "{timeoutMinutes} min"
-msgstr "{timeoutMinutes}分"
 
 msgid "{toolName} interrupted"
 msgstr "{toolName}が中断されました"
@@ -1654,9 +1635,6 @@ msgstr "1時間"
 
 msgid "1 user"
 msgstr "1ユーザー"
-
-msgid "1–300 seconds. The request fails when it takes longer."
-msgstr "1〜300秒。これより時間がかかるとリクエストは失敗します。"
 
 msgid "10+ concurrent workstreams without dropped state"
 msgstr "状態を取りこぼさない10以上の並行ワークストリーム"
@@ -2064,15 +2042,6 @@ msgstr "プロジェクトを追加するとGitHub issueが表示されます。
 msgid "Add a project to see pull requests."
 msgstr "プロジェクトを追加するとプルリクエストが表示されます。"
 
-msgid "Add a prompt for the agent."
-msgstr "エージェントへのプロンプトを追加してください。"
-
-msgid "Add a prompt to define this step."
-msgstr "このステップを定義するプロンプトを追加してください。"
-
-msgid "Add a shell command"
-msgstr "シェルコマンドを追加してください"
-
 msgid "Add a short summary…"
 msgstr "短い概要を追加…"
 
@@ -2096,9 +2065,6 @@ msgstr "使用量の設定でアカウントを追加"
 
 msgid "add an agent"
 msgstr "エージェントを追加する"
-
-msgid "Add an endpoint URL"
-msgstr "エンドポイントURLを追加してください"
 
 msgid "Add an environment in Settings before creating a cloud workspace"
 msgstr "クラウドワークスペースを作成する前に、設定で環境を追加してください"
@@ -2124,9 +2090,6 @@ msgstr "コメントを追加"
 msgid "Add custom audio"
 msgstr "カスタム音声を追加"
 
-msgid "Add daily schedule"
-msgstr "毎日のスケジュールを追加"
-
 msgid "Add Description"
 msgstr "説明を追加"
 
@@ -2148,9 +2111,6 @@ msgstr "ファイルやアプリなどを追加(@)"
 msgid "Add GitHub organization"
 msgstr "GitHub 組織を追加"
 
-msgid "Add header"
-msgstr "ヘッダーを追加"
-
 msgid "Add instructions"
 msgstr "指示を追加"
 
@@ -2169,9 +2129,6 @@ msgstr "メンバーを追加"
 
 msgid "Add more…"
 msgstr "さらに追加…"
-
-msgid "Add node"
-msgstr "ノードを追加"
 
 msgid "Add one from the menu in the sidebar to get started."
 msgstr "サイドバーのメニューから追加して始めましょう。"
@@ -2290,18 +2247,12 @@ msgstr "プロンプト付きで起動するときのみ追加されます、例
 msgid "Added to agent input"
 msgstr "エージェントの入力欄に追加しました"
 
-msgid "Adding a schedule keeps manual runs available."
-msgstr "スケジュールを追加しても手動実行は引き続き使えます。"
-
 #. placeholder {0}: COMPANY.DOMAIN
 msgid "Adding people to {organizationName} needs a paid plan. Your organization's plan is managed by its owner at {0}."
 msgstr "{organizationName} にメンバーを追加するには有料プランが必要です。組織のプランはオーナーが {0} で管理しています。"
 
 msgid "Adding..."
 msgstr "追加中..."
-
-msgid "Adding…"
-msgstr "追加中…"
 
 msgid "Address Comments with Agent"
 msgstr "エージェントでコメントに対応"
@@ -2330,9 +2281,6 @@ msgstr "v1ワークスペースをインポート済みのv2プロジェクト�
 msgid "Advanced"
 msgstr "詳細"
 
-msgid "Advanced · reference path"
-msgstr "詳細設定 · 参照パス"
-
 msgid "Advanced options"
 msgstr "詳細オプション"
 
@@ -2347,9 +2295,6 @@ msgstr "ベースとの差分"
 
 msgid "Against Main"
 msgstr "mainとの比較"
-
-msgid "agent"
-msgstr "エージェント"
 
 msgid "Agent"
 msgstr "エージェント"
@@ -2673,9 +2618,6 @@ msgstr "全期間"
 msgid "All updates"
 msgstr "すべてのアップデート"
 
-msgid "All workflow runs"
-msgstr "すべてのワークフロー実行"
-
 msgid "All workspaces"
 msgstr "すべてのワークスペース"
 
@@ -2790,9 +2732,6 @@ msgstr "エージェントが関数やファイルをまるごと書き、人間
 msgid "An automation can only use a cloud workspace you created"
 msgstr "オートメーションで使用できるのは、自分が作成したクラウドワークスペースのみです"
 
-msgid "An edge points at a missing node."
-msgstr "存在しないノードへのエッジがあります。"
-
 msgid "An environment holds your repositories, variables, and region. Start as many workspaces from it as you need."
 msgstr "環境にはリポジトリ、変数、リージョンを保存します。そこから必要なだけワークスペースを起動できます。"
 
@@ -2861,9 +2800,6 @@ msgstr "#{channel} で {who} に回答しました"
 
 msgid "Answered you in #{channel}"
 msgstr "#{channel} であなたに回答しました"
-
-msgid "Anthropic"
-msgstr "Anthropic"
 
 msgid "Anthropic rejected this API key."
 msgstr "AnthropicがこのAPIキーを拒否しました。"
@@ -3297,10 +3233,6 @@ msgstr "添付ファイルがアップロードされていません — 先に�
 msgid "Attachments need an online host"
 msgstr "添付にはオンラインのホストが必要です"
 
-#. placeholder {0}: step.attempt
-msgid "attempt {0}"
-msgstr "試行 {0}"
-
 msgid "Attempt before checks pass"
 msgstr "チェック通過前に実行"
 
@@ -3327,9 +3259,6 @@ msgstr "認証"
 
 msgid "Authentication Code"
 msgstr "認証コード"
-
-msgid "Authentication uses request headers."
-msgstr "認証にはリクエストヘッダーを使用します。"
 
 msgid "Author"
 msgstr "作成者"
@@ -3446,9 +3375,6 @@ msgctxt "plugin access"
 msgid "Available"
 msgstr "利用可能"
 
-msgid "Available agents depend on the selected device."
-msgstr "利用できるエージェントは選択したデバイスによって異なります。"
-
 msgid "Available plugins show on each role's Plugins page. Installed plugins are installed for everyone in the role, who can disable but not remove them."
 msgstr "利用可能なプラグインは各ロールのプラグインページに表示されます。インストール済みのプラグインはそのロールの全員にインストールされ、無効にはできますが削除はできません。"
 
@@ -3508,9 +3434,6 @@ msgstr "チェックリストに戻る"
 msgid "Back to current"
 msgstr "最新に戻る"
 
-msgid "Back to editor"
-msgstr "エディターに戻る"
-
 msgid "Back to GitHub issues"
 msgstr "GitHub issueに戻る"
 
@@ -3528,9 +3451,6 @@ msgstr "ページ"
 
 msgid "Back to the leaderboard"
 msgstr "リーダーボードに戻る"
-
-msgid "Back to workflows"
-msgstr "ワークフロー一覧に戻る"
 
 msgid "Backed by"
 msgstr "支援者"
@@ -3672,9 +3592,6 @@ msgstr "ボード"
 
 msgid "Board view"
 msgstr "ボード表示"
-
-msgid "Body"
-msgstr "ボディ"
 
 msgid "Bold"
 msgstr "太字"
@@ -3847,9 +3764,6 @@ msgstr "バグ"
 
 msgid "Bug reports"
 msgstr "バグ報告"
-
-msgid "Build a canvas of agent, LLM, API, and command steps that runs on a schedule or an event."
-msgstr "エージェント、LLM、API、コマンドのステップをキャンバスに組み立て、スケジュールやイベントで実行します。"
 
 msgid "Build in public"
 msgstr "オープンに開発"
@@ -4074,17 +3988,8 @@ msgstr "プランをキャンセル"
 msgid "Cancel reply"
 msgstr "返信をキャンセル"
 
-msgid "Cancel run"
-msgstr "実行をキャンセル"
-
 msgid "Cancel the automatic resume"
 msgstr "自動再開をキャンセル"
-
-msgid "Cancel this run?"
-msgstr "この実行をキャンセルしますか?"
-
-msgid "canceled"
-msgstr "キャンセル済み"
 
 msgid "Canceled"
 msgstr "キャンセル済み"
@@ -4249,9 +4154,6 @@ msgstr "変更がリクエストされています"
 
 msgid "Changes saved"
 msgstr "変更を保存しました"
-
-msgid "Changing device clears agent, model and effort."
-msgstr "デバイスを変更すると、エージェント、モデル、エフォートがクリアされます。"
 
 msgid "Changing..."
 msgstr "変更中..."
@@ -4425,20 +4327,11 @@ msgstr "{pluginLabel} アカウントを選択"
 msgid "Choose a device"
 msgstr "デバイスを選択"
 
-msgid "Choose a device first"
-msgstr "先にデバイスを選択してください"
-
-msgid "Choose a device to continue"
-msgstr "続行するにはデバイスを選択してください"
-
 msgid "Choose a fighter"
 msgstr "ファイターを選ぶ"
 
 msgid "Choose a folder"
 msgstr "フォルダを選択"
-
-msgid "Choose a model"
-msgstr "モデルを選択"
 
 msgid "Choose a parent directory"
 msgstr "親ディレクトリを選択"
@@ -4452,20 +4345,8 @@ msgstr "プロジェクトを選ぶと、そのIssueを検索できます"
 msgid "Choose a project to search its pull requests"
 msgstr "プロジェクトを選ぶと、そのプルリクエストを検索できます"
 
-msgid "Choose a reference…"
-msgstr "参照を選択…"
-
 msgid "Choose a section."
 msgstr "セクションを選んでください。"
-
-msgid "Choose a source value for this test."
-msgstr "このテストのソース値を選択してください。"
-
-msgid "Choose a time."
-msgstr "時刻を選択してください。"
-
-msgid "Choose a value to test"
-msgstr "テストする値を選択"
 
 msgid "Choose agent"
 msgstr "エージェントを選択"
@@ -4508,9 +4389,6 @@ msgstr "Paradevから通知するタイミングを選びます。"
 
 msgid "Choose where agents started from comments, design mode, and Pages open."
 msgstr "コメント、デザインモード、Pages から起動したエージェントを開く場所を選択します。"
-
-msgid "Choose where this runs"
-msgstr "実行場所を選択"
 
 msgid "Choose your default skin tone"
 msgstr "デフォルトの肌の色を選択"
@@ -5051,9 +4929,6 @@ msgstr "ターミナルエージェントにはコマンドが必要です。"
 msgid "Command Palette"
 msgstr "コマンドパレット"
 
-msgid "Command preview"
-msgstr "コマンドのプレビュー"
-
 msgid "Command to start your dev server, triggered via keyboard shortcut."
 msgstr "キーボードショートカットで開発サーバーを起動するコマンド。"
 
@@ -5166,9 +5041,6 @@ msgstr "ParadevをCursor、Claude Code、Codex、Windsurf、Devin、GitHub Copil
 msgid "Compare plans"
 msgstr "プランを比較"
 
-msgid "Compare to"
-msgstr "比較する値"
-
 msgid "Compared against the default style"
 msgstr "デフォルトスタイルと比較"
 
@@ -5187,9 +5059,6 @@ msgstr "component-showcase"
 
 msgid "Composable form layout — pairs with @superset/ui/form for react-hook-form"
 msgstr "組み合わせ可能なフォームレイアウト — react-hook-form用の@superset/ui/formと合わせて使います"
-
-msgid "Condition"
-msgstr "条件"
 
 msgid "Conductor chat history. Export it in Conductor under Settings → Account"
 msgstr "Conductor のチャット履歴。Conductor の Settings → Account からエクスポートしてください"
@@ -5230,9 +5099,6 @@ msgstr "設定ファイルの内容"
 msgid "config.json must be a JSON object"
 msgstr "config.json は JSON オブジェクトである必要があります"
 
-msgid "Configuration check only; availability is checked when the workflow runs."
-msgstr "設定のチェックのみです。利用可否はワークフローの実行時に確認されます。"
-
 msgid "Configure"
 msgstr "設定"
 
@@ -5268,9 +5134,6 @@ msgstr "ランチャーに表示するエージェントと起動方法を設定
 
 msgid "Configure workspace run command"
 msgstr "ワークスペースの実行コマンドを設定"
-
-msgid "Configured · {timeoutMinutes} min limit"
-msgstr "設定済み · 上限{timeoutMinutes}分"
 
 msgid "Configured for {agent}"
 msgstr "{agent} 用に設定済み"
@@ -5323,9 +5186,6 @@ msgstr "Claude、Codex、Cursorなど任意の<0>MCP</0>クライアントを接
 
 msgid "Connect Claude, Codex, Cursor, or any MCP client to {companyName}. Create tasks, spin up workspaces, launch agents, and run automations straight from your AI agent."
 msgstr "Claude、Codex、Cursor、その他のMCPクライアントを{companyName}に接続。AIエージェントから直接、タスクの作成、ワークスペースの起動、エージェントの実行、自動化の実行ができます。"
-
-msgid "Connect condition branches from their yes/no handles."
-msgstr "条件ノードの分岐は yes/no のハンドルから接続してください。"
 
 msgid "Connect external services to sync data with your organization."
 msgstr "外部サービスを接続して組織とデータを同期します。"
@@ -5541,12 +5401,6 @@ msgstr "サポートに問い合わせる"
 
 msgid "Contact Us"
 msgstr "お問い合わせ"
-
-msgid "Contains"
-msgstr "含む"
-
-msgid "contains {value}"
-msgstr "{value}を含む"
 
 msgid "Contains this text..."
 msgstr "このテキストを含む..."
@@ -5850,9 +5704,6 @@ msgstr "エージェントを追加できませんでした"
 msgid "Could not add repository"
 msgstr "リポジトリを追加できませんでした"
 
-msgid "Could not add schedule. Try again."
-msgstr "スケジュールを追加できませんでした。もう一度お試しください。"
-
 msgid "Could not answer the agent"
 msgstr "エージェントに応答できませんでした"
 
@@ -5965,9 +5816,6 @@ msgstr "プラグインを読み込めませんでした。接続を確認して
 msgid "Could not load presets from the host"
 msgstr "ホストからプリセットを読み込めませんでした"
 
-msgid "Could not load schedules. Automatic starts may still be active."
-msgstr "スケジュールを読み込めませんでした。自動開始が有効なままの可能性があります。"
-
 msgid "Could not load this diff"
 msgstr "この差分を読み込めませんでした"
 
@@ -6060,9 +5908,6 @@ msgstr "アクセスを削除できませんでした"
 
 msgid "Could not remove repository"
 msgstr "リポジトリを削除できませんでした"
-
-msgid "Could not remove the schedule. Try again."
-msgstr "スケジュールを削除できませんでした。もう一度お試しください。"
 
 msgid "Could not rename the session"
 msgstr "セッションの名前を変更できませんでした"
@@ -6205,9 +6050,6 @@ msgstr "接続できませんでした（エラー {status}）。もう一度お
 
 msgid "Couldn't convert to draft"
 msgstr "ドラフトに変換できませんでした"
-
-msgid "Couldn't copy"
-msgstr "コピーできませんでした"
 
 msgid "Couldn't copy comment"
 msgstr "コメントをコピーできませんでした"
@@ -6720,9 +6562,6 @@ msgstr "ENG-142「Safariでログインに失敗する」を作成しました"
 msgid "Created team \"{trimmedName}\""
 msgstr "チーム「{trimmedName}」を作成しました"
 
-msgid "Creates an additional daily start. Existing schedules stay active."
-msgstr "毎日の開始を1つ追加します。既存のスケジュールは有効のままです。"
-
 msgid "creating"
 msgstr "作成中"
 
@@ -7094,9 +6933,6 @@ msgstr "ワークスペース削除時にローカルブランチも削除"
 msgid "Delete message"
 msgstr "メッセージを削除"
 
-msgid "Delete node"
-msgstr "ノードを削除"
-
 msgid "Delete organization"
 msgstr "組織を削除"
 
@@ -7365,15 +7201,6 @@ msgstr "開発者"
 msgid "Development build"
 msgstr "開発ビルド"
 
-msgid "device"
-msgstr "デバイス"
-
-msgid "Device"
-msgstr "デバイス"
-
-msgid "Device timezone"
-msgstr "デバイスのタイムゾーン"
-
 msgid "Device: {selectedLabel}"
 msgstr "デバイス: {selectedLabel}"
 
@@ -7442,9 +7269,6 @@ msgstr "ダイレクトメッセージ"
 
 msgid "Direct mode"
 msgstr "ダイレクトモード"
-
-msgid "Direct model call"
-msgstr "モデルの直接呼び出し"
 
 msgid "Directory"
 msgstr "ディレクトリ"
@@ -7817,9 +7641,6 @@ msgstr "ドロップダウン、コンテキスト、アプリケーションメ
 msgid "Due today"
 msgstr "本日のお支払い"
 
-msgid "Duplicate node id: {nodeId}"
-msgstr "ノード ID が重複しています: {nodeId}"
-
 msgid "Duration"
 msgstr "所要時間"
 
@@ -7905,9 +7726,6 @@ msgstr "「{name}」を獲得"
 
 msgid "Earned {name} ×{tier}"
 msgstr "「{name}」×{tier} を獲得"
-
-msgid "Edges cannot point into the trigger."
-msgstr "トリガーへ向かう接続は作成できません。"
 
 msgid "Edit"
 msgstr "編集"
@@ -8071,9 +7889,6 @@ msgstr "リモートアクセスを有効にし、Paradevを起動したまま�
 msgid "Enable skill"
 msgstr "スキルを有効にする"
 
-msgid "Enabled"
-msgstr "有効"
-
 msgid "End repeat"
 msgstr "繰り返しの終了"
 
@@ -8085,9 +7900,6 @@ msgstr "終了しました"
 
 msgid "Ending the call"
 msgstr "通話を終了中"
-
-msgid "Endpoint URL"
-msgstr "エンドポイントURL"
 
 msgid "Ensure no regression"
 msgstr "デグレがないことを確認して"
@@ -8122,12 +7934,6 @@ msgstr "整数を入力"
 msgid "Enter a whole number from {minHours} to {maxHours} GB-hours."
 msgstr "{minHours} から {maxHours} GB 時間までの整数を入力してください。"
 
-msgid "Enter a whole number from {minText} to {maxText}. Default: {defaultText}."
-msgstr "{minText}から{maxText}までの整数を入力してください。デフォルト：{defaultText}。"
-
-msgid "Enter raw request body…"
-msgstr "生のリクエストボディを入力…"
-
 msgid "Enter this code when OpenAI asks for it:"
 msgstr "OpenAI に求められたら、このコードを入力してください:"
 
@@ -8136,9 +7942,6 @@ msgstr "URLを入力または検索..."
 
 msgid "Enter URL..."
 msgstr "URLを入力..."
-
-msgid "Enter workspace ID manually…"
-msgstr "ワークスペースIDを手動で入力…"
 
 msgid "Enterprise"
 msgstr "エンタープライズ"
@@ -8178,9 +7981,6 @@ msgstr "escで閉じる"
 
 msgid "esc to exit"
 msgstr "escで終了"
-
-msgid "event"
-msgstr "イベント"
 
 msgid "Event"
 msgstr "イベント"
@@ -8296,15 +8096,6 @@ msgstr "公開したものはすべて削除され、非表示になるわけで
 msgid "Executable"
 msgstr "実行ファイル"
 
-msgid "Execution"
-msgstr "実行"
-
-msgid "Execution context"
-msgstr "実行コンテキスト"
-
-msgid "Execution limits"
-msgstr "実行の上限"
-
 msgid "Existing repo path"
 msgstr "既存リポジトリのパス"
 
@@ -8313,12 +8104,6 @@ msgstr "{hostName}上の既存リポジトリのパス"
 
 msgid "Existing worktrees under the old path will be orphaned. You can re-import them from the worktrees flow."
 msgstr "旧パス配下の既存ワークツリーは孤立します。ワークツリーフローから再インポートできます。"
-
-msgid "exists"
-msgstr "存在する"
-
-msgid "Exists"
-msgstr "存在する"
 
 #. placeholder {0}: content.exitCode
 msgid "exit {0}"
@@ -8489,14 +8274,8 @@ msgstr "メンバーの追加に失敗しました"
 msgid "Failed to archive automation"
 msgstr "オートメーションをアーカイブできませんでした"
 
-msgid "Failed to archive workflow"
-msgstr "ワークフローをアーカイブできませんでした"
-
 msgid "Failed to cancel invitation"
 msgstr "招待のキャンセルに失敗しました"
-
-msgid "Failed to cancel run"
-msgstr "実行をキャンセルできませんでした"
 
 msgid "Failed to change base branch"
 msgstr "ベースブランチの変更に失敗しました"
@@ -8593,9 +8372,6 @@ msgstr "ターミナルを作成できませんでした"
 
 msgid "Failed to create thread"
 msgstr "スレッドの作成に失敗しました"
-
-msgid "Failed to create workflow"
-msgstr "ワークフローを作成できませんでした"
 
 msgid "Failed to create workspace"
 msgstr "ワークスペースを作成できませんでした"
@@ -8839,9 +8615,6 @@ msgstr "セットアップ設定を保存できませんでした"
 msgid "Failed to save team"
 msgstr "チームの保存に失敗しました"
 
-msgid "Failed to save workflow"
-msgstr "ワークフローを保存できませんでした"
-
 msgid "Failed to send"
 msgstr "送信に失敗しました"
 
@@ -8871,9 +8644,6 @@ msgstr "サインインに失敗しました。もう一度お試しください
 
 msgid "Failed to sign up. Please try again."
 msgstr "サインアップに失敗しました。もう一度お試しください。"
-
-msgid "Failed to start run"
-msgstr "実行を開始できませんでした"
 
 msgid "Failed to start the selected automations"
 msgstr "選択したオートメーションを開始できませんでした"
@@ -8941,9 +8711,6 @@ msgstr "チームを更新できませんでした。もう一度お試しくだ
 msgid "Failed to update URL"
 msgstr "URLの更新に失敗しました"
 
-msgid "Failed to update workflow"
-msgstr "ワークフローを更新できませんでした"
-
 msgid "Failed to update workspace"
 msgstr "ワークスペースを更新できませんでした"
 
@@ -8955,9 +8722,6 @@ msgstr "ロゴのアップロードに失敗しました"
 
 msgid "Failure"
 msgstr "失敗"
-
-msgid "False for empty text, 0, false, null and missing values."
-msgstr "空のテキスト、0、false、null、存在しない値は偽になります。"
 
 msgid "FAQ"
 msgstr "FAQ"
@@ -9199,9 +8963,6 @@ msgstr "完了 · 7秒稼働"
 msgid "Finishing the move…"
 msgstr "移動を完了しています…"
 
-msgid "First scheduled run"
-msgstr "最初のスケジュール実行"
-
 msgid "Fit"
 msgstr "全体表示"
 
@@ -9225,9 +8986,6 @@ msgstr "指摘を修正"
 
 msgid "Fix new errors in web. Reproduce each one in a test and open a draft pull request."
 msgstr "webの新しいエラーを修正してください。それぞれをテストで再現し、ドラフトのプルリクエストを作成してください。"
-
-msgid "Fix the graph before saving"
-msgstr "保存する前にグラフの問題を修正してください"
 
 msgid "fix-auth-redirect"
 msgstr "fix-auth-redirect"
@@ -9593,9 +9351,6 @@ msgstr "生成"
 msgid "Generate a key to use with MCP servers."
 msgstr "MCPサーバーで使用するキーを生成します。"
 
-msgid "Generate a response from a prompt. For workspace tasks and tools, use Agent."
-msgstr "プロンプトからレスポンスを生成します。ワークスペースでのタスクやツールにはエージェントを使用してください。"
-
 msgid "Generate API key"
 msgstr "APIキーを生成"
 
@@ -9616,9 +9371,6 @@ msgstr "生成中..."
 
 msgid "Generating…"
 msgstr "生成中…"
-
-msgid "Generation settings"
-msgstr "生成設定"
 
 msgid "Get {plan}"
 msgstr "{plan} を始める"
@@ -9916,12 +9668,6 @@ msgstr "未プッシュのコミットがあります"
 
 msgid "Head-to-Head Comparisons"
 msgstr "1対1の比較"
-
-msgid "Header name"
-msgstr "ヘッダー名"
-
-msgid "Headers"
-msgstr "ヘッダー"
 
 msgid "Heading 1"
 msgstr "見出し1"
@@ -10235,9 +9981,6 @@ msgstr "クラウドワークスペース内でエージェントがどうサイ
 
 msgid "HTML preview"
 msgstr "HTMLプレビュー"
-
-msgid "HTTP request"
-msgstr "HTTP リクエスト"
 
 msgid "https://"
 msgstr "https://"
@@ -10813,44 +10556,8 @@ msgstr "iPhone と iPad"
 msgid "Is {companyName} open source?"
 msgstr "{companyName} はオープンソースですか？"
 
-msgid "Is at least"
-msgstr "以上"
-
-msgid "is at least {value}"
-msgstr "{value}以上"
-
-msgid "Is at most"
-msgstr "以下"
-
-msgid "is at most {value}"
-msgstr "{value}以下"
-
-msgid "Is equal to"
-msgstr "等しい"
-
-msgid "is equal to {value}"
-msgstr "{value}に等しい"
-
-msgid "Is greater than"
-msgstr "より大きい"
-
-msgid "is greater than {value}"
-msgstr "{value}より大きい"
-
-msgid "Is less than"
-msgstr "より小さい"
-
-msgid "is less than {value}"
-msgstr "{value}より小さい"
-
 msgid "Is my data secure?"
 msgstr "データは安全ですか?"
-
-msgid "Is not equal to"
-msgstr "等しくない"
-
-msgid "is not equal to {value}"
-msgstr "{value}に等しくない"
 
 msgid "is now signed in here."
 msgstr "がここにサインインしました。"
@@ -10872,12 +10579,6 @@ msgstr "がサインインしました。"
 
 msgid "Is there a free plan?"
 msgstr "無料プランはありますか?"
-
-msgid "is truthy"
-msgstr "真である"
-
-msgid "Is truthy"
-msgstr "真である"
 
 msgid "Issue"
 msgstr "Issue"
@@ -11102,9 +10803,6 @@ msgstr "編集を続ける"
 msgid "Keep paused"
 msgstr "一時停止のままにする"
 
-msgid "Keep running"
-msgstr "実行を続ける"
-
 msgid "Keep typing an email to invite"
 msgstr "招待するにはメールアドレスを入力し続けてください"
 
@@ -11301,9 +10999,6 @@ msgstr "起動"
 msgid "Launch mode"
 msgstr "起動モード"
 
-msgid "Launch options"
-msgstr "起動オプション"
-
 msgid "Launch this terminal script when a new workspace is created."
 msgstr "新しいワークスペースが作成されたときにこのターミナルスクリプトを起動します。"
 
@@ -11476,9 +11171,6 @@ msgstr "{organizationName}に制限しますか？"
 msgid "Limit to people invited?"
 msgstr "招待したユーザーのみに制限しますか？"
 
-msgid "Limits"
-msgstr "上限"
-
 #. placeholder {0}: m.startLine
 #. placeholder {0}: metadata.startLine
 msgid "Line {0}"
@@ -11617,12 +11309,6 @@ msgstr "アプリで利用できます。"
 
 msgid "Live preview"
 msgstr "ライブプレビュー"
-
-msgid "LLM"
-msgstr "LLM"
-
-msgid "LLM · Direct model call"
-msgstr "LLM · モデルの直接呼び出し"
 
 msgid "llms.txt (index for AI agents)"
 msgstr "llms.txt(AIエージェント向けの索引)"
@@ -11982,9 +11668,6 @@ msgstr "管理者"
 msgid "Managed by your organization admin."
 msgstr "組織の管理者によって管理されています。"
 
-msgid "manual"
-msgstr "手動"
-
 msgid "Manual"
 msgstr "手作業"
 
@@ -11999,9 +11682,6 @@ msgstr "手動サインイン"
 
 msgid "Manual sign-in"
 msgstr "手動サインイン"
-
-msgid "Manual start only"
-msgstr "手動開始のみ"
 
 msgid "Mark all read"
 msgstr "すべて既読にする"
@@ -12065,15 +11745,6 @@ msgstr "ショートカットをキーボードの刻印に合わせます(例: 
 
 msgid "Max"
 msgstr "最大"
-
-msgid "Max tokens"
-msgstr "最大トークン数"
-
-msgid "Max tokens {maxTokensText}"
-msgstr "最大トークン数 {maxTokensText}"
-
-msgid "Max tokens {maxTokensText} · default"
-msgstr "最大トークン数 {maxTokensText} · デフォルト"
 
 msgid "Maximum"
 msgstr "最大"
@@ -12247,9 +11918,6 @@ msgstr "メッセージ"
 msgid "Messages with these words notify you like a mention. Separate them with commas."
 msgstr "これらの語句を含むメッセージはメンションと同様に通知されます。カンマで区切って入力してください。"
 
-msgid "Method"
-msgstr "メソッド"
-
 msgid "Microphone"
 msgstr "マイク"
 
@@ -12296,9 +11964,6 @@ msgstr "GitHub issueを最小化"
 msgid "Minimum contrast"
 msgstr "最小コントラスト"
 
-msgid "minutes"
-msgstr "分"
-
 msgid "missed"
 msgstr "未実行"
 
@@ -12326,9 +11991,6 @@ msgstr "必須項目が入力されていません。"
 #. js-lingui-explicit-id
 msgid "serverError.plugins.missingInput"
 msgstr "必須の入力 {input} がありません"
-
-msgid "Missing: {missingText}"
-msgstr "不足: {missingText}"
 
 msgid "MIT License"
 msgstr "MITライセンス"
@@ -12623,9 +12285,6 @@ msgstr "対応が必要"
 msgid "Needs attention"
 msgstr "要対応"
 
-msgid "Needs configuration"
-msgstr "設定が必要"
-
 msgid "Needs input"
 msgstr "入力待ち"
 
@@ -12785,9 +12444,6 @@ msgstr "新規ウィンドウ"
 msgid "New Window"
 msgstr "新規ウィンドウ"
 
-msgid "New workflow"
-msgstr "新しいワークフロー"
-
 msgid "New workspace"
 msgstr "新規ワークスペース"
 
@@ -12821,10 +12477,6 @@ msgstr "次へ"
 msgid "Next (Enter)"
 msgstr "次へ (Enter)"
 
-#. placeholder {0}: formatNextRun( new Date(trigger.nextRunAt), now, schedule?.timezone, )
-msgid "Next {0}"
-msgstr "次の{0}"
-
 msgid "Next branch"
 msgstr "次のブランチ"
 
@@ -12850,9 +12502,6 @@ msgstr "右サイドバーの次のタブ"
 msgid "Next run {0}"
 msgstr "次回の実行 {0}"
 
-msgid "Next scheduled run"
-msgstr "次回のスケジュール実行"
-
 msgid "Next slide"
 msgstr "次のスライド"
 
@@ -12870,11 +12519,6 @@ msgstr "次世代のチャット"
 
 msgid "Next:"
 msgstr "次:"
-
-#. placeholder {0}: formatNextRun(next.at, now, next.timeZone)
-#. placeholder {1}: next.timeZone ? timeZoneShortName(next.timeZone, next.at) : ""
-msgid "Next: {0} {1}"
-msgstr "次: {0} {1}"
 
 msgid "Next: {nextLabel}"
 msgstr "次: {nextLabel}"
@@ -12964,9 +12608,6 @@ msgstr "作成者が見つかりません。"
 
 msgid "No automations match"
 msgstr "一致するオートメーションがありません"
-
-msgid "No body"
-msgstr "ボディなし"
 
 msgid "No branches found"
 msgstr "ブランチが見つかりません"
@@ -13229,9 +12870,6 @@ msgstr "一致するページはありません"
 msgid "No matching pull requests"
 msgstr "一致するプルリクエストはありません"
 
-msgid "No matching sources."
-msgstr "一致するソースがありません。"
-
 msgid "No matching tasks"
 msgstr "一致するタスクはありません"
 
@@ -13431,12 +13069,6 @@ msgstr "合うポジションがありません。それでも連絡してよい
 msgid "No runs yet"
 msgstr "実行はまだありません"
 
-msgid "No runs yet. Use Run now to start one."
-msgstr "実行はまだありません。「今すぐ実行」で開始できます。"
-
-msgid "No scheduled runs"
-msgstr "スケジュールされた実行はありません"
-
 msgid "No screenshots yet"
 msgstr "スクリーンショットはまだありません"
 
@@ -13553,12 +13185,6 @@ msgstr "バージョンはまだありません"
 
 msgid "No versions yet."
 msgstr "バージョンはまだありません。"
-
-msgid "No workflows yet"
-msgstr "ワークフローはまだありません"
-
-msgid "No workspace"
-msgstr "ワークスペースなし"
 
 msgid "No workspace run command configured"
 msgstr "ワークスペース実行コマンドが設定されていません"
@@ -13805,9 +13431,6 @@ msgstr "そしていま、ソフトウェア工場のためのプラットフォ
 msgid "Numbered list"
 msgstr "番号付きリスト"
 
-msgid "Numeric comparisons accept numeric text."
-msgstr "数値の比較では数値テキストも使えます。"
-
 msgid "OAuth 2.0"
 msgstr "OAuth 2.0"
 
@@ -13973,9 +13596,6 @@ msgstr "macOSでのみ利用できます。"
 msgid "Only channel admins can do that"
 msgstr "チャンネル管理者のみが実行できます"
 
-msgid "Only condition nodes have branch handles."
-msgstr "分岐ハンドルがあるのは条件ノードだけです。"
-
 msgid "Only host owners can change membership"
 msgstr "メンバーシップを変更できるのはホストのオーナーのみです"
 
@@ -13993,9 +13613,6 @@ msgstr "このエージェントを変更できるのは、作成者または組
 
 msgid "Only on this machine: gitignored, and applied to every worktree of this repository. Any key set here replaces the shared one."
 msgstr "このマシンのみ: git で無視され、このリポジトリのすべてのワークツリーに適用されます。ここで設定したキーは共有の値を置き換えます。"
-
-msgid "Only one trigger node is allowed."
-msgstr "トリガーノードは 1 つだけ配置できます。"
 
 msgid "Only organization owners and admins can connect GitHub accounts. Ask one of them to connect it."
 msgstr "GitHub アカウントを接続できるのは組織のオーナーと管理者だけです。いずれかに接続を依頼してください。"
@@ -14616,14 +14233,8 @@ msgstr "ターミナルスクリプト一覧に表示される任意の説明。
 msgid "Optional flags appended after the prompt payload"
 msgstr "プロンプトの後に付加する任意のフラグ"
 
-msgid "Optional. GET and HEAD usually leave this empty."
-msgstr "任意。GETとHEADでは通常空のままにします。"
-
 msgid "Optional. Helps us learn what works."
 msgstr "任意。効果的な施策を知るのに役立ちます。"
-
-msgid "Optional. Set Content-Type in Headers when your endpoint expects a specific body format."
-msgstr "任意。エンドポイントが特定のボディ形式を要求する場合は、ヘッダーでContent-Typeを設定してください。"
 
 msgid "Options"
 msgstr "オプション"
@@ -14715,9 +14326,6 @@ msgstr "その他のホスト"
 
 msgid "Other people are using this project. Type <0>{projectName}</0> to confirm."
 msgstr "他のユーザーがこのプロジェクトを使用しています。確認のため <0>{projectName}</0> と入力してください。"
-
-msgid "Other sources"
-msgstr "その他のソース"
 
 msgid "Other Team Members"
 msgstr "他のチームメンバー"
@@ -15185,12 +14793,6 @@ msgstr "PDF"
 msgid "Peak pace"
 msgstr "最速ペース"
 
-msgid "pending"
-msgstr "待機中"
-
-msgid "Pending"
-msgstr "保留中"
-
 msgid "Pending Invitations"
 msgstr "保留中の招待"
 
@@ -15362,9 +14964,6 @@ msgstr "PK"
 
 msgid "Plain text"
 msgstr "プレーンテキスト"
-
-msgid "Plain text · wraps long lines"
-msgstr "プレーンテキスト · 長い行は折り返されます"
 
 msgid "Plan"
 msgstr "計画"
@@ -15834,9 +15433,6 @@ msgstr "プロジェクトのホストに到達できません。今は名前を
 msgid "Projects"
 msgstr "プロジェクト"
 
-msgid "prompt"
-msgstr "プロンプト"
-
 msgid "Prompt"
 msgstr "プロンプト"
 
@@ -16130,12 +15726,6 @@ msgstr "レート制限を超えました。"
 msgid "Rate limits"
 msgstr "使用量の上限"
 
-msgid "Raw body"
-msgstr "生のボディ"
-
-msgid "Raw text sent with this request."
-msgstr "このリクエストと一緒に送信される生のテキスト。"
-
 msgid "Reach this Mac from anywhere via the Paradev relay, or spin up cloud workspaces. Connect from any client."
 msgstr "Paradevリレー経由でどこからでもこのMacに接続でき、クラウドワークスペースも起動できます。どのクライアントからでも接続できます。"
 
@@ -16295,9 +15885,6 @@ msgstr "すべてのコミットを再適用"
 msgid "Reasoning"
 msgstr "推論"
 
-msgid "Reasoning effort · available for this model"
-msgstr "推論エフォート · このモデルで利用可能"
-
 msgid "Reassign"
 msgstr "再割り当て"
 
@@ -16394,9 +15981,6 @@ msgstr "透明度を下げる"
 msgid "Ref {ref} · Path {path}"
 msgstr "参照 {ref} · パス {path}"
 
-msgid "Reference path"
-msgstr "参照パス"
-
 msgid "Referenced, not demoed"
 msgstr "参照のみでデモなし"
 
@@ -16477,9 +16061,6 @@ msgstr "アプリを再読み込み"
 
 msgid "Reload from disk"
 msgstr "ディスクから再読み込み"
-
-msgid "Reload latest"
-msgstr "最新を読み込む"
 
 msgid "Reload Paradev to refresh the workspace list."
 msgstr "Paradevを再読み込みしてワークスペース一覧を更新してください。"
@@ -16580,9 +16161,6 @@ msgstr "サイドバーから削除"
 msgid "Remove from Sidebar"
 msgstr "サイドバーから削除"
 
-msgid "Remove header"
-msgstr "ヘッダーを削除"
-
 msgid "Remove icon"
 msgstr "アイコンを削除"
 
@@ -16615,9 +16193,6 @@ msgstr "キューのメッセージを削除"
 
 msgid "Remove repository"
 msgstr "リポジトリを削除"
-
-msgid "Remove schedule"
-msgstr "スケジュールを削除"
 
 msgid "Remove script"
 msgstr "スクリプトを削除"
@@ -16862,14 +16437,8 @@ msgstr "依頼"
 msgid "Request a trial"
 msgstr "トライアルを申し込む"
 
-msgid "Request body"
-msgstr "リクエストボディ"
-
 msgid "Request Body"
 msgstr "リクエストボディ"
-
-msgid "Request timeout"
-msgstr "リクエストのタイムアウト"
 
 msgid "requested changes"
 msgstr "が変更をリクエストしました"
@@ -16882,9 +16451,6 @@ msgstr "必須"
 
 msgid "Required"
 msgstr "必須"
-
-msgid "Required fields complete"
-msgstr "必須項目が入力済み"
 
 msgid "Required version: {minimumVersion}+"
 msgstr "必要バージョン: {minimumVersion}+"
@@ -17012,9 +16578,6 @@ msgstr "リソース"
 
 msgid "Response"
 msgstr "レスポンス"
-
-msgid "Response limit. Raise it only for longer replies."
-msgstr "レスポンスの上限。長い返信が必要な場合にのみ引き上げてください。"
 
 msgid "Restart"
 msgstr "再起動"
@@ -17156,9 +16719,6 @@ msgstr "復元中…"
 
 msgid "Result"
 msgstr "結果"
-
-msgid "Result JSON"
-msgstr "結果のJSON"
 
 msgid "Results"
 msgstr "結果"
@@ -17447,14 +17007,8 @@ msgstr "ノートパソコンを閉じても動き続けるクラウドワーク
 msgid "Run commands and navigate the application."
 msgstr "コマンドを実行し、アプリ内を移動します。"
 
-msgid "Run history"
-msgstr "実行履歴"
-
 msgid "Run History"
 msgstr "実行履歴"
-
-msgid "Run ID"
-msgstr "実行ID"
 
 msgid "Run in a terminal on this host; paste your key when asked:"
 msgstr "このホストのターミナルで実行し、求められたらキーを貼り付けてください:"
@@ -17470,9 +17024,6 @@ msgstr "issueをワークスペースで実行する"
 
 msgid "Run now"
 msgstr "今すぐ実行"
-
-msgid "Run on"
-msgstr "実行先"
 
 msgid "Run on a schedule or on events, run on demand, pause, resume, and read logs."
 msgstr "スケジュールやイベントで実行、オンデマンド実行、一時停止、再開、ログの確認。"
@@ -17546,14 +17097,8 @@ msgstr "実行中"
 msgid "Running terminal processes continue, but older output may no longer be available after restarting the app."
 msgstr "実行中のターミナルプロセスは継続しますが、アプリ再起動後に古い出力が利用できなくなる場合があります。"
 
-msgid "Runs"
-msgstr "実行"
-
 msgid "Runs a local command on your machine"
 msgstr "マシン上でローカルコマンドを実行します"
-
-msgid "Runs appear here once a workflow fires."
-msgstr "ワークフローが起動すると、実行がここに表示されます。"
 
 msgid "Runs appear here once an automation fires."
 msgstr "オートメーションが起動すると、ここに実行が表示されます。"
@@ -17561,17 +17106,11 @@ msgstr "オートメーションが起動すると、ここに実行が表示さ
 msgid "Runs in"
 msgstr "実行場所"
 
-msgid "Runs in the selected workspace's working directory on this device."
-msgstr "このデバイス上で、選択したワークスペースの作業ディレクトリで実行されます。"
-
 msgid "Runs inside the Paradev app on that device, so updating it means updating the app there."
 msgstr "そのデバイスのParadevアプリ内で動作しているため、更新するにはそのデバイスのアプリを更新する必要があります。"
 
 msgid "Runs land in a workspace. Review the diff, merge what's good."
 msgstr "実行結果はワークスペースに入ります。差分を確認し、良いものをマージしてください。"
-
-msgid "Runs on a connected device. Cloud is unavailable."
-msgstr "接続済みのデバイスで実行されます。クラウドは利用できません。"
 
 msgid "Runs that found no host online"
 msgstr "オンラインのホストが見つからなかった実行"
@@ -17691,9 +17230,6 @@ msgstr "スキャンして iPhone 用 Paradev をダウンロード"
 msgid "Scanning transcript logs…"
 msgstr "トランスクリプトログをスキャン中…"
 
-msgid "schedule"
-msgstr "スケジュール"
-
 msgid "Schedule"
 msgstr "スケジュール"
 
@@ -17706,17 +17242,8 @@ msgstr "会議のスケジュール調整"
 msgid "Scheduled and event-triggered agents (cron, GitHub, Slack, Linear, Sentry, Notion, Microsoft Teams, webhooks) with ready-made templates."
 msgstr "スケジュール実行とイベント起動のエージェント(cron、GitHub、Slack、Linear、Sentry、Notion、Microsoft Teams、webhook)。すぐ使えるテンプレート付き。"
 
-msgid "Schedules · {scheduleCount}"
-msgstr "スケジュール · {scheduleCount}"
-
 msgid "Schedules repeat — remove COUNT or UNTIL."
 msgstr "スケジュールは繰り返されます — COUNTまたはUNTILを削除してください。"
-
-msgid "Schedules save immediately."
-msgstr "スケジュールはすぐに保存されます。"
-
-msgid "Schedules unavailable"
-msgstr "スケジュールを利用できません"
 
 msgid "Schematic, by autonomy level. Hover for values."
 msgstr "自律レベル別の概念図。値はホバーで表示されます。"
@@ -17870,9 +17397,6 @@ msgstr "MCPサーバーを検索…"
 msgid "Search models"
 msgstr "モデルを検索"
 
-msgid "Search nodes or enter a path"
-msgstr "ノードを検索、またはパスを入力"
-
 msgid "Search pages"
 msgstr "ページを検索"
 
@@ -17986,9 +17510,6 @@ msgstr "期間の途中で削除した席は {0} まで有効です。"
 msgid "Secondary"
 msgstr "Secondary"
 
-msgid "seconds"
-msgstr "秒"
-
 msgid "Secret Shift Lead"
 msgstr "秘密のシフトリーダー"
 
@@ -18068,26 +17589,8 @@ msgstr "Select"
 msgid "Select {0}"
 msgstr "{0} を選択"
 
-msgid "Select a device"
-msgstr "デバイスを選択"
-
-msgid "Select a device to browse its workspaces."
-msgstr "ワークスペースを参照するにはデバイスを選択してください。"
-
 msgid "Select a file to view it here"
 msgstr "ファイルを選択するとここに表示されます"
-
-msgid "Select a model…"
-msgstr "モデルを選択…"
-
-msgid "Select a node to configure it."
-msgstr "設定するノードを選択してください。"
-
-msgid "Select a node to see its step."
-msgstr "ステップを見るノードを選択してください。"
-
-msgid "Select a node, then enter its output path. Fields are known only after a run."
-msgstr "ノードを選択し、その出力パスを入力してください。フィールドは実行後に判明します。"
 
 msgid "Select a project"
 msgstr "プロジェクトを選択してください"
@@ -18412,9 +17915,6 @@ msgstr "プロジェクトを設定…"
 msgid "Set Run"
 msgstr "実行を設定"
 
-msgid "Set the model's role and response rules."
-msgstr "モデルの役割と応答のルールを設定します。"
-
 msgid "Set this project"
 msgstr "このプロジェクトに設定"
 
@@ -18568,9 +18068,6 @@ msgstr "Sheet"
 
 msgid "Shell"
 msgstr "シェル"
-
-msgid "Shell command"
-msgstr "シェルコマンド"
 
 msgid "Shift+click"
 msgstr "Shift+クリック"
@@ -19011,9 +18508,6 @@ msgstr "すべてスキップ"
 msgid "Skip for now"
 msgstr "今はスキップ"
 
-msgid "skipped"
-msgstr "スキップ"
-
 msgid "Skipped"
 msgstr "スキップ"
 
@@ -19141,9 +18635,6 @@ msgstr "誰かがこのワークスペースを移動しています…"
 
 msgid "Someone on the Paradev team will review this page. We only follow up if we need more from you."
 msgstr "Paradev チームがこのページを確認します。追加の情報が必要な場合にのみご連絡します。"
-
-msgid "Someone saved a newer version of this workflow. Reload to get their changes, or keep editing and save again to retry on top of your copy."
-msgstr "誰かがこのワークフローの新しいバージョンを保存しました。再読み込みして相手の変更を取得するか、このまま編集を続けて保存し直してください。"
 
 msgid "Something else"
 msgstr "その他"
@@ -19545,9 +19036,6 @@ msgstr "ステップ 2/2"
 msgid "Steps 3 and 4 repeat until the page is right."
 msgstr "ページが仕上がるまでステップ3と4を繰り返します。"
 
-msgid "Steps that are still running will be stopped. Finished steps keep their results."
-msgstr "実行中のステップは停止されます。完了したステップの結果は保持されます。"
-
 msgid "Still asks in Full access mode"
 msgstr "フルアクセスでも確認が必要です"
 
@@ -19678,12 +19166,6 @@ msgstr "サブスクリプション"
 
 msgid "Subscription"
 msgstr "サブスクリプション"
-
-msgid "succeeded"
-msgstr "成功"
-
-msgid "Succeeded"
-msgstr "成功"
 
 msgid "Success"
 msgstr "成功"
@@ -19909,14 +19391,8 @@ msgstr "システム"
 msgid "System design"
 msgstr "システム設計"
 
-msgid "System instructions"
-msgstr "システム指示"
-
 msgid "System memory"
 msgstr "システムメモリ"
-
-msgid "System prompt"
-msgstr "システムプロンプト"
 
 msgid "System RAM share"
 msgstr "システムRAMシェア"
@@ -20442,12 +19918,6 @@ msgstr "私たちのチームを支援するファンドとエンジェル投資
 msgid "The future home for reusable Paradev agent configs, prompts, and setup guides."
 msgstr "再利用可能なParadevエージェント設定、プロンプト、セットアップガイドの今後の公開場所。"
 
-msgid "The graph has a cycle through: {nodeIds}"
-msgstr "グラフに循環があります: {nodeIds}"
-
-msgid "The graph needs a trigger node."
-msgstr "グラフにはトリガーノードが必要です。"
-
 #. placeholder {0}: info.version
 msgid "The host came back on {0}, not {targetVersion}."
 msgstr "ホストは{targetVersion}ではなく{0}で復帰しました。"
@@ -20658,9 +20128,6 @@ msgstr "クラウドワークスペースの起動元となる出発点 — ベ�
 
 msgid "the target host"
 msgstr "対象ホスト"
-
-msgid "The task and input sent to the model."
-msgstr "モデルに送信するタスクと入力。"
 
 msgid "The team"
 msgstr "チーム"
@@ -21231,18 +20698,6 @@ msgstr "最初のワークスペースまでの時間"
 msgid "Time zone"
 msgstr "タイムゾーン"
 
-msgid "timed out"
-msgstr "タイムアウト"
-
-msgid "Timeout"
-msgstr "タイムアウト"
-
-msgid "Timeout {timeoutMinutes} min"
-msgstr "タイムアウト{timeoutMinutes}分"
-
-msgid "Timeout {timeoutMinutes} min · Default"
-msgstr "タイムアウト{timeoutMinutes}分 · デフォルト"
-
 msgid "Tinted"
 msgstr "色合い調整"
 
@@ -21519,9 +20974,6 @@ msgstr "Gmail から自動化をトリガーします。"
 msgid "Trigger automations from Teams channel messages."
 msgstr "Teamsのチャンネルメッセージからオートメーションを起動します。"
 
-msgid "Trigger data"
-msgstr "トリガーデータ"
-
 msgid "Trigger not found"
 msgstr "トリガーが見つかりません"
 
@@ -21530,9 +20982,6 @@ msgstr "トリガー"
 
 msgid "True for routine work, not yet for gnarly refactors."
 msgstr "定型作業では成立しますが、厄介なリファクタリングではまだです。"
-
-msgid "True when the value is neither null nor missing. Empty text, 0 and false still exist."
-msgstr "値がnullでも存在しない値でもない場合に真になります。空のテキスト、0、falseは存在する値として扱われます。"
 
 msgid "Trusted by builders from"
 msgstr "以下の企業のビルダーが使っています"
@@ -21860,9 +21309,6 @@ msgstr "ランク外"
 msgid "Unranked until {0} days carry usage."
 msgstr "{0}日分の使用実績がそろうまではランク外です。"
 
-msgid "Unreachable nodes: {nodeIds}"
-msgstr "到達できないノード: {nodeIds}"
-
 msgid "Unresolve"
 msgstr "解決を取り消す"
 
@@ -22043,9 +21489,6 @@ msgstr "ファイルをアップロード"
 msgid "Upload image…"
 msgstr "画像をアップロード…"
 
-msgid "Upstream nodes"
-msgstr "上流のノード"
-
 msgid "Uptime"
 msgstr "稼働時間"
 
@@ -22137,12 +21580,6 @@ msgstr "モバイルでParadevを使う"
 msgid "Use Paradev on your phone with Pro."
 msgstr "Pro でスマートフォンから Paradev を使えます。"
 
-msgid "Use path <0>{path}</0>"
-msgstr "パス<0>{path}</0>を使用"
-
-msgid "Use Run now in the toolbar to start this workflow. No automatic runs are scheduled."
-msgstr "ツールバーの「今すぐ実行」でこのワークフローを開始します。自動実行はスケジュールされていません。"
-
 msgid "Use the agent plans and API keys you already have. Model calls go straight to your provider."
 msgstr "お持ちのエージェントのプランと API キーをそのまま使えます。モデルの呼び出しはプロバイダーへ直接届きます。"
 
@@ -22169,9 +21606,6 @@ msgstr "Paradev APIを呼び出すときに使用します。"
 
 msgid "Use voice transcription and push-to-talk features."
 msgstr "音声文字起こしとプッシュトゥトーク機能を使用します。"
-
-msgid "Use workspace picker"
-msgstr "ワークスペースピッカーを使用"
 
 msgid "Used"
 msgstr "使用済み"
@@ -22218,12 +21652,6 @@ msgstr "user@host、ssh://user@host:2222、または ssh config のエイリア�
 
 msgid "v2ProjectId does not match the workspace's project"
 msgstr "v2ProjectIdがワークスペースのプロジェクトと一致しません"
-
-msgid "Value"
-msgstr "値"
-
-msgid "Value to test"
-msgstr "判定する値"
 
 msgid "Variables"
 msgstr "変数"
@@ -22670,12 +22098,6 @@ msgstr "リリースした内容"
 msgid "What should run automatically?"
 msgstr "何を自動で実行しますか？"
 
-msgid "What should the agent do?"
-msgstr "エージェントに何をさせますか？"
-
-msgid "What should the model do?"
-msgstr "モデルに何をさせますか？"
-
 msgid "What should the page show?"
 msgstr "ページに何を表示しますか?"
 
@@ -22717,9 +22139,6 @@ msgstr "新着情報"
 
 msgid "What's next"
 msgstr "今後の予定"
-
-msgid "When"
-msgstr "いつ"
 
 msgid "When a channel notifies you"
 msgstr "チャンネルから通知されるとき"
@@ -22841,29 +22260,8 @@ msgstr "作業時間 {0}分{1}秒"
 msgid "Worked for {seconds}s"
 msgstr "作業時間 {seconds}秒"
 
-msgid "Workflow"
-msgstr "ワークフロー"
-
-msgid "Workflow actions"
-msgstr "ワークフローの操作"
-
-msgid "Workflow archived"
-msgstr "ワークフローをアーカイブしました"
-
-msgid "Workflow changed elsewhere"
-msgstr "ワークフローが別の場所で変更されました"
-
-msgid "Workflow name"
-msgstr "ワークフロー名"
-
-msgid "Workflow not found."
-msgstr "ワークフローが見つかりません。"
-
 msgid "Workflow run completed…"
 msgstr "ワークフロー実行完了…"
-
-msgid "Workflow saved"
-msgstr "ワークフローを保存しました"
 
 msgid "Workflow Tutorials"
 msgstr "ワークフローのチュートリアル"
@@ -22937,9 +22335,6 @@ msgstr "ワークスペースを作成しました"
 
 msgid "Workspace details"
 msgstr "ワークスペースの詳細"
-
-msgid "Workspace ID"
-msgstr "ワークスペース ID"
 
 msgid "Workspace ID copied"
 msgstr "ワークスペースIDをコピーしました"
@@ -23097,9 +22492,6 @@ msgstr "黄"
 msgid "Yes"
 msgstr "はい"
 
-msgid "Yes when the test is true. No otherwise. Connect destinations on the canvas."
-msgstr "テストが真なら「はい」、そうでなければ「いいえ」。接続先はキャンバス上でつなぎます。"
-
 msgid "Yes, demote me"
 msgstr "はい、降格します"
 
@@ -23158,9 +22550,6 @@ msgstr "あなた"
 msgid "You appear to be offline"
 msgstr "オフラインのようです"
 
-msgid "You are a concise code reviewer."
-msgstr "あなたは簡潔なコードレビュアーです。"
-
 msgid "You are not a member of that organization."
 msgstr "その組織のメンバーではありません。"
 
@@ -23185,9 +22574,6 @@ msgstr "{0}日分の使用実績がそろうまではランク外です。全体
 
 msgid "You are viewing version {version}, read-only"
 msgstr "バージョン {version} を閲覧中です（読み取り専用）"
-
-msgid "You can also use Run now at any time."
-msgstr "「今すぐ実行」はいつでも使えます。"
 
 msgid "You can attach up to {MAX_ATTACHMENTS} files"
 msgstr "添付できるファイルは最大{MAX_ATTACHMENTS}件です"
@@ -23361,9 +22747,6 @@ msgstr "ダウンロードは自動的に始まります。"
 
 msgid "Your email (optional)"
 msgstr "メールアドレス（任意）"
-
-msgid "Your existing schedules are unchanged."
-msgstr "既存のスケジュールは変更されません。"
 
 msgid "Your first agent"
 msgstr "最初のエージェント"

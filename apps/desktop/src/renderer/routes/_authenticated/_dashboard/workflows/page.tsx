@@ -1,4 +1,3 @@
-import { Trans, useLingui } from "@lingui/react/macro";
 import { errorMessage } from "@superset/i18n/errors";
 import { formatCompactRelativeTime } from "@superset/i18n/format";
 import { COMPANY } from "@superset/shared/constants";
@@ -40,7 +39,6 @@ export const Route = createFileRoute("/_authenticated/_dashboard/workflows/")({
 });
 
 function WorkflowsListPage() {
-	const { t } = useLingui();
 	const navigate = useNavigate();
 	const utils = cloudTrpc.useUtils();
 	const now = useNow(60_000);
@@ -55,7 +53,7 @@ function WorkflowsListPage() {
 	const createMutation = useMutation({
 		mutationFn: () =>
 			apiTrpcClient.workflow.create.mutate({
-				name: t({ message: "New workflow" }),
+				name: "New workflow",
 			}),
 		onSuccess: (workflow) => {
 			invalidate();
@@ -65,9 +63,7 @@ function WorkflowsListPage() {
 			});
 		},
 		onError: (error) =>
-			toast.error(
-				errorMessage(error, t({ message: "Failed to create workflow" })),
-			),
+			toast.error(errorMessage(error, "Failed to create workflow")),
 	});
 
 	const setEnabledMutation = useMutation({
@@ -75,21 +71,17 @@ function WorkflowsListPage() {
 			apiTrpcClient.workflow.update.mutate(input),
 		onSuccess: invalidate,
 		onError: (error) =>
-			toast.error(
-				errorMessage(error, t({ message: "Failed to update workflow" })),
-			),
+			toast.error(errorMessage(error, "Failed to update workflow")),
 	});
 
 	const archiveMutation = useMutation({
 		mutationFn: (id: string) => apiTrpcClient.workflow.archive.mutate({ id }),
 		onSuccess: () => {
 			invalidate();
-			toast.success(t({ message: "Workflow archived" }));
+			toast.success("Workflow archived");
 		},
 		onError: (error) =>
-			toast.error(
-				errorMessage(error, t({ message: "Failed to archive workflow" })),
-			),
+			toast.error(errorMessage(error, "Failed to archive workflow")),
 	});
 
 	return (
@@ -99,12 +91,12 @@ function WorkflowsListPage() {
 			<div className="min-h-0 flex-1 overflow-y-auto">
 				<div className="mx-auto flex min-h-full w-full max-w-5xl flex-col px-8 pt-4 pb-12">
 					<FeatureHeader
-						title={<Trans>Workflows</Trans>}
+						title="Workflows"
 						docsUrl={`${COMPANY.DOCS_URL}/workflows`}
 						onCreate={() => createMutation.mutate()}
 						isCreating={createMutation.isPending}
 						primaryAction={{
-							label: <Trans>New workflow</Trans>,
+							label: "New workflow",
 							onSelect: () => createMutation.mutate(),
 							disabled: createMutation.isPending,
 						}}
@@ -117,7 +109,7 @@ function WorkflowsListPage() {
 							onClick={() => void navigate({ to: "/workflows/runs" })}
 						>
 							<LuHistory className="size-3.5" />
-							<Trans>All runs</Trans>
+							All runs
 						</Button>
 					</div>
 
@@ -131,14 +123,12 @@ function WorkflowsListPage() {
 						) : workflows.length === 0 ? (
 							<Empty>
 								<EmptyHeader>
-									<EmptyTitle>
-										<Trans>No workflows yet</Trans>
-									</EmptyTitle>
+									<EmptyTitle>No workflows yet</EmptyTitle>
 									<EmptyDescription>
-										<Trans>
+										<>
 											Build a canvas of agent, LLM, API, and command steps that
 											runs on a schedule or an event.
-										</Trans>
+										</>
 									</EmptyDescription>
 								</EmptyHeader>
 							</Empty>
@@ -146,15 +136,9 @@ function WorkflowsListPage() {
 							<Table>
 								<TableHeader>
 									<TableRow>
-										<TableHead>
-											<Trans>Name</Trans>
-										</TableHead>
-										<TableHead className="w-28">
-											<Trans>Enabled</Trans>
-										</TableHead>
-										<TableHead className="w-28">
-											<Trans>Updated</Trans>
-										</TableHead>
+										<TableHead>Name</TableHead>
+										<TableHead className="w-28">Enabled</TableHead>
+										<TableHead className="w-28">Updated</TableHead>
 										<TableHead className="w-10" />
 									</TableRow>
 								</TableHeader>
@@ -183,7 +167,7 @@ function WorkflowsListPage() {
 														})
 													}
 													disabled={setEnabledMutation.isPending}
-													aria-label={t({ message: "Enabled" })}
+													aria-label="Enabled"
 												/>
 											</TableCell>
 											<TableCell className="text-muted-foreground">
@@ -198,7 +182,7 @@ function WorkflowsListPage() {
 														<Button
 															variant="ghost"
 															size="icon-sm"
-															aria-label={t({ message: "Workflow actions" })}
+															aria-label="Workflow actions"
 														>
 															<LuEllipsisVertical className="size-3.5" />
 														</Button>
@@ -209,7 +193,7 @@ function WorkflowsListPage() {
 																archiveMutation.mutate(workflow.id)
 															}
 														>
-															<Trans>Archive</Trans>
+															Archive
 														</DropdownMenuItem>
 													</DropdownMenuContent>
 												</DropdownMenu>

@@ -1,4 +1,3 @@
-import { Trans } from "@lingui/react/macro";
 import { formatNumber } from "@superset/i18n/format";
 import { Input } from "@superset/ui/input";
 import { Label } from "@superset/ui/label";
@@ -77,10 +76,8 @@ export function BoundedNumberField({
 			</div>
 			{showError ? (
 				<p className="text-xs text-destructive">
-					<Trans>
-						Enter a whole number from {minText} to {maxText}. Default:{" "}
-						{defaultText}.
-					</Trans>
+					Enter a whole number from {minText} to {maxText}. Default:{" "}
+					{defaultText}.
 				</p>
 			) : (
 				hint && <p className="text-xs text-muted-foreground">{hint}</p>

@@ -1,5 +1,3 @@
-import { Trans, useLingui } from "@lingui/react/macro";
-import { i18n } from "@superset/i18n";
 import { formatDateTime, formatElapsed } from "@superset/i18n/format";
 import { Button } from "@superset/ui/button";
 import { toast } from "@superset/ui/sonner";
@@ -25,7 +23,6 @@ interface RunStepPanelProps {
 }
 
 function JsonBlock({ title, value }: { title: ReactNode; value: unknown }) {
-	const { t } = useLingui();
 	const text = JSON.stringify(value, null, 2) ?? "";
 	return (
 		<div className="flex flex-col gap-1">
@@ -36,11 +33,11 @@ function JsonBlock({ title, value }: { title: ReactNode; value: unknown }) {
 				<Button
 					variant="ghost"
 					size="icon-sm"
-					aria-label={t({ message: "Copy" })}
+					aria-label="Copy"
 					onClick={() => {
 						navigator.clipboard.writeText(text).then(
-							() => toast.success(t({ message: "Copied" })),
-							() => toast.error(t({ message: "Couldn't copy" })),
+							() => toast.success("Copied"),
+							() => toast.error("Couldn't copy"),
 						);
 					}}
 				>
@@ -58,7 +55,7 @@ export function RunStepPanel({ step }: RunStepPanelProps) {
 	if (!step) {
 		return (
 			<div className="flex h-full items-center justify-center p-6 text-center text-sm text-muted-foreground">
-				<Trans>Select a node to see its step.</Trans>
+				Select a node to see its step.
 			</div>
 		);
 	}
@@ -79,10 +76,10 @@ export function RunStepPanel({ step }: RunStepPanelProps) {
 				</div>
 				<div className="mt-1 flex items-center gap-2">
 					<span className={cn("size-2 rounded-full", meta.dot)} />
-					<span className="text-sm font-medium">{i18n._(meta.label)}</span>
+					<span className="text-sm font-medium">{meta.label}</span>
 					{step.attempt > 1 && (
 						<span className="text-xs text-muted-foreground">
-							<Trans>attempt {step.attempt}</Trans>
+							attempt {step.attempt}
 						</span>
 					)}
 				</div>
@@ -90,13 +87,11 @@ export function RunStepPanel({ step }: RunStepPanelProps) {
 
 			<div className="flex flex-col gap-0.5 text-xs text-muted-foreground">
 				{step.startedAt && (
-					<span>
-						<Trans>Started</Trans> {formatDateTime(new Date(step.startedAt))}
-					</span>
+					<span>Started {formatDateTime(new Date(step.startedAt))}</span>
 				)}
 				{step.startedAt && step.finishedAt && (
 					<span>
-						<Trans>Duration</Trans>{" "}
+						Duration{" "}
 						{formatElapsed(new Date(step.startedAt), new Date(step.finishedAt))}
 					</span>
 				)}
@@ -111,7 +106,7 @@ export function RunStepPanel({ step }: RunStepPanelProps) {
 			{agentText && (
 				<div className="flex flex-col gap-1">
 					<span className="text-xs font-medium text-muted-foreground">
-						<Trans>Result</Trans>
+						Result
 					</span>
 					<div className="max-h-64 select-text overflow-auto whitespace-pre-wrap rounded-md border p-2 text-xs">
 						{agentText}
@@ -120,16 +115,14 @@ export function RunStepPanel({ step }: RunStepPanelProps) {
 			)}
 
 			{output?.json !== undefined && (
-				<JsonBlock title={<Trans>Result JSON</Trans>} value={output.json} />
+				<JsonBlock title="Result JSON" value={output.json} />
 			)}
 			{step.output !== null &&
 				step.output !== undefined &&
 				output?.json === undefined &&
-				!agentText && (
-					<JsonBlock title={<Trans>Output</Trans>} value={step.output} />
-				)}
+				!agentText && <JsonBlock title="Output" value={step.output} />}
 			{step.input !== null && step.input !== undefined && (
-				<JsonBlock title={<Trans>Input</Trans>} value={step.input} />
+				<JsonBlock title="Input" value={step.input} />
 			)}
 		</div>
 	);

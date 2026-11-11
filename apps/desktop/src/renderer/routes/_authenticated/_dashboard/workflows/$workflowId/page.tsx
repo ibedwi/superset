@@ -1,6 +1,3 @@
-import { msg } from "@lingui/core/macro";
-import { Trans, useLingui } from "@lingui/react/macro";
-import { i18n } from "@superset/i18n";
 import { errorMessage } from "@superset/i18n/errors";
 import {
 	formatCompactRelativeTime,
@@ -96,42 +93,33 @@ const EMPTY_GRAPH = {
 function problemText(problem: GraphProblem): string {
 	switch (problem.kind) {
 		case "no_trigger":
-			return i18n._(msg({ message: "The graph needs a trigger node." }));
+			return "The graph needs a trigger node.";
 		case "multiple_triggers":
-			return i18n._(msg({ message: "Only one trigger node is allowed." }));
+			return "Only one trigger node is allowed.";
 		case "duplicate_node_id": {
 			const nodeId = problem.nodeId;
-			return i18n._(msg({ message: `Duplicate node id: ${nodeId}` }));
+			return `Duplicate node id: ${nodeId}`;
 		}
 		case "unknown_edge_endpoint":
-			return i18n._(msg({ message: "An edge points at a missing node." }));
+			return "An edge points at a missing node.";
 		case "edge_into_trigger":
-			return i18n._(msg({ message: "Edges cannot point into the trigger." }));
+			return "Edges cannot point into the trigger.";
 		case "missing_condition_handle":
-			return i18n._(
-				msg({
-					message: "Connect condition branches from their yes/no handles.",
-				}),
-			);
+			return "Connect condition branches from their yes/no handles.";
 		case "handle_on_non_condition":
-			return i18n._(
-				msg({ message: "Only condition nodes have branch handles." }),
-			);
+			return "Only condition nodes have branch handles.";
 		case "cycle": {
 			const nodeIds = problem.nodeIds.join(", ");
-			return i18n._(
-				msg({ message: `The graph has a cycle through: ${nodeIds}` }),
-			);
+			return `The graph has a cycle through: ${nodeIds}`;
 		}
 		case "unreachable": {
 			const nodeIds = problem.nodeIds.join(", ");
-			return i18n._(msg({ message: `Unreachable nodes: ${nodeIds}` }));
+			return `Unreachable nodes: ${nodeIds}`;
 		}
 	}
 }
 
 function WorkflowEditorPage() {
-	const { t } = useLingui();
 	const { workflowId } = Route.useParams();
 	const { runId } = Route.useSearch();
 	const navigate = Route.useNavigate();
@@ -273,16 +261,14 @@ function WorkflowEditorPage() {
 			expectedVersionRef.current = saved.headVersion;
 			setDirty(false);
 			void utils.workflow.get.invalidate({ id: workflowId });
-			toast.success(t({ message: "Workflow saved" }));
+			toast.success("Workflow saved");
 		},
 		onError: (error) => {
 			if (error instanceof TRPCClientError && error.data?.code === "CONFLICT") {
 				setConflictOpen(true);
 				return;
 			}
-			toast.error(
-				errorMessage(error, t({ message: "Failed to save workflow" })),
-			);
+			toast.error(errorMessage(error, "Failed to save workflow"));
 		},
 	});
 
@@ -293,7 +279,7 @@ function WorkflowEditorPage() {
 		if (!parsed.success) {
 			const issue = parsed.error.issues[0];
 			toast.error(
-				t({ message: "Fix the graph before saving" }) +
+				"Fix the graph before saving" +
 					(issue ? `: ${issue.path.join(".")} ${issue.message}` : ""),
 			);
 			return;
@@ -304,7 +290,7 @@ function WorkflowEditorPage() {
 			return;
 		}
 		saveMutation.mutate(parsed.data);
-	}, [nodes, edges, readOnly, saveMutation, t]);
+	}, [nodes, edges, readOnly, saveMutation]);
 
 	useEffect(() => {
 		const onKeyDown = (event: KeyboardEvent) => {
@@ -350,20 +336,17 @@ function WorkflowEditorPage() {
 			void utils.workflow.list.invalidate();
 		},
 		onError: (error) =>
-			toast.error(
-				errorMessage(error, t({ message: "Failed to update workflow" })),
-			),
+			toast.error(errorMessage(error, "Failed to update workflow")),
 	});
 
 	const runNowMutation = useMutation({
 		mutationFn: () => apiTrpcClient.workflow.runNow.mutate({ workflowId }),
 		onSuccess: (started) => {
-			toast.success(t({ message: "Running now" }));
+			toast.success("Running now");
 			void utils.workflow.listRuns.invalidate({ workflowId });
 			void navigate({ search: { runId: started.runId } });
 		},
-		onError: (error) =>
-			toast.error(errorMessage(error, t({ message: "Failed to start run" }))),
+		onError: (error) => toast.error(errorMessage(error, "Failed to start run")),
 	});
 
 	const [cancelOpen, setCancelOpen] = useState(false);
@@ -375,7 +358,7 @@ function WorkflowEditorPage() {
 			void utils.workflow.listRuns.invalidate({ workflowId });
 		},
 		onError: (error) =>
-			toast.error(errorMessage(error, t({ message: "Failed to cancel run" }))),
+			toast.error(errorMessage(error, "Failed to cancel run")),
 	});
 
 	const exitRunView = useCallback(() => {
@@ -428,7 +411,7 @@ function WorkflowEditorPage() {
 		if (workflowQuery.isPending) return null;
 		return (
 			<div className="flex h-full items-center justify-center text-sm text-muted-foreground">
-				<Trans>Workflow not found.</Trans>
+				Workflow not found.
 			</div>
 		);
 	}
@@ -439,17 +422,14 @@ function WorkflowEditorPage() {
 		<div className="flex h-full w-full flex-col overflow-hidden">
 			<div className="flex items-center gap-3 border-b px-4 py-2">
 				<Button asChild variant="ghost" size="icon-sm">
-					<Link
-						to="/workflows"
-						aria-label={t({ message: "Back to workflows" })}
-					>
+					<Link to="/workflows" aria-label="Back to workflows">
 						<LuChevronLeft className="size-4" />
 					</Link>
 				</Button>
 				<div className="min-w-0 flex-1">
 					<EditableTitle
 						name={workflow.name}
-						label={t({ message: "Workflow name" })}
+						label="Workflow name"
 						maxLength={200}
 						onRename={(name) => renameMutation.mutate(name)}
 					/>
@@ -459,7 +439,7 @@ function WorkflowEditorPage() {
 						checked={workflow.enabled}
 						onCheckedChange={(enabled) => setEnabledMutation.mutate(enabled)}
 						disabled={readOnly || setEnabledMutation.isPending}
-						aria-label={t({ message: "Enabled" })}
+						aria-label="Enabled"
 					/>
 					<Button
 						variant="outline"
@@ -468,7 +448,7 @@ function WorkflowEditorPage() {
 						disabled={runNowMutation.isPending || !workflow.liveVersionId}
 					>
 						<LuPlay className="size-3.5" />
-						<Trans>Run now</Trans>
+						Run now
 					</Button>
 					<Button
 						size="sm"
@@ -476,7 +456,7 @@ function WorkflowEditorPage() {
 						disabled={readOnly || !dirty || saveMutation.isPending}
 					>
 						<LuSave className="size-3.5" />
-						<Trans>Save</Trans>
+						Save
 					</Button>
 					<Button
 						variant={panelTab === "runs" ? "secondary" : "ghost"}
@@ -484,10 +464,10 @@ function WorkflowEditorPage() {
 						onClick={() =>
 							setPanelTab((tab) => (tab === "runs" ? "config" : "runs"))
 						}
-						aria-label={t({ message: "Run history" })}
+						aria-label="Run history"
 					>
 						<LuHistory className="size-3.5" />
-						<Trans>Runs</Trans>
+						Runs
 					</Button>
 				</div>
 			</div>
@@ -501,7 +481,7 @@ function WorkflowEditorPage() {
 						)}
 					/>
 					<span className="font-medium">
-						{i18n._(RUN_STATUS_META[run.status].label)}
+						{RUN_STATUS_META[run.status].label}
 					</span>
 					<span className="text-xs text-muted-foreground">
 						{formatCompactRelativeTime(
@@ -532,12 +512,12 @@ function WorkflowEditorPage() {
 								disabled={cancelMutation.isPending}
 							>
 								<LuCircleStop className="size-3.5" />
-								<Trans>Cancel run</Trans>
+								Cancel run
 							</Button>
 						)}
 						<Button variant="ghost" size="sm" onClick={exitRunView}>
 							<LuX className="size-3.5" />
-							<Trans>Back to editor</Trans>
+							Back to editor
 						</Button>
 					</div>
 				</div>
@@ -605,23 +585,19 @@ function WorkflowEditorPage() {
 			<AlertDialog open={conflictOpen} onOpenChange={setConflictOpen}>
 				<AlertDialogContent>
 					<AlertDialogHeader>
-						<AlertDialogTitle>
-							<Trans>Workflow changed elsewhere</Trans>
-						</AlertDialogTitle>
+						<AlertDialogTitle>Workflow changed elsewhere</AlertDialogTitle>
 						<AlertDialogDescription>
-							<Trans>
-								Someone saved a newer version of this workflow. Reload to get
-								their changes, or keep editing and save again to retry on top of
-								your copy.
-							</Trans>
+							Someone saved a newer version of this workflow. Reload to get
+							their changes, or keep editing and save again to retry on top of
+							your copy.
 						</AlertDialogDescription>
 					</AlertDialogHeader>
 					<AlertDialogFooter>
 						<AlertDialogCancel onClick={() => void keepEditing()}>
-							<Trans>Keep editing</Trans>
+							Keep editing
 						</AlertDialogCancel>
 						<AlertDialogAction onClick={reloadLatest}>
-							<Trans>Reload latest</Trans>
+							Reload latest
 						</AlertDialogAction>
 					</AlertDialogFooter>
 				</AlertDialogContent>
@@ -630,26 +606,20 @@ function WorkflowEditorPage() {
 			<AlertDialog open={cancelOpen} onOpenChange={setCancelOpen}>
 				<AlertDialogContent>
 					<AlertDialogHeader>
-						<AlertDialogTitle>
-							<Trans>Cancel this run?</Trans>
-						</AlertDialogTitle>
+						<AlertDialogTitle>Cancel this run?</AlertDialogTitle>
 						<AlertDialogDescription>
-							<Trans>
-								Steps that are still running will be stopped. Finished steps
-								keep their results.
-							</Trans>
+							Steps that are still running will be stopped. Finished steps keep
+							their results.
 						</AlertDialogDescription>
 					</AlertDialogHeader>
 					<AlertDialogFooter>
-						<AlertDialogCancel>
-							<Trans>Keep running</Trans>
-						</AlertDialogCancel>
+						<AlertDialogCancel>Keep running</AlertDialogCancel>
 						<AlertDialogAction
 							onClick={() => {
 								if (runId) cancelMutation.mutate(runId);
 							}}
 						>
-							<Trans>Cancel run</Trans>
+							Cancel run
 						</AlertDialogAction>
 					</AlertDialogFooter>
 				</AlertDialogContent>

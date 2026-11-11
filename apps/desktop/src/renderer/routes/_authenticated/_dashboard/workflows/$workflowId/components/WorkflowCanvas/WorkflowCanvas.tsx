@@ -1,5 +1,4 @@
 import "@xyflow/react/dist/style.css";
-import { Trans } from "@lingui/react/macro";
 import type { WorkflowNodeType } from "@superset/shared/workflow-graph";
 import { Button } from "@superset/ui/button";
 import {
@@ -35,11 +34,11 @@ const ADDABLE_TYPES: {
 	type: Exclude<WorkflowNodeType, "trigger">;
 	label: React.ReactNode;
 }[] = [
-	{ type: "agent", label: <Trans>Agent</Trans> },
-	{ type: "llm", label: <Trans>LLM</Trans> },
-	{ type: "http", label: <Trans>HTTP request</Trans> },
-	{ type: "condition", label: <Trans>Condition</Trans> },
-	{ type: "cli", label: <Trans>Command</Trans> },
+	{ type: "agent", label: "Agent" },
+	{ type: "llm", label: "LLM" },
+	{ type: "http", label: "HTTP request" },
+	{ type: "condition", label: "Condition" },
+	{ type: "cli", label: "Command" },
 ];
 
 interface WorkflowCanvasProps {
@@ -105,7 +104,7 @@ export function WorkflowCanvas({
 						<DropdownMenuTrigger asChild>
 							<Button size="sm" variant="secondary">
 								<LuPlus className="size-3.5" />
-								<Trans>Add node</Trans>
+								Add node
 							</Button>
 						</DropdownMenuTrigger>
 						<DropdownMenuContent align="start">

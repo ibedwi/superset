@@ -1,5 +1,3 @@
-import { msg } from "@lingui/core/macro";
-import { i18n } from "@superset/i18n";
 import { formatDate, getActiveLocale } from "@superset/i18n/format";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -36,13 +34,7 @@ export function formatNextRun(
 			{ hour: "numeric", minute: "2-digit", timeZone },
 			locale,
 		);
-		return i18n._({
-			...msg({ message: "{day}, {time}" }),
-			values: {
-				day: day.charAt(0).toLocaleUpperCase(locale) + day.slice(1),
-				time,
-			},
-		});
+		return `${day.charAt(0).toLocaleUpperCase(locale) + day.slice(1)}, ${time}`;
 	}
 	return formatDate(
 		date,

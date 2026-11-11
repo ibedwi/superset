@@ -1,4 +1,3 @@
-import { Trans, useLingui } from "@lingui/react/macro";
 import { describeSchedule } from "@superset/shared/rrule";
 import { Button } from "@superset/ui/button";
 import { Input } from "@superset/ui/input";
@@ -38,7 +37,6 @@ export function TriggerNodeSection({
 	workflowId,
 	disabled,
 }: TriggerNodeSectionProps) {
-	const { t } = useLingui();
 	const utils = cloudTrpc.useUtils();
 	const now = useNow(60_000);
 	const [composerOpen, setComposerOpen] = useState(false);
@@ -98,12 +96,10 @@ export function TriggerNodeSection({
 			<div className="flex flex-col gap-2 rounded-md border px-3 py-2.5">
 				<div className="flex items-center gap-2 text-sm font-medium">
 					<LuCircleAlert className="size-4 text-destructive" />
-					<Trans>Schedules unavailable</Trans>
+					Schedules unavailable
 				</div>
 				<p className="text-xs text-muted-foreground">
-					<Trans>
-						Could not load schedules. Automatic starts may still be active.
-					</Trans>
+					Could not load schedules. Automatic starts may still be active.
 				</p>
 				<Button
 					variant="outline"
@@ -111,7 +107,7 @@ export function TriggerNodeSection({
 					className="self-start"
 					onClick={() => void triggersQuery.refetch()}
 				>
-					<Trans>Retry</Trans>
+					Retry
 				</Button>
 			</div>
 		);
@@ -127,19 +123,13 @@ export function TriggerNodeSection({
 			<div className="flex flex-col gap-4">
 				<div className="border-t" />
 				<div className="flex flex-col gap-1">
-					<div className="text-sm font-medium">
-						<Trans>Add daily schedule</Trans>
-					</div>
+					<div className="text-sm font-medium">Add daily schedule</div>
 					<p className="text-xs text-muted-foreground">
-						<Trans>
-							Creates an additional daily start. Existing schedules stay active.
-						</Trans>
+						Creates an additional daily start. Existing schedules stay active.
 					</p>
 				</div>
 				<div className="flex flex-col gap-1.5">
-					<Label htmlFor="workflow-schedule-time">
-						<Trans>Time</Trans>
-					</Label>
+					<Label htmlFor="workflow-schedule-time">Time</Label>
 					<Input
 						id="workflow-schedule-time"
 						type="time"
@@ -149,15 +139,11 @@ export function TriggerNodeSection({
 						aria-invalid={!firstRun}
 					/>
 					{!firstRun && (
-						<p className="text-xs text-destructive">
-							<Trans>Choose a time.</Trans>
-						</p>
+						<p className="text-xs text-destructive">Choose a time.</p>
 					)}
 				</div>
 				<div className="text-xs text-muted-foreground">
-					<div>
-						<Trans>Device timezone</Trans>
-					</div>
+					<div>Device timezone</div>
 					<div className="text-foreground/80">
 						{timeZoneLabel(DEVICE_TIME_ZONE)}
 					</div>
@@ -167,7 +153,7 @@ export function TriggerNodeSection({
 						<div className="border-t" />
 						<div className="flex flex-col gap-1">
 							<div className="text-[11px] uppercase tracking-wide text-muted-foreground">
-								<Trans>First scheduled run</Trans>
+								First scheduled run
 							</div>
 							<div className="text-sm">
 								{formatNextRun(firstRun, now, DEVICE_TIME_ZONE)}
@@ -180,10 +166,10 @@ export function TriggerNodeSection({
 						<LuCircleAlert className="mt-0.5 size-3.5 shrink-0 text-destructive" />
 						<div>
 							<div className="text-destructive">
-								<Trans>Could not add schedule. Try again.</Trans>
+								Could not add schedule. Try again.
 							</div>
 							<div className="text-muted-foreground">
-								<Trans>Your existing schedules are unchanged.</Trans>
+								Your existing schedules are unchanged.
 							</div>
 						</div>
 					</div>
@@ -196,12 +182,12 @@ export function TriggerNodeSection({
 						{saveMutation.isPending ? (
 							<>
 								<LuLoaderCircle className="size-3.5 animate-spin" />
-								<Trans>Adding…</Trans>
+								Adding…
 							</>
 						) : saveMutation.isError ? (
-							<Trans>Try again</Trans>
+							"Try again"
 						) : (
-							<Trans>Add daily schedule</Trans>
+							"Add daily schedule"
 						)}
 					</Button>
 					<Button
@@ -212,7 +198,7 @@ export function TriggerNodeSection({
 						}}
 						disabled={saveMutation.isPending}
 					>
-						<Trans>Cancel</Trans>
+						Cancel
 					</Button>
 				</div>
 			</div>
@@ -226,7 +212,7 @@ export function TriggerNodeSection({
 			onClick={() => setComposerOpen(true)}
 		>
 			<LuPlus className="size-3.5" />
-			<Trans>Add daily schedule</Trans>
+			Add daily schedule
 		</Button>
 	);
 
@@ -235,20 +221,16 @@ export function TriggerNodeSection({
 			<div className="flex flex-col gap-3">
 				<div className="border-t" />
 				<div className="flex flex-col gap-1">
-					<div className="text-sm font-medium">
-						<Trans>Manual start only</Trans>
-					</div>
+					<div className="text-sm font-medium">Manual start only</div>
 					<p className="text-xs text-muted-foreground">
-						<Trans>
-							Use Run now in the toolbar to start this workflow. No automatic
-							runs are scheduled.
-						</Trans>
+						Use Run now in the toolbar to start this workflow. No automatic runs
+						are scheduled.
 					</p>
 				</div>
 				{addButton}
 				{addButton && (
 					<p className="text-xs text-muted-foreground">
-						<Trans>Adding a schedule keeps manual runs available.</Trans>
+						Adding a schedule keeps manual runs available.
 					</p>
 				)}
 			</div>
@@ -261,7 +243,7 @@ export function TriggerNodeSection({
 			{next && (
 				<div className="flex flex-col gap-1">
 					<div className="text-[11px] uppercase tracking-wide text-muted-foreground">
-						<Trans>Next scheduled run</Trans>
+						Next scheduled run
 					</div>
 					<div className="text-2xl font-light tracking-tight">
 						{formatNextRun(next.at, now, next.timeZone)}
@@ -275,15 +257,13 @@ export function TriggerNodeSection({
 			)}
 			<div className="flex items-center gap-2 text-xs text-muted-foreground">
 				<LuPlay className="size-3.5" />
-				<Trans>You can also use Run now at any time.</Trans>
+				You can also use Run now at any time.
 			</div>
 
 			<div className="border-t" />
 
 			<div className="flex flex-col gap-3">
-				<div className="text-sm font-medium">
-					<Trans>Schedules · {scheduleCount}</Trans>
-				</div>
+				<div className="text-sm font-medium">Schedules · {scheduleCount}</div>
 				{triggers.map((trigger) => {
 					const removing =
 						deleteMutation.isPending && deleteMutation.variables === trigger.id;
@@ -303,14 +283,12 @@ export function TriggerNodeSection({
 								)}
 								{trigger.nextRunAt && (
 									<div className="text-xs text-muted-foreground">
-										<Trans>
-											Next{" "}
-											{formatNextRun(
-												new Date(trigger.nextRunAt),
-												now,
-												schedule?.timezone,
-											)}
-										</Trans>
+										Next{" "}
+										{formatNextRun(
+											new Date(trigger.nextRunAt),
+											now,
+											schedule?.timezone,
+										)}
 									</div>
 								)}
 							</div>
@@ -320,7 +298,7 @@ export function TriggerNodeSection({
 									size="icon-sm"
 									onClick={() => deleteMutation.mutate(trigger.id)}
 									disabled={deleteMutation.isPending}
-									aria-label={t({ message: "Remove schedule" })}
+									aria-label="Remove schedule"
 								>
 									{removing ? (
 										<LuLoaderCircle className="size-3.5 animate-spin" />
@@ -334,14 +312,14 @@ export function TriggerNodeSection({
 				})}
 				{deleteMutation.isError && (
 					<p className="text-xs text-destructive">
-						<Trans>Could not remove the schedule. Try again.</Trans>
+						Could not remove the schedule. Try again.
 					</p>
 				)}
 				{addButton}
 			</div>
 
 			<p className="text-xs text-muted-foreground">
-				<Trans>Schedules save immediately.</Trans>
+				Schedules save immediately.
 			</p>
 		</div>
 	);

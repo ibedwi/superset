@@ -1,4 +1,3 @@
-import { Trans, useLingui } from "@lingui/react/macro";
 import { formatNumber } from "@superset/i18n/format";
 import {
 	type DraftWorkflowNode,
@@ -29,7 +28,6 @@ interface LlmNodeFormProps {
 }
 
 export function LlmNodeForm({ config, onChange, disabled }: LlmNodeFormProps) {
-	const { t, i18n } = useLingui();
 	const efforts = getWorkflowLlmEfforts(config.model);
 	const selectedEffort = efforts.find((effort) => effort === config.effort);
 	const maxTokens = config.maxTokens ?? DEFAULT_MAX_TOKENS;
@@ -38,7 +36,7 @@ export function LlmNodeForm({ config, onChange, disabled }: LlmNodeFormProps) {
 		<div className="flex flex-col gap-4">
 			<div className="flex flex-col gap-1.5">
 				<Label>
-					<Trans>Model</Trans> <span className="text-muted-foreground">*</span>
+					Model <span className="text-muted-foreground">*</span>
 				</Label>
 				<Select
 					value={config.model || ""}
@@ -54,7 +52,7 @@ export function LlmNodeForm({ config, onChange, disabled }: LlmNodeFormProps) {
 					disabled={disabled}
 				>
 					<SelectTrigger size="sm" className="w-full">
-						<SelectValue placeholder={t({ message: "Select a model…" })}>
+						<SelectValue placeholder="Select a model…">
 							{config.model ? llmModelLabel(config.model) : undefined}
 						</SelectValue>
 					</SelectTrigger>
@@ -77,17 +75,14 @@ export function LlmNodeForm({ config, onChange, disabled }: LlmNodeFormProps) {
 				</Select>
 				{config.model && (
 					<p className="text-xs text-muted-foreground">
-						<Trans>Anthropic</Trans> ·{" "}
-						<span className="font-mono">{config.model}</span>
+						Anthropic · <span className="font-mono">{config.model}</span>
 					</p>
 				)}
 			</div>
 
 			{efforts.length > 0 && (
 				<div className="flex flex-col gap-1.5">
-					<Label>
-						<Trans>Effort</Trans>
-					</Label>
+					<Label>Effort</Label>
 					<Select
 						value={selectedEffort ?? "__default__"}
 						onValueChange={(value) =>
@@ -102,18 +97,16 @@ export function LlmNodeForm({ config, onChange, disabled }: LlmNodeFormProps) {
 							<SelectValue />
 						</SelectTrigger>
 						<SelectContent>
-							<SelectItem value="__default__">
-								<Trans>Default effort</Trans>
-							</SelectItem>
+							<SelectItem value="__default__">Default effort</SelectItem>
 							{efforts.map((effort) => (
 								<SelectItem key={effort} value={effort}>
-									{i18n._(LLM_EFFORT_LABELS[effort])}
+									{LLM_EFFORT_LABELS[effort]}
 								</SelectItem>
 							))}
 						</SelectContent>
 					</Select>
 					<p className="text-xs text-muted-foreground">
-						<Trans>Reasoning effort · available for this model</Trans>
+						Reasoning effort · available for this model
 					</p>
 				</div>
 			)}
@@ -122,27 +115,27 @@ export function LlmNodeForm({ config, onChange, disabled }: LlmNodeFormProps) {
 
 			<div className="flex flex-col gap-1.5">
 				<Label>
-					<Trans>Prompt</Trans> <span className="text-muted-foreground">*</span>
+					Prompt <span className="text-muted-foreground">*</span>
 				</Label>
 				<Textarea
 					value={config.prompt ?? ""}
 					onChange={(event) =>
 						onChange({ ...config, prompt: event.target.value })
 					}
-					placeholder={t({ message: "What should the model do?" })}
+					placeholder="What should the model do?"
 					rows={8}
 					disabled={disabled}
 					className="min-h-36 font-mono text-xs"
 				/>
 				<p className="text-xs text-muted-foreground">
-					<Trans>The task and input sent to the model.</Trans>
+					The task and input sent to the model.
 				</p>
 			</div>
 
 			<DisclosureSection
-				title={<Trans>System prompt</Trans>}
-				trailing={<Trans>Optional</Trans>}
-				summary={<Trans>Set the model's role and response rules.</Trans>}
+				title="System prompt"
+				trailing="Optional"
+				summary="Set the model's role and response rules."
 				defaultOpen={!!config.system}
 			>
 				<Textarea
@@ -153,35 +146,31 @@ export function LlmNodeForm({ config, onChange, disabled }: LlmNodeFormProps) {
 							system: event.target.value || undefined,
 						})
 					}
-					placeholder={t({ message: "You are a concise code reviewer." })}
+					placeholder="You are a concise code reviewer."
 					rows={3}
 					disabled={disabled}
 					className="font-mono text-xs"
-					aria-label={t({ message: "System instructions" })}
+					aria-label="System instructions"
 				/>
 			</DisclosureSection>
 
 			<div className="border-t" />
 
 			<DisclosureSection
-				title={<Trans>Generation settings</Trans>}
+				title="Generation settings"
 				summary={
-					maxTokens === DEFAULT_MAX_TOKENS ? (
-						<Trans>Max tokens {maxTokensText} · default</Trans>
-					) : (
-						<Trans>Max tokens {maxTokensText}</Trans>
-					)
+					maxTokens === DEFAULT_MAX_TOKENS
+						? `Max tokens ${maxTokensText} · default`
+						: `Max tokens ${maxTokensText}`
 				}
 			>
 				<BoundedNumberField
-					label={<Trans>Max tokens</Trans>}
+					label="Max tokens"
 					value={maxTokens}
 					min={1}
 					max={64_000}
 					defaultValue={DEFAULT_MAX_TOKENS}
-					hint={
-						<Trans>Response limit. Raise it only for longer replies.</Trans>
-					}
+					hint="Response limit. Raise it only for longer replies."
 					onChange={(maxTokens) => onChange({ ...config, maxTokens })}
 					disabled={disabled}
 				/>

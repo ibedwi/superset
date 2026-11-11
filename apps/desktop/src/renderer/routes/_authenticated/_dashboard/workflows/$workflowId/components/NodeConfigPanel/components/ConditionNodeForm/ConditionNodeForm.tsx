@@ -1,4 +1,3 @@
-import { Trans, useLingui } from "@lingui/react/macro";
 import {
 	type DraftWorkflowNode,
 	type WorkflowLeafCondition,
@@ -52,7 +51,6 @@ export function ConditionNodeForm({
 	onChange,
 	disabled,
 }: ConditionNodeFormProps) {
-	const { t, i18n } = useLingui();
 	const [advancedOpen, setAdvancedOpen] = useState(false);
 	const pathInputRef = useRef<HTMLInputElement>(null);
 	const leaf = conditionLeaf(config) ?? {
@@ -87,9 +85,7 @@ export function ConditionNodeForm({
 
 	return (
 		<div className="flex flex-col gap-4">
-			<PanelSectionLabel>
-				<Trans>When</Trans>
-			</PanelSectionLabel>
+			<PanelSectionLabel>When</PanelSectionLabel>
 			<div className="rounded-md bg-muted/50 px-3 py-2.5 text-sm">
 				{leftLabel ? (
 					<>
@@ -97,16 +93,12 @@ export function ConditionNodeForm({
 						<div>{conditionPredicate(leaf)}</div>
 					</>
 				) : (
-					<span className="text-muted-foreground">
-						<Trans>Choose a value to test</Trans>
-					</span>
+					<span className="text-muted-foreground">Choose a value to test</span>
 				)}
 			</div>
 
 			<div className="flex flex-col gap-1.5">
-				<Label>
-					<Trans>Value to test</Trans>
-				</Label>
+				<Label>Value to test</Label>
 				<ReferencePicker
 					label={leftLabel}
 					upstreamNodes={upstreamNodes}
@@ -124,15 +116,13 @@ export function ConditionNodeForm({
 					</p>
 				) : (
 					<p className="text-xs text-destructive">
-						<Trans>Choose a source value for this test.</Trans>
+						Choose a source value for this test.
 					</p>
 				)}
 			</div>
 
 			<div className="flex flex-col gap-1.5">
-				<Label>
-					<Trans>Operator</Trans>
-				</Label>
+				<Label>Operator</Label>
 				<Select
 					value={leaf.op}
 					onValueChange={(op) =>
@@ -146,44 +136,38 @@ export function ConditionNodeForm({
 					<SelectContent>
 						{workflowConditionLeafOps.map((op) => (
 							<SelectItem key={op} value={op}>
-								{i18n._(CONDITION_OP_LABELS[op])}
+								{CONDITION_OP_LABELS[op]}
 							</SelectItem>
 						))}
 					</SelectContent>
 				</Select>
 				{leaf.op === "exists" && (
 					<p className="text-xs text-muted-foreground">
-						<Trans>
-							True when the value is neither null nor missing. Empty text, 0 and
-							false still exist.
-						</Trans>
+						True when the value is neither null nor missing. Empty text, 0 and
+						false still exist.
 					</p>
 				)}
 				{leaf.op === "truthy" && (
 					<p className="text-xs text-muted-foreground">
-						<Trans>
-							False for empty text, 0, false, null and missing values.
-						</Trans>
+						False for empty text, 0, false, null and missing values.
 					</p>
 				)}
 			</div>
 
 			{!UNARY_CONDITION_OPS.has(leaf.op) && (
 				<div className="flex flex-col gap-1.5">
-					<Label>
-						<Trans>Compare to</Trans>
-					</Label>
+					<Label>Compare to</Label>
 					<Input
 						value={rightValue}
 						onChange={(event) =>
 							update({ right: { value: event.target.value } })
 						}
-						placeholder={t({ message: "Value" })}
+						placeholder="Value"
 						disabled={disabled}
 					/>
 					{NUMERIC_CONDITION_OPS.has(leaf.op) && (
 						<p className="text-xs text-muted-foreground">
-							<Trans>Numeric comparisons accept numeric text.</Trans>
+							Numeric comparisons accept numeric text.
 						</p>
 					)}
 				</div>
@@ -191,9 +175,7 @@ export function ConditionNodeForm({
 
 			<div className="border-t" />
 
-			<PanelSectionLabel>
-				<Trans>Branches</Trans>
-			</PanelSectionLabel>
+			<PanelSectionLabel>Branches</PanelSectionLabel>
 			<div className="flex flex-col gap-2">
 				{(["true", "false"] as const).map((handle) => {
 					const target = branchTarget(handle);
@@ -214,7 +196,7 @@ export function ConditionNodeForm({
 										: "text-muted-foreground",
 								)}
 							>
-								{isYes ? <Trans>Yes</Trans> : <Trans>No</Trans>}
+								{isYes ? "Yes" : "No"}
 							</span>
 							<span
 								className={cn(
@@ -222,24 +204,22 @@ export function ConditionNodeForm({
 									!target && "text-muted-foreground",
 								)}
 							>
-								{target ?? <Trans>Not connected</Trans>}
+								{target ?? "Not connected"}
 							</span>
 							<LuArrowRight className="size-3.5 text-muted-foreground" />
 						</div>
 					);
 				})}
 				<p className="text-xs text-muted-foreground">
-					<Trans>
-						Yes when the test is true. No otherwise. Connect destinations on the
-						canvas.
-					</Trans>
+					Yes when the test is true. No otherwise. Connect destinations on the
+					canvas.
 				</p>
 			</div>
 
 			<div className="border-t" />
 
 			<DisclosureSection
-				title={<Trans>Advanced · reference path</Trans>}
+				title="Advanced · reference path"
 				open={advancedOpen}
 				onOpenChange={setAdvancedOpen}
 			>
@@ -250,7 +230,7 @@ export function ConditionNodeForm({
 					placeholder="nodes.agent.output.text"
 					disabled={disabled}
 					className="font-mono text-xs"
-					aria-label={t({ message: "Reference path" })}
+					aria-label="Reference path"
 				/>
 			</DisclosureSection>
 		</div>

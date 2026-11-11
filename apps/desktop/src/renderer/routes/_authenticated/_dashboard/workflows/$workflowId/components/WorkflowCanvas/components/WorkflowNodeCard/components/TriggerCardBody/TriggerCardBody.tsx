@@ -1,5 +1,3 @@
-import { plural } from "@lingui/core/macro";
-import { Trans, useLingui } from "@lingui/react/macro";
 import { useParams } from "@tanstack/react-router";
 import { useNow } from "renderer/hooks/useNow";
 import { cloudTrpc } from "renderer/lib/cloud-trpc";
@@ -10,7 +8,6 @@ import {
 } from "../../../../../../utils/scheduleTime";
 
 export function TriggerCardBody() {
-	const { t } = useLingui();
 	const { workflowId } = useParams({ strict: false });
 	const now = useNow(60_000);
 	const triggersQuery = cloudTrpc.workflow.listTriggers.useQuery(
@@ -27,25 +24,18 @@ export function TriggerCardBody() {
 	return (
 		<div className="flex flex-col gap-1.5">
 			<div className="text-sm">
-				{scheduleCount === 0 ? (
-					<Trans>Manual start only</Trans>
-				) : (
-					t({
-						message: plural(scheduleCount, {
-							one: "Manual + # schedule",
-							other: "Manual + # schedules",
-						}),
-					})
-				)}
+				{scheduleCount === 0
+					? "Manual start only"
+					: `Manual + ${scheduleCount} ${scheduleCount === 1 ? "schedule" : "schedules"}`}
 			</div>
 			<div className="text-xs text-muted-foreground">
 				{next ? (
-					<Trans>
+					<>
 						Next: {formatNextRun(next.at, now, next.timeZone)}{" "}
 						{next.timeZone ? timeZoneShortName(next.timeZone, next.at) : ""}
-					</Trans>
+					</>
 				) : (
-					<Trans>No scheduled runs</Trans>
+					"No scheduled runs"
 				)}
 			</div>
 		</div>

@@ -1,4 +1,3 @@
-import { Trans } from "@lingui/react/macro";
 import type { DraftWorkflowNode } from "@superset/shared/workflow-graph";
 import { cn } from "@superset/ui/utils";
 import {
@@ -25,13 +24,13 @@ type ConditionConfig = Extract<
 const BRANCHES = [
 	{
 		handleId: "true",
-		label: <Trans>Yes</Trans>,
+		label: "Yes",
 		dot: "bg-emerald-500",
 		text: "text-emerald-600 dark:text-emerald-400",
 	},
 	{
 		handleId: "false",
-		label: <Trans>No</Trans>,
+		label: "No",
 		dot: "bg-stone-400",
 		text: "text-muted-foreground",
 	},
@@ -62,7 +61,7 @@ export function ConditionCardBody({ config }: { config: ConditionConfig }) {
 	return (
 		<>
 			<div className="text-[10px] uppercase tracking-wide text-muted-foreground">
-				<Trans>Condition</Trans>
+				Condition
 			</div>
 			{leaf && leftRef ? (
 				<div className="text-sm">
@@ -73,7 +72,7 @@ export function ConditionCardBody({ config }: { config: ConditionConfig }) {
 				</div>
 			) : (
 				<div className="text-sm text-muted-foreground">
-					<Trans>Choose a value to test</Trans>
+					Choose a value to test
 				</div>
 			)}
 			<div className="border-t" />
@@ -94,7 +93,7 @@ export function ConditionCardBody({ config }: { config: ConditionConfig }) {
 								!name && "text-muted-foreground",
 							)}
 						>
-							{name ?? <Trans>Not connected</Trans>}
+							{name ?? "Not connected"}
 						</span>
 						<LuArrowRight className={cn("size-3.5", branch.text)} />
 						<Handle
