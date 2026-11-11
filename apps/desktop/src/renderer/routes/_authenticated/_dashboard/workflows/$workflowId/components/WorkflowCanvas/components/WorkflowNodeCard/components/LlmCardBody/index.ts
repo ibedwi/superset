@@ -1,0 +1,1 @@
+export { LlmCardBody } from "./LlmCardBody";

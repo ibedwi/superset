@@ -1,0 +1,1 @@
+export { AgentCardBody } from "./AgentCardBody";

@@ -1,128 +1,149 @@
+import type { MessageDescriptor } from "@lingui/core";
+import { msg } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { i18n } from "@superset/i18n";
 import type { DraftWorkflowNode } from "@superset/shared/workflow-graph";
 import { cn } from "@superset/ui/utils";
 import { Handle, type NodeProps, Position } from "@xyflow/react";
 import type { ReactNode } from "react";
+import type { IconType } from "react-icons";
 import {
-	LuBot,
-	LuGlobe,
-	LuPlay,
-	LuSparkles,
-	LuSplit,
-	LuTerminal,
+	LuBan,
+	LuCircleAlert,
+	LuCircleCheck,
+	LuCircleDashed,
+	LuLoaderCircle,
+	LuSkipForward,
 } from "react-icons/lu";
-import { STEP_STATUS_META } from "../../../../../utils/runStatus";
-import type { CanvasNode } from "../../../../utils/graphMapping";
+import type { CanvasNode, StepStatus } from "../../../../utils/graphMapping";
+import { NodeTypeIcon } from "../../../NodeTypeIcon";
+import { AgentCardBody } from "./components/AgentCardBody";
+import { CliCardBody } from "./components/CliCardBody";
+import { ConditionCardBody } from "./components/ConditionCardBody";
+import { HttpCardBody } from "./components/HttpCardBody";
+import { LlmCardBody } from "./components/LlmCardBody";
+import { TriggerCardBody } from "./components/TriggerCardBody";
 
-const NODE_ICONS: Record<DraftWorkflowNode["type"], ReactNode> = {
-	trigger: <LuPlay className="size-3.5" />,
-	agent: <LuBot className="size-3.5" />,
-	llm: <LuSparkles className="size-3.5" />,
-	http: <LuGlobe className="size-3.5" />,
-	condition: <LuSplit className="size-3.5" />,
-	cli: <LuTerminal className="size-3.5" />,
-};
-
-const NODE_LABELS: Record<DraftWorkflowNode["type"], ReactNode> = {
+const SUBTITLES: Partial<Record<DraftWorkflowNode["type"], ReactNode>> = {
 	trigger: <Trans>Trigger</Trans>,
-	agent: <Trans>Agent</Trans>,
-	llm: <Trans>LLM</Trans>,
-	http: <Trans>HTTP</Trans>,
-	condition: <Trans>Condition</Trans>,
-	cli: <Trans>Command</Trans>,
+	http: <Trans>HTTP request</Trans>,
 };
 
-function summary(node: DraftWorkflowNode): string {
-	switch (node.type) {
-		case "trigger":
-			return "";
-		case "agent":
-			return node.config.prompt ?? "";
-		case "llm":
-			return node.config.model || (node.config.prompt ?? "");
-		case "http":
-			return node.config.url
-				? `${node.config.method} ${node.config.url}`
-				: (node.config.method ?? "");
-		case "condition":
-			return node.config.expression ? "if / else" : "";
-		case "cli":
-			return node.config.command ?? "";
-	}
-}
+const STEP_LINES: Record<
+	StepStatus,
+	{ icon: IconType; label: MessageDescriptor; className: string }
+> = {
+	pending: {
+		icon: LuCircleDashed,
+		label: msg({ message: "Pending" }),
+		className: "text-muted-foreground",
+	},
+	running: {
+		icon: LuLoaderCircle,
+		label: msg({ message: "Running" }),
+		className: "text-amber-600 dark:text-amber-400 [&_svg]:animate-spin",
+	},
+	succeeded: {
+		icon: LuCircleCheck,
+		label: msg({ message: "Succeeded" }),
+		className: "text-emerald-600 dark:text-emerald-400",
+	},
+	failed: {
+		icon: LuCircleAlert,
+		label: msg({ message: "Failed" }),
+		className: "text-red-600 dark:text-red-400",
+	},
+	skipped: {
+		icon: LuSkipForward,
+		label: msg({ message: "Skipped" }),
+		className: "text-muted-foreground",
+	},
+	canceled: {
+		icon: LuBan,
+		label: msg({ message: "Canceled" }),
+		className: "text-amber-600 dark:text-amber-400",
+	},
+};
 
-const STEP_RING: Record<string, string> = {
+const STEP_BORDER: Partial<Record<StepStatus, string>> = {
 	running: "border-amber-500",
 	succeeded: "border-emerald-500",
 	failed: "border-red-500",
 	canceled: "border-amber-500",
 };
 
+function renderBody(node: DraftWorkflowNode, stepStatus?: StepStatus) {
+	switch (node.type) {
+		case "trigger":
+			return <TriggerCardBody />;
+		case "agent":
+			return <AgentCardBody config={node.config} stepStatus={stepStatus} />;
+		case "llm":
+			return <LlmCardBody config={node.config} />;
+		case "http":
+			return <HttpCardBody config={node.config} />;
+		case "condition":
+			return <ConditionCardBody config={node.config} />;
+		case "cli":
+			return <CliCardBody config={node.config} stepStatus={stepStatus} />;
+	}
+}
+
 export function WorkflowNodeCard({ data, selected }: NodeProps<CanvasNode>) {
 	const node = data.wf;
-	const detail = summary(node);
-	const step = data.stepStatus ? STEP_STATUS_META[data.stepStatus] : null;
+	const stepStatus = data.stepStatus;
+	const step = stepStatus ? STEP_LINES[stepStatus] : null;
+	const subtitle =
+		node.type === "llm" ? (
+			<Trans>LLM · Direct model call</Trans>
+		) : (
+			SUBTITLES[node.type]
+		);
 	return (
 		<div
 			className={cn(
-				"w-56 rounded-lg border bg-card px-3 py-2 shadow-sm transition-colors",
+				"relative flex flex-col gap-2 rounded-xl border bg-card px-3.5 py-3 text-card-foreground shadow-sm transition-colors",
+				"w-64",
 				selected ? "border-primary ring-1 ring-primary" : "border-border",
-				data.stepStatus && STEP_RING[data.stepStatus],
-				data.stepStatus === "skipped" && "opacity-50",
+				stepStatus && STEP_BORDER[stepStatus],
+				stepStatus === "skipped" && "opacity-50",
 			)}
 		>
 			{node.type !== "trigger" && (
 				<Handle type="target" position={Position.Left} />
 			)}
 
-			<div className="flex items-center gap-2">
-				<span className="flex size-6 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
-					{NODE_ICONS[node.type]}
-				</span>
+			<div className="flex items-start gap-2.5">
+				<NodeTypeIcon type={node.type} className="mt-0.5" />
 				<div className="min-w-0 flex-1">
 					<div className="truncate text-sm font-medium">
 						{node.name ?? node.id}
 					</div>
-					<div className="text-[10px] uppercase tracking-wide text-muted-foreground">
-						{NODE_LABELS[node.type]}
-					</div>
+					{subtitle && (
+						<div
+							className={cn(
+								"text-xs text-muted-foreground",
+								node.type !== "llm" && "uppercase tracking-wide text-[10px]",
+							)}
+						>
+							{subtitle}
+						</div>
+					)}
 				</div>
-				{step && (
-					<span className="flex items-center gap-1 text-[10px] text-muted-foreground">
-						<span className={cn("size-1.5 rounded-full", step.dot)} />
-						{i18n._(step.label)}
-					</span>
-				)}
 			</div>
-			{detail && (
-				<div className="mt-1.5 line-clamp-2 break-all text-xs text-muted-foreground">
-					{detail}
+
+			{renderBody(node, stepStatus)}
+
+			{step && (
+				<div
+					className={cn("flex items-center gap-1.5 text-xs", step.className)}
+				>
+					<step.icon className="size-3.5" />
+					{i18n._(step.label)}
 				</div>
 			)}
 
-			{node.type === "condition" ? (
-				<>
-					<Handle
-						id="true"
-						type="source"
-						position={Position.Right}
-						style={{ top: "35%" }}
-					/>
-					<Handle
-						id="false"
-						type="source"
-						position={Position.Right}
-						style={{ top: "70%" }}
-					/>
-					<div className="pointer-events-none absolute -right-7 top-[35%] -translate-y-1/2 text-[10px] text-muted-foreground">
-						<Trans>yes</Trans>
-					</div>
-					<div className="pointer-events-none absolute -right-6 top-[70%] -translate-y-1/2 text-[10px] text-muted-foreground">
-						<Trans>no</Trans>
-					</div>
-				</>
-			) : (
+			{node.type !== "condition" && (
 				<Handle type="source" position={Position.Right} />
 			)}
 		</div>

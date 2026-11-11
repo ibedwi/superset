@@ -217,7 +217,7 @@ function WorkflowEditorPage() {
 		setNodes((current) => {
 			const last = current.at(-1);
 			const position = last
-				? { x: last.position.x + 280, y: last.position.y }
+				? { x: last.position.x + 300, y: last.position.y }
 				: { x: 0, y: 0 };
 			const node = createNode(
 				type,
@@ -556,7 +556,7 @@ function WorkflowEditorPage() {
 						/>
 					)}
 				</div>
-				<div className="w-80 shrink-0 border-l">
+				<div className="w-[360px] shrink-0 border-l">
 					{panelTab === "runs" ? (
 						<RunsPanel
 							workflowId={workflowId}
@@ -569,6 +569,8 @@ function WorkflowEditorPage() {
 						<NodeConfigPanel
 							workflowId={workflowId}
 							node={selectedNode}
+							nodes={nodes}
+							edges={edges}
 							onChangeNode={onChangeNode}
 							onDeleteNode={onDeleteNode}
 							readOnly={readOnly}

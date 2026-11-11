@@ -469,6 +469,10 @@ msgstr "{0}已停用"
 msgid "{0} Documentation"
 msgstr "{0} 文档"
 
+#. placeholder {0}: i18n._(LLM_EFFORT_LABELS[config.effort])
+msgid "{0} effort"
+msgstr "{0}强度"
+
 #. placeholder {0}: skill.name
 #. placeholder {0}: variables.name
 msgid "{0} enabled"
@@ -884,6 +888,9 @@ msgstr "{count, plural, one {#条评论} other {#条评论}}"
 msgid "{count, plural, one {# file} other {# files}}"
 msgstr "{count, plural, one {#个文件} other {#个文件}}"
 
+msgid "{count, plural, one {# header} other {# headers}}"
+msgstr "{count, plural, one {# 个请求头} other {# 个请求头}}"
+
 msgid "{count, plural, one {# new message} other {# new messages}}"
 msgstr "{count, plural, other {# 条新消息}}"
 
@@ -988,6 +995,9 @@ msgstr "第 {current} 项，共 {total}+ 项"
 
 msgid "{currentPage} of {totalBranches}"
 msgstr "{currentPage}/{totalBranches}"
+
+msgid "{day}, {time}"
+msgstr "{day} {time}"
 
 msgid "{days} at {time}"
 msgstr "{days}{time}"
@@ -1345,8 +1355,14 @@ msgstr "剩余 {remaining} 个 token"
 msgid "{restoredCount, plural, one {Undid the changes to # file.} other {Undid the changes to # files.}}"
 msgstr "{restoredCount, plural, one {已撤销 # 个文件的更改。} other {已撤销 # 个文件的更改。}}"
 
+msgid "{scheduleCount, plural, one {Manual + # schedule} other {Manual + # schedules}}"
+msgstr "{scheduleCount, plural, one {手动 + # 个计划} other {手动 + # 个计划}}"
+
 msgid "{seconds}s"
 msgstr "{seconds} 秒"
+
+msgid "{seconds}s timeout"
+msgstr "超时 {seconds} 秒"
 
 msgid "{selectedCount} selected"
 msgstr "已选择{selectedCount}项"
@@ -1391,6 +1407,9 @@ msgstr "{teardownFailureCount, plural, one {仍然删除} other {仍然删除#�
 
 msgid "{threshold, plural, one {# agent PR merged} other {# agent PRs merged}}"
 msgstr "{threshold, plural, other {已合并 # 个智能体 PR}}"
+
+msgid "{timeoutMinutes} min"
+msgstr "{timeoutMinutes} 分钟"
 
 msgid "{toolName} interrupted"
 msgstr "{toolName}已中断"
@@ -1635,6 +1654,9 @@ msgstr "1 小时"
 
 msgid "1 user"
 msgstr "1个用户"
+
+msgid "1–300 seconds. The request fails when it takes longer."
+msgstr "1–300 秒。请求耗时更长时会失败。"
 
 msgid "10+ concurrent workstreams without dropped state"
 msgstr "10条以上并行工作流且不丢状态"
@@ -2024,9 +2046,6 @@ msgstr "请先将 {repositoryName} 添加为此电脑上的项目"
 msgid "Add a comment…"
 msgstr "添加评论…"
 
-msgid "Add a daily schedule"
-msgstr "添加每日计划"
-
 msgid "Add a description"
 msgstr "添加描述"
 
@@ -2044,6 +2063,15 @@ msgstr "添加项目以查看GitHub议题。"
 
 msgid "Add a project to see pull requests."
 msgstr "添加一个项目来查看拉取请求。"
+
+msgid "Add a prompt for the agent."
+msgstr "为智能体添加提示词。"
+
+msgid "Add a prompt to define this step."
+msgstr "添加提示词以定义此步骤。"
+
+msgid "Add a shell command"
+msgstr "添加 Shell 命令"
 
 msgid "Add a short summary…"
 msgstr "添加简短摘要…"
@@ -2069,6 +2097,9 @@ msgstr "在用量设置中添加账号"
 msgid "add an agent"
 msgstr "添加智能体"
 
+msgid "Add an endpoint URL"
+msgstr "添加端点 URL"
+
 msgid "Add an environment in Settings before creating a cloud workspace"
 msgstr "创建云端工作区前，请先在设置中添加一个环境"
 
@@ -2092,6 +2123,9 @@ msgstr "添加评论"
 
 msgid "Add custom audio"
 msgstr "添加自定义音频"
+
+msgid "Add daily schedule"
+msgstr "添加每日计划"
 
 msgid "Add Description"
 msgstr "添加描述"
@@ -2256,12 +2290,18 @@ msgstr "仅在带提示词启动时添加，例如<0>--</0>、<1>--prompt</1>、
 msgid "Added to agent input"
 msgstr "已添加到智能体输入框"
 
+msgid "Adding a schedule keeps manual runs available."
+msgstr "添加计划后仍可手动运行。"
+
 #. placeholder {0}: COMPANY.DOMAIN
 msgid "Adding people to {organizationName} needs a paid plan. Your organization's plan is managed by its owner at {0}."
 msgstr "向 {organizationName} 添加成员需要付费套餐。你所在组织的套餐由其所有者在 {0} 管理。"
 
 msgid "Adding..."
 msgstr "正在添加..."
+
+msgid "Adding…"
+msgstr "正在添加…"
 
 msgid "Address Comments with Agent"
 msgstr "用智能体处理评论"
@@ -2290,6 +2330,9 @@ msgstr "将 v1 工作区迁入已导入的对应 v2 项目。"
 msgid "Advanced"
 msgstr "高级"
 
+msgid "Advanced · reference path"
+msgstr "高级 · 引用路径"
+
 msgid "Advanced options"
 msgstr "高级选项"
 
@@ -2304,6 +2347,9 @@ msgstr "对比基准分支"
 
 msgid "Against Main"
 msgstr "对比main"
+
+msgid "agent"
+msgstr "智能体"
 
 msgid "Agent"
 msgstr "智能体"
@@ -2816,6 +2862,9 @@ msgstr "在 #{channel} 回复了 {who}"
 msgid "Answered you in #{channel}"
 msgstr "在 #{channel} 回复了你"
 
+msgid "Anthropic"
+msgstr "Anthropic"
+
 msgid "Anthropic rejected this API key."
 msgstr "Anthropic拒绝了此API密钥。"
 
@@ -3279,6 +3328,9 @@ msgstr "认证"
 msgid "Authentication Code"
 msgstr "认证码"
 
+msgid "Authentication uses request headers."
+msgstr "身份验证使用请求头。"
+
 msgid "Author"
 msgstr "作者"
 
@@ -3393,6 +3445,9 @@ msgstr "可用"
 msgctxt "plugin access"
 msgid "Available"
 msgstr "可用"
+
+msgid "Available agents depend on the selected device."
+msgstr "可用的智能体取决于所选设备。"
 
 msgid "Available plugins show on each role's Plugins page. Installed plugins are installed for everyone in the role, who can disable but not remove them."
 msgstr "可用的插件会显示在各角色的插件页面上。已安装的插件会为该角色的所有人安装，他们可以停用但不能移除。"
@@ -4195,6 +4250,9 @@ msgstr "已要求修改"
 msgid "Changes saved"
 msgstr "更改已保存"
 
+msgid "Changing device clears agent, model and effort."
+msgstr "更改设备会清除智能体、模型和强度。"
+
 msgid "Changing..."
 msgstr "正在更改..."
 
@@ -4367,11 +4425,20 @@ msgstr "选择 {pluginLabel} 账户"
 msgid "Choose a device"
 msgstr "选择设备"
 
+msgid "Choose a device first"
+msgstr "请先选择设备"
+
+msgid "Choose a device to continue"
+msgstr "选择设备以继续"
+
 msgid "Choose a fighter"
 msgstr "选择一名斗士"
 
 msgid "Choose a folder"
 msgstr "选择文件夹"
+
+msgid "Choose a model"
+msgstr "选择模型"
 
 msgid "Choose a parent directory"
 msgstr "选择父目录"
@@ -4385,8 +4452,20 @@ msgstr "选择一个项目以搜索其议题"
 msgid "Choose a project to search its pull requests"
 msgstr "选择一个项目以搜索其拉取请求"
 
+msgid "Choose a reference…"
+msgstr "选择引用…"
+
 msgid "Choose a section."
 msgstr "选择一个分区。"
+
+msgid "Choose a source value for this test."
+msgstr "为此测试选择来源值。"
+
+msgid "Choose a time."
+msgstr "请选择时间。"
+
+msgid "Choose a value to test"
+msgstr "选择要测试的值"
 
 msgid "Choose agent"
 msgstr "选择智能体"
@@ -4429,6 +4508,9 @@ msgstr "选择Paradev在什么时候通知你。"
 
 msgid "Choose where agents started from comments, design mode, and Pages open."
 msgstr "选择从评论、设计模式和 Pages 启动的智能体的打开位置。"
+
+msgid "Choose where this runs"
+msgstr "选择运行位置"
 
 msgid "Choose your default skin tone"
 msgstr "选择默认肤色"
@@ -4969,6 +5051,9 @@ msgstr "终端智能体必须填写命令。"
 msgid "Command Palette"
 msgstr "命令面板"
 
+msgid "Command preview"
+msgstr "命令预览"
+
 msgid "Command to start your dev server, triggered via keyboard shortcut."
 msgstr "通过键盘快捷键启动开发服务器的命令。"
 
@@ -5145,6 +5230,9 @@ msgstr "配置文件内容"
 msgid "config.json must be a JSON object"
 msgstr "config.json 必须是 JSON 对象"
 
+msgid "Configuration check only; availability is checked when the workflow runs."
+msgstr "仅检查配置;可用性会在工作流运行时检查。"
+
 msgid "Configure"
 msgstr "配置"
 
@@ -5180,6 +5268,9 @@ msgstr "配置哪些智能体出现在启动器中，以及它们的启动方式
 
 msgid "Configure workspace run command"
 msgstr "配置工作区运行命令"
+
+msgid "Configured · {timeoutMinutes} min limit"
+msgstr "已配置 · 限时 {timeoutMinutes} 分钟"
 
 msgid "Configured for {agent}"
 msgstr "已为 {agent} 配置"
@@ -5450,6 +5541,12 @@ msgstr "联系支持"
 
 msgid "Contact Us"
 msgstr "联系我们"
+
+msgid "Contains"
+msgstr "包含"
+
+msgid "contains {value}"
+msgstr "包含 {value}"
 
 msgid "Contains this text..."
 msgstr "包含此文本..."
@@ -5753,6 +5850,9 @@ msgstr "无法添加智能体"
 msgid "Could not add repository"
 msgstr "无法添加仓库"
 
+msgid "Could not add schedule. Try again."
+msgstr "无法添加计划。请重试。"
+
 msgid "Could not answer the agent"
 msgstr "无法回复智能体"
 
@@ -5865,6 +5965,9 @@ msgstr "无法加载插件。请检查网络连接后重试。"
 msgid "Could not load presets from the host"
 msgstr "无法从主机加载预设"
 
+msgid "Could not load schedules. Automatic starts may still be active."
+msgstr "无法加载计划。自动启动可能仍在生效。"
+
 msgid "Could not load this diff"
 msgstr "无法加载这个差异"
 
@@ -5957,6 +6060,9 @@ msgstr "无法移除访问权限"
 
 msgid "Could not remove repository"
 msgstr "无法移除仓库"
+
+msgid "Could not remove the schedule. Try again."
+msgstr "无法移除计划。请重试。"
 
 msgid "Could not rename the session"
 msgstr "无法重命名会话"
@@ -6614,6 +6720,9 @@ msgstr "已创建 ENG-142 Safari 上登录失败"
 msgid "Created team \"{trimmedName}\""
 msgstr "已创建团队“{trimmedName}”"
 
+msgid "Creates an additional daily start. Existing schedules stay active."
+msgstr "创建一个额外的每日启动。现有计划保持生效。"
+
 msgid "creating"
 msgstr "创建中"
 
@@ -7256,8 +7365,14 @@ msgstr "开发者"
 msgid "Development build"
 msgstr "开发版本"
 
+msgid "device"
+msgstr "设备"
+
 msgid "Device"
 msgstr "设备"
+
+msgid "Device timezone"
+msgstr "设备时区"
 
 msgid "Device: {selectedLabel}"
 msgstr "设备：{selectedLabel}"
@@ -7327,6 +7442,9 @@ msgstr "私信"
 
 msgid "Direct mode"
 msgstr "直接模式"
+
+msgid "Direct model call"
+msgstr "直接调用模型"
 
 msgid "Directory"
 msgstr "目录"
@@ -7968,6 +8086,9 @@ msgstr "已结束"
 msgid "Ending the call"
 msgstr "正在结束通话"
 
+msgid "Endpoint URL"
+msgstr "端点 URL"
+
 msgid "Ensure no regression"
 msgstr "确保没有回归"
 
@@ -8001,6 +8122,12 @@ msgstr "输入整数"
 msgid "Enter a whole number from {minHours} to {maxHours} GB-hours."
 msgstr "请输入 {minHours} 到 {maxHours} 之间的整数 GB 小时。"
 
+msgid "Enter a whole number from {minText} to {maxText}. Default: {defaultText}."
+msgstr "请输入 {minText} 到 {maxText} 之间的整数。默认值:{defaultText}。"
+
+msgid "Enter raw request body…"
+msgstr "输入原始请求体…"
+
 msgid "Enter this code when OpenAI asks for it:"
 msgstr "OpenAI 要求时输入此代码："
 
@@ -8009,6 +8136,9 @@ msgstr "输入URL或搜索..."
 
 msgid "Enter URL..."
 msgstr "输入URL..."
+
+msgid "Enter workspace ID manually…"
+msgstr "手动输入工作区 ID…"
 
 msgid "Enterprise"
 msgstr "企业版"
@@ -8166,6 +8296,15 @@ msgstr "你发布过的所有内容都会被删除，而不是隐藏。你之后
 msgid "Executable"
 msgstr "可执行文件"
 
+msgid "Execution"
+msgstr "执行"
+
+msgid "Execution context"
+msgstr "执行上下文"
+
+msgid "Execution limits"
+msgstr "执行限制"
+
 msgid "Existing repo path"
 msgstr "已有仓库路径"
 
@@ -8174,6 +8313,12 @@ msgstr "{hostName}上的已有仓库路径"
 
 msgid "Existing worktrees under the old path will be orphaned. You can re-import them from the worktrees flow."
 msgstr "旧路径下已有的worktree将被孤立。你可以通过worktree流程重新导入它们。"
+
+msgid "exists"
+msgstr "存在"
+
+msgid "Exists"
+msgstr "存在"
 
 #. placeholder {0}: content.exitCode
 msgid "exit {0}"
@@ -8483,9 +8628,6 @@ msgstr "删除任务失败"
 msgid "Failed to delete team"
 msgstr "删除团队失败"
 
-msgid "Failed to delete trigger"
-msgstr "无法删除触发器"
-
 msgid "Failed to discard the new item"
 msgstr "放弃新建项失败"
 
@@ -8697,9 +8839,6 @@ msgstr "保存设置配置失败"
 msgid "Failed to save team"
 msgstr "保存团队失败"
 
-msgid "Failed to save trigger"
-msgstr "无法保存触发器"
-
 msgid "Failed to save workflow"
 msgstr "无法保存工作流"
 
@@ -8816,6 +8955,9 @@ msgstr "上传标志失败"
 
 msgid "Failure"
 msgstr "失败"
+
+msgid "False for empty text, 0, false, null and missing values."
+msgstr "空文本、0、false、null 和缺失值为否。"
 
 msgid "FAQ"
 msgstr "常见问题"
@@ -9056,6 +9198,9 @@ msgstr "已完成 · 用时7秒"
 
 msgid "Finishing the move…"
 msgstr "正在完成移动…"
+
+msgid "First scheduled run"
+msgstr "首次计划运行"
 
 msgid "Fit"
 msgstr "适应窗口"
@@ -9448,6 +9593,9 @@ msgstr "生成"
 msgid "Generate a key to use with MCP servers."
 msgstr "生成一个密钥，用于MCP服务器。"
 
+msgid "Generate a response from a prompt. For workspace tasks and tools, use Agent."
+msgstr "根据提示词生成回复。涉及工作区任务和工具时,请使用智能体。"
+
 msgid "Generate API key"
 msgstr "生成API密钥"
 
@@ -9468,6 +9616,9 @@ msgstr "正在生成..."
 
 msgid "Generating…"
 msgstr "正在生成…"
+
+msgid "Generation settings"
+msgstr "生成设置"
 
 msgid "Get {plan}"
 msgstr "获取 {plan}"
@@ -9765,6 +9916,9 @@ msgstr "有未推送的提交"
 
 msgid "Head-to-Head Comparisons"
 msgstr "一对一对比"
+
+msgid "Header name"
+msgstr "请求头名称"
 
 msgid "Headers"
 msgstr "标头"
@@ -10081,9 +10235,6 @@ msgstr "你的智能体在云端工作区中如何登录。其他人连接各自
 
 msgid "HTML preview"
 msgstr "HTML 预览"
-
-msgid "HTTP"
-msgstr "HTTP"
 
 msgid "HTTP request"
 msgstr "HTTP 请求"
@@ -10662,8 +10813,44 @@ msgstr "iPhone 和 iPad"
 msgid "Is {companyName} open source?"
 msgstr "{companyName} 是开源的吗？"
 
+msgid "Is at least"
+msgstr "大于或等于"
+
+msgid "is at least {value}"
+msgstr "大于或等于 {value}"
+
+msgid "Is at most"
+msgstr "小于或等于"
+
+msgid "is at most {value}"
+msgstr "小于或等于 {value}"
+
+msgid "Is equal to"
+msgstr "等于"
+
+msgid "is equal to {value}"
+msgstr "等于 {value}"
+
+msgid "Is greater than"
+msgstr "大于"
+
+msgid "is greater than {value}"
+msgstr "大于 {value}"
+
+msgid "Is less than"
+msgstr "小于"
+
+msgid "is less than {value}"
+msgstr "小于 {value}"
+
 msgid "Is my data secure?"
 msgstr "我的数据安全吗？"
+
+msgid "Is not equal to"
+msgstr "不等于"
+
+msgid "is not equal to {value}"
+msgstr "不等于 {value}"
 
 msgid "is now signed in here."
 msgstr "现已在此登录。"
@@ -10685,6 +10872,12 @@ msgstr "已登录。"
 
 msgid "Is there a free plan?"
 msgstr "有免费方案吗？"
+
+msgid "is truthy"
+msgstr "为真值"
+
+msgid "Is truthy"
+msgstr "为真值"
 
 msgid "Issue"
 msgstr "议题"
@@ -11108,6 +11301,9 @@ msgstr "启动"
 msgid "Launch mode"
 msgstr "启动方式"
 
+msgid "Launch options"
+msgstr "启动选项"
+
 msgid "Launch this terminal script when a new workspace is created."
 msgstr "创建新工作区时启动此终端脚本。"
 
@@ -11280,6 +11476,9 @@ msgstr "限制为 {organizationName}？"
 msgid "Limit to people invited?"
 msgstr "限制为仅受邀者？"
 
+msgid "Limits"
+msgstr "限制"
+
 #. placeholder {0}: m.startLine
 #. placeholder {0}: metadata.startLine
 msgid "Line {0}"
@@ -11421,6 +11620,9 @@ msgstr "实时预览"
 
 msgid "LLM"
 msgstr "LLM"
+
+msgid "LLM · Direct model call"
+msgstr "LLM · 直接调用模型"
 
 msgid "llms.txt (index for AI agents)"
 msgstr "llms.txt（面向AI智能体的索引）"
@@ -11798,6 +12000,9 @@ msgstr "手动登录"
 msgid "Manual sign-in"
 msgstr "手动登录"
 
+msgid "Manual start only"
+msgstr "仅手动启动"
+
 msgid "Mark all read"
 msgstr "全部标记为已读"
 
@@ -11863,6 +12068,12 @@ msgstr "最大"
 
 msgid "Max tokens"
 msgstr "最大 Token 数"
+
+msgid "Max tokens {maxTokensText}"
+msgstr "最大 token 数 {maxTokensText}"
+
+msgid "Max tokens {maxTokensText} · default"
+msgstr "最大 token 数 {maxTokensText} · 默认"
 
 msgid "Maximum"
 msgstr "最大"
@@ -12036,6 +12247,9 @@ msgstr "消息"
 msgid "Messages with these words notify you like a mention. Separate them with commas."
 msgstr "包含这些词的消息会像提及一样通知你。用逗号分隔。"
 
+msgid "Method"
+msgstr "方法"
+
 msgid "Microphone"
 msgstr "麦克风"
 
@@ -12082,6 +12296,9 @@ msgstr "最小化GitHub议题"
 msgid "Minimum contrast"
 msgstr "最小对比度"
 
+msgid "minutes"
+msgstr "分钟"
+
 msgid "missed"
 msgstr "已错过"
 
@@ -12109,6 +12326,9 @@ msgstr "缺少必填字段。"
 #. js-lingui-explicit-id
 msgid "serverError.plugins.missingInput"
 msgstr "缺少必填输入 {input}"
+
+msgid "Missing: {missingText}"
+msgstr "缺少:{missingText}"
 
 msgid "MIT License"
 msgstr "MIT 许可证"
@@ -12403,6 +12623,9 @@ msgstr "需要处理"
 msgid "Needs attention"
 msgstr "需要处理"
 
+msgid "Needs configuration"
+msgstr "需要配置"
+
 msgid "Needs input"
 msgstr "需要输入"
 
@@ -12598,6 +12821,10 @@ msgstr "下一页"
 msgid "Next (Enter)"
 msgstr "下一个匹配项（Enter）"
 
+#. placeholder {0}: formatNextRun( new Date(trigger.nextRunAt), now, schedule?.timezone, )
+msgid "Next {0}"
+msgstr "下一次 {0}"
+
 msgid "Next branch"
 msgstr "下一个分支"
 
@@ -12623,6 +12850,9 @@ msgstr "右侧边栏下一个标签页"
 msgid "Next run {0}"
 msgstr "下次运行{0}"
 
+msgid "Next scheduled run"
+msgstr "下次计划运行"
+
 msgid "Next slide"
 msgstr "下一张"
 
@@ -12641,6 +12871,11 @@ msgstr "下一代聊天"
 msgid "Next:"
 msgstr "下一节："
 
+#. placeholder {0}: formatNextRun(next.at, now, next.timeZone)
+#. placeholder {1}: next.timeZone ? timeZoneShortName(next.timeZone, next.at) : ""
+msgid "Next: {0} {1}"
+msgstr "下一次:{0} {1}"
+
 msgid "Next: {nextLabel}"
 msgstr "下一级：{nextLabel}"
 
@@ -12655,9 +12890,6 @@ msgstr "干得漂亮"
 
 msgid "Nightly audit"
 msgstr "夜间审计"
-
-msgid "no"
-msgstr "否"
 
 msgid "No"
 msgstr "否"
@@ -12732,6 +12964,9 @@ msgstr "未找到作者。"
 
 msgid "No automations match"
 msgstr "没有匹配的自动化"
+
+msgid "No body"
+msgstr "无请求体"
 
 msgid "No branches found"
 msgstr "未找到分支"
@@ -12994,6 +13229,9 @@ msgstr "没有匹配的页面"
 msgid "No matching pull requests"
 msgstr "没有匹配的拉取请求"
 
+msgid "No matching sources."
+msgstr "没有匹配的来源。"
+
 msgid "No matching tasks"
 msgstr "没有匹配的任务"
 
@@ -13196,6 +13434,9 @@ msgstr "还没有运行过"
 msgid "No runs yet. Use Run now to start one."
 msgstr "还没有运行过。点击\"立即运行\"开始。"
 
+msgid "No scheduled runs"
+msgstr "没有计划运行"
+
 msgid "No screenshots yet"
 msgstr "暂无截图"
 
@@ -13283,9 +13524,6 @@ msgstr "还没有话题"
 msgid "No triggers"
 msgstr "没有触发器"
 
-msgid "No triggers yet. The workflow only runs when started manually."
-msgstr "还没有触发器。该工作流只能手动启动。"
-
 msgid "No Updates"
 msgstr "无可用更新"
 
@@ -13318,6 +13556,9 @@ msgstr "还没有任何版本。"
 
 msgid "No workflows yet"
 msgstr "还没有工作流"
+
+msgid "No workspace"
+msgstr "无工作区"
 
 msgid "No workspace run command configured"
 msgstr "未配置工作区运行命令"
@@ -13563,6 +13804,9 @@ msgstr "如今，我们已从硅谷最好的投资人那里完成融资，用来
 
 msgid "Numbered list"
 msgstr "编号列表"
+
+msgid "Numeric comparisons accept numeric text."
+msgstr "数值比较接受数字文本。"
 
 msgid "OAuth 2.0"
 msgstr "OAuth 2.0"
@@ -14372,8 +14616,14 @@ msgstr "可选说明，显示在终端脚本列表中。"
 msgid "Optional flags appended after the prompt payload"
 msgstr "追加在提示词内容之后的可选标志"
 
+msgid "Optional. GET and HEAD usually leave this empty."
+msgstr "可选。GET 和 HEAD 通常留空。"
+
 msgid "Optional. Helps us learn what works."
 msgstr "可选。帮助我们了解哪些渠道有效。"
+
+msgid "Optional. Set Content-Type in Headers when your endpoint expects a specific body format."
+msgstr "可选。如果端点需要特定的请求体格式,请在请求头中设置 Content-Type。"
 
 msgid "Options"
 msgstr "选项"
@@ -14465,6 +14715,9 @@ msgstr "其他主机"
 
 msgid "Other people are using this project. Type <0>{projectName}</0> to confirm."
 msgstr "其他人正在使用此项目。输入 <0>{projectName}</0> 以确认。"
+
+msgid "Other sources"
+msgstr "其他来源"
 
 msgid "Other Team Members"
 msgstr "其他团队成员"
@@ -14935,6 +15188,9 @@ msgstr "峰值速度"
 msgid "pending"
 msgstr "等待中"
 
+msgid "Pending"
+msgstr "待处理"
+
 msgid "Pending Invitations"
 msgstr "待处理邀请"
 
@@ -15106,6 +15362,9 @@ msgstr "PK"
 
 msgid "Plain text"
 msgstr "纯文本"
+
+msgid "Plain text · wraps long lines"
+msgstr "纯文本 · 长行自动换行"
 
 msgid "Plan"
 msgstr "计划"
@@ -15575,6 +15834,9 @@ msgstr "项目所在主机不可达，暂时无法重命名"
 msgid "Projects"
 msgstr "项目"
 
+msgid "prompt"
+msgstr "提示词"
+
 msgid "Prompt"
 msgstr "提示词"
 
@@ -15868,6 +16130,12 @@ msgstr "超出速率限制。"
 msgid "Rate limits"
 msgstr "用量限制"
 
+msgid "Raw body"
+msgstr "原始请求体"
+
+msgid "Raw text sent with this request."
+msgstr "随此请求发送的原始文本。"
+
 msgid "Reach this Mac from anywhere via the Paradev relay, or spin up cloud workspaces. Connect from any client."
 msgstr "通过Paradev中继从任何地方连接这台Mac，或启动云工作区。可以从任何客户端连接。"
 
@@ -16027,6 +16295,9 @@ msgstr "重新应用所有提交"
 msgid "Reasoning"
 msgstr "推理"
 
+msgid "Reasoning effort · available for this model"
+msgstr "推理强度 · 此模型可用"
+
 msgid "Reassign"
 msgstr "重新分配"
 
@@ -16122,6 +16393,9 @@ msgstr "降低透明度"
 
 msgid "Ref {ref} · Path {path}"
 msgstr "引用 {ref} · 路径 {path}"
+
+msgid "Reference path"
+msgstr "引用路径"
 
 msgid "Referenced, not demoed"
 msgstr "仅作引用，未做演示"
@@ -16341,6 +16615,9 @@ msgstr "移除排队消息"
 
 msgid "Remove repository"
 msgstr "移除仓库"
+
+msgid "Remove schedule"
+msgstr "移除计划"
 
 msgid "Remove script"
 msgstr "移除脚本"
@@ -16585,8 +16862,14 @@ msgstr "请求"
 msgid "Request a trial"
 msgstr "申请试用"
 
+msgid "Request body"
+msgstr "请求体"
+
 msgid "Request Body"
 msgstr "请求体"
+
+msgid "Request timeout"
+msgstr "请求超时"
 
 msgid "requested changes"
 msgstr "请求了更改"
@@ -16599,6 +16882,9 @@ msgstr "必填"
 
 msgid "Required"
 msgstr "必填"
+
+msgid "Required fields complete"
+msgstr "必填字段已完成"
 
 msgid "Required version: {minimumVersion}+"
 msgstr "所需版本：{minimumVersion}+"
@@ -16726,6 +17012,9 @@ msgstr "资源"
 
 msgid "Response"
 msgstr "响应"
+
+msgid "Response limit. Raise it only for longer replies."
+msgstr "回复长度上限。仅在需要更长回复时调高。"
 
 msgid "Restart"
 msgstr "重启"
@@ -17164,6 +17453,9 @@ msgstr "运行历史"
 msgid "Run History"
 msgstr "运行历史"
 
+msgid "Run ID"
+msgstr "运行 ID"
+
 msgid "Run in a terminal on this host; paste your key when asked:"
 msgstr "在此主机的终端中运行，出现提示时粘贴你的密钥："
 
@@ -17178,6 +17470,9 @@ msgstr "在工作区中运行议题"
 
 msgid "Run now"
 msgstr "立即运行"
+
+msgid "Run on"
+msgstr "运行于"
 
 msgid "Run on a schedule or on events, run on demand, pause, resume, and read logs."
 msgstr "按计划或事件运行、按需运行、暂停、恢复并查看日志。"
@@ -17266,11 +17561,17 @@ msgstr "自动化触发后，运行将显示在这里。"
 msgid "Runs in"
 msgstr "运行位置"
 
+msgid "Runs in the selected workspace's working directory on this device."
+msgstr "在此设备上所选工作区的工作目录中运行。"
+
 msgid "Runs inside the Paradev app on that device, so updating it means updating the app there."
 msgstr "运行在该设备的 Paradev 应用内，因此更新它意味着更新那台设备上的应用。"
 
 msgid "Runs land in a workspace. Review the diff, merge what's good."
 msgstr "运行结果会落在一个工作区里。审查差异，把合适的合并进去。"
+
+msgid "Runs on a connected device. Cloud is unavailable."
+msgstr "在已连接的设备上运行。云端不可用。"
 
 msgid "Runs that found no host online"
 msgstr "未找到在线主机的运行"
@@ -17405,8 +17706,17 @@ msgstr "安排会议"
 msgid "Scheduled and event-triggered agents (cron, GitHub, Slack, Linear, Sentry, Notion, Microsoft Teams, webhooks) with ready-made templates."
 msgstr "定时和事件触发的智能体（cron、GitHub、Slack、Linear、Sentry、Notion、Microsoft Teams、webhook），并提供现成模板。"
 
+msgid "Schedules · {scheduleCount}"
+msgstr "计划 · {scheduleCount}"
+
 msgid "Schedules repeat — remove COUNT or UNTIL."
 msgstr "计划会重复 — 请移除COUNT或UNTIL。"
+
+msgid "Schedules save immediately."
+msgstr "计划会立即保存。"
+
+msgid "Schedules unavailable"
+msgstr "计划不可用"
 
 msgid "Schematic, by autonomy level. Hover for values."
 msgstr "示意图，按自主等级划分。悬停查看数值。"
@@ -17560,6 +17870,9 @@ msgstr "搜索MCP服务器…"
 msgid "Search models"
 msgstr "搜索模型"
 
+msgid "Search nodes or enter a path"
+msgstr "搜索节点或输入路径"
+
 msgid "Search pages"
 msgstr "搜索页面"
 
@@ -17673,6 +17986,9 @@ msgstr "周期中途移除的席位在 {0} 前仍然有效。"
 msgid "Secondary"
 msgstr "次要"
 
+msgid "seconds"
+msgstr "秒"
+
 msgid "Secret Shift Lead"
 msgstr "秘密班长"
 
@@ -17755,14 +18071,23 @@ msgstr "选择 {0}"
 msgid "Select a device"
 msgstr "选择设备"
 
+msgid "Select a device to browse its workspaces."
+msgstr "选择设备以浏览其工作区。"
+
 msgid "Select a file to view it here"
 msgstr "选择一个文件以在此处查看"
+
+msgid "Select a model…"
+msgstr "选择模型…"
 
 msgid "Select a node to configure it."
 msgstr "选择一个节点进行配置。"
 
 msgid "Select a node to see its step."
 msgstr "选择一个节点查看其步骤。"
+
+msgid "Select a node, then enter its output path. Fields are known only after a run."
+msgstr "选择一个节点,然后输入其输出路径。字段仅在运行后才可知。"
 
 msgid "Select a project"
 msgstr "请选择项目"
@@ -18087,6 +18412,9 @@ msgstr "设置项目…"
 msgid "Set Run"
 msgstr "设置运行命令"
 
+msgid "Set the model's role and response rules."
+msgstr "设置模型的角色和回复规则。"
+
 msgid "Set this project"
 msgstr "设为此项目"
 
@@ -18240,6 +18568,9 @@ msgstr "侧边面板"
 
 msgid "Shell"
 msgstr "Shell"
+
+msgid "Shell command"
+msgstr "Shell 命令"
 
 msgid "Shift+click"
 msgstr "Shift+点击"
@@ -19351,6 +19682,9 @@ msgstr "订阅"
 msgid "succeeded"
 msgstr "成功"
 
+msgid "Succeeded"
+msgstr "成功"
+
 msgid "Success"
 msgstr "成功"
 
@@ -19574,6 +19908,9 @@ msgstr "跟随系统"
 
 msgid "System design"
 msgstr "系统设计"
+
+msgid "System instructions"
+msgstr "系统指令"
 
 msgid "System memory"
 msgstr "系统内存"
@@ -20322,6 +20659,9 @@ msgstr "云端工作区启动的起点 — 一个基础镜像，或你已配置�
 msgid "the target host"
 msgstr "目标主机"
 
+msgid "The task and input sent to the model."
+msgstr "发送给模型的任务和输入。"
+
 msgid "The team"
 msgstr "团队"
 
@@ -20363,9 +20703,6 @@ msgstr "worktree及其中所有未提交的更改都会被移除。此操作无�
 
 msgid "The worktree has uncommitted edits from the agent session."
 msgstr "worktree中有智能体会话留下的未提交修改。"
-
-msgid "The yes branch runs when this is true, the no branch otherwise."
-msgstr "条件为真时走 yes 分支，否则走 no 分支。"
 
 msgid "Theme"
 msgstr "主题"
@@ -20897,11 +21234,14 @@ msgstr "时区"
 msgid "timed out"
 msgstr "超时"
 
-msgid "Timeout (minutes)"
-msgstr "超时（分钟）"
+msgid "Timeout"
+msgstr "超时"
 
-msgid "Timeout (seconds)"
-msgstr "超时（秒）"
+msgid "Timeout {timeoutMinutes} min"
+msgstr "超时 {timeoutMinutes} 分钟"
+
+msgid "Timeout {timeoutMinutes} min · Default"
+msgstr "超时 {timeoutMinutes} 分钟 · 默认"
 
 msgid "Tinted"
 msgstr "色调"
@@ -21179,6 +21519,9 @@ msgstr "从 Gmail 触发自动化。"
 msgid "Trigger automations from Teams channel messages."
 msgstr "用Teams频道消息触发自动化。"
 
+msgid "Trigger data"
+msgstr "触发器数据"
+
 msgid "Trigger not found"
 msgstr "未找到触发器"
 
@@ -21187,6 +21530,9 @@ msgstr "触发器"
 
 msgid "True for routine work, not yet for gnarly refactors."
 msgstr "常规工作成立，棘手的重构还不行。"
+
+msgid "True when the value is neither null nor missing. Empty text, 0 and false still exist."
+msgstr "当值既不是 null 也不缺失时为是。空文本、0 和 false 仍视为存在。"
 
 msgid "Trusted by builders from"
 msgstr "以下公司的开发者都在用"
@@ -21697,6 +22043,9 @@ msgstr "上传文件"
 msgid "Upload image…"
 msgstr "上传图片…"
 
+msgid "Upstream nodes"
+msgstr "上游节点"
+
 msgid "Uptime"
 msgstr "运行时间"
 
@@ -21788,6 +22137,12 @@ msgstr "在手机上使用 Paradev"
 msgid "Use Paradev on your phone with Pro."
 msgstr "通过 Pro 在手机上使用 Paradev。"
 
+msgid "Use path <0>{path}</0>"
+msgstr "使用路径 <0>{path}</0>"
+
+msgid "Use Run now in the toolbar to start this workflow. No automatic runs are scheduled."
+msgstr "使用工具栏中的“立即运行”来启动此工作流。未安排自动运行。"
+
 msgid "Use the agent plans and API keys you already have. Model calls go straight to your provider."
 msgstr "使用你已有的智能体套餐和 API 密钥。模型调用直接发往你的服务商。"
 
@@ -21814,6 +22169,9 @@ msgstr "调用Paradev API时使用。"
 
 msgid "Use voice transcription and push-to-talk features."
 msgstr "使用语音转写和按住说话功能。"
+
+msgid "Use workspace picker"
+msgstr "使用工作区选择器"
 
 msgid "Used"
 msgstr "已使用"
@@ -22360,6 +22718,9 @@ msgstr "最新动态"
 msgid "What's next"
 msgstr "接下来"
 
+msgid "When"
+msgstr "当"
+
 msgid "When a channel notifies you"
 msgstr "当频道通知你时"
 
@@ -22616,9 +22977,6 @@ msgstr "工作区运行：{workspaceRunState}"
 msgid "Workspace settings"
 msgstr "工作区设置"
 
-msgid "Workspace to run in"
-msgstr "运行所在的工作区"
-
 msgid "Workspace views"
 msgstr "工作区视图"
 
@@ -22736,11 +23094,11 @@ msgstr "按年"
 msgid "Yellow"
 msgstr "黄色"
 
-msgid "yes"
-msgstr "是"
-
 msgid "Yes"
 msgstr "是"
+
+msgid "Yes when the test is true. No otherwise. Connect destinations on the canvas."
+msgstr "测试为真时走“是”,否则走“否”。在画布上连接目标。"
 
 msgid "Yes, demote me"
 msgstr "是，降低我的角色"
@@ -22800,6 +23158,9 @@ msgstr "你"
 msgid "You appear to be offline"
 msgstr "你似乎处于离线状态"
 
+msgid "You are a concise code reviewer."
+msgstr "你是一位言简意赅的代码审查员。"
+
 msgid "You are not a member of that organization."
 msgstr "你不是该组织的成员。"
 
@@ -22824,6 +23185,9 @@ msgstr "在累计 {0} 天使用记录之前你不参与排名。等看板掌握�
 
 msgid "You are viewing version {version}, read-only"
 msgstr "您正在查看版本 {version}，只读"
+
+msgid "You can also use Run now at any time."
+msgstr "你也可以随时使用“立即运行”。"
 
 msgid "You can attach up to {MAX_ATTACHMENTS} files"
 msgstr "最多可附加{MAX_ATTACHMENTS}个文件"
@@ -22997,6 +23361,9 @@ msgstr "下载会自动开始。"
 
 msgid "Your email (optional)"
 msgstr "你的邮箱（选填）"
+
+msgid "Your existing schedules are unchanged."
+msgstr "你现有的计划保持不变。"
 
 msgid "Your first agent"
 msgstr "你的第一个智能体"

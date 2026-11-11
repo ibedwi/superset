@@ -1,0 +1,1 @@
+export { useHostLabel } from "./useHostLabel";
