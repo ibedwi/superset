@@ -1,4 +1,6 @@
-import "../../../scripts/test-preload.ts";
+// The i18n shim re-enters scripts/test-preload.ts and replaces the
+// compile-time Lingui macros, which uncompiled bun tests cannot execute.
+import "../../i18n/test-setup.ts";
 
 process.env.SKIP_ENV_VALIDATION = "1";
 process.env.BILLING_PROVIDER = "stripe";

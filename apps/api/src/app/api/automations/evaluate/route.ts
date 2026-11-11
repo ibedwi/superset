@@ -18,6 +18,7 @@ import { Client } from "@upstash/qstash";
 import { and, desc, eq, inArray, lte } from "drizzle-orm";
 import { env } from "@/env";
 import { redispatchUndispatched } from "@/lib/automations/redispatchUndispatched";
+import { evaluateWorkflowSchedules } from "@/lib/workflows/evaluateWorkflowSchedules";
 import { singleFlight } from "@/lib/singleFlight";
 import { verifyQstashRequest } from "@/lib/verifyQstash";
 
@@ -115,6 +116,14 @@ export async function POST(request: Request): Promise<Response> {
 
 	const now = new Date();
 
+	// The same tick drives workflow schedules; its failures stay its own.
+	const workflowSchedules = await evaluateWorkflowSchedules(now).catch(
+		(error) => {
+			console.error("[workflows/evaluate] tick failed", error);
+			return null;
+		},
+	);
+
 	const rows = await db
 		.select({
 			automationId: automations.id,
@@ -203,6 +212,7 @@ export async function POST(request: Request): Promise<Response> {
 			enqueued: 0,
 			unusable: unusable.length,
 			redispatched,
+			workflowSchedules,
 		});
 	}
 
@@ -263,5 +273,6 @@ export async function POST(request: Request): Promise<Response> {
 		advanceFailed: advanceFailures.length,
 		unusable: unusable.length,
 		redispatched,
+		workflowSchedules,
 	});
 }

@@ -1,6 +1,7 @@
 import type { AutomationEventDispatchInput } from "@superset/db/schema";
 import { notifyRoutinesOfEvent } from "@superset/trpc/agent-routines";
 import type { PgDatabase, PgQueryResultHKT } from "drizzle-orm/pg-core";
+import { dispatchMatchingWorkflowTriggers } from "../workflows/dispatchMatchingWorkflowTriggers";
 import { dispatchMatchingTriggers } from "./dispatchMatchingTriggers";
 import {
 	type AutomationEventInput,
@@ -63,6 +64,17 @@ export async function ingestAutomationEvent(
 	});
 
 	try {
+		// Workflows first: the automation matcher marks the event dispatched at
+		// its end, so a workflow-side failure leaves the row for the sweep.
+		await dispatchMatchingWorkflowTriggers({
+			organizationId: delivery.event.organizationId,
+			eventId: inserted.id,
+			event: delivery.dispatch.event,
+			automationId: delivery.dispatch.automationId,
+			triggerId: delivery.dispatch.triggerId,
+			ownerUserId: delivery.dispatch.ownerUserId,
+			integrationConnectionId: delivery.event.integrationConnectionId,
+		});
 		const result = await dispatchMatchingTriggers({
 			organizationId: delivery.event.organizationId,
 			eventId: inserted.id,

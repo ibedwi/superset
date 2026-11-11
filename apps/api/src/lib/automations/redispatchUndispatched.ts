@@ -1,6 +1,7 @@
 import { automationEvents } from "@superset/db/schema";
 import { and, asc, gt, isNotNull, isNull, lt } from "drizzle-orm";
 import type { SingleFlightTx } from "@/lib/singleFlight";
+import { dispatchMatchingWorkflowTriggers } from "../workflows/dispatchMatchingWorkflowTriggers";
 import { dispatchMatchingTriggers } from "./dispatchMatchingTriggers";
 
 /** Long enough that an in-flight delivery is not mistaken for a stuck one. */
@@ -72,6 +73,17 @@ export async function redispatchUndispatched(tx: SingleFlightTx): Promise<{
 		attempted++;
 		if (!row.dispatchInput) continue;
 		try {
+			// Workflows first, same order as ingest: a failure here leaves the
+			// row unmarked and the next tick retries both sides.
+			await dispatchMatchingWorkflowTriggers({
+				organizationId: row.organizationId,
+				eventId: row.id,
+				event: row.dispatchInput.event,
+				automationId: row.dispatchInput.automationId,
+				triggerId: row.dispatchInput.triggerId,
+				ownerUserId: row.dispatchInput.ownerUserId,
+				integrationConnectionId: row.integrationConnectionId,
+			});
 			await dispatchMatchingTriggers({
 				organizationId: row.organizationId,
 				eventId: row.id,
