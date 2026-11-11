@@ -25,6 +25,8 @@ export interface WorkflowActivityDeps {
 	resolveHost?: ResolveHost;
 	fetchFn?: typeof fetch;
 	pollEveryMs?: number;
+	/** How long an agent may stay "starting" before the node fails. */
+	startTimeoutMs?: number;
 	now?: () => number;
 }
 
@@ -35,6 +37,8 @@ export interface AgentNodeOutput {
 
 export function createWorkflowActivities(deps: WorkflowActivityDeps) {
 	const pollEveryMs = deps.pollEveryMs ?? 10_000;
+	const startTimeoutMs = deps.startTimeoutMs ?? 2 * 60_000;
+	const now = deps.now ?? Date.now;
 	const fetchFn = deps.fetchFn ?? fetch;
 	const resolveHost: ResolveHost =
 		deps.resolveHost ??
@@ -109,6 +113,7 @@ export function createWorkflowActivities(deps: WorkflowActivityDeps) {
 			runId: string;
 			handle: AgentHandle;
 		}): Promise<{ state: AgentState }> {
+			const startedAt = now();
 			for (;;) {
 				throwIfCancelled();
 				heartbeat();
@@ -118,6 +123,13 @@ export function createWorkflowActivities(deps: WorkflowActivityDeps) {
 				});
 				if (state === "idle" || state === "exited" || state === "blocked") {
 					return { state };
+				}
+				// No hook event yet: the agent can sit on a startup prompt forever.
+				if (state === "starting" && now() - startedAt >= startTimeoutMs) {
+					throw ApplicationFailure.nonRetryable(
+						`Agent did not start within ${Math.round(startTimeoutMs / 1000)} s. It may be waiting for input in its terminal (workspace ${input.handle.workspaceId}).`,
+						"AgentNotStarted",
+					);
 				}
 				await sleep(pollEveryMs);
 			}
