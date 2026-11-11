@@ -125,6 +125,10 @@
 			"types": "./src/automation-triggers.ts",
 			"default": "./src/automation-triggers.ts"
 		},
+		"./workflow-graph": {
+			"types": "./src/workflow-graph/index.ts",
+			"default": "./src/workflow-graph/index.ts"
+		},
 		"./cloud-agent-launch": {
 			"types": "./src/cloud-agent-launch.ts",
 			"default": "./src/cloud-agent-launch.ts"
