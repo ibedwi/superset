@@ -2,28 +2,34 @@ import Anthropic from "@anthropic-ai/sdk";
 import { mintUserJwt } from "@superset/auth/server";
 import { db } from "@superset/db/client";
 import {
-	workflowRuns,
+	workflowRunStatusValues,
+	workflowStepStatusValues,
+} from "@superset/db/enums";
+import {
 	workflowRunSteps,
+	workflowRuns,
 	workflows,
 	workflowVersions,
 } from "@superset/db/schema";
 import { agentRunState } from "@superset/shared/agent-status";
-import { buildHostRoutingKey, CLOUD_HOST_ID } from "@superset/shared/host-routing";
+import {
+	buildHostRoutingKey,
+	CLOUD_HOST_ID,
+} from "@superset/shared/host-routing";
 import {
 	sanitizeBranchNameWithMaxLength,
 	slugifyForBranch,
 } from "@superset/shared/workspace-launch";
-import { workflowStepStatusValues, workflowRunStatusValues } from "@superset/db/enums";
 import { TRPCError, type TRPCRouterRecord } from "@trpc/server";
 import { eq, sql } from "drizzle-orm";
 import { z } from "zod";
 import { env } from "../../env";
-import { workerProcedure } from "../../trpc";
 import { nudge } from "../../lib/realtime";
+import { workerProcedure } from "../../trpc";
 import { launchAgentSession } from "../automation/hostSession";
 import {
-	RelayDispatchError,
 	type RelayClientOptions,
+	RelayDispatchError,
 	relayMutation,
 	relayQuery,
 } from "../automation/relay-client";
@@ -92,29 +98,27 @@ function capJson(value: unknown): unknown {
 
 /** Our Temporal worker running workflow graphs; secret-gated like agentWorker. */
 export const workflowWorkerRouter = {
-	loadRun: workerProcedure
-		.input(runIdSchema)
-		.mutation(async ({ input }) => {
-			const [row] = await db
-				.select({
-					id: workflowRuns.id,
-					workflowId: workflowRuns.workflowId,
-					organizationId: workflowRuns.organizationId,
-					title: workflowRuns.title,
-					status: workflowRuns.status,
-					triggerContext: workflowRuns.triggerContext,
-					graph: workflowVersions.graph,
-				})
-				.from(workflowRuns)
-				.innerJoin(
-					workflowVersions,
-					eq(workflowVersions.id, workflowRuns.versionId),
-				)
-				.where(eq(workflowRuns.id, input.runId))
-				.limit(1);
-			if (!row) throw runNotFound();
-			return row;
-		}),
+	loadRun: workerProcedure.input(runIdSchema).mutation(async ({ input }) => {
+		const [row] = await db
+			.select({
+				id: workflowRuns.id,
+				workflowId: workflowRuns.workflowId,
+				organizationId: workflowRuns.organizationId,
+				title: workflowRuns.title,
+				status: workflowRuns.status,
+				triggerContext: workflowRuns.triggerContext,
+				graph: workflowVersions.graph,
+			})
+			.from(workflowRuns)
+			.innerJoin(
+				workflowVersions,
+				eq(workflowVersions.id, workflowRuns.versionId),
+			)
+			.where(eq(workflowRuns.id, input.runId))
+			.limit(1);
+		if (!row) throw runNotFound();
+		return row;
+	}),
 
 	recordRunStatus: workerProcedure
 		.input(
@@ -239,7 +243,8 @@ export const workflowWorkerRouter = {
 			return {
 				hostId: input.target.hostId,
 				workspaceId,
-				terminalId: session.kind === "chat" ? session.terminalId : session.sessionId,
+				terminalId:
+					session.kind === "chat" ? session.terminalId : session.sessionId,
 			};
 		}),
 
@@ -306,7 +311,8 @@ export const workflowWorkerRouter = {
 				);
 				return { found: true as const, base64: file.base64 };
 			} catch (error) {
-				if (error instanceof RelayDispatchError) return { found: false as const };
+				if (error instanceof RelayDispatchError)
+					return { found: false as const };
 				throw error;
 			}
 		}),
@@ -482,7 +488,7 @@ function parseJson(text: string): unknown {
 
 async function createNodeWorkspace(
 	host: ReturnType<typeof hostCaller>,
-	runId: string,
+	_runId: string,
 	nodeId: string,
 	projectId: string | null,
 ): Promise<string> {

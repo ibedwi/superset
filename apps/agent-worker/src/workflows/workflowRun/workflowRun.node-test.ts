@@ -97,7 +97,11 @@ function fakeActivities(
 		},
 		async dispatchAgentNode(input) {
 			push("dispatchAgentNode", input);
-			return { hostId: "h1", workspaceId: "w1", terminalId: `t-${input.nodeId}` };
+			return {
+				hostId: "h1",
+				workspaceId: "w1",
+				terminalId: `t-${input.nodeId}`,
+			};
 		},
 		async awaitAgentNode(input) {
 			push("awaitAgentNode", input as Record<string, unknown>);
@@ -136,7 +140,10 @@ function fakeActivities(
 		async callHttpNode(input) {
 			push("callHttpNode", input as Record<string, unknown>);
 			if (script.httpFails) {
-				throw ApplicationFailure.nonRetryable("HTTP 404 from api.example.com", "HttpNodeClientError");
+				throw ApplicationFailure.nonRetryable(
+					"HTTP 404 from api.example.com",
+					"HttpNodeClientError",
+				);
 			}
 			return { status: 200, body: "{}", json: {} };
 		},
@@ -230,9 +237,7 @@ describe("workflowRun workflow", () => {
 			.map((call, index) => (call.name === "dispatchAgentNode" ? index : -1))
 			.filter((index) => index >= 0);
 		assert.equal(dispatchIndexes.length, 2);
-		const joinIndex = calls.findIndex(
-			(call) => call.name === "callHttpNode",
-		);
+		const joinIndex = calls.findIndex((call) => call.name === "callHttpNode");
 		assert.ok(dispatchIndexes.every((index) => index < joinIndex));
 		assert.ok(steps(calls).includes("join:succeeded"));
 	});
@@ -274,10 +279,7 @@ describe("workflowRun workflow", () => {
 		assert.ok(recorded.includes("no:skipped"));
 		assert.ok(recorded.includes("after-no:skipped"));
 		assert.ok(!names(calls).includes("execCliNode"));
-		assert.equal(
-			calls.filter((c) => c.name === "dispatchAgentNode").length,
-			1,
-		);
+		assert.equal(calls.filter((c) => c.name === "dispatchAgentNode").length, 1);
 		assert.deepEqual(runStatuses(calls), ["running", "succeeded"]);
 	});
 

@@ -169,9 +169,7 @@ const workflowCrud = {
 			await getWorkflowForUser(ctx.session.user.id, organizationId, input.id);
 			const deleted = await db
 				.delete(workflows)
-				.where(
-					and(eq(workflows.id, input.id), isNotNull(workflows.archivedAt)),
-				)
+				.where(and(eq(workflows.id, input.id), isNotNull(workflows.archivedAt)))
 				.returning({ id: workflows.id });
 			if (deleted.length === 0) {
 				throw new TRPCError({

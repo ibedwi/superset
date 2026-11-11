@@ -33,16 +33,20 @@ export function resolvePath(root: unknown, path: string[]): unknown {
 		if (!SEGMENT_RE.test(segment)) return undefined;
 		// Own properties only: paths are user input and must not reach
 		// constructor, __proto__, or anything else inherited.
-		if (!Object.prototype.hasOwnProperty.call(current, segment)) return undefined;
+		if (!Object.hasOwn(current, segment)) return undefined;
 		current = (current as Record<string, unknown>)[segment];
 	}
 	return current;
 }
 
-export function resolveReference(context: RunContext, reference: string): unknown {
+export function resolveReference(
+	context: RunContext,
+	reference: string,
+): unknown {
 	const path = reference.split(".");
 	const head = path[0];
-	if (head === "run" && path[1] === "id" && path.length === 2) return context.runId;
+	if (head === "run" && path[1] === "id" && path.length === 2)
+		return context.runId;
 	if (head === "trigger") return resolvePath(context.trigger, path.slice(1));
 	if (head === "nodes") {
 		const nodeId = path[1];
@@ -66,7 +70,9 @@ export function renderTemplate(context: RunContext, template: string): string {
 export function referencedNodeIds(template: string): string[] {
 	const ids = new Set<string>();
 	for (const match of template.matchAll(TEMPLATE_RE)) {
-		const path = match[1]!.split(".");
+		const reference = match[1];
+		if (!reference) continue;
+		const path = reference.split(".");
 		if (path[0] === "nodes" && path[1]) ids.add(path[1]);
 	}
 	return [...ids];

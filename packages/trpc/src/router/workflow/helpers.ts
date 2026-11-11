@@ -26,7 +26,9 @@ export async function getWorkflowInOrg(organizationId: string, id: string) {
 	const [row] = await db
 		.select(workflowColumns)
 		.from(workflows)
-		.where(and(eq(workflows.id, id), eq(workflows.organizationId, organizationId)))
+		.where(
+			and(eq(workflows.id, id), eq(workflows.organizationId, organizationId)),
+		)
 		.limit(1);
 	if (!row) throw workflowNotFound();
 	return row;

@@ -1,7 +1,7 @@
 import { db } from "@superset/db/client";
 import {
-	workflowRuns,
 	workflowRunSteps,
+	workflowRuns,
 	workflows,
 	workflowTriggers,
 } from "@superset/db/schema";
@@ -37,7 +37,8 @@ export function pageRuns<T extends { id: string; cursorAt: string }>(
 	const last = page.at(-1);
 	return {
 		page,
-		nextCursor: hasMore && last ? { createdAt: last.cursorAt, id: last.id } : null,
+		nextCursor:
+			hasMore && last ? { createdAt: last.cursorAt, id: last.id } : null,
 	};
 }
 
@@ -68,7 +69,9 @@ function selectRuns(args: {
 		.where(
 			and(
 				eq(workflowRuns.organizationId, args.organizationId),
-				args.workflowId ? eq(workflowRuns.workflowId, args.workflowId) : undefined,
+				args.workflowId
+					? eq(workflowRuns.workflowId, args.workflowId)
+					: undefined,
 				args.cursor
 					? or(
 							lt(sql`${workflowRuns.createdAt}::text`, args.cursor.createdAt),
@@ -204,7 +207,11 @@ export const workflowRunProcedures = {
 				)
 				.limit(1);
 			if (!run) throw workflowNotFound();
-			await getWorkflowForUser(ctx.session.user.id, organizationId, run.workflowId);
+			await getWorkflowForUser(
+				ctx.session.user.id,
+				organizationId,
+				run.workflowId,
+			);
 
 			// The workflow records its own canceled state on the way down; this
 			// write covers runs whose Temporal execution never started.

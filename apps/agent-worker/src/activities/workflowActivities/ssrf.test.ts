@@ -25,7 +25,11 @@ describe("isForbiddenAddress", () => {
 	});
 
 	test("allows public addresses", () => {
-		for (const address of ["93.184.216.34", "172.32.0.1", "2606:2800:220:1:248:1893:25c8:1946"]) {
+		for (const address of [
+			"93.184.216.34",
+			"172.32.0.1",
+			"2606:2800:220:1:248:1893:25c8:1946",
+		]) {
 			expect(isForbiddenAddress(address)).toBe(false);
 		}
 	});

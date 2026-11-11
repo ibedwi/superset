@@ -2,8 +2,8 @@ import { createHash } from "node:crypto";
 import { db, dbWs } from "@superset/db/client";
 import { users, workflows, workflowVersions } from "@superset/db/schema";
 import {
-	type WorkflowGraph,
 	validateGraph,
+	type WorkflowGraph,
 	workflowGraphSchema,
 } from "@superset/shared/workflow-graph";
 import { TRPCError, type TRPCRouterRecord } from "@trpc/server";
@@ -72,7 +72,8 @@ async function writeVersion(params: {
 			// The caller saw an older headVersion than the row holds now.
 			throw new TRPCError({
 				code: "CONFLICT",
-				message: "The workflow was edited elsewhere. Reload the latest version.",
+				message:
+					"The workflow was edited elsewhere. Reload the latest version.",
 			});
 		}
 		const [version] = await tx
@@ -84,7 +85,10 @@ async function writeVersion(params: {
 				graph: params.graph,
 				contentHash: graphContentHash(params.graph),
 			})
-			.returning({ id: workflowVersions.id, version: workflowVersions.version });
+			.returning({
+				id: workflowVersions.id,
+				version: workflowVersions.version,
+			});
 		if (!version) {
 			throw new TRPCError({
 				code: "INTERNAL_SERVER_ERROR",
@@ -110,7 +114,11 @@ export const workflowGraphProcedures = {
 		)
 		.mutation(async ({ ctx, input }) => {
 			const organizationId = await requireActiveOrgMembership(ctx);
-			await getWorkflowForUser(ctx.session.user.id, organizationId, input.workflowId);
+			await getWorkflowForUser(
+				ctx.session.user.id,
+				organizationId,
+				input.workflowId,
+			);
 			const graph = parseGraphForSave(input.graph);
 			const saved = await writeVersion({
 				workflowId: input.workflowId,
@@ -181,7 +189,11 @@ export const workflowGraphProcedures = {
 		)
 		.mutation(async ({ ctx, input }) => {
 			const organizationId = await requireActiveOrgMembership(ctx);
-			await getWorkflowForUser(ctx.session.user.id, organizationId, input.workflowId);
+			await getWorkflowForUser(
+				ctx.session.user.id,
+				organizationId,
+				input.workflowId,
+			);
 			const [row] = await db
 				.select({ graph: workflowVersions.graph })
 				.from(workflowVersions)

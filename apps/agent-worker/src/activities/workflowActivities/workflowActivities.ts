@@ -57,7 +57,13 @@ export function createWorkflowActivities(deps: WorkflowActivityDeps) {
 
 		async recordRunStatus(input: {
 			runId: string;
-			status: "pending" | "running" | "succeeded" | "failed" | "canceled" | "timed_out";
+			status:
+				| "pending"
+				| "running"
+				| "succeeded"
+				| "failed"
+				| "canceled"
+				| "timed_out";
 			error?: string | null;
 		}): Promise<void> {
 			await deps.api.recordRunStatus(input);
@@ -67,7 +73,13 @@ export function createWorkflowActivities(deps: WorkflowActivityDeps) {
 			runId: string;
 			nodeId: string;
 			nodeType: string;
-			status: "pending" | "running" | "succeeded" | "failed" | "skipped" | "canceled";
+			status:
+				| "pending"
+				| "running"
+				| "succeeded"
+				| "failed"
+				| "skipped"
+				| "canceled";
 			input?: unknown;
 			output?: unknown;
 			error?: string | null;
@@ -209,7 +221,9 @@ export function createWorkflowActivities(deps: WorkflowActivityDeps) {
 			const response = await fetchFn(url, {
 				method: input.method,
 				headers: input.headers,
-				...(input.body !== undefined && input.method !== "GET" && input.method !== "HEAD"
+				...(input.body !== undefined &&
+				input.method !== "GET" &&
+				input.method !== "HEAD"
 					? { body: input.body }
 					: {}),
 				redirect: "error",
@@ -232,7 +246,11 @@ export function createWorkflowActivities(deps: WorkflowActivityDeps) {
 					"HttpNodeClientError",
 				);
 			}
-			return { status: response.status, body, ...(json !== undefined ? { json } : {}) };
+			return {
+				status: response.status,
+				body,
+				...(json !== undefined ? { json } : {}),
+			};
 		},
 	};
 }
@@ -265,7 +283,8 @@ async function sleep(ms: number): Promise<void> {
 		await ActivityContext.current().sleep(ms);
 	} catch (error) {
 		// Context.sleep rejects on cancellation; outside an activity, fall back.
-		if (error instanceof Error && error.name === "CancelledFailure") throw error;
+		if (error instanceof Error && error.name === "CancelledFailure")
+			throw error;
 		await new Promise((resolve) => setTimeout(resolve, ms));
 	}
 }

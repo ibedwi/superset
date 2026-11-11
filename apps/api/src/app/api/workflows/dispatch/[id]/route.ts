@@ -41,8 +41,10 @@ export async function POST(
 		.limit(1);
 
 	if (!workflow) return Response.json({ ok: true, skipped: "deleted" });
-	if (workflow.archivedAt) return Response.json({ ok: true, skipped: "archived" });
-	if (!workflow.enabled) return Response.json({ ok: true, skipped: "disabled" });
+	if (workflow.archivedAt)
+		return Response.json({ ok: true, skipped: "archived" });
+	if (!workflow.enabled)
+		return Response.json({ ok: true, skipped: "disabled" });
 
 	// Snapshotted here because automation_events.payload is nulled by
 	// retention, and a long run must not race the pruner.

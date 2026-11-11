@@ -12,11 +12,11 @@ import { TRPCError, type TRPCRouterRecord } from "@trpc/server";
 import { and, asc, eq } from "drizzle-orm";
 import { z } from "zod";
 import { personProcedure } from "../../trpc";
-import { requireActiveOrgMembership } from "../utils/active-org";
 import {
 	generateWebhookToken,
 	hashWebhookToken,
 } from "../automation/webhookSecret";
+import { requireActiveOrgMembership } from "../utils/active-org";
 import { getWorkflowForUser, getWorkflowInOrg } from "./helpers";
 
 /** Same contract as automation triggerSet: validation errors carry the form's wording. */
@@ -123,11 +123,17 @@ export const workflowTriggerProcedures = {
 					)
 					.limit(1);
 				if (!previous) {
-					throw new TRPCError({ code: "NOT_FOUND", message: "Trigger not found" });
+					throw new TRPCError({
+						code: "NOT_FOUND",
+						message: "Trigger not found",
+					});
 				}
 				// Only recompute when the recurrence moved, so a config touch does
 				// not reschedule the workflow.
-				const nextRunAt = recurrenceChanged(input.trigger.config, previous.config)
+				const nextRunAt = recurrenceChanged(
+					input.trigger.config,
+					previous.config,
+				)
 					? nextRunAtFor(input.trigger.config)
 					: previous.nextRunAt;
 				const [row] = await db

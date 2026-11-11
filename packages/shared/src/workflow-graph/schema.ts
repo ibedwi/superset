@@ -44,7 +44,9 @@ export type WorkflowConditionOp = (typeof workflowConditionLeafOps)[number];
 const operandSchema = z.union([
 	// A reference into the run context, e.g. "nodes.review.output.json.approved".
 	z.object({ ref: boundedText(500) }),
-	z.object({ value: z.union([z.string().max(2000), z.number(), z.boolean(), z.null()]) }),
+	z.object({
+		value: z.union([z.string().max(2000), z.number(), z.boolean(), z.null()]),
+	}),
 ]);
 export type WorkflowConditionOperand = z.infer<typeof operandSchema>;
 
@@ -66,12 +68,13 @@ export type WorkflowCondition =
 	| { all: WorkflowCondition[] }
 	| { any: WorkflowCondition[] };
 
-export const workflowConditionSchema: z.ZodType<WorkflowCondition> = z.lazy(() =>
-	z.union([
-		leafConditionSchema,
-		z.object({ all: z.array(workflowConditionSchema).min(1).max(20) }),
-		z.object({ any: z.array(workflowConditionSchema).min(1).max(20) }),
-	]),
+export const workflowConditionSchema: z.ZodType<WorkflowCondition> = z.lazy(
+	() =>
+		z.union([
+			leafConditionSchema,
+			z.object({ all: z.array(workflowConditionSchema).min(1).max(20) }),
+			z.object({ any: z.array(workflowConditionSchema).min(1).max(20) }),
+		]),
 );
 
 const agentTargetSchema = z.object({
@@ -116,7 +119,9 @@ const llmConfig = llmConfigDraft.extend({
 });
 
 const httpConfigDraft = z.object({
-	method: z.enum(["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD"]).default("GET"),
+	method: z
+		.enum(["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD"])
+		.default("GET"),
 	url: boundedText(2000).default(""),
 	headers: z.record(z.string().max(128), z.string().max(2000)).default({}),
 	body: boundedText(50_000).optional(),

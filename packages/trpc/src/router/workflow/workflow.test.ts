@@ -129,6 +129,6 @@ describe("nextRunAtFor", () => {
 			after,
 		);
 		expect(next).not.toBeNull();
-		expect(next!.getTime()).toBeGreaterThan(after.getTime());
+		expect(next?.getTime()).toBeGreaterThan(after.getTime());
 	});
 });

@@ -80,10 +80,7 @@ export async function dispatchMatchingWorkflowTriggers(params: {
 				params.integrationConnectionId
 					? or(
 							isNull(workflowTriggers.connectionId),
-							eq(
-								workflowTriggers.connectionId,
-								params.integrationConnectionId,
-							),
+							eq(workflowTriggers.connectionId, params.integrationConnectionId),
 						)
 					: isNull(workflowTriggers.connectionId),
 			),

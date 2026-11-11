@@ -1,4 +1,4 @@
-import { resolveReference, type RunContext } from "./references";
+import { type RunContext, resolveReference } from "./references";
 import type { WorkflowCondition, WorkflowConditionOperand } from "./schema";
 
 /**
@@ -7,12 +7,19 @@ import type { WorkflowCondition, WorkflowConditionOperand } from "./schema";
  * rather than throwing.
  */
 
-function operandValue(context: RunContext, operand: WorkflowConditionOperand): unknown {
+function operandValue(
+	context: RunContext,
+	operand: WorkflowConditionOperand,
+): unknown {
 	if ("ref" in operand) return resolveReference(context, operand.ref);
 	return operand.value;
 }
 
-function compareNumbers(left: unknown, right: unknown, test: (a: number, b: number) => boolean) {
+function compareNumbers(
+	left: unknown,
+	right: unknown,
+	test: (a: number, b: number) => boolean,
+) {
 	const a = typeof left === "number" ? left : Number(left);
 	const b = typeof right === "number" ? right : Number(right);
 	if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -26,12 +33,20 @@ function looseEquals(left: unknown, right: unknown): boolean {
 	return String(left) === String(right);
 }
 
-export function evaluateCondition(context: RunContext, condition: WorkflowCondition): boolean {
-	if ("all" in condition) return condition.all.every((c) => evaluateCondition(context, c));
-	if ("any" in condition) return condition.any.some((c) => evaluateCondition(context, c));
+export function evaluateCondition(
+	context: RunContext,
+	condition: WorkflowCondition,
+): boolean {
+	if ("all" in condition)
+		return condition.all.every((c) => evaluateCondition(context, c));
+	if ("any" in condition)
+		return condition.any.some((c) => evaluateCondition(context, c));
 
 	const left = operandValue(context, condition.left);
-	const right = condition.right === undefined ? undefined : operandValue(context, condition.right);
+	const right =
+		condition.right === undefined
+			? undefined
+			: operandValue(context, condition.right);
 
 	switch (condition.op) {
 		case "exists":
@@ -44,7 +59,8 @@ export function evaluateCondition(context: RunContext, condition: WorkflowCondit
 			return !looseEquals(left, right);
 		case "contains":
 			if (typeof left === "string") return left.includes(String(right ?? ""));
-			if (Array.isArray(left)) return left.some((item) => looseEquals(item, right));
+			if (Array.isArray(left))
+				return left.some((item) => looseEquals(item, right));
 			return false;
 		case "gt":
 			return compareNumbers(left, right, (a, b) => a > b);

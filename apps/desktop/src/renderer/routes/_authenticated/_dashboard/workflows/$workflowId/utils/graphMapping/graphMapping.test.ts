@@ -42,17 +42,19 @@ describe("graph mapping", () => {
 
 	test("canvas position wins over the stored one", () => {
 		const nodes = toCanvasNodes(graph);
-		nodes[0]!.position = { x: 50, y: 60 };
+		expect(nodes[0]).toBeDefined();
+		if (nodes[0]) nodes[0].position = { x: 50, y: 60 };
 		const back = fromCanvas(nodes, toCanvasEdges(graph));
-		expect(back.nodes[0]!.position).toEqual({ x: 50, y: 60 });
+		expect(back.nodes[0]?.position).toEqual({ x: 50, y: 60 });
 	});
 
 	test("drops foreign sourceHandles", () => {
 		const edges = toCanvasEdges(graph);
-		edges[0]!.sourceHandle = "out";
+		expect(edges[0]).toBeDefined();
+		if (edges[0]) edges[0].sourceHandle = "out";
 		const back = fromCanvas(toCanvasNodes(graph), edges);
-		expect(back.edges[0]!.sourceHandle).toBeUndefined();
-		expect(back.edges[1]!.sourceHandle).toBe("true");
+		expect(back.edges[0]?.sourceHandle).toBeUndefined();
+		expect(back.edges[1]?.sourceHandle).toBe("true");
 	});
 
 	test("nextNodeId picks the bare type first, then numbers", () => {
@@ -80,17 +82,17 @@ describe("applyRunSteps", () => {
 			{ nodeId: "agent", status: "running" },
 		]);
 		const byId = new Map(decorated.map((node) => [node.id, node]));
-		expect(byId.get("agent")!.data.stepStatus).toBe("running");
-		expect(byId.get("gate")!.data.stepStatus).toBe("pending");
+		expect(byId.get("agent")?.data.stepStatus).toBe("running");
+		expect(byId.get("gate")?.data.stepStatus).toBe("pending");
 		// The trigger has no step row; any step existing means it fired.
-		expect(byId.get("start")!.data.stepStatus).toBe("succeeded");
+		expect(byId.get("start")?.data.stepStatus).toBe("succeeded");
 		expect(decorated.every((node) => node.draggable === false)).toBe(true);
 	});
 
 	test("trigger stays pending before any step exists", () => {
 		const { nodes: decorated } = applyRunSteps(nodes, edges, []);
-		const start = decorated.find((node) => node.id === "start")!;
-		expect(start.data.stepStatus).toBe("pending");
+		const start = decorated.find((node) => node.id === "start");
+		expect(start?.data.stepStatus).toBe("pending");
 	});
 
 	test("animates the edge into a running node and dims skipped sides", () => {
@@ -99,7 +101,7 @@ describe("applyRunSteps", () => {
 			{ nodeId: "gate", status: "skipped" },
 		]);
 		const byId = new Map(decorated.map((edge) => [edge.id, edge]));
-		expect(byId.get("e1")!.animated).toBe(true);
-		expect(byId.get("e2")!.style).toEqual({ opacity: 0.3 });
+		expect(byId.get("e1")?.animated).toBe(true);
+		expect(byId.get("e2")?.style).toEqual({ opacity: 0.3 });
 	});
 });

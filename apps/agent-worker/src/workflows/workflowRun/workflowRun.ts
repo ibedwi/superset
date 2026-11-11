@@ -1,12 +1,11 @@
 import {
 	evaluateCondition,
+	outgoingEdges,
 	type RunContext,
 	renderTemplate,
 	subtreeBehindEdges,
 	topologicalOrder,
-	type WorkflowGraph,
 	type WorkflowNode,
-	outgoingEdges,
 } from "@superset/shared/workflow-graph";
 import {
 	ActivityCancellationType,
@@ -161,8 +160,7 @@ export async function workflowRun(args: { runId: string }): Promise<void> {
 					prompt,
 					target,
 				});
-				const timeoutMs =
-					Math.min(node.config.timeoutMinutes, 240) * MINUTE_MS;
+				const timeoutMs = Math.min(node.config.timeoutMinutes, 240) * MINUTE_MS;
 				const { state } = await pollProxy(timeoutMs).awaitAgentNode({
 					runId,
 					handle,
@@ -227,7 +225,9 @@ export async function workflowRun(args: { runId: string }): Promise<void> {
 					...(system ? { system } : {}),
 					model: node.config.model,
 					maxTokens: node.config.maxTokens,
-					...(node.config.jsonSchema ? { jsonSchema: node.config.jsonSchema } : {}),
+					...(node.config.jsonSchema
+						? { jsonSchema: node.config.jsonSchema }
+						: {}),
 				});
 			}
 			case "http": {

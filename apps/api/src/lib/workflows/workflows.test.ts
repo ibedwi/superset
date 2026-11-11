@@ -69,11 +69,11 @@ describe("planWorkflowSchedules", () => {
 		]);
 		expect(unusable).toHaveLength(0);
 		expect(planned).toHaveLength(1);
-		expect(planned[0]!.scheduledFor.toISOString()).toBe(
+		expect(planned[0]?.scheduledFor.toISOString()).toBe(
 			"2026-01-05T09:00:00.000Z",
 		);
-		expect(planned[0]!.next).not.toBeNull();
-		expect(planned[0]!.next!.getTime()).toBeGreaterThan(due.getTime());
+		expect(planned[0]?.next).not.toBeNull();
+		expect(planned[0]?.next?.getTime()).toBeGreaterThan(due.getTime());
 	});
 
 	test("an unusable config is reported, not planned", () => {

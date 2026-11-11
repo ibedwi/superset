@@ -145,7 +145,10 @@ export async function evaluateWorkflowSchedules(
 		(result) => result.status === "rejected",
 	);
 	if (advanceFailures.length > 0) {
-		console.error("[workflows/evaluate] advanceNextRun failures", advanceFailures);
+		console.error(
+			"[workflows/evaluate] advanceNextRun failures",
+			advanceFailures,
+		);
 	}
 
 	return { enqueued: planned.length, unusable: unusable.length };

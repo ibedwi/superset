@@ -29,7 +29,13 @@ function isForbiddenV6(address: string): boolean {
 	const lower = address.toLowerCase();
 	if (lower === "::" || lower === "::1") return true;
 	// Unique-local fc00::/7, link-local fe80::/10.
-	if (/^f[cd]/.test(lower) || lower.startsWith("fe8") || lower.startsWith("fe9") || lower.startsWith("fea") || lower.startsWith("feb")) {
+	if (
+		/^f[cd]/.test(lower) ||
+		lower.startsWith("fe8") ||
+		lower.startsWith("fe9") ||
+		lower.startsWith("fea") ||
+		lower.startsWith("feb")
+	) {
 		return true;
 	}
 	// IPv4-mapped: judge the embedded v4.
