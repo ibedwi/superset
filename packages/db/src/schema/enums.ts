@@ -231,6 +231,28 @@ export type _EveryKindHasEnumValue = [
 export const automationTriggerKindEnum = z.enum(automationTriggerKindValues);
 export type AutomationTriggerKind = z.infer<typeof automationTriggerKindEnum>;
 
+export const workflowRunStatusValues = [
+	"pending",
+	"running",
+	"succeeded",
+	"failed",
+	"canceled",
+	"timed_out",
+] as const;
+export const workflowRunStatusEnum = z.enum(workflowRunStatusValues);
+export type WorkflowRunStatus = z.infer<typeof workflowRunStatusEnum>;
+
+export const workflowStepStatusValues = [
+	"pending",
+	"running",
+	"succeeded",
+	"failed",
+	"skipped",
+	"canceled",
+] as const;
+export const workflowStepStatusEnum = z.enum(workflowStepStatusValues);
+export type WorkflowStepStatus = z.infer<typeof workflowStepStatusEnum>;
+
 // pgEnum columns; the wire/validation zod lives in @superset/shared/desktop-notices.
 // platforms/channels are stored as text[] (no enum needed).
 export const desktopNoticeSeverityValues = [

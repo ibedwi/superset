@@ -56,6 +56,8 @@ import {
 	v2ClientTypeValues,
 	v2UsersHostRoleValues,
 	v2WorkspaceTypeValues,
+	workflowRunStatusValues,
+	workflowStepStatusValues,
 	workspaceTypeValues,
 } from "./enums";
 import { githubRepositories } from "./github";
@@ -64,6 +66,7 @@ import type {
 	IntegrationConfig,
 	TriggerConfig,
 	UserIdentityMetadata,
+	WorkflowGraph,
 } from "./types";
 import type { WorkspaceConfig } from "./zod";
 
@@ -2041,6 +2044,246 @@ export type InsertAutomationPromptVersion =
 	typeof automationPromptVersions.$inferInsert;
 export type SelectAutomationPromptVersion =
 	typeof automationPromptVersions.$inferSelect;
+
+export const workflowRunStatus = pgEnum(
+	"workflow_run_status",
+	workflowRunStatusValues,
+);
+
+export const workflowStepStatus = pgEnum(
+	"workflow_step_status",
+	workflowStepStatusValues,
+);
+
+export const workflows = pgTable(
+	"workflows",
+	{
+		id: uuid().primaryKey().defaultRandom(),
+		organizationId: uuid("organization_id")
+			.notNull()
+			.references(() => organizations.id, { onDelete: "cascade" }),
+		ownerUserId: uuid("owner_user_id")
+			.notNull()
+			.references(() => users.id, { onDelete: "cascade" }),
+
+		name: text().notNull(),
+		description: text(),
+
+		// Bumped on every saveGraph; the editor sends the version it loaded and
+		// a mismatch is a CONFLICT, not a silent overwrite.
+		headVersion: integer("head_version").notNull().default(0),
+		// The version runs execute. No FK: workflow_versions references this
+		// table, and the pointer is repaired in the same transaction that
+		// inserts the version row.
+		liveVersionId: uuid("live_version_id"),
+
+		enabled: boolean().notNull().default(true),
+		archivedAt: timestamp("archived_at", { withTimezone: true }),
+
+		createdAt: timestamp("created_at", { withTimezone: true })
+			.notNull()
+			.defaultNow(),
+		updatedAt: timestamp("updated_at", { withTimezone: true })
+			.notNull()
+			.defaultNow()
+			.$onUpdate(() => new Date()),
+	},
+	(t) => [
+		// Target for the composite FKs below, same shape as automations.
+		unique("workflows_id_org_unique").on(t.id, t.organizationId),
+		index("workflows_organization_idx").on(t.organizationId, t.archivedAt),
+		index("workflows_owner_idx").on(t.ownerUserId),
+	],
+);
+
+export type InsertWorkflow = typeof workflows.$inferInsert;
+export type SelectWorkflow = typeof workflows.$inferSelect;
+
+export const workflowVersions = pgTable(
+	"workflow_versions",
+	{
+		id: uuid().primaryKey().defaultRandom(),
+		workflowId: uuid("workflow_id")
+			.notNull()
+			.references(() => workflows.id, { onDelete: "cascade" }),
+		authorUserId: uuid("author_user_id")
+			.notNull()
+			.references(() => users.id, { onDelete: "cascade" }),
+
+		version: integer().notNull(),
+		graph: jsonb().$type<WorkflowGraph>().notNull(),
+		contentHash: text("content_hash").notNull(),
+
+		createdAt: timestamp("created_at", { withTimezone: true })
+			.notNull()
+			.defaultNow(),
+	},
+	(t) => [
+		uniqueIndex("workflow_versions_version_uniq").on(t.workflowId, t.version),
+		index("workflow_versions_workflow_idx").on(t.workflowId, t.createdAt),
+	],
+);
+
+export type InsertWorkflowVersion = typeof workflowVersions.$inferInsert;
+export type SelectWorkflowVersion = typeof workflowVersions.$inferSelect;
+
+/**
+ * Mirror of automation_triggers rather than a generalization of it: that
+ * table's CHECKs, partial indexes and dispatcher queries are shipped behavior.
+ * The reusable parts — TriggerConfig and the matchers — are types and pure
+ * functions, shared by construction.
+ */
+export const workflowTriggers = pgTable(
+	"workflow_triggers",
+	{
+		id: uuid().primaryKey().defaultRandom(),
+		workflowId: uuid("workflow_id").notNull(),
+		// Denormalized so the matcher never joins to find candidates.
+		organizationId: uuid("organization_id")
+			.notNull()
+			.references(() => organizations.id, { onDelete: "cascade" }),
+
+		kind: automationTriggerKind().notNull(),
+		config: jsonb().$type<TriggerConfig>().notNull(),
+
+		connectionId: uuid("connection_id"),
+
+		// Schedule kind only. A column rather than config because the dispatcher
+		// indexes and sorts on it.
+		nextRunAt: timestamp("next_run_at", { withTimezone: true }),
+
+		// Bearer kinds store a SHA-256 hash of the token; HMAC kinds store the
+		// raw signing secret. Never returned by the API.
+		secretHash: text("secret_hash"),
+		secretPrefix: text("secret_prefix"),
+		secretRotatedAt: timestamp("secret_rotated_at", { withTimezone: true }),
+
+		createdAt: timestamp("created_at", { withTimezone: true })
+			.notNull()
+			.defaultNow(),
+		updatedAt: timestamp("updated_at", { withTimezone: true })
+			.notNull()
+			.defaultNow()
+			.$onUpdate(() => new Date()),
+	},
+	(t) => [
+		// Composite, so a trigger cannot name a workflow in another org.
+		foreignKey({
+			columns: [t.workflowId, t.organizationId],
+			foreignColumns: [workflows.id, workflows.organizationId],
+			name: "workflow_triggers_workflow_org_fk",
+		}).onDelete("cascade"),
+		check(
+			"workflow_triggers_kind_matches_config",
+			sql`config->>'kind' = kind::text`,
+		),
+		index("workflow_triggers_dispatcher_idx")
+			.on(t.nextRunAt)
+			.where(sql`kind = 'schedule'`),
+		index("workflow_triggers_matcher_idx").on(t.organizationId, t.kind),
+		index("workflow_triggers_workflow_idx").on(t.workflowId),
+	],
+);
+
+export type InsertWorkflowTrigger = typeof workflowTriggers.$inferInsert;
+export type SelectWorkflowTrigger = typeof workflowTriggers.$inferSelect;
+
+export const workflowRuns = pgTable(
+	"workflow_runs",
+	{
+		id: uuid().primaryKey().defaultRandom(),
+		workflowId: uuid("workflow_id").notNull(),
+		organizationId: uuid("organization_id")
+			.notNull()
+			.references(() => organizations.id, { onDelete: "cascade" }),
+
+		// The graph this run executes, pinned at dispatch so a concurrent edit
+		// never changes a run mid-flight.
+		versionId: uuid("version_id")
+			.notNull()
+			.references(() => workflowVersions.id, { onDelete: "cascade" }),
+
+		title: text().notNull(),
+
+		triggerId: uuid("trigger_id").references(() => workflowTriggers.id, {
+			onDelete: "set null",
+		}),
+		eventId: uuid("event_id").references(() => automationEvents.id, {
+			onDelete: "set null",
+		}),
+
+		scheduledFor: timestamp("scheduled_for", { withTimezone: true }),
+		resourceKey: text("resource_key"),
+
+		// Snapshot of the event payload at dispatch. automation_events.payload
+		// is nulled by retention, and a long run must not race the pruner.
+		triggerContext: jsonb("trigger_context"),
+
+		status: workflowRunStatus().notNull(),
+		error: text(),
+
+		startedAt: timestamp("started_at", { withTimezone: true }),
+		finishedAt: timestamp("finished_at", { withTimezone: true }),
+		createdAt: timestamp("created_at", { withTimezone: true })
+			.notNull()
+			.defaultNow(),
+	},
+	(t) => [
+		// Composite, so a run cannot name a workflow in another org.
+		foreignKey({
+			columns: [t.workflowId, t.organizationId],
+			foreignColumns: [workflows.id, workflows.organizationId],
+			name: "workflow_runs_workflow_org_fk",
+		}).onDelete("cascade"),
+		uniqueIndex("workflow_runs_schedule_dedup_idx")
+			.on(t.workflowId, t.scheduledFor)
+			.where(sql`scheduled_for IS NOT NULL`),
+		uniqueIndex("workflow_runs_event_dedup_idx")
+			.on(t.triggerId, t.eventId)
+			.where(sql`event_id IS NOT NULL`),
+		index("workflow_runs_history_idx").on(t.workflowId, t.createdAt),
+		index("workflow_runs_org_created_idx").on(t.organizationId, t.createdAt),
+		index("workflow_runs_status_idx").on(t.status),
+		// ON DELETE SET NULL on event_id resolves through this; without it every
+		// automation_events row deleted by retention scans this table.
+		index("workflow_runs_event_idx").on(t.eventId),
+	],
+);
+
+export type InsertWorkflowRun = typeof workflowRuns.$inferInsert;
+export type SelectWorkflowRun = typeof workflowRuns.$inferSelect;
+
+export const workflowRunSteps = pgTable(
+	"workflow_run_steps",
+	{
+		id: uuid().primaryKey().defaultRandom(),
+		runId: uuid("run_id")
+			.notNull()
+			.references(() => workflowRuns.id, { onDelete: "cascade" }),
+
+		// The graph node's slug, not a FK: the graph lives in jsonb.
+		nodeId: text("node_id").notNull(),
+		nodeType: text("node_type").notNull(),
+
+		status: workflowStepStatus().notNull(),
+		// Resolved config after template substitution, secrets redacted.
+		input: jsonb(),
+		// Capped by the engine (~256 KB, truncated flag inside the value).
+		output: jsonb(),
+		error: text(),
+		attempt: integer().notNull().default(1),
+
+		startedAt: timestamp("started_at", { withTimezone: true }),
+		finishedAt: timestamp("finished_at", { withTimezone: true }),
+	},
+	(t) => [
+		// Retries update the row rather than appending.
+		uniqueIndex("workflow_run_steps_run_node_uniq").on(t.runId, t.nodeId),
+	],
+);
+
+export type InsertWorkflowRunStep = typeof workflowRunSteps.$inferInsert;
+export type SelectWorkflowRunStep = typeof workflowRunSteps.$inferSelect;
 
 export const submittedPrompts = pgTable(
 	"submitted_prompts",

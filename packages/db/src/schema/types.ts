@@ -3,6 +3,9 @@ import type {
 	TriggerConfigInput,
 	TriggerScope as TriggerConfigScope,
 } from "@superset/shared/automation-triggers";
+import type { WorkflowGraph } from "@superset/shared/workflow-graph";
+
+export type { WorkflowGraph };
 
 /**
  * Everything `dispatchMatchingTriggers` needs for one automation_events row:
