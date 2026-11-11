@@ -59,6 +59,22 @@ function graph(nodes: unknown[], edges: unknown[]): WorkflowGraph {
 }
 
 describe("workflowGraphSchema", () => {
+	test("preserves optional agent launch options in drafts and saved graphs", () => {
+		const node = agentNode("build");
+		const configured = {
+			...node,
+			config: { ...node.config, model: "opus", effort: "high" },
+		};
+		for (const schema of [draftWorkflowGraphSchema, workflowGraphSchema]) {
+			expect(
+				schema.parse({ nodes: [configured], edges: [] }).nodes[0]?.config,
+			).toEqual(configured.config);
+			expect(
+				schema.parse({ nodes: [node], edges: [] }).nodes[0]?.config,
+			).toEqual(node.config);
+		}
+	});
+
 	test("accepts a strict linear graph", () => {
 		const parsed = graph(
 			[trigger, agentNode("build")],

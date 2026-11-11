@@ -1,4 +1,7 @@
-import type { WorkflowGraph } from "@superset/shared/workflow-graph";
+import type {
+	WorkflowGraph,
+	WorkflowLlmEffort,
+} from "@superset/shared/workflow-graph";
 
 // Mirrors the pgEnums in @superset/db; the worker must not pull the db client in.
 export type WorkflowRunStatus =
@@ -67,6 +70,8 @@ export interface WorkflowApi {
 		runId: string;
 		nodeId: string;
 		agent: string;
+		model?: string;
+		effort?: string;
 		prompt: string;
 		target: { hostId: string; v2ProjectId?: string };
 	}): Promise<AgentHandle>;
@@ -113,6 +118,7 @@ export interface WorkflowApi {
 		prompt: string;
 		system?: string;
 		model: string;
+		effort?: WorkflowLlmEffort;
 		maxTokens: number;
 		jsonSchema?: Record<string, unknown>;
 	}): Promise<{ text: string; json?: unknown }>;

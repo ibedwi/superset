@@ -17,6 +17,10 @@ import {
 	CLOUD_HOST_ID,
 } from "@superset/shared/host-routing";
 import {
+	workflowLlmEffortConfig,
+	workflowLlmEffortValues,
+} from "@superset/shared/workflow-graph";
+import {
 	sanitizeBranchNameWithMaxLength,
 	slugifyForBranch,
 } from "@superset/shared/workspace-launch";
@@ -26,7 +30,6 @@ import { z } from "zod";
 import { env } from "../../env";
 import { nudge } from "../../lib/realtime";
 import { workerProcedure } from "../../trpc";
-import { launchAgentSession } from "../automation/hostSession";
 import {
 	type RelayClientOptions,
 	RelayDispatchError,
@@ -207,6 +210,8 @@ export const workflowWorkerRouter = {
 			runIdSchema.extend({
 				nodeId: z.string().min(1).max(64),
 				agent: z.string().min(1).max(64),
+				model: z.string().max(128).optional(),
+				effort: z.string().max(64).optional(),
 				prompt: z.string().min(1).max(100_000),
 				target: z.object({
 					hostId: z.string().min(1).max(128),
@@ -232,19 +237,17 @@ export const workflowWorkerRouter = {
 				input.nodeId,
 				input.target.v2ProjectId ?? null,
 			);
-			const session = await launchAgentSession(host, {
+			const session = await host.mutation<{ sessionId: string }>("agents.run", {
 				workspaceId,
 				agent: input.agent,
+				...(input.model ? { model: input.model } : {}),
+				...(input.effort ? { effort: input.effort } : {}),
 				prompt: input.prompt,
-				// A terminal session keeps the transcript observable for capture.
-				chat: false,
-				openTab: false,
 			});
 			return {
 				hostId: input.target.hostId,
 				workspaceId,
-				terminalId:
-					session.kind === "chat" ? session.terminalId : session.sessionId,
+				terminalId: session.sessionId,
 			};
 		}),
 
@@ -424,6 +427,7 @@ export const workflowWorkerRouter = {
 				prompt: z.string().min(1).max(100_000),
 				system: z.string().max(20_000).optional(),
 				model: z.string().min(1).max(128),
+				effort: z.enum(workflowLlmEffortValues).optional(),
 				maxTokens: z.number().int().min(1).max(64_000),
 				jsonSchema: z.record(z.string(), z.unknown()).optional(),
 			}),
@@ -435,6 +439,7 @@ export const workflowWorkerRouter = {
 				const response = await anthropic.messages.create({
 					model: input.model,
 					max_tokens: input.maxTokens,
+					...workflowLlmEffortConfig(input.model, input.effort),
 					...(input.system ? { system: input.system } : {}),
 					messages: [
 						{

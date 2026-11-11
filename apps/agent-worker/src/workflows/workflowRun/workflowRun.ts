@@ -142,7 +142,12 @@ export async function workflowRun(args: { runId: string }): Promise<void> {
 			case "agent": {
 				const prompt = renderTemplate(context, node.config.prompt);
 				await record(node, "running", {
-					input: { agent: node.config.agent, prompt },
+					input: {
+						agent: node.config.agent,
+						model: node.config.model,
+						effort: node.config.effort,
+						prompt,
+					},
 				});
 				const target =
 					node.config.target.hostId === "cloud"
@@ -157,6 +162,8 @@ export async function workflowRun(args: { runId: string }): Promise<void> {
 					runId,
 					nodeId: node.id,
 					agent: node.config.agent,
+					...(node.config.model ? { model: node.config.model } : {}),
+					...(node.config.effort ? { effort: node.config.effort } : {}),
 					prompt,
 					target,
 				});
@@ -217,13 +224,20 @@ export async function workflowRun(args: { runId: string }): Promise<void> {
 				const system = node.config.system
 					? renderTemplate(context, node.config.system)
 					: undefined;
-				await record(node, "running", { input: { prompt } });
+				await record(node, "running", {
+					input: {
+						prompt,
+						model: node.config.model,
+						effort: node.config.effort,
+					},
+				});
 				const timeoutMs = 5 * MINUTE_MS;
 				return oneShotProxy(timeoutMs, 3).callLlmNode({
 					runId,
 					prompt,
 					...(system ? { system } : {}),
 					model: node.config.model,
+					...(node.config.effort ? { effort: node.config.effort } : {}),
 					maxTokens: node.config.maxTokens,
 					...(node.config.jsonSchema
 						? { jsonSchema: node.config.jsonSchema }

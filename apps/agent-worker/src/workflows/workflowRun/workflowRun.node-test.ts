@@ -201,7 +201,18 @@ async function waitFor(check: () => boolean) {
 describe("workflowRun workflow", () => {
 	it("runs a linear graph and records each step", async () => {
 		const graph: WorkflowGraph = {
-			nodes: [trigger, agentNode("build"), httpNode("notify")],
+			nodes: [
+				trigger,
+				{
+					...agentNode("build"),
+					config: {
+						...agentNode("build").config,
+						model: "opus",
+						effort: "high",
+					},
+				},
+				httpNode("notify"),
+			],
 			edges: [edge("start", "build"), edge("build", "notify")],
 		};
 		const calls: Call[] = [];
@@ -218,6 +229,37 @@ describe("workflowRun workflow", () => {
 		]);
 		const dispatched = calls.find((c) => c.name === "dispatchAgentNode");
 		assert.equal(dispatched?.input.prompt, "do build");
+		assert.equal(dispatched?.input.model, "opus");
+		assert.equal(dispatched?.input.effort, "high");
+	});
+
+	it("passes LLM model and effort through the workflow", async () => {
+		const graph: WorkflowGraph = {
+			nodes: [
+				trigger,
+				{
+					id: "summarize",
+					type: "llm",
+					position: { x: 200, y: 0 },
+					config: {
+						prompt: "Summarize",
+						model: "claude-opus-4-6",
+						effort: "max",
+						maxTokens: 4096,
+					},
+				},
+			],
+			edges: [edge("start", "summarize")],
+		};
+		const calls: Call[] = [];
+		const result = await runWorkflow(
+			fakeActivities({ graph }, calls),
+			"llm-options",
+		);
+		assert.equal(result.outcome, "completed");
+		const call = calls.find((entry) => entry.name === "callLlmNode");
+		assert.equal(call?.input.model, "claude-opus-4-6");
+		assert.equal(call?.input.effort, "max");
 	});
 
 	it("runs parallel branches in one wave", async () => {

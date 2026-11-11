@@ -1,5 +1,8 @@
 import { lookup } from "node:dns/promises";
-import type { WorkflowGraph } from "@superset/shared/workflow-graph";
+import type {
+	WorkflowGraph,
+	WorkflowLlmEffort,
+} from "@superset/shared/workflow-graph";
 import { Context as ActivityContext } from "@temporalio/activity";
 import { ApplicationFailure } from "@temporalio/common";
 import type {
@@ -96,6 +99,8 @@ export function createWorkflowActivities(deps: WorkflowActivityDeps) {
 			runId: string;
 			nodeId: string;
 			agent: string;
+			model?: string;
+			effort?: string;
 			prompt: string;
 			target: { hostId: string; v2ProjectId?: string };
 		}): Promise<AgentHandle> {
@@ -209,6 +214,7 @@ export function createWorkflowActivities(deps: WorkflowActivityDeps) {
 			prompt: string;
 			system?: string;
 			model: string;
+			effort?: WorkflowLlmEffort;
 			maxTokens: number;
 			jsonSchema?: Record<string, unknown>;
 		}): Promise<{ text: string; json?: unknown }> {

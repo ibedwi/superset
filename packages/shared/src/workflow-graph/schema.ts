@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { workflowLlmEffortValues } from "./llm-models";
 
 /**
  * The workflow canvas document, shared by the editor and the API so the form
@@ -94,6 +95,8 @@ const cliTargetSchema = z.object({
 const triggerConfigNode = z.object({});
 
 const agentConfigDraft = z.object({
+	model: boundedText(128).optional(),
+	effort: boundedText(64).optional(),
 	agent: boundedText(64).default(""),
 	prompt: boundedText(20_000).default(""),
 	target: agentTargetSchema.optional(),
@@ -106,6 +109,7 @@ const agentConfig = agentConfigDraft.extend({
 });
 
 const llmConfigDraft = z.object({
+	effort: z.enum(workflowLlmEffortValues).optional(),
 	prompt: boundedText(20_000).default(""),
 	system: boundedText(10_000).optional(),
 	model: boundedText(128).default(""),
