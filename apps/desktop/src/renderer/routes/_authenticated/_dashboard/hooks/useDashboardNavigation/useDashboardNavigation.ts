@@ -71,6 +71,9 @@ export function useDashboardNavigation() {
 
 		isAutomationsOpen: !!matchRoute({ to: "/automations", fuzzy: true }),
 		openAutomations,
+
+		isWorkflowsOpen: !!matchRoute({ to: "/workflows", fuzzy: true }),
+		openWorkflows: () => navigate({ to: "/workflows" }),
 		openFailedAutomations: () =>
 			navigate({
 				to: "/automations/runs",

@@ -2024,6 +2024,9 @@ msgstr "Hãy thêm {repositoryName} làm dự án trên máy tính này trước
 msgid "Add a comment…"
 msgstr "Thêm bình luận…"
 
+msgid "Add a daily schedule"
+msgstr "Thêm lịch chạy hằng ngày"
+
 msgid "Add a description"
 msgstr "Thêm mô tả"
 
@@ -2111,6 +2114,9 @@ msgstr "Thêm tệp, ứng dụng và hơn thế (@)"
 msgid "Add GitHub organization"
 msgstr "Thêm tổ chức GitHub"
 
+msgid "Add header"
+msgstr "Thêm header"
+
 msgid "Add instructions"
 msgstr "Thêm hướng dẫn"
 
@@ -2129,6 +2135,9 @@ msgstr "Thêm thành viên"
 
 msgid "Add more…"
 msgstr "Thêm nữa…"
+
+msgid "Add node"
+msgstr "Thêm nút"
 
 msgid "Add one from the menu in the sidebar to get started."
 msgstr "Thêm một agent từ menu ở thanh bên để bắt đầu."
@@ -2731,6 +2740,9 @@ msgstr "Agent viết nguyên hàm và nguyên tệp trong khi con người theo 
 
 msgid "An automation can only use a cloud workspace you created"
 msgstr "Tự động hóa chỉ có thể dùng workspace cloud do bạn tạo"
+
+msgid "An edge points at a missing node."
+msgstr "Có liên kết trỏ đến nút không tồn tại."
 
 msgid "An environment holds your repositories, variables, and region. Start as many workspaces from it as you need."
 msgstr "Một môi trường chứa các kho mã, biến và vùng của bạn. Khởi tạo bao nhiêu không gian làm việc từ đó tùy bạn."
@@ -3452,6 +3464,9 @@ msgstr "Quay lại danh sách trang"
 msgid "Back to the leaderboard"
 msgstr "Quay lại bảng xếp hạng"
 
+msgid "Back to workflows"
+msgstr "Quay lại danh sách quy trình"
+
 msgid "Backed by"
 msgstr "Được hậu thuẫn bởi"
 
@@ -3592,6 +3607,9 @@ msgstr "Bảng"
 
 msgid "Board view"
 msgstr "Xem dạng bảng"
+
+msgid "Body"
+msgstr "Nội dung"
 
 msgid "Bold"
 msgstr "Đậm"
@@ -3764,6 +3782,9 @@ msgstr "Bug"
 
 msgid "Bug reports"
 msgstr "Báo cáo lỗi"
+
+msgid "Build a canvas of agent, LLM, API, and command steps that runs on a schedule or an event."
+msgstr "Xây dựng canvas gồm các bước agent, LLM, API và lệnh, chạy theo lịch hoặc sự kiện."
 
 msgid "Build in public"
 msgstr "Xây dựng công khai"
@@ -5041,6 +5062,9 @@ msgstr "So sánh Paradev với Cursor, Claude Code, Codex, Windsurf, Devin, GitH
 msgid "Compare plans"
 msgstr "So sánh gói"
 
+msgid "Compare to"
+msgstr "So sánh với"
+
 msgid "Compared against the default style"
 msgstr "So sánh với kiểu mặc định"
 
@@ -5059,6 +5083,9 @@ msgstr "component-showcase"
 
 msgid "Composable form layout — pairs with @superset/ui/form for react-hook-form"
 msgstr "Bố cục form ghép được — dùng chung với @superset/ui/form cho react-hook-form"
+
+msgid "Condition"
+msgstr "Điều kiện"
 
 msgid "Conductor chat history. Export it in Conductor under Settings → Account"
 msgstr "Lịch sử chat Conductor. Xuất trong Conductor tại Settings → Account"
@@ -5186,6 +5213,9 @@ msgstr "Kết nối Claude, Codex, Cursor hay bất kỳ client <0>MCP</0> nào 
 
 msgid "Connect Claude, Codex, Cursor, or any MCP client to {companyName}. Create tasks, spin up workspaces, launch agents, and run automations straight from your AI agent."
 msgstr "Kết nối Claude, Codex, Cursor hoặc bất kỳ MCP client nào tới {companyName}. Tạo task, khởi tạo workspace, chạy agent và thực thi automation ngay từ agent AI của bạn."
+
+msgid "Connect condition branches from their yes/no handles."
+msgstr "Kết nối các nhánh điều kiện từ điểm nối có/không."
 
 msgid "Connect external services to sync data with your organization."
 msgstr "Kết nối dịch vụ bên ngoài để đồng bộ dữ liệu với tổ chức của bạn."
@@ -6933,6 +6963,9 @@ msgstr "Xóa nhánh cục bộ khi gỡ workspace"
 msgid "Delete message"
 msgstr "Xóa tin nhắn"
 
+msgid "Delete node"
+msgstr "Xóa nút"
+
 msgid "Delete organization"
 msgstr "Xóa tổ chức"
 
@@ -7200,6 +7233,9 @@ msgstr "Lập trình viên"
 
 msgid "Development build"
 msgstr "Bản dựng phát triển"
+
+msgid "Device"
+msgstr "Thiết bị"
 
 msgid "Device: {selectedLabel}"
 msgstr "Thiết bị: {selectedLabel}"
@@ -7641,6 +7677,9 @@ msgstr "Menu thả xuống, menu ngữ cảnh và menu ứng dụng"
 msgid "Due today"
 msgstr "Phải trả hôm nay"
 
+msgid "Duplicate node id: {nodeId}"
+msgstr "Trùng ID nút: {nodeId}"
+
 msgid "Duration"
 msgstr "Thời lượng"
 
@@ -7726,6 +7765,9 @@ msgstr "Đã đạt {name}"
 
 msgid "Earned {name} ×{tier}"
 msgstr "Đã đạt {name} ×{tier}"
+
+msgid "Edges cannot point into the trigger."
+msgstr "Liên kết không thể trỏ vào trình kích hoạt."
 
 msgid "Edit"
 msgstr "Sửa"
@@ -7888,6 +7930,9 @@ msgstr "Bật truy cập từ xa và giữ máy tính này hoạt động với 
 
 msgid "Enable skill"
 msgstr "Bật skill"
+
+msgid "Enabled"
+msgstr "Đã bật"
 
 msgid "End repeat"
 msgstr "Kết thúc lặp lại"
@@ -8274,6 +8319,9 @@ msgstr "Không thể thêm thành viên"
 msgid "Failed to archive automation"
 msgstr "Không thể lưu trữ tự động hóa"
 
+msgid "Failed to archive workflow"
+msgstr "Không thể lưu trữ quy trình"
+
 msgid "Failed to cancel invitation"
 msgstr "Không thể hủy lời mời"
 
@@ -8373,6 +8421,9 @@ msgstr "Không thể tạo terminal"
 msgid "Failed to create thread"
 msgstr "Không thể tạo luồng"
 
+msgid "Failed to create workflow"
+msgstr "Không thể tạo quy trình"
+
 msgid "Failed to create workspace"
 msgstr "Không thể tạo workspace"
 
@@ -8403,6 +8454,9 @@ msgstr "Không xóa được tác vụ"
 
 msgid "Failed to delete team"
 msgstr "Không thể xóa nhóm"
+
+msgid "Failed to delete trigger"
+msgstr "Không thể xóa trình kích hoạt"
 
 msgid "Failed to discard the new item"
 msgstr "Không thể bỏ mục mới"
@@ -8615,6 +8669,12 @@ msgstr "Không thể lưu cấu hình thiết lập"
 msgid "Failed to save team"
 msgstr "Không thể lưu nhóm"
 
+msgid "Failed to save trigger"
+msgstr "Không thể lưu trình kích hoạt"
+
+msgid "Failed to save workflow"
+msgstr "Không thể lưu quy trình"
+
 msgid "Failed to send"
 msgstr "Không thể gửi"
 
@@ -8644,6 +8704,9 @@ msgstr "Không thể đăng nhập. Vui lòng thử lại."
 
 msgid "Failed to sign up. Please try again."
 msgstr "Không thể đăng ký. Vui lòng thử lại."
+
+msgid "Failed to start run"
+msgstr "Không thể bắt đầu lần chạy"
 
 msgid "Failed to start the selected automations"
 msgstr "Không thể khởi chạy các tự động hóa đã chọn"
@@ -8710,6 +8773,9 @@ msgstr "Không thể cập nhật nhóm. Vui lòng thử lại."
 
 msgid "Failed to update URL"
 msgstr "Không thể cập nhật URL"
+
+msgid "Failed to update workflow"
+msgstr "Không thể cập nhật quy trình"
 
 msgid "Failed to update workspace"
 msgstr "Không cập nhật được không gian làm việc"
@@ -8986,6 +9052,9 @@ msgstr "Sửa các phát hiện"
 
 msgid "Fix new errors in web. Reproduce each one in a test and open a draft pull request."
 msgstr "Sửa các lỗi mới trong web. Tái hiện từng lỗi bằng test và mở pull request nháp."
+
+msgid "Fix the graph before saving"
+msgstr "Hãy sửa đồ thị trước khi lưu"
 
 msgid "fix-auth-redirect"
 msgstr "fix-auth-redirect"
@@ -9669,6 +9738,9 @@ msgstr "Có commit chưa push"
 msgid "Head-to-Head Comparisons"
 msgstr "So sánh trực diện"
 
+msgid "Headers"
+msgstr "Header"
+
 msgid "Heading 1"
 msgstr "Tiêu đề 1"
 
@@ -9981,6 +10053,12 @@ msgstr "Cách các agent của bạn đăng nhập bên trong workspace cloud. N
 
 msgid "HTML preview"
 msgstr "Xem trước HTML"
+
+msgid "HTTP"
+msgstr "HTTP"
+
+msgid "HTTP request"
+msgstr "Yêu cầu HTTP"
 
 msgid "https://"
 msgstr "https://"
@@ -11310,6 +11388,9 @@ msgstr "Đã có trong ứng dụng."
 msgid "Live preview"
 msgstr "Xem trước trực tiếp"
 
+msgid "LLM"
+msgstr "LLM"
+
 msgid "llms.txt (index for AI agents)"
 msgstr "llms.txt (chỉ mục cho agent AI)"
 
@@ -11745,6 +11826,9 @@ msgstr "Khớp phím tắt với ký tự in trên bàn phím của bạn (ví d
 
 msgid "Max"
 msgstr "Tối đa"
+
+msgid "Max tokens"
+msgstr "Số token tối đa"
 
 msgid "Maximum"
 msgstr "Tối đa"
@@ -12444,6 +12528,9 @@ msgstr "Cửa sổ mới"
 msgid "New Window"
 msgstr "Cửa sổ mới"
 
+msgid "New workflow"
+msgstr "Quy trình mới"
+
 msgid "New workspace"
 msgstr "Workspace mới"
 
@@ -12534,6 +12621,9 @@ msgstr "Làm tốt lắm"
 
 msgid "Nightly audit"
 msgstr "Kiểm tra ban đêm"
+
+msgid "no"
+msgstr "không"
 
 msgid "No"
 msgstr "Không"
@@ -13156,6 +13246,9 @@ msgstr "Chưa có chuỗi nào"
 msgid "No triggers"
 msgstr "Không có trigger"
 
+msgid "No triggers yet. The workflow only runs when started manually."
+msgstr "Chưa có trình kích hoạt. Quy trình chỉ chạy khi được khởi động thủ công."
+
 msgid "No Updates"
 msgstr "Không có cập nhật"
 
@@ -13185,6 +13278,9 @@ msgstr "Chưa có phiên bản nào"
 
 msgid "No versions yet."
 msgstr "Chưa có phiên bản nào."
+
+msgid "No workflows yet"
+msgstr "Chưa có quy trình nào"
 
 msgid "No workspace run command configured"
 msgstr "Chưa cấu hình lệnh chạy cho workspace"
@@ -13596,6 +13692,9 @@ msgstr "Chỉ có trên macOS."
 msgid "Only channel admins can do that"
 msgstr "Chỉ quản trị viên kênh mới có thể làm việc này"
 
+msgid "Only condition nodes have branch handles."
+msgstr "Chỉ nút điều kiện mới có điểm nối nhánh."
+
 msgid "Only host owners can change membership"
 msgstr "Chỉ chủ sở hữu host mới thay đổi được thành viên"
 
@@ -13613,6 +13712,9 @@ msgstr "Chỉ người tạo hoặc quản trị viên tổ chức mới có th�
 
 msgid "Only on this machine: gitignored, and applied to every worktree of this repository. Any key set here replaces the shared one."
 msgstr "Chỉ trên máy này: được git bỏ qua và áp dụng cho mọi worktree của repository này. Mọi khóa đặt ở đây sẽ thay thế khóa dùng chung."
+
+msgid "Only one trigger node is allowed."
+msgstr "Chỉ cho phép một nút kích hoạt."
 
 msgid "Only organization owners and admins can connect GitHub accounts. Ask one of them to connect it."
 msgstr "Chỉ chủ sở hữu và admin của tổ chức mới có thể kết nối tài khoản GitHub. Hãy nhờ một trong số họ kết nối tài khoản."
@@ -16062,6 +16164,9 @@ msgstr "Tải lại ứng dụng"
 msgid "Reload from disk"
 msgstr "Tải lại từ đĩa"
 
+msgid "Reload latest"
+msgstr "Tải phiên bản mới nhất"
+
 msgid "Reload Paradev to refresh the workspace list."
 msgstr "Tải lại Paradev để làm mới danh sách workspace."
 
@@ -16160,6 +16265,9 @@ msgstr "Gỡ khỏi thanh bên"
 
 msgid "Remove from Sidebar"
 msgstr "Gỡ khỏi thanh bên"
+
+msgid "Remove header"
+msgstr "Xóa header"
 
 msgid "Remove icon"
 msgstr "Gỡ biểu tượng"
@@ -17589,8 +17697,14 @@ msgstr "Select"
 msgid "Select {0}"
 msgstr "Chọn {0}"
 
+msgid "Select a device"
+msgstr "Chọn thiết bị"
+
 msgid "Select a file to view it here"
 msgstr "Chọn một tệp để xem tại đây"
+
+msgid "Select a node to configure it."
+msgstr "Chọn một nút để cấu hình."
 
 msgid "Select a project"
 msgstr "Chọn một dự án"
@@ -18636,6 +18750,9 @@ msgstr "Có người đang di chuyển không gian làm việc này…"
 msgid "Someone on the Paradev team will review this page. We only follow up if we need more from you."
 msgstr "Một thành viên của nhóm Paradev sẽ xem xét trang này. Chúng tôi chỉ liên hệ lại nếu cần thêm thông tin từ bạn."
 
+msgid "Someone saved a newer version of this workflow. Reload to get their changes, or keep editing and save again to retry on top of your copy."
+msgstr "Ai đó đã lưu phiên bản mới hơn của quy trình này. Tải lại để lấy thay đổi của họ, hoặc tiếp tục chỉnh sửa và lưu lại đè lên bản của bạn."
+
 msgid "Something else"
 msgstr "Vấn đề khác"
 
@@ -19394,6 +19511,9 @@ msgstr "Thiết kế hệ thống"
 msgid "System memory"
 msgstr "Bộ nhớ hệ thống"
 
+msgid "System prompt"
+msgstr "Prompt hệ thống"
+
 msgid "System RAM share"
 msgstr "Tỷ lệ RAM hệ thống"
 
@@ -19918,6 +20038,12 @@ msgstr "Các quỹ và nhà đầu tư thiên thần đồng hành cùng đội 
 msgid "The future home for reusable Paradev agent configs, prompts, and setup guides."
 msgstr "Nơi sẽ chứa các cấu hình agent, prompt và hướng dẫn thiết lập Paradev có thể tái sử dụng."
 
+msgid "The graph has a cycle through: {nodeIds}"
+msgstr "Đồ thị có chu trình qua: {nodeIds}"
+
+msgid "The graph needs a trigger node."
+msgstr "Đồ thị cần một nút kích hoạt."
+
 #. placeholder {0}: info.version
 msgid "The host came back on {0}, not {targetVersion}."
 msgstr "Máy chủ đã trở lại với {0}, không phải {targetVersion}."
@@ -20170,6 +20296,9 @@ msgstr "Worktree và mọi thay đổi chưa commit sẽ bị gỡ. Không thể
 
 msgid "The worktree has uncommitted edits from the agent session."
 msgstr "Worktree có các chỉnh sửa chưa commit từ phiên agent."
+
+msgid "The yes branch runs when this is true, the no branch otherwise."
+msgstr "Nhánh có chạy khi điều kiện đúng, ngược lại chạy nhánh không."
 
 msgid "Theme"
 msgstr "Theme"
@@ -20697,6 +20826,12 @@ msgstr "Thời gian đến workspace đầu tiên"
 
 msgid "Time zone"
 msgstr "Múi giờ"
+
+msgid "Timeout (minutes)"
+msgstr "Thời gian chờ (phút)"
+
+msgid "Timeout (seconds)"
+msgstr "Thời gian chờ (giây)"
 
 msgid "Tinted"
 msgstr "Phủ màu"
@@ -21309,6 +21444,9 @@ msgstr "Chưa xếp hạng"
 msgid "Unranked until {0} days carry usage."
 msgstr "Chưa xếp hạng cho đến khi có {0} ngày hoạt động."
 
+msgid "Unreachable nodes: {nodeIds}"
+msgstr "Các nút không thể tới: {nodeIds}"
+
 msgid "Unresolve"
 msgstr "Bỏ giải quyết"
 
@@ -21652,6 +21790,12 @@ msgstr "user@host, ssh://user@host:2222 hoặc một bí danh trong cấu hình 
 
 msgid "v2ProjectId does not match the workspace's project"
 msgstr "v2ProjectId không khớp với dự án của workspace"
+
+msgid "Value"
+msgstr "Giá trị"
+
+msgid "Value to test"
+msgstr "Giá trị cần kiểm tra"
 
 msgid "Variables"
 msgstr "Biến"
@@ -22098,6 +22242,12 @@ msgstr "Những gì đã phát hành"
 msgid "What should run automatically?"
 msgstr "Việc gì nên chạy tự động?"
 
+msgid "What should the agent do?"
+msgstr "Agent cần làm gì?"
+
+msgid "What should the model do?"
+msgstr "Mô hình cần làm gì?"
+
 msgid "What should the page show?"
 msgstr "Trang nên hiển thị gì?"
 
@@ -22260,11 +22410,32 @@ msgstr "Đã chạy {0} phút {1} giây"
 msgid "Worked for {seconds}s"
 msgstr "Đã chạy {seconds} giây"
 
+msgid "Workflow actions"
+msgstr "Thao tác quy trình"
+
+msgid "Workflow archived"
+msgstr "Đã lưu trữ quy trình"
+
+msgid "Workflow changed elsewhere"
+msgstr "Quy trình đã bị thay đổi ở nơi khác"
+
+msgid "Workflow name"
+msgstr "Tên quy trình"
+
+msgid "Workflow not found."
+msgstr "Không tìm thấy quy trình."
+
 msgid "Workflow run completed…"
 msgstr "Workflow chạy xong…"
 
+msgid "Workflow saved"
+msgstr "Đã lưu quy trình"
+
 msgid "Workflow Tutorials"
 msgstr "Hướng dẫn quy trình"
+
+msgid "Workflows"
+msgstr "Quy trình"
 
 msgid "Working"
 msgstr "Đang làm"
@@ -22333,6 +22504,9 @@ msgstr "Đã tạo workspace"
 msgid "Workspace details"
 msgstr "Chi tiết workspace"
 
+msgid "Workspace ID"
+msgstr "ID không gian làm việc"
+
 msgid "Workspace ID copied"
 msgstr "Đã sao chép ID workspace"
 
@@ -22368,6 +22542,9 @@ msgstr "Lệnh chạy của workspace: {workspaceRunState}"
 
 msgid "Workspace settings"
 msgstr "Cài đặt workspace"
+
+msgid "Workspace to run in"
+msgstr "Không gian làm việc để chạy"
 
 msgid "Workspace views"
 msgstr "Chế độ xem workspace"
@@ -22485,6 +22662,9 @@ msgstr "Hằng năm"
 
 msgid "Yellow"
 msgstr "Vàng"
+
+msgid "yes"
+msgstr "có"
 
 msgid "Yes"
 msgstr "Có"

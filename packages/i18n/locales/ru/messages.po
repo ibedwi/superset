@@ -2024,6 +2024,9 @@ msgstr "Сначала добавьте {repositoryName} как проект н�
 msgid "Add a comment…"
 msgstr "Добавьте комментарий…"
 
+msgid "Add a daily schedule"
+msgstr "Добавить ежедневное расписание"
+
 msgid "Add a description"
 msgstr "Добавить описание"
 
@@ -2111,6 +2114,9 @@ msgstr "Добавить файлы, приложения и другое (@)"
 msgid "Add GitHub organization"
 msgstr "Добавить организацию GitHub"
 
+msgid "Add header"
+msgstr "Добавить заголовок"
+
 msgid "Add instructions"
 msgstr "Добавить инструкции"
 
@@ -2129,6 +2135,9 @@ msgstr "Добавить участника"
 
 msgid "Add more…"
 msgstr "Добавить ещё…"
+
+msgid "Add node"
+msgstr "Добавить узел"
 
 msgid "Add one from the menu in the sidebar to get started."
 msgstr "Добавьте агента из меню в боковой панели, чтобы начать."
@@ -2731,6 +2740,9 @@ msgstr "Агент пишет целые функции и файлы, а чел
 
 msgid "An automation can only use a cloud workspace you created"
 msgstr "Автоматизация может использовать только облачную рабочую область, которую создали вы"
+
+msgid "An edge points at a missing node."
+msgstr "Связь указывает на отсутствующий узел."
 
 msgid "An environment holds your repositories, variables, and region. Start as many workspaces from it as you need."
 msgstr "Окружение хранит репозитории, переменные и регион. Запускайте из него столько рабочих областей, сколько нужно."
@@ -3452,6 +3464,9 @@ msgstr "К страницам"
 msgid "Back to the leaderboard"
 msgstr "Вернуться к рейтингу"
 
+msgid "Back to workflows"
+msgstr "Назад к рабочим процессам"
+
 msgid "Backed by"
 msgstr "Нас поддерживают"
 
@@ -3592,6 +3607,9 @@ msgstr "Доска"
 
 msgid "Board view"
 msgstr "Вид доски"
+
+msgid "Body"
+msgstr "Тело"
 
 msgid "Bold"
 msgstr "Жирный"
@@ -3764,6 +3782,9 @@ msgstr "Жук"
 
 msgid "Bug reports"
 msgstr "Отчёты о багах"
+
+msgid "Build a canvas of agent, LLM, API, and command steps that runs on a schedule or an event."
+msgstr "Соберите на холсте шаги с агентами, LLM, API и командами, которые запускаются по расписанию или событию."
 
 msgid "Build in public"
 msgstr "Работаем открыто"
@@ -5041,6 +5062,9 @@ msgstr "Сравните Paradev с Cursor, Claude Code, Codex, Windsurf, Devin,
 msgid "Compare plans"
 msgstr "Сравнить тарифы"
 
+msgid "Compare to"
+msgstr "Сравнить с"
+
 msgid "Compared against the default style"
 msgstr "Сравнили со стилем по умолчанию"
 
@@ -5059,6 +5083,9 @@ msgstr "component-showcase"
 
 msgid "Composable form layout — pairs with @superset/ui/form for react-hook-form"
 msgstr "Составная раскладка формы — сочетается с @superset/ui/form для react-hook-form"
+
+msgid "Condition"
+msgstr "Условие"
 
 msgid "Conductor chat history. Export it in Conductor under Settings → Account"
 msgstr "История чатов Conductor. Экспортируйте её в Conductor: Settings → Account"
@@ -5186,6 +5213,9 @@ msgstr "Подключите Claude, Codex, Cursor или любого клие�
 
 msgid "Connect Claude, Codex, Cursor, or any MCP client to {companyName}. Create tasks, spin up workspaces, launch agents, and run automations straight from your AI agent."
 msgstr "Подключите Claude, Codex, Cursor или любой MCP-клиент к {companyName}. Создавайте задачи, поднимайте рабочие области, запускайте агентов и автоматизации прямо из своего AI-агента."
+
+msgid "Connect condition branches from their yes/no handles."
+msgstr "Подключайте ветви условия через точки «да/нет»."
 
 msgid "Connect external services to sync data with your organization."
 msgstr "Подключайте внешние сервисы для синхронизации данных с вашей организацией."
@@ -6933,6 +6963,9 @@ msgstr "Удалять локальную ветку при удалении р�
 msgid "Delete message"
 msgstr "Удалить сообщение"
 
+msgid "Delete node"
+msgstr "Удалить узел"
+
 msgid "Delete organization"
 msgstr "Удалить организацию"
 
@@ -7200,6 +7233,9 @@ msgstr "Разработчики"
 
 msgid "Development build"
 msgstr "Сборка для разработки"
+
+msgid "Device"
+msgstr "Устройство"
 
 msgid "Device: {selectedLabel}"
 msgstr "Устройство: {selectedLabel}"
@@ -7641,6 +7677,9 @@ msgstr "Выпадающие, контекстные и прикладные м�
 msgid "Due today"
 msgstr "К оплате сегодня"
 
+msgid "Duplicate node id: {nodeId}"
+msgstr "Повторяющийся идентификатор узла: {nodeId}"
+
 msgid "Duration"
 msgstr "Длительность"
 
@@ -7726,6 +7765,9 @@ msgstr "Получено: {name}"
 
 msgid "Earned {name} ×{tier}"
 msgstr "Получено: {name} ×{tier}"
+
+msgid "Edges cannot point into the trigger."
+msgstr "Связи не могут вести к триггеру."
 
 msgid "Edit"
 msgstr "Изменить"
@@ -7888,6 +7930,9 @@ msgstr "Включите удалённый доступ и не перевод�
 
 msgid "Enable skill"
 msgstr "Включить навык"
+
+msgid "Enabled"
+msgstr "Включено"
 
 msgid "End repeat"
 msgstr "Окончание повторов"
@@ -8274,6 +8319,9 @@ msgstr "Не удалось добавить участника"
 msgid "Failed to archive automation"
 msgstr "Не удалось архивировать автоматизацию"
 
+msgid "Failed to archive workflow"
+msgstr "Не удалось архивировать рабочий процесс"
+
 msgid "Failed to cancel invitation"
 msgstr "Не удалось отменить приглашение"
 
@@ -8373,6 +8421,9 @@ msgstr "Не удалось создать терминал"
 msgid "Failed to create thread"
 msgstr "Не удалось создать ветку обсуждения"
 
+msgid "Failed to create workflow"
+msgstr "Не удалось создать рабочий процесс"
+
 msgid "Failed to create workspace"
 msgstr "Не удалось создать рабочую область"
 
@@ -8403,6 +8454,9 @@ msgstr "Не удалось удалить задачу"
 
 msgid "Failed to delete team"
 msgstr "Не удалось удалить команду"
+
+msgid "Failed to delete trigger"
+msgstr "Не удалось удалить триггер"
 
 msgid "Failed to discard the new item"
 msgstr "Не удалось отменить новый элемент"
@@ -8615,6 +8669,12 @@ msgstr "Не удалось сохранить конфигурацию уста
 msgid "Failed to save team"
 msgstr "Не удалось сохранить команду"
 
+msgid "Failed to save trigger"
+msgstr "Не удалось сохранить триггер"
+
+msgid "Failed to save workflow"
+msgstr "Не удалось сохранить рабочий процесс"
+
 msgid "Failed to send"
 msgstr "Не удалось отправить"
 
@@ -8644,6 +8704,9 @@ msgstr "Не удалось войти. Попробуйте ещё раз."
 
 msgid "Failed to sign up. Please try again."
 msgstr "Не удалось зарегистрироваться. Попробуйте ещё раз."
+
+msgid "Failed to start run"
+msgstr "Не удалось запустить выполнение"
 
 msgid "Failed to start the selected automations"
 msgstr "Не удалось запустить выбранные автоматизации"
@@ -8710,6 +8773,9 @@ msgstr "Не удалось обновить команду. Попробуйт�
 
 msgid "Failed to update URL"
 msgstr "Не удалось обновить URL"
+
+msgid "Failed to update workflow"
+msgstr "Не удалось обновить рабочий процесс"
 
 msgid "Failed to update workspace"
 msgstr "Не удалось обновить рабочее пространство"
@@ -8986,6 +9052,9 @@ msgstr "Исправить замечания"
 
 msgid "Fix new errors in web. Reproduce each one in a test and open a draft pull request."
 msgstr "Исправляй новые ошибки в web. Воспроизведи каждую в тесте и открой черновой pull request."
+
+msgid "Fix the graph before saving"
+msgstr "Исправьте граф перед сохранением"
 
 msgid "fix-auth-redirect"
 msgstr "fix-auth-redirect"
@@ -9669,6 +9738,9 @@ msgstr "Есть неотправленные коммиты"
 msgid "Head-to-Head Comparisons"
 msgstr "Прямые сравнения"
 
+msgid "Headers"
+msgstr "Заголовки"
+
 msgid "Heading 1"
 msgstr "Заголовок 1"
 
@@ -9981,6 +10053,12 @@ msgstr "Как ваши агенты входят внутри облачных 
 
 msgid "HTML preview"
 msgstr "Предпросмотр HTML"
+
+msgid "HTTP"
+msgstr "HTTP"
+
+msgid "HTTP request"
+msgstr "HTTP-запрос"
 
 msgid "https://"
 msgstr "https://"
@@ -11310,6 +11388,9 @@ msgstr "Уже в приложении."
 msgid "Live preview"
 msgstr "Живой предпросмотр"
 
+msgid "LLM"
+msgstr "LLM"
+
 msgid "llms.txt (index for AI agents)"
 msgstr "llms.txt (индекс для AI-агентов)"
 
@@ -11745,6 +11826,9 @@ msgstr "Привязывать сочетания к обозначениям н
 
 msgid "Max"
 msgstr "Макс."
+
+msgid "Max tokens"
+msgstr "Максимум токенов"
 
 msgid "Maximum"
 msgstr "Максимум"
@@ -12444,6 +12528,9 @@ msgstr "Новое окно"
 msgid "New Window"
 msgstr "Новое окно"
 
+msgid "New workflow"
+msgstr "Новый рабочий процесс"
+
 msgid "New workspace"
 msgstr "Новая рабочая область"
 
@@ -12534,6 +12621,9 @@ msgstr "Отлично сделано"
 
 msgid "Nightly audit"
 msgstr "Ночной аудит"
+
+msgid "no"
+msgstr "нет"
 
 msgid "No"
 msgstr "Нет"
@@ -13156,6 +13246,9 @@ msgstr "Веток пока нет"
 msgid "No triggers"
 msgstr "Нет триггеров"
 
+msgid "No triggers yet. The workflow only runs when started manually."
+msgstr "Триггеров пока нет. Рабочий процесс запускается только вручную."
+
 msgid "No Updates"
 msgstr "Обновлений нет"
 
@@ -13185,6 +13278,9 @@ msgstr "Версий пока нет"
 
 msgid "No versions yet."
 msgstr "Версий пока нет."
+
+msgid "No workflows yet"
+msgstr "Рабочих процессов пока нет"
 
 msgid "No workspace run command configured"
 msgstr "Команда запуска рабочей области не настроена"
@@ -13596,6 +13692,9 @@ msgstr "Доступно только в macOS."
 msgid "Only channel admins can do that"
 msgstr "Это могут делать только администраторы канала"
 
+msgid "Only condition nodes have branch handles."
+msgstr "Точки ветвления есть только у узлов условия."
+
 msgid "Only host owners can change membership"
 msgstr "Изменять состав участников может только владелец хоста"
 
@@ -13613,6 +13712,9 @@ msgstr "Изменить этого агента может только его 
 
 msgid "Only on this machine: gitignored, and applied to every worktree of this repository. Any key set here replaces the shared one."
 msgstr "Только на этом компьютере: игнорируется git и применяется к каждому worktree этого репозитория. Любой заданный здесь ключ заменяет общий."
+
+msgid "Only one trigger node is allowed."
+msgstr "Допускается только один узел-триггер."
 
 msgid "Only organization owners and admins can connect GitHub accounts. Ask one of them to connect it."
 msgstr "Подключать аккаунты GitHub могут только владельцы и администраторы организации. Попросите одного из них подключить аккаунт."
@@ -16062,6 +16164,9 @@ msgstr "Перезагрузить приложение"
 msgid "Reload from disk"
 msgstr "Загрузить с диска"
 
+msgid "Reload latest"
+msgstr "Загрузить последнюю версию"
+
 msgid "Reload Paradev to refresh the workspace list."
 msgstr "Перезагрузите Paradev, чтобы обновить список рабочих областей."
 
@@ -16160,6 +16265,9 @@ msgstr "Убрать из боковой панели"
 
 msgid "Remove from Sidebar"
 msgstr "Убрать из боковой панели"
+
+msgid "Remove header"
+msgstr "Удалить заголовок"
 
 msgid "Remove icon"
 msgstr "Удалить иконку"
@@ -17589,8 +17697,14 @@ msgstr "Селект"
 msgid "Select {0}"
 msgstr "Выбрать {0}"
 
+msgid "Select a device"
+msgstr "Выберите устройство"
+
 msgid "Select a file to view it here"
 msgstr "Выберите файл, чтобы просмотреть его здесь"
+
+msgid "Select a node to configure it."
+msgstr "Выберите узел, чтобы настроить его."
 
 msgid "Select a project"
 msgstr "Выберите проект"
@@ -18636,6 +18750,9 @@ msgstr "Кто-то переносит эту рабочую область…"
 msgid "Someone on the Paradev team will review this page. We only follow up if we need more from you."
 msgstr "Команда Paradev проверит эту страницу. Мы свяжемся с вами, только если понадобится что-то ещё."
 
+msgid "Someone saved a newer version of this workflow. Reload to get their changes, or keep editing and save again to retry on top of your copy."
+msgstr "Кто-то сохранил более новую версию этого рабочего процесса. Перезагрузите, чтобы получить изменения, или продолжайте редактировать и сохраните поверх своей копии."
+
 msgid "Something else"
 msgstr "Другое"
 
@@ -19394,6 +19511,9 @@ msgstr "Системный дизайн"
 msgid "System memory"
 msgstr "Системная память"
 
+msgid "System prompt"
+msgstr "Системный промпт"
+
 msgid "System RAM share"
 msgstr "Доля системной RAM"
 
@@ -19918,6 +20038,12 @@ msgstr "Фонды и бизнес-ангелы, которые поддержи
 msgid "The future home for reusable Paradev agent configs, prompts, and setup guides."
 msgstr "Будущий дом для переиспользуемых конфигураций агентов, промптов и руководств по настройке Paradev."
 
+msgid "The graph has a cycle through: {nodeIds}"
+msgstr "В графе есть цикл через: {nodeIds}"
+
+msgid "The graph needs a trigger node."
+msgstr "Графу нужен узел-триггер."
+
 #. placeholder {0}: info.version
 msgid "The host came back on {0}, not {targetVersion}."
 msgstr "Хост вернулся с версией {0}, а не {targetVersion}."
@@ -20170,6 +20296,9 @@ msgstr "Worktree и все незакоммиченные изменения б�
 
 msgid "The worktree has uncommitted edits from the agent session."
 msgstr "В worktree есть незакоммиченные правки из сессии агента."
+
+msgid "The yes branch runs when this is true, the no branch otherwise."
+msgstr "Если условие истинно, выполняется ветвь «да», иначе — «нет»."
 
 msgid "Theme"
 msgstr "Тема"
@@ -20697,6 +20826,12 @@ msgstr "Время до первой рабочей области"
 
 msgid "Time zone"
 msgstr "Часовой пояс"
+
+msgid "Timeout (minutes)"
+msgstr "Тайм-аут (минуты)"
+
+msgid "Timeout (seconds)"
+msgstr "Тайм-аут (секунды)"
 
 msgid "Tinted"
 msgstr "Тонированный"
@@ -21309,6 +21444,9 @@ msgstr "Без места"
 msgid "Unranked until {0} days carry usage."
 msgstr "Без рейтинга, пока не наберётся дней с активностью: {0}."
 
+msgid "Unreachable nodes: {nodeIds}"
+msgstr "Недостижимые узлы: {nodeIds}"
+
 msgid "Unresolve"
 msgstr "Снова открыть"
 
@@ -21652,6 +21790,12 @@ msgstr "user@host, ssh://user@host:2222 или псевдоним из конф�
 
 msgid "v2ProjectId does not match the workspace's project"
 msgstr "v2ProjectId не совпадает с проектом рабочей области"
+
+msgid "Value"
+msgstr "Значение"
+
+msgid "Value to test"
+msgstr "Проверяемое значение"
 
 msgid "Variables"
 msgstr "Переменные"
@@ -22098,6 +22242,12 @@ msgstr "Что выпущено"
 msgid "What should run automatically?"
 msgstr "Что должно запускаться автоматически?"
 
+msgid "What should the agent do?"
+msgstr "Что должен сделать агент?"
+
+msgid "What should the model do?"
+msgstr "Что должна сделать модель?"
+
 msgid "What should the page show?"
 msgstr "Что должна показывать страница?"
 
@@ -22260,11 +22410,32 @@ msgstr "Работал {0} мин {1} с"
 msgid "Worked for {seconds}s"
 msgstr "Работал {seconds} с"
 
+msgid "Workflow actions"
+msgstr "Действия с рабочим процессом"
+
+msgid "Workflow archived"
+msgstr "Рабочий процесс архивирован"
+
+msgid "Workflow changed elsewhere"
+msgstr "Рабочий процесс изменён в другом месте"
+
+msgid "Workflow name"
+msgstr "Название рабочего процесса"
+
+msgid "Workflow not found."
+msgstr "Рабочий процесс не найден."
+
 msgid "Workflow run completed…"
 msgstr "Запуск workflow завершён…"
 
+msgid "Workflow saved"
+msgstr "Рабочий процесс сохранён"
+
 msgid "Workflow Tutorials"
 msgstr "Руководства по рабочим процессам"
+
+msgid "Workflows"
+msgstr "Рабочие процессы"
 
 msgid "Working"
 msgstr "Работает"
@@ -22333,6 +22504,9 @@ msgstr "Рабочая область создана"
 msgid "Workspace details"
 msgstr "Сведения о рабочей области"
 
+msgid "Workspace ID"
+msgstr "ID рабочего пространства"
+
 msgid "Workspace ID copied"
 msgstr "ID рабочей области скопирован"
 
@@ -22368,6 +22542,9 @@ msgstr "Запуск рабочей области: {workspaceRunState}"
 
 msgid "Workspace settings"
 msgstr "Настройки рабочей области"
+
+msgid "Workspace to run in"
+msgstr "Рабочее пространство для запуска"
 
 msgid "Workspace views"
 msgstr "Виды рабочих областей"
@@ -22485,6 +22662,9 @@ msgstr "Ежегодно"
 
 msgid "Yellow"
 msgstr "Жёлтый"
+
+msgid "yes"
+msgstr "да"
 
 msgid "Yes"
 msgstr "Да"

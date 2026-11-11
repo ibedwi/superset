@@ -18,6 +18,7 @@ import {
 	LuPlus,
 	LuPuzzle,
 	LuSearch,
+	LuWorkflow,
 } from "react-icons/lu";
 import { VscFolderOpened, VscNewFolder } from "react-icons/vsc";
 import { ZoomStable } from "renderer/components/ZoomStable";
@@ -200,6 +201,29 @@ export function DashboardSidebarHeader({
 							) : (
 								<Trans>Automations</Trans>
 							)}
+						</TooltipContent>
+					</Tooltip>
+
+					<Tooltip delayDuration={300}>
+						<TooltipTrigger asChild>
+							<button
+								type="button"
+								onClick={navigation.openWorkflows}
+								aria-label={t({
+									message: "Workflows",
+								})}
+								className={cn(
+									"flex size-7 items-center justify-center rounded-md transition-colors",
+									navigation.isWorkflowsOpen
+										? "bg-fill-selected text-muted-foreground"
+										: "text-muted-foreground hover:bg-fill-hover",
+								)}
+							>
+								<LuWorkflow className="size-3.5" strokeWidth={1.5} />
+							</button>
+						</TooltipTrigger>
+						<TooltipContent side="right">
+							<Trans>Workflows</Trans>
 						</TooltipContent>
 					</Tooltip>
 
@@ -461,6 +485,25 @@ export function DashboardSidebarHeader({
 					</button>
 				)}
 			</div>
+
+			<button
+				type="button"
+				onClick={navigation.openWorkflows}
+				className={cn(
+					"flex h-7 w-full items-center gap-2 rounded-md px-2 text-[13px] font-medium transition-colors",
+					navigation.isWorkflowsOpen
+						? "bg-fill-selected text-foreground"
+						: "text-muted-foreground hover:bg-fill-hover hover:text-foreground",
+				)}
+			>
+				<LuWorkflow
+					className="size-4 shrink-0 text-muted-foreground"
+					strokeWidth={1.5}
+				/>
+				<span className="flex-1 text-left">
+					<Trans>Workflows</Trans>
+				</span>
+			</button>
 
 			<button
 				type="button"

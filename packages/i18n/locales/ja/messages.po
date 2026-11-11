@@ -2024,6 +2024,9 @@ msgstr "まず {repositoryName} をこのコンピューターのプロジェク
 msgid "Add a comment…"
 msgstr "コメントを追加…"
 
+msgid "Add a daily schedule"
+msgstr "毎日のスケジュールを追加"
+
 msgid "Add a description"
 msgstr "説明を追加"
 
@@ -2111,6 +2114,9 @@ msgstr "ファイルやアプリなどを追加(@)"
 msgid "Add GitHub organization"
 msgstr "GitHub 組織を追加"
 
+msgid "Add header"
+msgstr "ヘッダーを追加"
+
 msgid "Add instructions"
 msgstr "指示を追加"
 
@@ -2129,6 +2135,9 @@ msgstr "メンバーを追加"
 
 msgid "Add more…"
 msgstr "さらに追加…"
+
+msgid "Add node"
+msgstr "ノードを追加"
 
 msgid "Add one from the menu in the sidebar to get started."
 msgstr "サイドバーのメニューから追加して始めましょう。"
@@ -2731,6 +2740,9 @@ msgstr "エージェントが関数やファイルをまるごと書き、人間
 
 msgid "An automation can only use a cloud workspace you created"
 msgstr "オートメーションで使用できるのは、自分が作成したクラウドワークスペースのみです"
+
+msgid "An edge points at a missing node."
+msgstr "存在しないノードへのエッジがあります。"
 
 msgid "An environment holds your repositories, variables, and region. Start as many workspaces from it as you need."
 msgstr "環境にはリポジトリ、変数、リージョンを保存します。そこから必要なだけワークスペースを起動できます。"
@@ -3452,6 +3464,9 @@ msgstr "ページ"
 msgid "Back to the leaderboard"
 msgstr "リーダーボードに戻る"
 
+msgid "Back to workflows"
+msgstr "ワークフロー一覧に戻る"
+
 msgid "Backed by"
 msgstr "支援者"
 
@@ -3592,6 +3607,9 @@ msgstr "ボード"
 
 msgid "Board view"
 msgstr "ボード表示"
+
+msgid "Body"
+msgstr "ボディ"
 
 msgid "Bold"
 msgstr "太字"
@@ -3764,6 +3782,9 @@ msgstr "バグ"
 
 msgid "Bug reports"
 msgstr "バグ報告"
+
+msgid "Build a canvas of agent, LLM, API, and command steps that runs on a schedule or an event."
+msgstr "エージェント、LLM、API、コマンドのステップをキャンバスに組み立て、スケジュールやイベントで実行します。"
 
 msgid "Build in public"
 msgstr "オープンに開発"
@@ -5041,6 +5062,9 @@ msgstr "ParadevをCursor、Claude Code、Codex、Windsurf、Devin、GitHub Copil
 msgid "Compare plans"
 msgstr "プランを比較"
 
+msgid "Compare to"
+msgstr "比較する値"
+
 msgid "Compared against the default style"
 msgstr "デフォルトスタイルと比較"
 
@@ -5059,6 +5083,9 @@ msgstr "component-showcase"
 
 msgid "Composable form layout — pairs with @superset/ui/form for react-hook-form"
 msgstr "組み合わせ可能なフォームレイアウト — react-hook-form用の@superset/ui/formと合わせて使います"
+
+msgid "Condition"
+msgstr "条件"
 
 msgid "Conductor chat history. Export it in Conductor under Settings → Account"
 msgstr "Conductor のチャット履歴。Conductor の Settings → Account からエクスポートしてください"
@@ -5186,6 +5213,9 @@ msgstr "Claude、Codex、Cursorなど任意の<0>MCP</0>クライアントを接
 
 msgid "Connect Claude, Codex, Cursor, or any MCP client to {companyName}. Create tasks, spin up workspaces, launch agents, and run automations straight from your AI agent."
 msgstr "Claude、Codex、Cursor、その他のMCPクライアントを{companyName}に接続。AIエージェントから直接、タスクの作成、ワークスペースの起動、エージェントの実行、自動化の実行ができます。"
+
+msgid "Connect condition branches from their yes/no handles."
+msgstr "条件ノードの分岐は yes/no のハンドルから接続してください。"
 
 msgid "Connect external services to sync data with your organization."
 msgstr "外部サービスを接続して組織とデータを同期します。"
@@ -6933,6 +6963,9 @@ msgstr "ワークスペース削除時にローカルブランチも削除"
 msgid "Delete message"
 msgstr "メッセージを削除"
 
+msgid "Delete node"
+msgstr "ノードを削除"
+
 msgid "Delete organization"
 msgstr "組織を削除"
 
@@ -7200,6 +7233,9 @@ msgstr "開発者"
 
 msgid "Development build"
 msgstr "開発ビルド"
+
+msgid "Device"
+msgstr "デバイス"
 
 msgid "Device: {selectedLabel}"
 msgstr "デバイス: {selectedLabel}"
@@ -7641,6 +7677,9 @@ msgstr "ドロップダウン、コンテキスト、アプリケーションメ
 msgid "Due today"
 msgstr "本日のお支払い"
 
+msgid "Duplicate node id: {nodeId}"
+msgstr "ノード ID が重複しています: {nodeId}"
+
 msgid "Duration"
 msgstr "所要時間"
 
@@ -7726,6 +7765,9 @@ msgstr "「{name}」を獲得"
 
 msgid "Earned {name} ×{tier}"
 msgstr "「{name}」×{tier} を獲得"
+
+msgid "Edges cannot point into the trigger."
+msgstr "トリガーへ向かう接続は作成できません。"
 
 msgid "Edit"
 msgstr "編集"
@@ -7888,6 +7930,9 @@ msgstr "リモートアクセスを有効にし、Paradevを起動したまま�
 
 msgid "Enable skill"
 msgstr "スキルを有効にする"
+
+msgid "Enabled"
+msgstr "有効"
 
 msgid "End repeat"
 msgstr "繰り返しの終了"
@@ -8274,6 +8319,9 @@ msgstr "メンバーの追加に失敗しました"
 msgid "Failed to archive automation"
 msgstr "オートメーションをアーカイブできませんでした"
 
+msgid "Failed to archive workflow"
+msgstr "ワークフローをアーカイブできませんでした"
+
 msgid "Failed to cancel invitation"
 msgstr "招待のキャンセルに失敗しました"
 
@@ -8373,6 +8421,9 @@ msgstr "ターミナルを作成できませんでした"
 msgid "Failed to create thread"
 msgstr "スレッドの作成に失敗しました"
 
+msgid "Failed to create workflow"
+msgstr "ワークフローを作成できませんでした"
+
 msgid "Failed to create workspace"
 msgstr "ワークスペースを作成できませんでした"
 
@@ -8403,6 +8454,9 @@ msgstr "タスクを削除できませんでした"
 
 msgid "Failed to delete team"
 msgstr "チームの削除に失敗しました"
+
+msgid "Failed to delete trigger"
+msgstr "トリガーを削除できませんでした"
 
 msgid "Failed to discard the new item"
 msgstr "新しいアイテムの破棄に失敗しました"
@@ -8615,6 +8669,12 @@ msgstr "セットアップ設定を保存できませんでした"
 msgid "Failed to save team"
 msgstr "チームの保存に失敗しました"
 
+msgid "Failed to save trigger"
+msgstr "トリガーを保存できませんでした"
+
+msgid "Failed to save workflow"
+msgstr "ワークフローを保存できませんでした"
+
 msgid "Failed to send"
 msgstr "送信に失敗しました"
 
@@ -8644,6 +8704,9 @@ msgstr "サインインに失敗しました。もう一度お試しください
 
 msgid "Failed to sign up. Please try again."
 msgstr "サインアップに失敗しました。もう一度お試しください。"
+
+msgid "Failed to start run"
+msgstr "実行を開始できませんでした"
 
 msgid "Failed to start the selected automations"
 msgstr "選択したオートメーションを開始できませんでした"
@@ -8710,6 +8773,9 @@ msgstr "チームを更新できませんでした。もう一度お試しくだ
 
 msgid "Failed to update URL"
 msgstr "URLの更新に失敗しました"
+
+msgid "Failed to update workflow"
+msgstr "ワークフローを更新できませんでした"
 
 msgid "Failed to update workspace"
 msgstr "ワークスペースを更新できませんでした"
@@ -8986,6 +9052,9 @@ msgstr "指摘を修正"
 
 msgid "Fix new errors in web. Reproduce each one in a test and open a draft pull request."
 msgstr "webの新しいエラーを修正してください。それぞれをテストで再現し、ドラフトのプルリクエストを作成してください。"
+
+msgid "Fix the graph before saving"
+msgstr "保存する前にグラフの問題を修正してください"
 
 msgid "fix-auth-redirect"
 msgstr "fix-auth-redirect"
@@ -9669,6 +9738,9 @@ msgstr "未プッシュのコミットがあります"
 msgid "Head-to-Head Comparisons"
 msgstr "1対1の比較"
 
+msgid "Headers"
+msgstr "ヘッダー"
+
 msgid "Heading 1"
 msgstr "見出し1"
 
@@ -9981,6 +10053,12 @@ msgstr "クラウドワークスペース内でエージェントがどうサイ
 
 msgid "HTML preview"
 msgstr "HTMLプレビュー"
+
+msgid "HTTP"
+msgstr "HTTP"
+
+msgid "HTTP request"
+msgstr "HTTP リクエスト"
 
 msgid "https://"
 msgstr "https://"
@@ -11310,6 +11388,9 @@ msgstr "アプリで利用できます。"
 msgid "Live preview"
 msgstr "ライブプレビュー"
 
+msgid "LLM"
+msgstr "LLM"
+
 msgid "llms.txt (index for AI agents)"
 msgstr "llms.txt(AIエージェント向けの索引)"
 
@@ -11745,6 +11826,9 @@ msgstr "ショートカットをキーボードの刻印に合わせます(例: 
 
 msgid "Max"
 msgstr "最大"
+
+msgid "Max tokens"
+msgstr "最大トークン数"
 
 msgid "Maximum"
 msgstr "最大"
@@ -12444,6 +12528,9 @@ msgstr "新規ウィンドウ"
 msgid "New Window"
 msgstr "新規ウィンドウ"
 
+msgid "New workflow"
+msgstr "新しいワークフロー"
+
 msgid "New workspace"
 msgstr "新規ワークスペース"
 
@@ -12534,6 +12621,9 @@ msgstr "よくできました"
 
 msgid "Nightly audit"
 msgstr "夜間監査"
+
+msgid "no"
+msgstr "いいえ"
 
 msgid "No"
 msgstr "いいえ"
@@ -13156,6 +13246,9 @@ msgstr "スレッドはまだありません"
 msgid "No triggers"
 msgstr "トリガーなし"
 
+msgid "No triggers yet. The workflow only runs when started manually."
+msgstr "トリガーはまだありません。このワークフローは手動で開始したときだけ実行されます。"
+
 msgid "No Updates"
 msgstr "アップデートはありません"
 
@@ -13185,6 +13278,9 @@ msgstr "バージョンはまだありません"
 
 msgid "No versions yet."
 msgstr "バージョンはまだありません。"
+
+msgid "No workflows yet"
+msgstr "ワークフローはまだありません"
 
 msgid "No workspace run command configured"
 msgstr "ワークスペース実行コマンドが設定されていません"
@@ -13596,6 +13692,9 @@ msgstr "macOSでのみ利用できます。"
 msgid "Only channel admins can do that"
 msgstr "チャンネル管理者のみが実行できます"
 
+msgid "Only condition nodes have branch handles."
+msgstr "分岐ハンドルがあるのは条件ノードだけです。"
+
 msgid "Only host owners can change membership"
 msgstr "メンバーシップを変更できるのはホストのオーナーのみです"
 
@@ -13613,6 +13712,9 @@ msgstr "このエージェントを変更できるのは、作成者または組
 
 msgid "Only on this machine: gitignored, and applied to every worktree of this repository. Any key set here replaces the shared one."
 msgstr "このマシンのみ: git で無視され、このリポジトリのすべてのワークツリーに適用されます。ここで設定したキーは共有の値を置き換えます。"
+
+msgid "Only one trigger node is allowed."
+msgstr "トリガーノードは 1 つだけ配置できます。"
 
 msgid "Only organization owners and admins can connect GitHub accounts. Ask one of them to connect it."
 msgstr "GitHub アカウントを接続できるのは組織のオーナーと管理者だけです。いずれかに接続を依頼してください。"
@@ -16062,6 +16164,9 @@ msgstr "アプリを再読み込み"
 msgid "Reload from disk"
 msgstr "ディスクから再読み込み"
 
+msgid "Reload latest"
+msgstr "最新を読み込む"
+
 msgid "Reload Paradev to refresh the workspace list."
 msgstr "Paradevを再読み込みしてワークスペース一覧を更新してください。"
 
@@ -16160,6 +16265,9 @@ msgstr "サイドバーから削除"
 
 msgid "Remove from Sidebar"
 msgstr "サイドバーから削除"
+
+msgid "Remove header"
+msgstr "ヘッダーを削除"
 
 msgid "Remove icon"
 msgstr "アイコンを削除"
@@ -17589,8 +17697,14 @@ msgstr "Select"
 msgid "Select {0}"
 msgstr "{0} を選択"
 
+msgid "Select a device"
+msgstr "デバイスを選択"
+
 msgid "Select a file to view it here"
 msgstr "ファイルを選択するとここに表示されます"
+
+msgid "Select a node to configure it."
+msgstr "設定するノードを選択してください。"
 
 msgid "Select a project"
 msgstr "プロジェクトを選択してください"
@@ -18636,6 +18750,9 @@ msgstr "誰かがこのワークスペースを移動しています…"
 msgid "Someone on the Paradev team will review this page. We only follow up if we need more from you."
 msgstr "Paradev チームがこのページを確認します。追加の情報が必要な場合にのみご連絡します。"
 
+msgid "Someone saved a newer version of this workflow. Reload to get their changes, or keep editing and save again to retry on top of your copy."
+msgstr "誰かがこのワークフローの新しいバージョンを保存しました。再読み込みして相手の変更を取得するか、このまま編集を続けて保存し直してください。"
+
 msgid "Something else"
 msgstr "その他"
 
@@ -19394,6 +19511,9 @@ msgstr "システム設計"
 msgid "System memory"
 msgstr "システムメモリ"
 
+msgid "System prompt"
+msgstr "システムプロンプト"
+
 msgid "System RAM share"
 msgstr "システムRAMシェア"
 
@@ -19918,6 +20038,12 @@ msgstr "私たちのチームを支援するファンドとエンジェル投資
 msgid "The future home for reusable Paradev agent configs, prompts, and setup guides."
 msgstr "再利用可能なParadevエージェント設定、プロンプト、セットアップガイドの今後の公開場所。"
 
+msgid "The graph has a cycle through: {nodeIds}"
+msgstr "グラフに循環があります: {nodeIds}"
+
+msgid "The graph needs a trigger node."
+msgstr "グラフにはトリガーノードが必要です。"
+
 #. placeholder {0}: info.version
 msgid "The host came back on {0}, not {targetVersion}."
 msgstr "ホストは{targetVersion}ではなく{0}で復帰しました。"
@@ -20170,6 +20296,9 @@ msgstr "ワークツリーと未コミットの変更が削除されます。こ
 
 msgid "The worktree has uncommitted edits from the agent session."
 msgstr "ワークツリーにエージェントセッションの未コミットの変更があります。"
+
+msgid "The yes branch runs when this is true, the no branch otherwise."
+msgstr "条件が真のとき yes の分岐、そうでなければ no の分岐が実行されます。"
 
 msgid "Theme"
 msgstr "テーマ"
@@ -20697,6 +20826,12 @@ msgstr "最初のワークスペースまでの時間"
 
 msgid "Time zone"
 msgstr "タイムゾーン"
+
+msgid "Timeout (minutes)"
+msgstr "タイムアウト（分）"
+
+msgid "Timeout (seconds)"
+msgstr "タイムアウト（秒）"
 
 msgid "Tinted"
 msgstr "色合い調整"
@@ -21309,6 +21444,9 @@ msgstr "ランク外"
 msgid "Unranked until {0} days carry usage."
 msgstr "{0}日分の使用実績がそろうまではランク外です。"
 
+msgid "Unreachable nodes: {nodeIds}"
+msgstr "到達できないノード: {nodeIds}"
+
 msgid "Unresolve"
 msgstr "解決を取り消す"
 
@@ -21652,6 +21790,12 @@ msgstr "user@host、ssh://user@host:2222、または ssh config のエイリア�
 
 msgid "v2ProjectId does not match the workspace's project"
 msgstr "v2ProjectIdがワークスペースのプロジェクトと一致しません"
+
+msgid "Value"
+msgstr "値"
+
+msgid "Value to test"
+msgstr "判定する値"
 
 msgid "Variables"
 msgstr "変数"
@@ -22098,6 +22242,12 @@ msgstr "リリースした内容"
 msgid "What should run automatically?"
 msgstr "何を自動で実行しますか？"
 
+msgid "What should the agent do?"
+msgstr "エージェントに何をさせますか？"
+
+msgid "What should the model do?"
+msgstr "モデルに何をさせますか？"
+
 msgid "What should the page show?"
 msgstr "ページに何を表示しますか?"
 
@@ -22260,11 +22410,32 @@ msgstr "作業時間 {0}分{1}秒"
 msgid "Worked for {seconds}s"
 msgstr "作業時間 {seconds}秒"
 
+msgid "Workflow actions"
+msgstr "ワークフローの操作"
+
+msgid "Workflow archived"
+msgstr "ワークフローをアーカイブしました"
+
+msgid "Workflow changed elsewhere"
+msgstr "ワークフローが別の場所で変更されました"
+
+msgid "Workflow name"
+msgstr "ワークフロー名"
+
+msgid "Workflow not found."
+msgstr "ワークフローが見つかりません。"
+
 msgid "Workflow run completed…"
 msgstr "ワークフロー実行完了…"
 
+msgid "Workflow saved"
+msgstr "ワークフローを保存しました"
+
 msgid "Workflow Tutorials"
 msgstr "ワークフローのチュートリアル"
+
+msgid "Workflows"
+msgstr "ワークフロー"
 
 msgid "Working"
 msgstr "作業中"
@@ -22333,6 +22504,9 @@ msgstr "ワークスペースを作成しました"
 msgid "Workspace details"
 msgstr "ワークスペースの詳細"
 
+msgid "Workspace ID"
+msgstr "ワークスペース ID"
+
 msgid "Workspace ID copied"
 msgstr "ワークスペースIDをコピーしました"
 
@@ -22368,6 +22542,9 @@ msgstr "ワークスペース実行: {workspaceRunState}"
 
 msgid "Workspace settings"
 msgstr "ワークスペース設定"
+
+msgid "Workspace to run in"
+msgstr "実行するワークスペース"
 
 msgid "Workspace views"
 msgstr "ワークスペースのビュー"
@@ -22485,6 +22662,9 @@ msgstr "年払い"
 
 msgid "Yellow"
 msgstr "黄"
+
+msgid "yes"
+msgstr "はい"
 
 msgid "Yes"
 msgstr "はい"

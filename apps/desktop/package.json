@@ -51,6 +51,7 @@
 		"@parcel/watcher": "2.5.6",
 		"@superset/macos-process-metrics": "workspace:*",
 		"@xterm/headless": "6.1.0-beta.313",
+		"@xyflow/react": "12.8.4",
 		"better-sqlite3": "12.11.1",
 		"bindings": "1.5.0",
 		"bufferutil": "4.1.0",

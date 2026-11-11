@@ -2024,6 +2024,9 @@ msgstr "Aggiungi prima {repositoryName} come progetto su questo computer"
 msgid "Add a comment…"
 msgstr "Aggiungi un commento…"
 
+msgid "Add a daily schedule"
+msgstr "Aggiungi una pianificazione giornaliera"
+
 msgid "Add a description"
 msgstr "Aggiungi una descrizione"
 
@@ -2111,6 +2114,9 @@ msgstr "Aggiungi file, app e altro (@)"
 msgid "Add GitHub organization"
 msgstr "Aggiungi organizzazione GitHub"
 
+msgid "Add header"
+msgstr "Aggiungi intestazione"
+
 msgid "Add instructions"
 msgstr "Aggiungi istruzioni"
 
@@ -2129,6 +2135,9 @@ msgstr "Aggiungi membro"
 
 msgid "Add more…"
 msgstr "Aggiungi altri…"
+
+msgid "Add node"
+msgstr "Aggiungi nodo"
 
 msgid "Add one from the menu in the sidebar to get started."
 msgstr "Aggiungine uno dal menu nella barra laterale per iniziare."
@@ -2731,6 +2740,9 @@ msgstr "Un agente scrive intere funzioni e interi file mentre un umano osserva o
 
 msgid "An automation can only use a cloud workspace you created"
 msgstr "Un'automazione può usare solo un workspace cloud che hai creato tu"
+
+msgid "An edge points at a missing node."
+msgstr "Un collegamento punta a un nodo mancante."
 
 msgid "An environment holds your repositories, variables, and region. Start as many workspaces from it as you need."
 msgstr "Un ambiente contiene repository, variabili e regione. Avvia da esso tutti gli spazi di lavoro che ti servono."
@@ -3452,6 +3464,9 @@ msgstr "Torna alle pagine"
 msgid "Back to the leaderboard"
 msgstr "Torna alla classifica"
 
+msgid "Back to workflows"
+msgstr "Torna ai flussi di lavoro"
+
 msgid "Backed by"
 msgstr "Sostenuti da"
 
@@ -3592,6 +3607,9 @@ msgstr "Board"
 
 msgid "Board view"
 msgstr "Vista board"
+
+msgid "Body"
+msgstr "Corpo"
 
 msgid "Bold"
 msgstr "Grassetto"
@@ -3764,6 +3782,9 @@ msgstr "Bug"
 
 msgid "Bug reports"
 msgstr "Segnalazioni di bug"
+
+msgid "Build a canvas of agent, LLM, API, and command steps that runs on a schedule or an event."
+msgstr "Componi un canvas di passaggi agente, LLM, API e comandi che viene eseguito in base a una pianificazione o a un evento."
 
 msgid "Build in public"
 msgstr "Costruire in pubblico"
@@ -5041,6 +5062,9 @@ msgstr "Confronta Paradev con Cursor, Claude Code, Codex, Windsurf, Devin, GitHu
 msgid "Compare plans"
 msgstr "Confronta i piani"
 
+msgid "Compare to"
+msgstr "Confronta con"
+
 msgid "Compared against the default style"
 msgstr "Confrontato con lo stile predefinito"
 
@@ -5059,6 +5083,9 @@ msgstr "component-showcase"
 
 msgid "Composable form layout — pairs with @superset/ui/form for react-hook-form"
 msgstr "Layout di form componibile — si abbina a @superset/ui/form per react-hook-form"
+
+msgid "Condition"
+msgstr "Condizione"
 
 msgid "Conductor chat history. Export it in Conductor under Settings → Account"
 msgstr "Cronologia delle chat di Conductor. Esportala in Conductor da Settings → Account"
@@ -5186,6 +5213,9 @@ msgstr "Collega Claude, Codex, Cursor o qualsiasi client <0>MCP</0> e lascia che
 
 msgid "Connect Claude, Codex, Cursor, or any MCP client to {companyName}. Create tasks, spin up workspaces, launch agents, and run automations straight from your AI agent."
 msgstr "Collega Claude, Codex, Cursor o qualsiasi client MCP a {companyName}. Crea task, avvia workspace, lancia agenti ed esegui automazioni direttamente dal tuo agente AI."
+
+msgid "Connect condition branches from their yes/no handles."
+msgstr "Collega i rami della condizione dalle maniglie sì/no."
 
 msgid "Connect external services to sync data with your organization."
 msgstr "Collega servizi esterni per sincronizzare i dati con la tua organizzazione."
@@ -6933,6 +6963,9 @@ msgstr "Elimina il branch locale alla rimozione del workspace"
 msgid "Delete message"
 msgstr "Elimina messaggio"
 
+msgid "Delete node"
+msgstr "Elimina nodo"
+
 msgid "Delete organization"
 msgstr "Elimina l'organizzazione"
 
@@ -7200,6 +7233,9 @@ msgstr "Sviluppatori"
 
 msgid "Development build"
 msgstr "Build di sviluppo"
+
+msgid "Device"
+msgstr "Dispositivo"
 
 msgid "Device: {selectedLabel}"
 msgstr "Dispositivo: {selectedLabel}"
@@ -7641,6 +7677,9 @@ msgstr "Menu a discesa, contestuali e dell'applicazione"
 msgid "Due today"
 msgstr "Da pagare oggi"
 
+msgid "Duplicate node id: {nodeId}"
+msgstr "ID nodo duplicato: {nodeId}"
+
 msgid "Duration"
 msgstr "Durata"
 
@@ -7726,6 +7765,9 @@ msgstr "Hai ottenuto {name}"
 
 msgid "Earned {name} ×{tier}"
 msgstr "Hai ottenuto {name} ×{tier}"
+
+msgid "Edges cannot point into the trigger."
+msgstr "I collegamenti non possono puntare al trigger."
 
 msgid "Edit"
 msgstr "Modifica"
@@ -7888,6 +7930,9 @@ msgstr "Attiva l’accesso remoto e mantieni questo computer attivo con Paradev 
 
 msgid "Enable skill"
 msgstr "Attiva la skill"
+
+msgid "Enabled"
+msgstr "Attivo"
 
 msgid "End repeat"
 msgstr "Fine ripetizione"
@@ -8274,6 +8319,9 @@ msgstr "Aggiunta del membro non riuscita"
 msgid "Failed to archive automation"
 msgstr "Impossibile archiviare l'automazione"
 
+msgid "Failed to archive workflow"
+msgstr "Impossibile archiviare il flusso di lavoro"
+
 msgid "Failed to cancel invitation"
 msgstr "Annullamento dell'invito non riuscito"
 
@@ -8373,6 +8421,9 @@ msgstr "Impossibile creare il terminale"
 msgid "Failed to create thread"
 msgstr "Creazione del thread non riuscita"
 
+msgid "Failed to create workflow"
+msgstr "Impossibile creare il flusso di lavoro"
+
 msgid "Failed to create workspace"
 msgstr "Creazione del workspace non riuscita"
 
@@ -8403,6 +8454,9 @@ msgstr "Impossibile eliminare il task"
 
 msgid "Failed to delete team"
 msgstr "Eliminazione del team non riuscita"
+
+msgid "Failed to delete trigger"
+msgstr "Impossibile eliminare il trigger"
 
 msgid "Failed to discard the new item"
 msgstr "Impossibile scartare il nuovo elemento"
@@ -8615,6 +8669,12 @@ msgstr "Salvataggio della configurazione di setup non riuscito"
 msgid "Failed to save team"
 msgstr "Salvataggio del team non riuscito"
 
+msgid "Failed to save trigger"
+msgstr "Impossibile salvare il trigger"
+
+msgid "Failed to save workflow"
+msgstr "Impossibile salvare il flusso di lavoro"
+
 msgid "Failed to send"
 msgstr "Invio non riuscito"
 
@@ -8644,6 +8704,9 @@ msgstr "Accesso non riuscito. Riprova."
 
 msgid "Failed to sign up. Please try again."
 msgstr "Registrazione non riuscita. Riprova."
+
+msgid "Failed to start run"
+msgstr "Impossibile avviare l'esecuzione"
 
 msgid "Failed to start the selected automations"
 msgstr "Impossibile avviare le automazioni selezionate"
@@ -8710,6 +8773,9 @@ msgstr "Aggiornamento del team non riuscito. Riprova."
 
 msgid "Failed to update URL"
 msgstr "Aggiornamento dell'URL non riuscito"
+
+msgid "Failed to update workflow"
+msgstr "Impossibile aggiornare il flusso di lavoro"
 
 msgid "Failed to update workspace"
 msgstr "Impossibile aggiornare il workspace"
@@ -8986,6 +9052,9 @@ msgstr "Correggi i rilievi"
 
 msgid "Fix new errors in web. Reproduce each one in a test and open a draft pull request."
 msgstr "Correggi i nuovi errori in web. Riproduci ciascuno in un test e apri una pull request in bozza."
+
+msgid "Fix the graph before saving"
+msgstr "Correggi il grafo prima di salvare"
 
 msgid "fix-auth-redirect"
 msgstr "fix-auth-redirect"
@@ -9669,6 +9738,9 @@ msgstr "Ha commit non pushati"
 msgid "Head-to-Head Comparisons"
 msgstr "Confronti diretti"
 
+msgid "Headers"
+msgstr "Intestazioni"
+
 msgid "Heading 1"
 msgstr "Titolo 1"
 
@@ -9981,6 +10053,12 @@ msgstr "Come i tuoi agenti accedono nei workspace cloud. Le altre persone colleg
 
 msgid "HTML preview"
 msgstr "Anteprima HTML"
+
+msgid "HTTP"
+msgstr "HTTP"
+
+msgid "HTTP request"
+msgstr "Richiesta HTTP"
 
 msgid "https://"
 msgstr "https://"
@@ -11310,6 +11388,9 @@ msgstr "Attivo nell'app."
 msgid "Live preview"
 msgstr "Anteprima dal vivo"
 
+msgid "LLM"
+msgstr "LLM"
+
 msgid "llms.txt (index for AI agents)"
 msgstr "llms.txt (indice per gli agenti AI)"
 
@@ -11745,6 +11826,9 @@ msgstr "Adatta le scorciatoie alle etichette della tua tastiera (es. ⌘Z si att
 
 msgid "Max"
 msgstr "Max"
+
+msgid "Max tokens"
+msgstr "Token massimi"
 
 msgid "Maximum"
 msgstr "Massimo"
@@ -12444,6 +12528,9 @@ msgstr "Nuova finestra"
 msgid "New Window"
 msgstr "Nuova finestra"
 
+msgid "New workflow"
+msgstr "Nuovo flusso di lavoro"
+
 msgid "New workspace"
 msgstr "Nuovo workspace"
 
@@ -12534,6 +12621,9 @@ msgstr "Ottimo lavoro"
 
 msgid "Nightly audit"
 msgstr "Audit notturno"
+
+msgid "no"
+msgstr "no"
 
 msgid "No"
 msgstr "No"
@@ -13156,6 +13246,9 @@ msgstr "Ancora nessun thread"
 msgid "No triggers"
 msgstr "Nessun trigger"
 
+msgid "No triggers yet. The workflow only runs when started manually."
+msgstr "Nessun trigger per ora. Il flusso di lavoro viene eseguito solo se avviato manualmente."
+
 msgid "No Updates"
 msgstr "Nessun aggiornamento"
 
@@ -13185,6 +13278,9 @@ msgstr "Ancora nessuna versione"
 
 msgid "No versions yet."
 msgstr "Ancora nessuna versione."
+
+msgid "No workflows yet"
+msgstr "Nessun flusso di lavoro per ora"
 
 msgid "No workspace run command configured"
 msgstr "Nessun comando di esecuzione del workspace configurato"
@@ -13596,6 +13692,9 @@ msgstr "Disponibile solo su macOS."
 msgid "Only channel admins can do that"
 msgstr "Solo gli amministratori del canale possono farlo"
 
+msgid "Only condition nodes have branch handles."
+msgstr "Solo i nodi condizione hanno maniglie di ramo."
+
 msgid "Only host owners can change membership"
 msgstr "Solo i proprietari dell'host possono modificare gli accessi"
 
@@ -13613,6 +13712,9 @@ msgstr "Solo chi l'ha creato o un amministratore dell'organizzazione può modifi
 
 msgid "Only on this machine: gitignored, and applied to every worktree of this repository. Any key set here replaces the shared one."
 msgstr "Solo su questo computer: ignorato da git e applicato a ogni worktree di questo repository. Ogni chiave impostata qui sostituisce quella condivisa."
+
+msgid "Only one trigger node is allowed."
+msgstr "È consentito un solo nodo trigger."
 
 msgid "Only organization owners and admins can connect GitHub accounts. Ask one of them to connect it."
 msgstr "Solo i proprietari e gli amministratori dell'organizzazione possono collegare account GitHub. Chiedi a uno di loro di collegare l'account."
@@ -16062,6 +16164,9 @@ msgstr "Ricarica l'app"
 msgid "Reload from disk"
 msgstr "Ricarica dal disco"
 
+msgid "Reload latest"
+msgstr "Ricarica l'ultima versione"
+
 msgid "Reload Paradev to refresh the workspace list."
 msgstr "Ricarica Paradev per aggiornare l'elenco dei workspace."
 
@@ -16160,6 +16265,9 @@ msgstr "Rimuovi dalla barra laterale"
 
 msgid "Remove from Sidebar"
 msgstr "Rimuovi dalla barra laterale"
+
+msgid "Remove header"
+msgstr "Rimuovi intestazione"
 
 msgid "Remove icon"
 msgstr "Rimuovi l'icona"
@@ -17589,8 +17697,14 @@ msgstr "Select"
 msgid "Select {0}"
 msgstr "Seleziona {0}"
 
+msgid "Select a device"
+msgstr "Seleziona un dispositivo"
+
 msgid "Select a file to view it here"
 msgstr "Seleziona un file per visualizzarlo qui"
+
+msgid "Select a node to configure it."
+msgstr "Seleziona un nodo per configurarlo."
 
 msgid "Select a project"
 msgstr "Seleziona un progetto"
@@ -18636,6 +18750,9 @@ msgstr "Qualcuno sta spostando questo workspace…"
 msgid "Someone on the Paradev team will review this page. We only follow up if we need more from you."
 msgstr "Qualcuno del team Paradev esaminerà questa pagina. Ti contatteremo solo se ci serve altro."
 
+msgid "Someone saved a newer version of this workflow. Reload to get their changes, or keep editing and save again to retry on top of your copy."
+msgstr "Qualcuno ha salvato una versione più recente di questo flusso di lavoro. Ricarica per ottenere le sue modifiche, oppure continua a modificare e salva di nuovo sopra la tua copia."
+
 msgid "Something else"
 msgstr "Altro"
 
@@ -19394,6 +19511,9 @@ msgstr "Progettazione di sistemi"
 msgid "System memory"
 msgstr "Memoria di sistema"
 
+msgid "System prompt"
+msgstr "Prompt di sistema"
+
 msgid "System RAM share"
 msgstr "Quota di RAM di sistema"
 
@@ -19918,6 +20038,12 @@ msgstr "I fondi e i business angel che sostengono il nostro team."
 msgid "The future home for reusable Paradev agent configs, prompts, and setup guides."
 msgstr "La futura casa di configurazioni, prompt e guide di setup riutilizzabili per gli agenti Paradev."
 
+msgid "The graph has a cycle through: {nodeIds}"
+msgstr "Il grafo contiene un ciclo attraverso: {nodeIds}"
+
+msgid "The graph needs a trigger node."
+msgstr "Il grafo richiede un nodo trigger."
+
 #. placeholder {0}: info.version
 msgid "The host came back on {0}, not {targetVersion}."
 msgstr "L'host è tornato alla {0}, non alla {targetVersion}."
@@ -20170,6 +20296,9 @@ msgstr "Il worktree e le eventuali modifiche non committate verranno rimossi. L'
 
 msgid "The worktree has uncommitted edits from the agent session."
 msgstr "Il worktree ha modifiche non committate dalla sessione dell'agente."
+
+msgid "The yes branch runs when this is true, the no branch otherwise."
+msgstr "Il ramo sì viene eseguito quando è vero, altrimenti il ramo no."
 
 msgid "Theme"
 msgstr "Tema"
@@ -20697,6 +20826,12 @@ msgstr "Tempo al primo workspace"
 
 msgid "Time zone"
 msgstr "Fuso orario"
+
+msgid "Timeout (minutes)"
+msgstr "Timeout (minuti)"
+
+msgid "Timeout (seconds)"
+msgstr "Timeout (secondi)"
 
 msgid "Tinted"
 msgstr "Colorato"
@@ -21309,6 +21444,9 @@ msgstr "Non classificato"
 msgid "Unranked until {0} days carry usage."
 msgstr "Non classificato finché {0} giorni non registrano attività."
 
+msgid "Unreachable nodes: {nodeIds}"
+msgstr "Nodi irraggiungibili: {nodeIds}"
+
 msgid "Unresolve"
 msgstr "Riapri"
 
@@ -21652,6 +21790,12 @@ msgstr "utente@host, ssh://utente@host:2222 o un alias della configurazione ssh"
 
 msgid "v2ProjectId does not match the workspace's project"
 msgstr "v2ProjectId non corrisponde al progetto del workspace"
+
+msgid "Value"
+msgstr "Valore"
+
+msgid "Value to test"
+msgstr "Valore da verificare"
 
 msgid "Variables"
 msgstr "Variabili"
@@ -22098,6 +22242,12 @@ msgstr "Novità rilasciate"
 msgid "What should run automatically?"
 msgstr "Cosa dovrebbe girare automaticamente?"
 
+msgid "What should the agent do?"
+msgstr "Cosa deve fare l'agente?"
+
+msgid "What should the model do?"
+msgstr "Cosa deve fare il modello?"
+
 msgid "What should the page show?"
 msgstr "Cosa deve mostrare la pagina?"
 
@@ -22260,11 +22410,32 @@ msgstr "Ha lavorato {0} min {1} s"
 msgid "Worked for {seconds}s"
 msgstr "Ha lavorato {seconds} s"
 
+msgid "Workflow actions"
+msgstr "Azioni del flusso di lavoro"
+
+msgid "Workflow archived"
+msgstr "Flusso di lavoro archiviato"
+
+msgid "Workflow changed elsewhere"
+msgstr "Flusso di lavoro modificato altrove"
+
+msgid "Workflow name"
+msgstr "Nome del flusso di lavoro"
+
+msgid "Workflow not found."
+msgstr "Flusso di lavoro non trovato."
+
 msgid "Workflow run completed…"
 msgstr "Esecuzione del workflow completata…"
 
+msgid "Workflow saved"
+msgstr "Flusso di lavoro salvato"
+
 msgid "Workflow Tutorials"
 msgstr "Tutorial sui flussi di lavoro"
+
+msgid "Workflows"
+msgstr "Flussi di lavoro"
 
 msgid "Working"
 msgstr "Al lavoro"
@@ -22333,6 +22504,9 @@ msgstr "Workspace creato"
 msgid "Workspace details"
 msgstr "Dettagli del workspace"
 
+msgid "Workspace ID"
+msgstr "ID dello spazio di lavoro"
+
 msgid "Workspace ID copied"
 msgstr "ID del workspace copiato"
 
@@ -22368,6 +22542,9 @@ msgstr "Esecuzione del workspace: {workspaceRunState}"
 
 msgid "Workspace settings"
 msgstr "Impostazioni del workspace"
+
+msgid "Workspace to run in"
+msgstr "Spazio di lavoro in cui eseguire"
 
 msgid "Workspace views"
 msgstr "Viste dei workspace"
@@ -22485,6 +22662,9 @@ msgstr "Annuale"
 
 msgid "Yellow"
 msgstr "Giallo"
+
+msgid "yes"
+msgstr "sì"
 
 msgid "Yes"
 msgstr "Sì"

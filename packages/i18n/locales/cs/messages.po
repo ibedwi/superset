@@ -2024,6 +2024,9 @@ msgstr "Nejprve přidejte {repositoryName} jako projekt na tomto počítači"
 msgid "Add a comment…"
 msgstr "Přidat komentář…"
 
+msgid "Add a daily schedule"
+msgstr "Přidat denní plán"
+
 msgid "Add a description"
 msgstr "Přidat popis"
 
@@ -2111,6 +2114,9 @@ msgstr "Přidat soubory, aplikace a další (@)"
 msgid "Add GitHub organization"
 msgstr "Přidat organizaci GitHub"
 
+msgid "Add header"
+msgstr "Přidat hlavičku"
+
 msgid "Add instructions"
 msgstr "Přidat pokyny"
 
@@ -2129,6 +2135,9 @@ msgstr "Přidat člena"
 
 msgid "Add more…"
 msgstr "Přidat další…"
+
+msgid "Add node"
+msgstr "Přidat uzel"
 
 msgid "Add one from the menu in the sidebar to get started."
 msgstr "Začněte tím, že jednoho přidáte z nabídky v postranním panelu."
@@ -2731,6 +2740,9 @@ msgstr "Agent píše celé funkce a soubory, zatímco člověk sleduje každý k
 
 msgid "An automation can only use a cloud workspace you created"
 msgstr "Automatizace může používat jen cloudový pracovní prostor, který jste vytvořili"
+
+msgid "An edge points at a missing node."
+msgstr "Propojení ukazuje na chybějící uzel."
 
 msgid "An environment holds your repositories, variables, and region. Start as many workspaces from it as you need."
 msgstr "Prostředí obsahuje vaše repozitáře, proměnné a region. Spusťte z něj tolik pracovních prostorů, kolik potřebujete."
@@ -3452,6 +3464,9 @@ msgstr "Zpět na stránky"
 msgid "Back to the leaderboard"
 msgstr "Zpět na žebříček"
 
+msgid "Back to workflows"
+msgstr "Zpět na pracovní postupy"
+
 msgid "Backed by"
 msgstr "Podporují nás"
 
@@ -3592,6 +3607,9 @@ msgstr "Nástěnka"
 
 msgid "Board view"
 msgstr "Zobrazení nástěnky"
+
+msgid "Body"
+msgstr "Tělo"
 
 msgid "Bold"
 msgstr "Tučné"
@@ -3764,6 +3782,9 @@ msgstr "Brouk"
 
 msgid "Bug reports"
 msgstr "Hlášení chyb"
+
+msgid "Build a canvas of agent, LLM, API, and command steps that runs on a schedule or an event."
+msgstr "Sestavte na plátně kroky agenta, LLM, API a příkazů, které běží podle plánu nebo události."
 
 msgid "Build in public"
 msgstr "Vyvíjíme veřejně"
@@ -5041,6 +5062,9 @@ msgstr "Porovnejte Paradev s Cursor, Claude Code, Codex, Windsurf, Devin, GitHub
 msgid "Compare plans"
 msgstr "Porovnat tarify"
 
+msgid "Compare to"
+msgstr "Porovnat s"
+
 msgid "Compared against the default style"
 msgstr "Porovnáno s výchozím stylem"
 
@@ -5059,6 +5083,9 @@ msgstr "component-showcase"
 
 msgid "Composable form layout — pairs with @superset/ui/form for react-hook-form"
 msgstr "Skládatelné rozvržení formuláře — funguje s @superset/ui/form pro react-hook-form"
+
+msgid "Condition"
+msgstr "Podmínka"
 
 msgid "Conductor chat history. Export it in Conductor under Settings → Account"
 msgstr "Historie chatů z Conductor. Exportujte ji v Conductor v Settings → Account"
@@ -5186,6 +5213,9 @@ msgstr "Připojte Claude, Codex, Cursor nebo libovolného <0>MCP</0> klienta a n
 
 msgid "Connect Claude, Codex, Cursor, or any MCP client to {companyName}. Create tasks, spin up workspaces, launch agents, and run automations straight from your AI agent."
 msgstr "Připojte Claude, Codex, Cursor nebo jakéhokoli MCP klienta k {companyName}. Vytvářejte úkoly, spouštějte pracovní prostory, startujte agenty a pouštějte automatizace přímo ze svého AI agenta."
+
+msgid "Connect condition branches from their yes/no handles."
+msgstr "Větve podmínky připojujte z úchytů ano/ne."
 
 msgid "Connect external services to sync data with your organization."
 msgstr "Připojte externí služby a synchronizujte data se svou organizací."
@@ -6933,6 +6963,9 @@ msgstr "Smazat lokální větev při odstranění pracovního prostoru"
 msgid "Delete message"
 msgstr "Smazat zprávu"
 
+msgid "Delete node"
+msgstr "Smazat uzel"
+
 msgid "Delete organization"
 msgstr "Smazat organizaci"
 
@@ -7200,6 +7233,9 @@ msgstr "Vývojáři"
 
 msgid "Development build"
 msgstr "Vývojové sestavení"
+
+msgid "Device"
+msgstr "Zařízení"
 
 msgid "Device: {selectedLabel}"
 msgstr "Zařízení: {selectedLabel}"
@@ -7641,6 +7677,9 @@ msgstr "Rozbalovací, kontextové a aplikační nabídky"
 msgid "Due today"
 msgstr "K úhradě dnes"
 
+msgid "Duplicate node id: {nodeId}"
+msgstr "Duplicitní ID uzlu: {nodeId}"
+
 msgid "Duration"
 msgstr "Trvání"
 
@@ -7726,6 +7765,9 @@ msgstr "Získáno: {name}"
 
 msgid "Earned {name} ×{tier}"
 msgstr "Získáno: {name} ×{tier}"
+
+msgid "Edges cannot point into the trigger."
+msgstr "Propojení nemohou směřovat do spouštěče."
 
 msgid "Edit"
 msgstr "Upravit"
@@ -7888,6 +7930,9 @@ msgstr "Zapněte vzdálený přístup a nechte tento počítač aktivní se spu�
 
 msgid "Enable skill"
 msgstr "Zapnout skill"
+
+msgid "Enabled"
+msgstr "Zapnuto"
 
 msgid "End repeat"
 msgstr "Konec opakování"
@@ -8274,6 +8319,9 @@ msgstr "Nepodařilo se přidat člena"
 msgid "Failed to archive automation"
 msgstr "Automatizaci se nepodařilo archivovat"
 
+msgid "Failed to archive workflow"
+msgstr "Pracovní postup se nepodařilo archivovat"
+
 msgid "Failed to cancel invitation"
 msgstr "Nepodařilo se zrušit pozvánku"
 
@@ -8373,6 +8421,9 @@ msgstr "Nepodařilo se vytvořit terminál"
 msgid "Failed to create thread"
 msgstr "Nepodařilo se vytvořit vlákno"
 
+msgid "Failed to create workflow"
+msgstr "Pracovní postup se nepodařilo vytvořit"
+
 msgid "Failed to create workspace"
 msgstr "Nepodařilo se vytvořit pracovní prostor"
 
@@ -8403,6 +8454,9 @@ msgstr "Úkol se nepodařilo smazat"
 
 msgid "Failed to delete team"
 msgstr "Nepodařilo se smazat tým"
+
+msgid "Failed to delete trigger"
+msgstr "Spouštěč se nepodařilo smazat"
 
 msgid "Failed to discard the new item"
 msgstr "Nepodařilo se zahodit novou položku"
@@ -8615,6 +8669,12 @@ msgstr "Nepodařilo se uložit konfiguraci setupu"
 msgid "Failed to save team"
 msgstr "Nepodařilo se uložit tým"
 
+msgid "Failed to save trigger"
+msgstr "Spouštěč se nepodařilo uložit"
+
+msgid "Failed to save workflow"
+msgstr "Pracovní postup se nepodařilo uložit"
+
 msgid "Failed to send"
 msgstr "Odeslání selhalo"
 
@@ -8644,6 +8704,9 @@ msgstr "Přihlášení se nezdařilo. Zkuste to prosím znovu."
 
 msgid "Failed to sign up. Please try again."
 msgstr "Registrace se nezdařila. Zkuste to prosím znovu."
+
+msgid "Failed to start run"
+msgstr "Běh se nepodařilo spustit"
 
 msgid "Failed to start the selected automations"
 msgstr "Vybrané automatizace se nepodařilo spustit"
@@ -8710,6 +8773,9 @@ msgstr "Nepodařilo se aktualizovat tým. Zkuste to prosím znovu."
 
 msgid "Failed to update URL"
 msgstr "Nepodařilo se změnit URL"
+
+msgid "Failed to update workflow"
+msgstr "Pracovní postup se nepodařilo aktualizovat"
 
 msgid "Failed to update workspace"
 msgstr "Pracovní prostor se nepodařilo aktualizovat"
@@ -8986,6 +9052,9 @@ msgstr "Opravit nálezy"
 
 msgid "Fix new errors in web. Reproduce each one in a test and open a draft pull request."
 msgstr "Opravuj nové chyby ve web. Každou zreprodukuj testem a otevři draft pull request."
+
+msgid "Fix the graph before saving"
+msgstr "Před uložením opravte graf"
 
 msgid "fix-auth-redirect"
 msgstr "fix-auth-redirect"
@@ -9669,6 +9738,9 @@ msgstr "Obsahuje neodeslané commity"
 msgid "Head-to-Head Comparisons"
 msgstr "Přímá srovnání"
 
+msgid "Headers"
+msgstr "Hlavičky"
+
 msgid "Heading 1"
 msgstr "Nadpis 1"
 
@@ -9981,6 +10053,12 @@ msgstr "Jak se vaši agenti přihlašují v cloudových pracovních prostorech. 
 
 msgid "HTML preview"
 msgstr "Náhled HTML"
+
+msgid "HTTP"
+msgstr "HTTP"
+
+msgid "HTTP request"
+msgstr "HTTP požadavek"
 
 msgid "https://"
 msgstr "https://"
@@ -11310,6 +11388,9 @@ msgstr "Živě v aplikaci."
 msgid "Live preview"
 msgstr "Živý náhled"
 
+msgid "LLM"
+msgstr "LLM"
+
 msgid "llms.txt (index for AI agents)"
 msgstr "llms.txt (index pro AI agenty)"
 
@@ -11745,6 +11826,9 @@ msgstr "Přiřadit zkratky k popiskům na vaší klávesnici (např. ⌘Z se vž
 
 msgid "Max"
 msgstr "Max"
+
+msgid "Max tokens"
+msgstr "Max. tokenů"
 
 msgid "Maximum"
 msgstr "Maximum"
@@ -12444,6 +12528,9 @@ msgstr "Nové okno"
 msgid "New Window"
 msgstr "Nové okno"
 
+msgid "New workflow"
+msgstr "Nový pracovní postup"
+
 msgid "New workspace"
 msgstr "Nový pracovní prostor"
 
@@ -12534,6 +12621,9 @@ msgstr "Skvělá práce"
 
 msgid "Nightly audit"
 msgstr "Noční audit"
+
+msgid "no"
+msgstr "ne"
 
 msgid "No"
 msgstr "Ne"
@@ -13156,6 +13246,9 @@ msgstr "Zatím žádná vlákna"
 msgid "No triggers"
 msgstr "Žádné spouštěče"
 
+msgid "No triggers yet. The workflow only runs when started manually."
+msgstr "Zatím žádné spouštěče. Pracovní postup se spustí jen ručně."
+
 msgid "No Updates"
 msgstr "Žádné aktualizace"
 
@@ -13185,6 +13278,9 @@ msgstr "Zatím žádné verze"
 
 msgid "No versions yet."
 msgstr "Zatím žádné verze."
+
+msgid "No workflows yet"
+msgstr "Zatím žádné pracovní postupy"
 
 msgid "No workspace run command configured"
 msgstr "Není nastavený žádný spouštěcí příkaz pracovního prostoru"
@@ -13596,6 +13692,9 @@ msgstr "Dostupné jen na macOS."
 msgid "Only channel admins can do that"
 msgstr "To mohou udělat jen správci kanálu"
 
+msgid "Only condition nodes have branch handles."
+msgstr "Úchyty větví mají jen uzly podmínky."
+
 msgid "Only host owners can change membership"
 msgstr "Členství mohou měnit jen vlastníci hosta"
 
@@ -13613,6 +13712,9 @@ msgstr "Tohoto agenta může změnit jen jeho tvůrce nebo správce organizace"
 
 msgid "Only on this machine: gitignored, and applied to every worktree of this repository. Any key set here replaces the shared one."
 msgstr "Jen na tomto počítači: ignorováno gitem a použito pro každý worktree tohoto repozitáře. Každý zde nastavený klíč nahradí sdílený."
+
+msgid "Only one trigger node is allowed."
+msgstr "Povolen je jen jeden uzel spouštěče."
 
 msgid "Only organization owners and admins can connect GitHub accounts. Ask one of them to connect it."
 msgstr "GitHub účty mohou připojovat jen vlastníci a správci organizace. Požádejte některého z nich, aby účet připojil."
@@ -16062,6 +16164,9 @@ msgstr "Načíst aplikaci znovu"
 msgid "Reload from disk"
 msgstr "Znovu načíst z disku"
 
+msgid "Reload latest"
+msgstr "Načíst nejnovější verzi"
+
 msgid "Reload Paradev to refresh the workspace list."
 msgstr "Načtěte Paradev znovu, aby se seznam pracovních prostorů obnovil."
 
@@ -16160,6 +16265,9 @@ msgstr "Odebrat z postranního panelu"
 
 msgid "Remove from Sidebar"
 msgstr "Odebrat z postranního panelu"
+
+msgid "Remove header"
+msgstr "Odebrat hlavičku"
 
 msgid "Remove icon"
 msgstr "Odebrat ikonu"
@@ -17589,8 +17697,14 @@ msgstr "Výběr"
 msgid "Select {0}"
 msgstr "Vybrat {0}"
 
+msgid "Select a device"
+msgstr "Vyberte zařízení"
+
 msgid "Select a file to view it here"
 msgstr "Vyberte soubor a zobrazí se zde"
+
+msgid "Select a node to configure it."
+msgstr "Vyberte uzel, který chcete nakonfigurovat."
 
 msgid "Select a project"
 msgstr "Vyberte projekt"
@@ -18636,6 +18750,9 @@ msgstr "Někdo přesouvá tento pracovní prostor…"
 msgid "Someone on the Paradev team will review this page. We only follow up if we need more from you."
 msgstr "Někdo z týmu Paradev tuto stránku posoudí. Ozveme se jen tehdy, když budeme potřebovat víc informací."
 
+msgid "Someone saved a newer version of this workflow. Reload to get their changes, or keep editing and save again to retry on top of your copy."
+msgstr "Někdo uložil novější verzi tohoto pracovního postupu. Načtěte ji znovu, nebo pokračujte v úpravách a uložte znovu přes svou kopii."
+
 msgid "Something else"
 msgstr "Něco jiného"
 
@@ -19394,6 +19511,9 @@ msgstr "Návrh systému"
 msgid "System memory"
 msgstr "Systémová paměť"
 
+msgid "System prompt"
+msgstr "Systémový prompt"
+
 msgid "System RAM share"
 msgstr "Podíl systémové RAM"
 
@@ -19918,6 +20038,12 @@ msgstr "Fondy a andělští investoři, kteří podporují náš tým."
 msgid "The future home for reusable Paradev agent configs, prompts, and setup guides."
 msgstr "Budoucí domov pro znovupoužitelné konfigurace agentů, prompty a průvodce nastavením pro Paradev."
 
+msgid "The graph has a cycle through: {nodeIds}"
+msgstr "Graf obsahuje cyklus přes: {nodeIds}"
+
+msgid "The graph needs a trigger node."
+msgstr "Graf potřebuje uzel spouštěče."
+
 #. placeholder {0}: info.version
 msgid "The host came back on {0}, not {targetVersion}."
 msgstr "Hostitel se vrátil s verzí {0}, ne {targetVersion}."
@@ -20170,6 +20296,9 @@ msgstr "Worktree a všechny necommitnuté změny budou odstraněny. Tuto akci ne
 
 msgid "The worktree has uncommitted edits from the agent session."
 msgstr "Worktree obsahuje necommitnuté úpravy z relace agenta."
+
+msgid "The yes branch runs when this is true, the no branch otherwise."
+msgstr "Když je podmínka pravdivá, běží větev ano, jinak větev ne."
 
 msgid "Theme"
 msgstr "Motiv"
@@ -20697,6 +20826,12 @@ msgstr "Čas do prvního pracovního prostoru"
 
 msgid "Time zone"
 msgstr "Časové pásmo"
+
+msgid "Timeout (minutes)"
+msgstr "Časový limit (minuty)"
+
+msgid "Timeout (seconds)"
+msgstr "Časový limit (sekundy)"
 
 msgid "Tinted"
 msgstr "Tónovaný"
@@ -21309,6 +21444,9 @@ msgstr "Bez pořadí"
 msgid "Unranked until {0} days carry usage."
 msgstr "Bez pořadí, dokud nebude dní s aktivitou: {0}."
 
+msgid "Unreachable nodes: {nodeIds}"
+msgstr "Nedosažitelné uzly: {nodeIds}"
+
 msgid "Unresolve"
 msgstr "Zrušit vyřešení"
 
@@ -21652,6 +21790,12 @@ msgstr "uživatel@host, ssh://uživatel@host:2222 nebo alias z konfigurace ssh"
 
 msgid "v2ProjectId does not match the workspace's project"
 msgstr "v2ProjectId neodpovídá projektu pracovního prostoru"
+
+msgid "Value"
+msgstr "Hodnota"
+
+msgid "Value to test"
+msgstr "Testovaná hodnota"
 
 msgid "Variables"
 msgstr "Proměnné"
@@ -22098,6 +22242,12 @@ msgstr "Co bylo vydáno"
 msgid "What should run automatically?"
 msgstr "Co by mělo běžet automaticky?"
 
+msgid "What should the agent do?"
+msgstr "Co má agent udělat?"
+
+msgid "What should the model do?"
+msgstr "Co má model udělat?"
+
 msgid "What should the page show?"
 msgstr "Co má stránka zobrazovat?"
 
@@ -22260,11 +22410,32 @@ msgstr "Pracoval {0} m {1} s"
 msgid "Worked for {seconds}s"
 msgstr "Pracoval {seconds} s"
 
+msgid "Workflow actions"
+msgstr "Akce pracovního postupu"
+
+msgid "Workflow archived"
+msgstr "Pracovní postup archivován"
+
+msgid "Workflow changed elsewhere"
+msgstr "Pracovní postup byl změněn jinde"
+
+msgid "Workflow name"
+msgstr "Název pracovního postupu"
+
+msgid "Workflow not found."
+msgstr "Pracovní postup nenalezen."
+
 msgid "Workflow run completed…"
 msgstr "Dokončen běh workflow…"
 
+msgid "Workflow saved"
+msgstr "Pracovní postup uložen"
+
 msgid "Workflow Tutorials"
 msgstr "Návody k workflow"
+
+msgid "Workflows"
+msgstr "Pracovní postupy"
 
 msgid "Working"
 msgstr "Pracuje"
@@ -22333,6 +22504,9 @@ msgstr "Pracovní prostor vytvořen"
 msgid "Workspace details"
 msgstr "Podrobnosti pracovního prostoru"
 
+msgid "Workspace ID"
+msgstr "ID pracovního prostoru"
+
 msgid "Workspace ID copied"
 msgstr "ID pracovního prostoru zkopírováno"
 
@@ -22368,6 +22542,9 @@ msgstr "Spuštění pracovního prostoru: {workspaceRunState}"
 
 msgid "Workspace settings"
 msgstr "Nastavení pracovního prostoru"
+
+msgid "Workspace to run in"
+msgstr "Pracovní prostor pro spuštění"
 
 msgid "Workspace views"
 msgstr "Pohledy pracovních prostorů"
@@ -22485,6 +22662,9 @@ msgstr "Ročně"
 
 msgid "Yellow"
 msgstr "Žlutá"
+
+msgid "yes"
+msgstr "ano"
 
 msgid "Yes"
 msgstr "Ano"

@@ -2024,6 +2024,9 @@ msgstr "Tambahkan {repositoryName} sebagai proyek di komputer ini terlebih dahul
 msgid "Add a comment…"
 msgstr "Tambahkan komentar…"
 
+msgid "Add a daily schedule"
+msgstr "Tambahkan jadwal harian"
+
 msgid "Add a description"
 msgstr "Tambahkan deskripsi"
 
@@ -2111,6 +2114,9 @@ msgstr "Tambah file, aplikasi, dan lainnya (@)"
 msgid "Add GitHub organization"
 msgstr "Tambahkan organisasi GitHub"
 
+msgid "Add header"
+msgstr "Tambahkan header"
+
 msgid "Add instructions"
 msgstr "Tambahkan instruksi"
 
@@ -2129,6 +2135,9 @@ msgstr "Tambah anggota"
 
 msgid "Add more…"
 msgstr "Tambah lagi…"
+
+msgid "Add node"
+msgstr "Tambahkan node"
 
 msgid "Add one from the menu in the sidebar to get started."
 msgstr "Tambahkan satu dari menu di sidebar untuk memulai."
@@ -2731,6 +2740,9 @@ msgstr "Agen menulis fungsi dan file utuh sementara manusia mengawasi tiap langk
 
 msgid "An automation can only use a cloud workspace you created"
 msgstr "Otomatisasi hanya bisa menggunakan workspace cloud yang kamu buat"
+
+msgid "An edge points at a missing node."
+msgstr "Ada koneksi yang menunjuk ke node yang hilang."
 
 msgid "An environment holds your repositories, variables, and region. Start as many workspaces from it as you need."
 msgstr "Lingkungan menyimpan repositori, variabel, dan region Anda. Mulai workspace sebanyak yang Anda perlukan darinya."
@@ -3452,6 +3464,9 @@ msgstr "Kembali ke halaman"
 msgid "Back to the leaderboard"
 msgstr "Kembali ke papan peringkat"
 
+msgid "Back to workflows"
+msgstr "Kembali ke alur kerja"
+
 msgid "Backed by"
 msgstr "Didukung oleh"
 
@@ -3592,6 +3607,9 @@ msgstr "Papan"
 
 msgid "Board view"
 msgstr "Tampilan papan"
+
+msgid "Body"
+msgstr "Isi"
 
 msgid "Bold"
 msgstr "Tebal"
@@ -3764,6 +3782,9 @@ msgstr "Bug"
 
 msgid "Bug reports"
 msgstr "Laporan bug"
+
+msgid "Build a canvas of agent, LLM, API, and command steps that runs on a schedule or an event."
+msgstr "Susun kanvas berisi langkah agen, LLM, API, dan perintah yang berjalan sesuai jadwal atau peristiwa."
 
 msgid "Build in public"
 msgstr "Membangun secara terbuka"
@@ -5041,6 +5062,9 @@ msgstr "Bandingkan Paradev dengan Cursor, Claude Code, Codex, Windsurf, Devin, G
 msgid "Compare plans"
 msgstr "Bandingkan paket"
 
+msgid "Compare to"
+msgstr "Bandingkan dengan"
+
 msgid "Compared against the default style"
 msgstr "Dibandingkan dengan gaya bawaan"
 
@@ -5059,6 +5083,9 @@ msgstr "component-showcase"
 
 msgid "Composable form layout — pairs with @superset/ui/form for react-hook-form"
 msgstr "Tata letak form yang bisa dikomposisi — berpasangan dengan @superset/ui/form untuk react-hook-form"
+
+msgid "Condition"
+msgstr "Kondisi"
 
 msgid "Conductor chat history. Export it in Conductor under Settings → Account"
 msgstr "Riwayat chat Conductor. Ekspor di Conductor melalui Settings → Account"
@@ -5186,6 +5213,9 @@ msgstr "Hubungkan Claude, Codex, Cursor, atau klien <0>MCP</0> apa pun dan biark
 
 msgid "Connect Claude, Codex, Cursor, or any MCP client to {companyName}. Create tasks, spin up workspaces, launch agents, and run automations straight from your AI agent."
 msgstr "Hubungkan Claude, Codex, Cursor, atau klien MCP apa pun ke {companyName}. Buat task, jalankan workspace, luncurkan agen, dan jalankan otomatisasi langsung dari agen AI Anda."
+
+msgid "Connect condition branches from their yes/no handles."
+msgstr "Hubungkan cabang kondisi dari titik ya/tidak."
 
 msgid "Connect external services to sync data with your organization."
 msgstr "Hubungkan layanan eksternal untuk menyinkronkan data dengan organisasi Anda."
@@ -6933,6 +6963,9 @@ msgstr "Hapus branch lokal saat workspace dihapus"
 msgid "Delete message"
 msgstr "Hapus pesan"
 
+msgid "Delete node"
+msgstr "Hapus node"
+
 msgid "Delete organization"
 msgstr "Hapus organisasi"
 
@@ -7200,6 +7233,9 @@ msgstr "Developer"
 
 msgid "Development build"
 msgstr "Build pengembangan"
+
+msgid "Device"
+msgstr "Perangkat"
 
 msgid "Device: {selectedLabel}"
 msgstr "Perangkat: {selectedLabel}"
@@ -7641,6 +7677,9 @@ msgstr "Menu dropdown, konteks, dan aplikasi"
 msgid "Due today"
 msgstr "Jatuh tempo hari ini"
 
+msgid "Duplicate node id: {nodeId}"
+msgstr "ID node duplikat: {nodeId}"
+
 msgid "Duration"
 msgstr "Durasi"
 
@@ -7726,6 +7765,9 @@ msgstr "{name} diraih"
 
 msgid "Earned {name} ×{tier}"
 msgstr "{name} ×{tier} diraih"
+
+msgid "Edges cannot point into the trigger."
+msgstr "Koneksi tidak boleh mengarah ke pemicu."
 
 msgid "Edit"
 msgstr "Edit"
@@ -7888,6 +7930,9 @@ msgstr "Aktifkan akses jarak jauh dan biarkan komputer ini tetap aktif dengan Pa
 
 msgid "Enable skill"
 msgstr "Aktifkan skill"
+
+msgid "Enabled"
+msgstr "Aktif"
 
 msgid "End repeat"
 msgstr "Akhir pengulangan"
@@ -8274,6 +8319,9 @@ msgstr "Gagal menambah anggota"
 msgid "Failed to archive automation"
 msgstr "Gagal mengarsipkan otomatisasi"
 
+msgid "Failed to archive workflow"
+msgstr "Gagal mengarsipkan alur kerja"
+
 msgid "Failed to cancel invitation"
 msgstr "Gagal membatalkan undangan"
 
@@ -8373,6 +8421,9 @@ msgstr "Gagal membuat terminal"
 msgid "Failed to create thread"
 msgstr "Gagal membuat thread"
 
+msgid "Failed to create workflow"
+msgstr "Gagal membuat alur kerja"
+
 msgid "Failed to create workspace"
 msgstr "Gagal membuat workspace"
 
@@ -8403,6 +8454,9 @@ msgstr "Gagal menghapus tugas"
 
 msgid "Failed to delete team"
 msgstr "Gagal menghapus tim"
+
+msgid "Failed to delete trigger"
+msgstr "Gagal menghapus pemicu"
 
 msgid "Failed to discard the new item"
 msgstr "Gagal membuang item baru"
@@ -8615,6 +8669,12 @@ msgstr "Gagal menyimpan konfigurasi setup"
 msgid "Failed to save team"
 msgstr "Gagal menyimpan tim"
 
+msgid "Failed to save trigger"
+msgstr "Gagal menyimpan pemicu"
+
+msgid "Failed to save workflow"
+msgstr "Gagal menyimpan alur kerja"
+
 msgid "Failed to send"
 msgstr "Gagal mengirim"
 
@@ -8644,6 +8704,9 @@ msgstr "Gagal masuk. Silakan coba lagi."
 
 msgid "Failed to sign up. Please try again."
 msgstr "Gagal mendaftar. Silakan coba lagi."
+
+msgid "Failed to start run"
+msgstr "Gagal memulai eksekusi"
 
 msgid "Failed to start the selected automations"
 msgstr "Gagal memulai otomatisasi yang dipilih"
@@ -8710,6 +8773,9 @@ msgstr "Gagal memperbarui tim. Silakan coba lagi."
 
 msgid "Failed to update URL"
 msgstr "Gagal memperbarui URL"
+
+msgid "Failed to update workflow"
+msgstr "Gagal memperbarui alur kerja"
 
 msgid "Failed to update workspace"
 msgstr "Gagal memperbarui workspace"
@@ -8986,6 +9052,9 @@ msgstr "Perbaiki temuan"
 
 msgid "Fix new errors in web. Reproduce each one in a test and open a draft pull request."
 msgstr "Perbaiki error baru di web. Reproduksi masing-masing dalam tes dan buka draft pull request."
+
+msgid "Fix the graph before saving"
+msgstr "Perbaiki graf sebelum menyimpan"
 
 msgid "fix-auth-redirect"
 msgstr "fix-auth-redirect"
@@ -9669,6 +9738,9 @@ msgstr "Ada commit yang belum di-push"
 msgid "Head-to-Head Comparisons"
 msgstr "Perbandingan Langsung"
 
+msgid "Headers"
+msgstr "Header"
+
 msgid "Heading 1"
 msgstr "Judul 1"
 
@@ -9981,6 +10053,12 @@ msgstr "Cara agen Anda masuk di dalam workspace cloud. Orang lain menghubungkan 
 
 msgid "HTML preview"
 msgstr "Pratinjau HTML"
+
+msgid "HTTP"
+msgstr "HTTP"
+
+msgid "HTTP request"
+msgstr "Permintaan HTTP"
 
 msgid "https://"
 msgstr "https://"
@@ -11310,6 +11388,9 @@ msgstr "Sudah ada di aplikasi."
 msgid "Live preview"
 msgstr "Pratinjau langsung"
 
+msgid "LLM"
+msgstr "LLM"
+
 msgid "llms.txt (index for AI agents)"
 msgstr "llms.txt (indeks untuk agen AI)"
 
@@ -11745,6 +11826,9 @@ msgstr "Cocokkan pintasan dengan label pada keyboard Anda (mis. ⌘Z selalu akti
 
 msgid "Max"
 msgstr "Maks"
+
+msgid "Max tokens"
+msgstr "Token maksimum"
 
 msgid "Maximum"
 msgstr "Maksimum"
@@ -12444,6 +12528,9 @@ msgstr "Jendela baru"
 msgid "New Window"
 msgstr "Jendela Baru"
 
+msgid "New workflow"
+msgstr "Alur kerja baru"
+
 msgid "New workspace"
 msgstr "Workspace baru"
 
@@ -12534,6 +12621,9 @@ msgstr "Kerja bagus"
 
 msgid "Nightly audit"
 msgstr "Audit malam"
+
+msgid "no"
+msgstr "tidak"
 
 msgid "No"
 msgstr "Tidak"
@@ -13156,6 +13246,9 @@ msgstr "Belum ada utas"
 msgid "No triggers"
 msgstr "Tanpa pemicu"
 
+msgid "No triggers yet. The workflow only runs when started manually."
+msgstr "Belum ada pemicu. Alur kerja hanya berjalan saat dimulai secara manual."
+
 msgid "No Updates"
 msgstr "Tidak Ada Pembaruan"
 
@@ -13185,6 +13278,9 @@ msgstr "Belum ada versi"
 
 msgid "No versions yet."
 msgstr "Belum ada versi."
+
+msgid "No workflows yet"
+msgstr "Belum ada alur kerja"
 
 msgid "No workspace run command configured"
 msgstr "Tidak ada perintah run workspace yang dikonfigurasi"
@@ -13596,6 +13692,9 @@ msgstr "Hanya tersedia di macOS."
 msgid "Only channel admins can do that"
 msgstr "Hanya admin kanal yang dapat melakukannya"
 
+msgid "Only condition nodes have branch handles."
+msgstr "Hanya node kondisi yang memiliki titik cabang."
+
 msgid "Only host owners can change membership"
 msgstr "Hanya pemilik host yang bisa mengubah keanggotaan"
 
@@ -13613,6 +13712,9 @@ msgstr "Hanya pembuatnya atau admin organisasi yang dapat mengubah agen ini"
 
 msgid "Only on this machine: gitignored, and applied to every worktree of this repository. Any key set here replaces the shared one."
 msgstr "Hanya di mesin ini: diabaikan git dan diterapkan ke setiap worktree repositori ini. Setiap kunci yang diatur di sini menggantikan yang dibagikan."
+
+msgid "Only one trigger node is allowed."
+msgstr "Hanya satu node pemicu yang diizinkan."
 
 msgid "Only organization owners and admins can connect GitHub accounts. Ask one of them to connect it."
 msgstr "Hanya pemilik dan admin organisasi yang dapat menghubungkan akun GitHub. Minta salah satu dari mereka untuk menghubungkan akun tersebut."
@@ -16062,6 +16164,9 @@ msgstr "Muat ulang aplikasi"
 msgid "Reload from disk"
 msgstr "Muat ulang dari disk"
 
+msgid "Reload latest"
+msgstr "Muat versi terbaru"
+
 msgid "Reload Paradev to refresh the workspace list."
 msgstr "Muat ulang Paradev untuk menyegarkan daftar workspace."
 
@@ -16160,6 +16265,9 @@ msgstr "Hapus dari sidebar"
 
 msgid "Remove from Sidebar"
 msgstr "Hapus dari Sidebar"
+
+msgid "Remove header"
+msgstr "Hapus header"
 
 msgid "Remove icon"
 msgstr "Hapus ikon"
@@ -17589,8 +17697,14 @@ msgstr "Select"
 msgid "Select {0}"
 msgstr "Pilih {0}"
 
+msgid "Select a device"
+msgstr "Pilih perangkat"
+
 msgid "Select a file to view it here"
 msgstr "Pilih file untuk melihatnya di sini"
+
+msgid "Select a node to configure it."
+msgstr "Pilih node untuk mengonfigurasinya."
 
 msgid "Select a project"
 msgstr "Pilih sebuah proyek"
@@ -18636,6 +18750,9 @@ msgstr "Seseorang sedang memindahkan workspace ini…"
 msgid "Someone on the Paradev team will review this page. We only follow up if we need more from you."
 msgstr "Seseorang dari tim Paradev akan meninjau halaman ini. Kami hanya menghubungi Anda jika perlu informasi tambahan."
 
+msgid "Someone saved a newer version of this workflow. Reload to get their changes, or keep editing and save again to retry on top of your copy."
+msgstr "Seseorang menyimpan versi yang lebih baru dari alur kerja ini. Muat ulang untuk mengambil perubahannya, atau lanjutkan mengedit dan simpan lagi di atas salinan Anda."
+
 msgid "Something else"
 msgstr "Hal lain"
 
@@ -19394,6 +19511,9 @@ msgstr "Desain sistem"
 msgid "System memory"
 msgstr "Memori sistem"
 
+msgid "System prompt"
+msgstr "Prompt sistem"
+
 msgid "System RAM share"
 msgstr "Porsi RAM sistem"
 
@@ -19918,6 +20038,12 @@ msgstr "Dana ventura dan angel investor yang mendukung tim kami."
 msgid "The future home for reusable Paradev agent configs, prompts, and setup guides."
 msgstr "Rumah masa depan untuk konfigurasi agen Paradev, prompt, dan panduan penyiapan yang dapat digunakan ulang."
 
+msgid "The graph has a cycle through: {nodeIds}"
+msgstr "Graf memiliki siklus melalui: {nodeIds}"
+
+msgid "The graph needs a trigger node."
+msgstr "Graf membutuhkan node pemicu."
+
 #. placeholder {0}: info.version
 msgid "The host came back on {0}, not {targetVersion}."
 msgstr "Host kembali dengan {0}, bukan {targetVersion}."
@@ -20170,6 +20296,9 @@ msgstr "Worktree beserta perubahan yang belum di-commit akan dihapus. Ini tidak 
 
 msgid "The worktree has uncommitted edits from the agent session."
 msgstr "Worktree punya suntingan yang belum di-commit dari sesi agen."
+
+msgid "The yes branch runs when this is true, the no branch otherwise."
+msgstr "Cabang ya berjalan saat ini benar, selain itu cabang tidak."
 
 msgid "Theme"
 msgstr "Tema"
@@ -20697,6 +20826,12 @@ msgstr "Waktu ke workspace pertama"
 
 msgid "Time zone"
 msgstr "Zona waktu"
+
+msgid "Timeout (minutes)"
+msgstr "Batas waktu (menit)"
+
+msgid "Timeout (seconds)"
+msgstr "Batas waktu (detik)"
 
 msgid "Tinted"
 msgstr "Berwarna"
@@ -21309,6 +21444,9 @@ msgstr "Belum berperingkat"
 msgid "Unranked until {0} days carry usage."
 msgstr "Tanpa peringkat sampai ada {0} hari dengan penggunaan."
 
+msgid "Unreachable nodes: {nodeIds}"
+msgstr "Node tak terjangkau: {nodeIds}"
+
 msgid "Unresolve"
 msgstr "Buka lagi"
 
@@ -21652,6 +21790,12 @@ msgstr "user@host, ssh://user@host:2222, atau alias dari konfigurasi ssh"
 
 msgid "v2ProjectId does not match the workspace's project"
 msgstr "v2ProjectId tidak cocok dengan proyek workspace"
+
+msgid "Value"
+msgstr "Nilai"
+
+msgid "Value to test"
+msgstr "Nilai yang diuji"
 
 msgid "Variables"
 msgstr "Variabel"
@@ -22098,6 +22242,12 @@ msgstr "Yang telah dirilis"
 msgid "What should run automatically?"
 msgstr "Apa yang perlu berjalan otomatis?"
 
+msgid "What should the agent do?"
+msgstr "Apa yang harus dilakukan agen?"
+
+msgid "What should the model do?"
+msgstr "Apa yang harus dilakukan model?"
+
 msgid "What should the page show?"
 msgstr "Apa yang harus ditampilkan halaman ini?"
 
@@ -22260,11 +22410,32 @@ msgstr "Bekerja {0} mnt {1} dtk"
 msgid "Worked for {seconds}s"
 msgstr "Bekerja {seconds} dtk"
 
+msgid "Workflow actions"
+msgstr "Tindakan alur kerja"
+
+msgid "Workflow archived"
+msgstr "Alur kerja diarsipkan"
+
+msgid "Workflow changed elsewhere"
+msgstr "Alur kerja diubah di tempat lain"
+
+msgid "Workflow name"
+msgstr "Nama alur kerja"
+
+msgid "Workflow not found."
+msgstr "Alur kerja tidak ditemukan."
+
 msgid "Workflow run completed…"
 msgstr "Run workflow selesai…"
 
+msgid "Workflow saved"
+msgstr "Alur kerja disimpan"
+
 msgid "Workflow Tutorials"
 msgstr "Tutorial Alur Kerja"
+
+msgid "Workflows"
+msgstr "Alur kerja"
 
 msgid "Working"
 msgstr "Bekerja"
@@ -22333,6 +22504,9 @@ msgstr "Workspace dibuat"
 msgid "Workspace details"
 msgstr "Detail workspace"
 
+msgid "Workspace ID"
+msgstr "ID ruang kerja"
+
 msgid "Workspace ID copied"
 msgstr "ID workspace disalin"
 
@@ -22368,6 +22542,9 @@ msgstr "Run workspace: {workspaceRunState}"
 
 msgid "Workspace settings"
 msgstr "Pengaturan workspace"
+
+msgid "Workspace to run in"
+msgstr "Ruang kerja tempat berjalan"
 
 msgid "Workspace views"
 msgstr "Tampilan workspace"
@@ -22485,6 +22662,9 @@ msgstr "Tahunan"
 
 msgid "Yellow"
 msgstr "Kuning"
+
+msgid "yes"
+msgstr "ya"
 
 msgid "Yes"
 msgstr "Ya"

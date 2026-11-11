@@ -2024,6 +2024,9 @@ msgstr "請先將 {repositoryName} 新增為此電腦上的專案"
 msgid "Add a comment…"
 msgstr "新增留言…"
 
+msgid "Add a daily schedule"
+msgstr "新增每日排程"
+
 msgid "Add a description"
 msgstr "新增說明"
 
@@ -2111,6 +2114,9 @@ msgstr "新增檔案、應用等（@）"
 msgid "Add GitHub organization"
 msgstr "新增 GitHub 組織"
 
+msgid "Add header"
+msgstr "新增標頭"
+
 msgid "Add instructions"
 msgstr "新增指示"
 
@@ -2129,6 +2135,9 @@ msgstr "新增成員"
 
 msgid "Add more…"
 msgstr "新增更多…"
+
+msgid "Add node"
+msgstr "新增節點"
 
 msgid "Add one from the menu in the sidebar to get started."
 msgstr "從側邊欄選單中新增一個即可開始。"
@@ -2731,6 +2740,9 @@ msgstr "代理程式寫出完整的函式和檔案，人類盯著每一步、批
 
 msgid "An automation can only use a cloud workspace you created"
 msgstr "自動化只能使用你建立的雲端工作區"
+
+msgid "An edge points at a missing node."
+msgstr "有連線指向不存在的節點。"
 
 msgid "An environment holds your repositories, variables, and region. Start as many workspaces from it as you need."
 msgstr "環境儲存你的儲存庫、變數和區域。可以從它啟動任意數量的工作區。"
@@ -3452,6 +3464,9 @@ msgstr "返回頁面"
 msgid "Back to the leaderboard"
 msgstr "返回排行榜"
 
+msgid "Back to workflows"
+msgstr "返回工作流程清單"
+
 msgid "Backed by"
 msgstr "投資方"
 
@@ -3592,6 +3607,9 @@ msgstr "看板"
 
 msgid "Board view"
 msgstr "看板檢視"
+
+msgid "Body"
+msgstr "內文"
 
 msgid "Bold"
 msgstr "粗體"
@@ -3764,6 +3782,9 @@ msgstr "蟲子"
 
 msgid "Bug reports"
 msgstr "Bug 回報"
+
+msgid "Build a canvas of agent, LLM, API, and command steps that runs on a schedule or an event."
+msgstr "在畫布上編排代理、LLM、API 與命令步驟，依排程或事件執行。"
 
 msgid "Build in public"
 msgstr "公開建構"
@@ -5041,6 +5062,9 @@ msgstr "將 Paradev 與 Cursor、Claude Code、Codex、Windsurf、Devin、GitHub
 msgid "Compare plans"
 msgstr "方案對比"
 
+msgid "Compare to"
+msgstr "比較值"
+
 msgid "Compared against the default style"
 msgstr "與預設樣式做了對比"
 
@@ -5059,6 +5083,9 @@ msgstr "component-showcase"
 
 msgid "Composable form layout — pairs with @superset/ui/form for react-hook-form"
 msgstr "可組合的表單佈局——搭配@superset/ui/form用於react-hook-form"
+
+msgid "Condition"
+msgstr "條件"
 
 msgid "Conductor chat history. Export it in Conductor under Settings → Account"
 msgstr "Conductor 聊天紀錄。請在 Conductor 的 Settings → Account 中匯出"
@@ -5186,6 +5213,9 @@ msgstr "連線Claude、Codex、Cursor或任意<0>MCP</0>客戶端，讓你的代
 
 msgid "Connect Claude, Codex, Cursor, or any MCP client to {companyName}. Create tasks, spin up workspaces, launch agents, and run automations straight from your AI agent."
 msgstr "將 Claude、Codex、Cursor 或任何 MCP 用戶端連接至 {companyName}。直接從您的 AI 代理建立任務、啟動工作區、執行代理與自動化流程。"
+
+msgid "Connect condition branches from their yes/no handles."
+msgstr "條件分支請從 yes/no 連接點引出。"
 
 msgid "Connect external services to sync data with your organization."
 msgstr "連線外部服務，與你的組織同步資料。"
@@ -6933,6 +6963,9 @@ msgstr "移除工作區時刪除本地分支"
 msgid "Delete message"
 msgstr "刪除訊息"
 
+msgid "Delete node"
+msgstr "刪除節點"
+
 msgid "Delete organization"
 msgstr "刪除組織"
 
@@ -7200,6 +7233,9 @@ msgstr "開發者"
 
 msgid "Development build"
 msgstr "開發版本"
+
+msgid "Device"
+msgstr "裝置"
 
 msgid "Device: {selectedLabel}"
 msgstr "裝置：{selectedLabel}"
@@ -7641,6 +7677,9 @@ msgstr "下拉選單、右鍵選單和應用程式選單"
 msgid "Due today"
 msgstr "今日應付"
 
+msgid "Duplicate node id: {nodeId}"
+msgstr "節點 ID 重複：{nodeId}"
+
 msgid "Duration"
 msgstr "耗時"
 
@@ -7726,6 +7765,9 @@ msgstr "已獲得「{name}」"
 
 msgid "Earned {name} ×{tier}"
 msgstr "已獲得「{name}」×{tier}"
+
+msgid "Edges cannot point into the trigger."
+msgstr "連線不能指向觸發器。"
 
 msgid "Edit"
 msgstr "編輯"
@@ -7888,6 +7930,9 @@ msgstr "啟用遠端存取，並保持這台電腦喚醒且 Paradev 持續執行
 
 msgid "Enable skill"
 msgstr "啟用技能"
+
+msgid "Enabled"
+msgstr "已啟用"
 
 msgid "End repeat"
 msgstr "結束重複"
@@ -8274,6 +8319,9 @@ msgstr "新增成員失敗"
 msgid "Failed to archive automation"
 msgstr "無法歸檔自動化"
 
+msgid "Failed to archive workflow"
+msgstr "無法封存工作流程"
+
 msgid "Failed to cancel invitation"
 msgstr "取消邀請失敗"
 
@@ -8373,6 +8421,9 @@ msgstr "無法建立終端機"
 msgid "Failed to create thread"
 msgstr "建立討論串失敗"
 
+msgid "Failed to create workflow"
+msgstr "無法建立工作流程"
+
 msgid "Failed to create workspace"
 msgstr "建立工作區失敗"
 
@@ -8403,6 +8454,9 @@ msgstr "刪除任務失敗"
 
 msgid "Failed to delete team"
 msgstr "刪除團隊失敗"
+
+msgid "Failed to delete trigger"
+msgstr "無法刪除觸發器"
 
 msgid "Failed to discard the new item"
 msgstr "放棄新建項失敗"
@@ -8615,6 +8669,12 @@ msgstr "儲存設定配置失敗"
 msgid "Failed to save team"
 msgstr "儲存團隊失敗"
 
+msgid "Failed to save trigger"
+msgstr "無法儲存觸發器"
+
+msgid "Failed to save workflow"
+msgstr "無法儲存工作流程"
+
 msgid "Failed to send"
 msgstr "傳送失敗"
 
@@ -8644,6 +8704,9 @@ msgstr "登入失敗。請重試。"
 
 msgid "Failed to sign up. Please try again."
 msgstr "註冊失敗。請重試。"
+
+msgid "Failed to start run"
+msgstr "無法啟動執行"
 
 msgid "Failed to start the selected automations"
 msgstr "無法啟動所選的自動化"
@@ -8710,6 +8773,9 @@ msgstr "更新團隊失敗。請重試。"
 
 msgid "Failed to update URL"
 msgstr "更新URL失敗"
+
+msgid "Failed to update workflow"
+msgstr "無法更新工作流程"
 
 msgid "Failed to update workspace"
 msgstr "更新工作區失敗"
@@ -8986,6 +9052,9 @@ msgstr "修正審查問題"
 
 msgid "Fix new errors in web. Reproduce each one in a test and open a draft pull request."
 msgstr "修正 web 中的新錯誤。每個錯誤都用測試重現，並開一個草稿 pull request。"
+
+msgid "Fix the graph before saving"
+msgstr "儲存前請先修正圖中的問題"
 
 msgid "fix-auth-redirect"
 msgstr "fix-auth-redirect"
@@ -9669,6 +9738,9 @@ msgstr "有未推送的提交"
 msgid "Head-to-Head Comparisons"
 msgstr "一對一對比"
 
+msgid "Headers"
+msgstr "標頭"
+
 msgid "Heading 1"
 msgstr "標題1"
 
@@ -9981,6 +10053,12 @@ msgstr "你的代理程式在雲端工作區中如何登入。其他人連接各
 
 msgid "HTML preview"
 msgstr "HTML 預覽"
+
+msgid "HTTP"
+msgstr "HTTP"
+
+msgid "HTTP request"
+msgstr "HTTP 要求"
 
 msgid "https://"
 msgstr "https://"
@@ -11310,6 +11388,9 @@ msgstr "已在應用中上線。"
 msgid "Live preview"
 msgstr "即時預覽"
 
+msgid "LLM"
+msgstr "LLM"
+
 msgid "llms.txt (index for AI agents)"
 msgstr "llms.txt（面向AI代理程式的索引）"
 
@@ -11745,6 +11826,9 @@ msgstr "讓快速鍵匹配鍵盤上的標籤（例如⌘Z始終觸發標有「Z�
 
 msgid "Max"
 msgstr "最大"
+
+msgid "Max tokens"
+msgstr "最大 Token 數"
 
 msgid "Maximum"
 msgstr "最大"
@@ -12444,6 +12528,9 @@ msgstr "新建視窗"
 msgid "New Window"
 msgstr "新建視窗"
 
+msgid "New workflow"
+msgstr "新增工作流程"
+
 msgid "New workspace"
 msgstr "新建工作區"
 
@@ -12534,6 +12621,9 @@ msgstr "做得好"
 
 msgid "Nightly audit"
 msgstr "夜間稽核"
+
+msgid "no"
+msgstr "否"
 
 msgid "No"
 msgstr "否"
@@ -13156,6 +13246,9 @@ msgstr "還沒有討論串"
 msgid "No triggers"
 msgstr "沒有觸發器"
 
+msgid "No triggers yet. The workflow only runs when started manually."
+msgstr "尚無觸發器。此工作流程只會在手動啟動時執行。"
+
 msgid "No Updates"
 msgstr "無可用更新"
 
@@ -13185,6 +13278,9 @@ msgstr "還沒有版本"
 
 msgid "No versions yet."
 msgstr "還沒有任何版本。"
+
+msgid "No workflows yet"
+msgstr "尚無工作流程"
 
 msgid "No workspace run command configured"
 msgstr "未配置工作區執行命令"
@@ -13596,6 +13692,9 @@ msgstr "僅在macOS上可用。"
 msgid "Only channel admins can do that"
 msgstr "只有頻道管理員可以執行此操作"
 
+msgid "Only condition nodes have branch handles."
+msgstr "只有條件節點才有分支連接點。"
+
 msgid "Only host owners can change membership"
 msgstr "只有主機擁有者才能更改成員關係"
 
@@ -13613,6 +13712,9 @@ msgstr "只有建立者或組織管理員可以變更此代理程式"
 
 msgid "Only on this machine: gitignored, and applied to every worktree of this repository. Any key set here replaces the shared one."
 msgstr "僅限本機：會被 git 忽略，並套用至此儲存庫的每個 worktree。在此設定的任何鍵都會取代共享的值。"
+
+msgid "Only one trigger node is allowed."
+msgstr "只允許一個觸發器節點。"
 
 msgid "Only organization owners and admins can connect GitHub accounts. Ask one of them to connect it."
 msgstr "只有組織擁有者和管理員可以連結 GitHub 帳號。請其中一位協助連結。"
@@ -16062,6 +16164,9 @@ msgstr "重新載入應用"
 msgid "Reload from disk"
 msgstr "從磁碟重新載入"
 
+msgid "Reload latest"
+msgstr "載入最新版本"
+
 msgid "Reload Paradev to refresh the workspace list."
 msgstr "重新載入Paradev以重新整理工作區列表。"
 
@@ -16160,6 +16265,9 @@ msgstr "從側邊欄移除"
 
 msgid "Remove from Sidebar"
 msgstr "從側邊欄移除"
+
+msgid "Remove header"
+msgstr "移除標頭"
 
 msgid "Remove icon"
 msgstr "移除圖示"
@@ -17589,8 +17697,14 @@ msgstr "選擇框"
 msgid "Select {0}"
 msgstr "選取 {0}"
 
+msgid "Select a device"
+msgstr "選擇裝置"
+
 msgid "Select a file to view it here"
 msgstr "選取檔案以在此處檢視"
+
+msgid "Select a node to configure it."
+msgstr "選擇一個節點進行設定。"
 
 msgid "Select a project"
 msgstr "請選擇專案"
@@ -18636,6 +18750,9 @@ msgstr "有人正在移動此工作區…"
 msgid "Someone on the Paradev team will review this page. We only follow up if we need more from you."
 msgstr "Paradev 團隊會審核此頁面。只有在需要你補充資訊時我們才會聯絡你。"
 
+msgid "Someone saved a newer version of this workflow. Reload to get their changes, or keep editing and save again to retry on top of your copy."
+msgstr "有人儲存了此工作流程的較新版本。重新載入以取得對方的變更，或繼續編輯並再次儲存。"
+
 msgid "Something else"
 msgstr "其他問題"
 
@@ -19394,6 +19511,9 @@ msgstr "系統設計"
 msgid "System memory"
 msgstr "系統記憶體"
 
+msgid "System prompt"
+msgstr "系統提示詞"
+
 msgid "System RAM share"
 msgstr "系統RAM佔比"
 
@@ -19918,6 +20038,12 @@ msgstr "支持我們團隊的基金與天使投資人。"
 msgid "The future home for reusable Paradev agent configs, prompts, and setup guides."
 msgstr "未來可重複使用的 Paradev 代理設定、提示詞與設定指南的集散地。"
 
+msgid "The graph has a cycle through: {nodeIds}"
+msgstr "圖中存在循環：{nodeIds}"
+
+msgid "The graph needs a trigger node."
+msgstr "圖需要一個觸發器節點。"
+
 #. placeholder {0}: info.version
 msgid "The host came back on {0}, not {targetVersion}."
 msgstr "主機以 {0} 而非 {targetVersion} 恢復。"
@@ -20170,6 +20296,9 @@ msgstr "worktree及其中所有未提交的更改都會被移除。此操作無�
 
 msgid "The worktree has uncommitted edits from the agent session."
 msgstr "worktree中有代理程式會話留下的未提交修改。"
+
+msgid "The yes branch runs when this is true, the no branch otherwise."
+msgstr "條件為真時走 yes 分支，否則走 no 分支。"
 
 msgid "Theme"
 msgstr "主題"
@@ -20697,6 +20826,12 @@ msgstr "到第一個工作區的時間"
 
 msgid "Time zone"
 msgstr "時區"
+
+msgid "Timeout (minutes)"
+msgstr "逾時（分鐘）"
+
+msgid "Timeout (seconds)"
+msgstr "逾時（秒）"
 
 msgid "Tinted"
 msgstr "色調"
@@ -21309,6 +21444,9 @@ msgstr "未上榜"
 msgid "Unranked until {0} days carry usage."
 msgstr "在累計 {0} 天使用紀錄之前不參與排名。"
 
+msgid "Unreachable nodes: {nodeIds}"
+msgstr "無法到達的節點：{nodeIds}"
+
 msgid "Unresolve"
 msgstr "取消解決"
 
@@ -21652,6 +21790,12 @@ msgstr "user@host、ssh://user@host:2222 或 ssh 設定中的別名"
 
 msgid "v2ProjectId does not match the workspace's project"
 msgstr "v2ProjectId與該工作區的專案不匹配"
+
+msgid "Value"
+msgstr "值"
+
+msgid "Value to test"
+msgstr "要判斷的值"
 
 msgid "Variables"
 msgstr "變數"
@@ -22098,6 +22242,12 @@ msgstr "已發布內容"
 msgid "What should run automatically?"
 msgstr "哪些事應該自動執行？"
 
+msgid "What should the agent do?"
+msgstr "代理應該做什麼？"
+
+msgid "What should the model do?"
+msgstr "模型應該做什麼？"
+
 msgid "What should the page show?"
 msgstr "頁面應顯示什麼?"
 
@@ -22260,11 +22410,32 @@ msgstr "用時 {0} 分 {1} 秒"
 msgid "Worked for {seconds}s"
 msgstr "用時 {seconds} 秒"
 
+msgid "Workflow actions"
+msgstr "工作流程動作"
+
+msgid "Workflow archived"
+msgstr "已封存工作流程"
+
+msgid "Workflow changed elsewhere"
+msgstr "工作流程已在其他地方被修改"
+
+msgid "Workflow name"
+msgstr "工作流程名稱"
+
+msgid "Workflow not found."
+msgstr "找不到工作流程。"
+
 msgid "Workflow run completed…"
 msgstr "工作流執行完成…"
 
+msgid "Workflow saved"
+msgstr "已儲存工作流程"
+
 msgid "Workflow Tutorials"
 msgstr "工作流教程"
+
+msgid "Workflows"
+msgstr "工作流程"
 
 msgid "Working"
 msgstr "工作中"
@@ -22333,6 +22504,9 @@ msgstr "工作區已建立"
 msgid "Workspace details"
 msgstr "工作區詳細資料"
 
+msgid "Workspace ID"
+msgstr "工作區 ID"
+
 msgid "Workspace ID copied"
 msgstr "已複製工作區ID"
 
@@ -22368,6 +22542,9 @@ msgstr "工作區執行：{workspaceRunState}"
 
 msgid "Workspace settings"
 msgstr "工作區設定"
+
+msgid "Workspace to run in"
+msgstr "執行所在的工作區"
 
 msgid "Workspace views"
 msgstr "工作區檢視"
@@ -22485,6 +22662,9 @@ msgstr "按年"
 
 msgid "Yellow"
 msgstr "黃色"
+
+msgid "yes"
+msgstr "是"
 
 msgid "Yes"
 msgstr "是"

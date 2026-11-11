@@ -2024,6 +2024,9 @@ msgstr "Voeg {repositoryName} eerst toe als project op deze computer"
 msgid "Add a comment…"
 msgstr "Voeg een reactie toe…"
 
+msgid "Add a daily schedule"
+msgstr "Dagelijkse planning toevoegen"
+
 msgid "Add a description"
 msgstr "Beschrijving toevoegen"
 
@@ -2111,6 +2114,9 @@ msgstr "Bestanden, apps en meer toevoegen (@)"
 msgid "Add GitHub organization"
 msgstr "GitHub-organisatie toevoegen"
 
+msgid "Add header"
+msgstr "Header toevoegen"
+
 msgid "Add instructions"
 msgstr "Instructies toevoegen"
 
@@ -2129,6 +2135,9 @@ msgstr "Lid toevoegen"
 
 msgid "Add more…"
 msgstr "Meer toevoegen…"
+
+msgid "Add node"
+msgstr "Node toevoegen"
 
 msgid "Add one from the menu in the sidebar to get started."
 msgstr "Voeg er een toe via het menu in de zijbalk om te beginnen."
@@ -2731,6 +2740,9 @@ msgstr "Een agent schrijft hele functies en bestanden terwijl een mens elke stap
 
 msgid "An automation can only use a cloud workspace you created"
 msgstr "Een automatisering kan alleen een cloudwerkruimte gebruiken die je zelf hebt aangemaakt"
+
+msgid "An edge points at a missing node."
+msgstr "Een verbinding wijst naar een ontbrekende node."
 
 msgid "An environment holds your repositories, variables, and region. Start as many workspaces from it as you need."
 msgstr "Een omgeving bevat je repository's, variabelen en regio. Start er zoveel werkruimtes uit als je nodig hebt."
@@ -3452,6 +3464,9 @@ msgstr "Terug naar pagina's"
 msgid "Back to the leaderboard"
 msgstr "Terug naar de ranglijst"
 
+msgid "Back to workflows"
+msgstr "Terug naar workflows"
+
 msgid "Backed by"
 msgstr "Gesteund door"
 
@@ -3592,6 +3607,9 @@ msgstr "Bord"
 
 msgid "Board view"
 msgstr "Bordweergave"
+
+msgid "Body"
+msgstr "Body"
 
 msgid "Bold"
 msgstr "Vet"
@@ -3764,6 +3782,9 @@ msgstr "Bug"
 
 msgid "Bug reports"
 msgstr "Bugmeldingen"
+
+msgid "Build a canvas of agent, LLM, API, and command steps that runs on a schedule or an event."
+msgstr "Bouw een canvas van agent-, LLM-, API- en commandostappen dat draait op een schema of een gebeurtenis."
 
 msgid "Build in public"
 msgstr "Bouwen in het openbaar"
@@ -5041,6 +5062,9 @@ msgstr "Vergelijk Paradev met Cursor, Claude Code, Codex, Windsurf, Devin, GitHu
 msgid "Compare plans"
 msgstr "Plannen vergelijken"
 
+msgid "Compare to"
+msgstr "Vergelijken met"
+
 msgid "Compared against the default style"
 msgstr "Vergeleken met de standaardstijl"
 
@@ -5059,6 +5083,9 @@ msgstr "component-showcase"
 
 msgid "Composable form layout — pairs with @superset/ui/form for react-hook-form"
 msgstr "Samenstelbare formulierlay-out — combineert met @superset/ui/form voor react-hook-form"
+
+msgid "Condition"
+msgstr "Voorwaarde"
 
 msgid "Conductor chat history. Export it in Conductor under Settings → Account"
 msgstr "Conductor-chatgeschiedenis. Exporteer die in Conductor onder Settings → Account"
@@ -5186,6 +5213,9 @@ msgstr "Verbind Claude, Codex, Cursor of elke <0>MCP</0>-client en laat je agent
 
 msgid "Connect Claude, Codex, Cursor, or any MCP client to {companyName}. Create tasks, spin up workspaces, launch agents, and run automations straight from your AI agent."
 msgstr "Verbind Claude, Codex, Cursor of elke MCP-client met {companyName}. Maak taken aan, start werkruimtes op, lanceer agents en draai automatiseringen rechtstreeks vanuit je AI-agent."
+
+msgid "Connect condition branches from their yes/no handles."
+msgstr "Verbind conditietakken via hun ja/nee-aansluitpunten."
 
 msgid "Connect external services to sync data with your organization."
 msgstr "Verbind externe diensten om gegevens met je organisatie te synchroniseren."
@@ -6933,6 +6963,9 @@ msgstr "Lokale branch verwijderen bij verwijderen werkruimte"
 msgid "Delete message"
 msgstr "Bericht verwijderen"
 
+msgid "Delete node"
+msgstr "Node verwijderen"
+
 msgid "Delete organization"
 msgstr "Organisatie verwijderen"
 
@@ -7200,6 +7233,9 @@ msgstr "Ontwikkelaars"
 
 msgid "Development build"
 msgstr "Ontwikkelbuild"
+
+msgid "Device"
+msgstr "Apparaat"
 
 msgid "Device: {selectedLabel}"
 msgstr "Apparaat: {selectedLabel}"
@@ -7641,6 +7677,9 @@ msgstr "Dropdown-, context- en applicatiemenu's"
 msgid "Due today"
 msgstr "Vandaag te betalen"
 
+msgid "Duplicate node id: {nodeId}"
+msgstr "Dubbele node-id: {nodeId}"
+
 msgid "Duration"
 msgstr "Duur"
 
@@ -7726,6 +7765,9 @@ msgstr "{name} behaald"
 
 msgid "Earned {name} ×{tier}"
 msgstr "{name} ×{tier} behaald"
+
+msgid "Edges cannot point into the trigger."
+msgstr "Verbindingen kunnen niet naar de trigger wijzen."
 
 msgid "Edit"
 msgstr "Bewerken"
@@ -7888,6 +7930,9 @@ msgstr "Schakel externe toegang in en houd deze computer wakker met Paradev acti
 
 msgid "Enable skill"
 msgstr "Skill inschakelen"
+
+msgid "Enabled"
+msgstr "Ingeschakeld"
 
 msgid "End repeat"
 msgstr "Herhaling eindigt"
@@ -8274,6 +8319,9 @@ msgstr "Toevoegen van lid mislukt"
 msgid "Failed to archive automation"
 msgstr "Automatisering archiveren mislukt"
 
+msgid "Failed to archive workflow"
+msgstr "Workflow archiveren mislukt"
+
 msgid "Failed to cancel invitation"
 msgstr "Annuleren van uitnodiging mislukt"
 
@@ -8373,6 +8421,9 @@ msgstr "Terminal maken mislukt"
 msgid "Failed to create thread"
 msgstr "Aanmaken van thread mislukt"
 
+msgid "Failed to create workflow"
+msgstr "Workflow aanmaken mislukt"
+
 msgid "Failed to create workspace"
 msgstr "Aanmaken van werkruimte mislukt"
 
@@ -8403,6 +8454,9 @@ msgstr "Taak verwijderen mislukt"
 
 msgid "Failed to delete team"
 msgstr "Verwijderen van team mislukt"
+
+msgid "Failed to delete trigger"
+msgstr "Trigger verwijderen mislukt"
 
 msgid "Failed to discard the new item"
 msgstr "Verwerpen van het nieuwe item mislukt"
@@ -8615,6 +8669,12 @@ msgstr "Opslaan van setupconfiguratie mislukt"
 msgid "Failed to save team"
 msgstr "Opslaan van team mislukt"
 
+msgid "Failed to save trigger"
+msgstr "Trigger opslaan mislukt"
+
+msgid "Failed to save workflow"
+msgstr "Workflow opslaan mislukt"
+
 msgid "Failed to send"
 msgstr "Versturen mislukt"
 
@@ -8644,6 +8704,9 @@ msgstr "Inloggen mislukt. Probeer het opnieuw."
 
 msgid "Failed to sign up. Please try again."
 msgstr "Registreren mislukt. Probeer het opnieuw."
+
+msgid "Failed to start run"
+msgstr "Uitvoering starten mislukt"
 
 msgid "Failed to start the selected automations"
 msgstr "Kan de geselecteerde automatiseringen niet starten"
@@ -8710,6 +8773,9 @@ msgstr "Bijwerken van team mislukt. Probeer het opnieuw."
 
 msgid "Failed to update URL"
 msgstr "Bijwerken van URL mislukt"
+
+msgid "Failed to update workflow"
+msgstr "Workflow bijwerken mislukt"
 
 msgid "Failed to update workspace"
 msgstr "Workspace bijwerken mislukt"
@@ -8986,6 +9052,9 @@ msgstr "Bevindingen oplossen"
 
 msgid "Fix new errors in web. Reproduce each one in a test and open a draft pull request."
 msgstr "Los nieuwe fouten in web op. Reproduceer elke fout in een test en open een draft pull request."
+
+msgid "Fix the graph before saving"
+msgstr "Herstel de graaf voordat je opslaat"
 
 msgid "fix-auth-redirect"
 msgstr "fix-auth-redirect"
@@ -9669,6 +9738,9 @@ msgstr "Heeft niet-gepushte commits"
 msgid "Head-to-Head Comparisons"
 msgstr "Directe vergelijkingen"
 
+msgid "Headers"
+msgstr "Headers"
+
 msgid "Heading 1"
 msgstr "Kop 1"
 
@@ -9981,6 +10053,12 @@ msgstr "Hoe je agents inloggen binnen cloudwerkruimtes. Anderen koppelen hun eig
 
 msgid "HTML preview"
 msgstr "HTML-voorbeeld"
+
+msgid "HTTP"
+msgstr "HTTP"
+
+msgid "HTTP request"
+msgstr "HTTP-verzoek"
 
 msgid "https://"
 msgstr "https://"
@@ -11310,6 +11388,9 @@ msgstr "Live in de app."
 msgid "Live preview"
 msgstr "Live preview"
 
+msgid "LLM"
+msgstr "LLM"
+
 msgid "llms.txt (index for AI agents)"
 msgstr "llms.txt (index voor AI-agents)"
 
@@ -11745,6 +11826,9 @@ msgstr "Koppel sneltoetsen aan de opschriften op je toetsenbord (bijv. ⌘Z werk
 
 msgid "Max"
 msgstr "Max"
+
+msgid "Max tokens"
+msgstr "Max. tokens"
 
 msgid "Maximum"
 msgstr "Maximaal"
@@ -12444,6 +12528,9 @@ msgstr "Nieuw venster"
 msgid "New Window"
 msgstr "Nieuw venster"
 
+msgid "New workflow"
+msgstr "Nieuwe workflow"
+
 msgid "New workspace"
 msgstr "Nieuwe werkruimte"
 
@@ -12534,6 +12621,9 @@ msgstr "Goed gedaan"
 
 msgid "Nightly audit"
 msgstr "Nachtelijke audit"
+
+msgid "no"
+msgstr "nee"
 
 msgid "No"
 msgstr "Nee"
@@ -13156,6 +13246,9 @@ msgstr "Nog geen threads"
 msgid "No triggers"
 msgstr "Geen triggers"
 
+msgid "No triggers yet. The workflow only runs when started manually."
+msgstr "Nog geen triggers. De workflow draait alleen wanneer hij handmatig wordt gestart."
+
 msgid "No Updates"
 msgstr "Geen updates"
 
@@ -13185,6 +13278,9 @@ msgstr "Nog geen versies"
 
 msgid "No versions yet."
 msgstr "Nog geen versies."
+
+msgid "No workflows yet"
+msgstr "Nog geen workflows"
 
 msgid "No workspace run command configured"
 msgstr "Geen run-commando voor de werkruimte geconfigureerd"
@@ -13596,6 +13692,9 @@ msgstr "Alleen beschikbaar op macOS."
 msgid "Only channel admins can do that"
 msgstr "Alleen kanaalbeheerders kunnen dat doen"
 
+msgid "Only condition nodes have branch handles."
+msgstr "Alleen voorwaardenodes hebben takaansluitpunten."
+
 msgid "Only host owners can change membership"
 msgstr "Alleen eigenaren van de host kunnen het lidmaatschap wijzigen"
 
@@ -13613,6 +13712,9 @@ msgstr "Alleen de maker of een organisatiebeheerder kan deze agent wijzigen"
 
 msgid "Only on this machine: gitignored, and applied to every worktree of this repository. Any key set here replaces the shared one."
 msgstr "Alleen op deze machine: genegeerd door git en toegepast op elke worktree van deze repository. Elke sleutel die je hier instelt, vervangt de gedeelde."
+
+msgid "Only one trigger node is allowed."
+msgstr "Er is maar één triggernode toegestaan."
 
 msgid "Only organization owners and admins can connect GitHub accounts. Ask one of them to connect it."
 msgstr "Alleen eigenaren en beheerders van de organisatie kunnen GitHub-accounts koppelen. Vraag een van hen om het account te koppelen."
@@ -16062,6 +16164,9 @@ msgstr "App herladen"
 msgid "Reload from disk"
 msgstr "Opnieuw laden vanaf schijf"
 
+msgid "Reload latest"
+msgstr "Laatste versie laden"
+
 msgid "Reload Paradev to refresh the workspace list."
 msgstr "Herlaad Paradev om de lijst met werkruimtes te verversen."
 
@@ -16160,6 +16265,9 @@ msgstr "Uit zijbalk verwijderen"
 
 msgid "Remove from Sidebar"
 msgstr "Uit zijbalk verwijderen"
+
+msgid "Remove header"
+msgstr "Header verwijderen"
 
 msgid "Remove icon"
 msgstr "Icoon verwijderen"
@@ -17589,8 +17697,14 @@ msgstr "Select"
 msgid "Select {0}"
 msgstr "{0} selecteren"
 
+msgid "Select a device"
+msgstr "Selecteer een apparaat"
+
 msgid "Select a file to view it here"
 msgstr "Selecteer een bestand om het hier te bekijken"
+
+msgid "Select a node to configure it."
+msgstr "Selecteer een node om die te configureren."
 
 msgid "Select a project"
 msgstr "Kies een project"
@@ -18636,6 +18750,9 @@ msgstr "Iemand verplaatst deze werkruimte…"
 msgid "Someone on the Paradev team will review this page. We only follow up if we need more from you."
 msgstr "Iemand van het Paradev-team beoordeelt deze pagina. We nemen alleen contact op als we meer van je nodig hebben."
 
+msgid "Someone saved a newer version of this workflow. Reload to get their changes, or keep editing and save again to retry on top of your copy."
+msgstr "Iemand heeft een nieuwere versie van deze workflow opgeslagen. Herlaad om die wijzigingen op te halen, of blijf bewerken en sla opnieuw op over je eigen kopie."
+
 msgid "Something else"
 msgstr "Iets anders"
 
@@ -19394,6 +19511,9 @@ msgstr "Systeemontwerp"
 msgid "System memory"
 msgstr "Systeemgeheugen"
 
+msgid "System prompt"
+msgstr "Systeemprompt"
+
 msgid "System RAM share"
 msgstr "Aandeel systeem-RAM"
 
@@ -19918,6 +20038,12 @@ msgstr "De fondsen en angels die ons team steunen."
 msgid "The future home for reusable Paradev agent configs, prompts, and setup guides."
 msgstr "De toekomstige plek voor herbruikbare Paradev-agentconfigs, prompts en setupgidsen."
 
+msgid "The graph has a cycle through: {nodeIds}"
+msgstr "De graaf bevat een cyclus via: {nodeIds}"
+
+msgid "The graph needs a trigger node."
+msgstr "De graaf heeft een triggernode nodig."
+
 #. placeholder {0}: info.version
 msgid "The host came back on {0}, not {targetVersion}."
 msgstr "De host kwam terug op {0}, niet op {targetVersion}."
@@ -20170,6 +20296,9 @@ msgstr "De worktree en eventuele niet-gecommitte wijzigingen worden verwijderd. 
 
 msgid "The worktree has uncommitted edits from the agent session."
 msgstr "De worktree heeft niet-gecommitte wijzigingen uit de agentsessie."
+
+msgid "The yes branch runs when this is true, the no branch otherwise."
+msgstr "De ja-tak draait wanneer dit waar is, anders de nee-tak."
 
 msgid "Theme"
 msgstr "Thema"
@@ -20697,6 +20826,12 @@ msgstr "Tijd tot eerste werkruimte"
 
 msgid "Time zone"
 msgstr "Tijdzone"
+
+msgid "Timeout (minutes)"
+msgstr "Time-out (minuten)"
+
+msgid "Timeout (seconds)"
+msgstr "Time-out (seconden)"
 
 msgid "Tinted"
 msgstr "Getint"
@@ -21309,6 +21444,9 @@ msgstr "Geen positie"
 msgid "Unranked until {0} days carry usage."
 msgstr "Geen positie tot {0} dagen gebruik tonen."
 
+msgid "Unreachable nodes: {nodeIds}"
+msgstr "Onbereikbare nodes: {nodeIds}"
+
 msgid "Unresolve"
 msgstr "Heropenen"
 
@@ -21652,6 +21790,12 @@ msgstr "gebruiker@host, ssh://gebruiker@host:2222 of een alias uit je ssh-config
 
 msgid "v2ProjectId does not match the workspace's project"
 msgstr "v2ProjectId komt niet overeen met het project van de werkruimte"
+
+msgid "Value"
+msgstr "Waarde"
+
+msgid "Value to test"
+msgstr "Te testen waarde"
 
 msgid "Variables"
 msgstr "Variabelen"
@@ -22098,6 +22242,12 @@ msgstr "Wat er is uitgebracht"
 msgid "What should run automatically?"
 msgstr "Wat moet automatisch draaien?"
 
+msgid "What should the agent do?"
+msgstr "Wat moet de agent doen?"
+
+msgid "What should the model do?"
+msgstr "Wat moet het model doen?"
+
 msgid "What should the page show?"
 msgstr "Wat moet de pagina laten zien?"
 
@@ -22260,11 +22410,32 @@ msgstr "{0} min {1} s gewerkt"
 msgid "Worked for {seconds}s"
 msgstr "{seconds} s gewerkt"
 
+msgid "Workflow actions"
+msgstr "Workflowacties"
+
+msgid "Workflow archived"
+msgstr "Workflow gearchiveerd"
+
+msgid "Workflow changed elsewhere"
+msgstr "Workflow elders gewijzigd"
+
+msgid "Workflow name"
+msgstr "Workflownaam"
+
+msgid "Workflow not found."
+msgstr "Workflow niet gevonden."
+
 msgid "Workflow run completed…"
 msgstr "Workflow-run afgerond…"
 
+msgid "Workflow saved"
+msgstr "Workflow opgeslagen"
+
 msgid "Workflow Tutorials"
 msgstr "Workflow-tutorials"
+
+msgid "Workflows"
+msgstr "Workflows"
 
 msgid "Working"
 msgstr "Bezig"
@@ -22333,6 +22504,9 @@ msgstr "Werkruimte aangemaakt"
 msgid "Workspace details"
 msgstr "Werkruimtedetails"
 
+msgid "Workspace ID"
+msgstr "Werkruimte-ID"
+
 msgid "Workspace ID copied"
 msgstr "Werkruimte-ID gekopieerd"
 
@@ -22368,6 +22542,9 @@ msgstr "Werkruimte-run: {workspaceRunState}"
 
 msgid "Workspace settings"
 msgstr "Instellingen van werkruimte"
+
+msgid "Workspace to run in"
+msgstr "Werkruimte om in uit te voeren"
 
 msgid "Workspace views"
 msgstr "Werkruimteweergaven"
@@ -22485,6 +22662,9 @@ msgstr "Jaarlijks"
 
 msgid "Yellow"
 msgstr "Geel"
+
+msgid "yes"
+msgstr "ja"
 
 msgid "Yes"
 msgstr "Ja"

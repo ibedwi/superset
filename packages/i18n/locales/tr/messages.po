@@ -2024,6 +2024,9 @@ msgstr "Önce {repositoryName} deposunu bu bilgisayarda proje olarak ekleyin"
 msgid "Add a comment…"
 msgstr "Yorum ekle…"
 
+msgid "Add a daily schedule"
+msgstr "Günlük zamanlama ekle"
+
 msgid "Add a description"
 msgstr "Açıklama ekle"
 
@@ -2111,6 +2114,9 @@ msgstr "Dosya, uygulama ve daha fazlasını ekleyin (@)"
 msgid "Add GitHub organization"
 msgstr "GitHub organizasyonu ekle"
 
+msgid "Add header"
+msgstr "Üstbilgi ekle"
+
 msgid "Add instructions"
 msgstr "Talimat ekle"
 
@@ -2129,6 +2135,9 @@ msgstr "Üye ekle"
 
 msgid "Add more…"
 msgstr "Daha fazla ekle…"
+
+msgid "Add node"
+msgstr "Düğüm ekle"
 
 msgid "Add one from the menu in the sidebar to get started."
 msgstr "Başlamak için kenar çubuğundaki menüden bir tane ekleyin."
@@ -2731,6 +2740,9 @@ msgstr "Bir ajan tüm fonksiyonları ve dosyaları yazarken bir insan her adım�
 
 msgid "An automation can only use a cloud workspace you created"
 msgstr "Bir otomasyon yalnızca sizin oluşturduğunuz bir bulut çalışma alanını kullanabilir"
+
+msgid "An edge points at a missing node."
+msgstr "Bir bağlantı eksik bir düğüme işaret ediyor."
 
 msgid "An environment holds your repositories, variables, and region. Start as many workspaces from it as you need."
 msgstr "Bir ortam depolarınızı, değişkenlerinizi ve bölgenizi içerir. Ondan istediğiniz kadar çalışma alanı başlatın."
@@ -3452,6 +3464,9 @@ msgstr "Sayfalara dön"
 msgid "Back to the leaderboard"
 msgstr "Lider tablosuna dön"
 
+msgid "Back to workflows"
+msgstr "İş akışlarına geri dön"
+
 msgid "Backed by"
 msgstr "Destekçilerimiz"
 
@@ -3592,6 +3607,9 @@ msgstr "Pano"
 
 msgid "Board view"
 msgstr "Pano görünümü"
+
+msgid "Body"
+msgstr "Gövde"
 
 msgid "Bold"
 msgstr "Kalın"
@@ -3764,6 +3782,9 @@ msgstr "Böcek"
 
 msgid "Bug reports"
 msgstr "Hata raporları"
+
+msgid "Build a canvas of agent, LLM, API, and command steps that runs on a schedule or an event."
+msgstr "Zamanlamayla veya bir olayla çalışan ajan, LLM, API ve komut adımlarından oluşan bir tuval oluşturun."
 
 msgid "Build in public"
 msgstr "Herkesin gözü önünde geliştiriyoruz"
@@ -5041,6 +5062,9 @@ msgstr "Paradev'i Cursor, Claude Code, Codex, Windsurf, Devin, GitHub Copilot ve
 msgid "Compare plans"
 msgstr "Planları karşılaştır"
 
+msgid "Compare to"
+msgstr "Şununla karşılaştır"
+
 msgid "Compared against the default style"
 msgstr "Varsayılan stille karşılaştırıldı"
 
@@ -5059,6 +5083,9 @@ msgstr "component-showcase"
 
 msgid "Composable form layout — pairs with @superset/ui/form for react-hook-form"
 msgstr "Birleştirilebilir form düzeni — react-hook-form için @superset/ui/form ile birlikte kullanılır"
+
+msgid "Condition"
+msgstr "Koşul"
 
 msgid "Conductor chat history. Export it in Conductor under Settings → Account"
 msgstr "Conductor sohbet geçmişi. Conductor'da Settings → Account altından dışa aktarın"
@@ -5186,6 +5213,9 @@ msgstr "Claude, Codex, Cursor veya herhangi bir <0>MCP</0> istemcisini bağlayı
 
 msgid "Connect Claude, Codex, Cursor, or any MCP client to {companyName}. Create tasks, spin up workspaces, launch agents, and run automations straight from your AI agent."
 msgstr "Claude, Codex, Cursor veya herhangi bir MCP istemcisini {companyName}'e bağlayın. Görev oluşturun, çalışma alanları açın, ajanlar başlatın ve otomasyonları doğrudan AI ajanınızdan çalıştırın."
+
+msgid "Connect condition branches from their yes/no handles."
+msgstr "Koşul dallarını evet/hayır tutamaçlarından bağlayın."
 
 msgid "Connect external services to sync data with your organization."
 msgstr "Kuruluşunuzla veri eşitlemek için harici hizmetleri bağlayın."
@@ -6933,6 +6963,9 @@ msgstr "Çalışma alanı kaldırılırken yerel dalı sil"
 msgid "Delete message"
 msgstr "Mesajı sil"
 
+msgid "Delete node"
+msgstr "Düğümü sil"
+
 msgid "Delete organization"
 msgstr "Kuruluşu sil"
 
@@ -7200,6 +7233,9 @@ msgstr "Geliştiriciler"
 
 msgid "Development build"
 msgstr "Geliştirme derlemesi"
+
+msgid "Device"
+msgstr "Cihaz"
 
 msgid "Device: {selectedLabel}"
 msgstr "Cihaz: {selectedLabel}"
@@ -7641,6 +7677,9 @@ msgstr "Açılır, bağlam ve uygulama menüleri"
 msgid "Due today"
 msgstr "Bugün ödenecek"
 
+msgid "Duplicate node id: {nodeId}"
+msgstr "Yinelenen düğüm kimliği: {nodeId}"
+
 msgid "Duration"
 msgstr "Süre"
 
@@ -7726,6 +7765,9 @@ msgstr "{name} kazanıldı"
 
 msgid "Earned {name} ×{tier}"
 msgstr "{name} ×{tier} kazanıldı"
+
+msgid "Edges cannot point into the trigger."
+msgstr "Bağlantılar tetikleyiciye yönelemez."
 
 msgid "Edit"
 msgstr "Düzenle"
@@ -7888,6 +7930,9 @@ msgstr "Uzaktan erişimi etkinleştirin ve Paradev çalışırken bu bilgisayar�
 
 msgid "Enable skill"
 msgstr "Beceriyi etkinleştir"
+
+msgid "Enabled"
+msgstr "Etkin"
 
 msgid "End repeat"
 msgstr "Tekrarın sonu"
@@ -8274,6 +8319,9 @@ msgstr "Üye eklenemedi"
 msgid "Failed to archive automation"
 msgstr "Otomasyon arşivlenemedi"
 
+msgid "Failed to archive workflow"
+msgstr "İş akışı arşivlenemedi"
+
 msgid "Failed to cancel invitation"
 msgstr "Davet iptal edilemedi"
 
@@ -8373,6 +8421,9 @@ msgstr "Terminal oluşturulamadı"
 msgid "Failed to create thread"
 msgstr "Konu oluşturulamadı"
 
+msgid "Failed to create workflow"
+msgstr "İş akışı oluşturulamadı"
+
 msgid "Failed to create workspace"
 msgstr "Çalışma alanı oluşturulamadı"
 
@@ -8403,6 +8454,9 @@ msgstr "Görev silinemedi"
 
 msgid "Failed to delete team"
 msgstr "Takım silinemedi"
+
+msgid "Failed to delete trigger"
+msgstr "Tetikleyici silinemedi"
 
 msgid "Failed to discard the new item"
 msgstr "Yeni öğe atılamadı"
@@ -8615,6 +8669,12 @@ msgstr "Kurulum yapılandırması kaydedilemedi"
 msgid "Failed to save team"
 msgstr "Takım kaydedilemedi"
 
+msgid "Failed to save trigger"
+msgstr "Tetikleyici kaydedilemedi"
+
+msgid "Failed to save workflow"
+msgstr "İş akışı kaydedilemedi"
+
 msgid "Failed to send"
 msgstr "Gönderilemedi"
 
@@ -8644,6 +8704,9 @@ msgstr "Oturum açılamadı. Lütfen yeniden deneyin."
 
 msgid "Failed to sign up. Please try again."
 msgstr "Kaydolunamadı. Lütfen yeniden deneyin."
+
+msgid "Failed to start run"
+msgstr "Çalıştırma başlatılamadı"
 
 msgid "Failed to start the selected automations"
 msgstr "Seçilen otomasyonlar başlatılamadı"
@@ -8710,6 +8773,9 @@ msgstr "Takım güncellenemedi. Lütfen yeniden deneyin."
 
 msgid "Failed to update URL"
 msgstr "URL güncellenemedi"
+
+msgid "Failed to update workflow"
+msgstr "İş akışı güncellenemedi"
 
 msgid "Failed to update workspace"
 msgstr "Çalışma alanı güncellenemedi"
@@ -8986,6 +9052,9 @@ msgstr "Bulguları düzelt"
 
 msgid "Fix new errors in web. Reproduce each one in a test and open a draft pull request."
 msgstr "web'deki yeni hataları düzelt. Her birini bir testte yeniden üret ve taslak bir pull request aç."
+
+msgid "Fix the graph before saving"
+msgstr "Kaydetmeden önce grafı düzeltin"
 
 msgid "fix-auth-redirect"
 msgstr "fix-auth-redirect"
@@ -9669,6 +9738,9 @@ msgstr "Push edilmemiş commit'ler var"
 msgid "Head-to-Head Comparisons"
 msgstr "Birebir karşılaştırmalar"
 
+msgid "Headers"
+msgstr "Üstbilgiler"
+
 msgid "Heading 1"
 msgstr "Başlık 1"
 
@@ -9981,6 +10053,12 @@ msgstr "Ajanlarınızın bulut çalışma alanlarında nasıl oturum açtığı.
 
 msgid "HTML preview"
 msgstr "HTML önizleme"
+
+msgid "HTTP"
+msgstr "HTTP"
+
+msgid "HTTP request"
+msgstr "HTTP isteği"
 
 msgid "https://"
 msgstr "https://"
@@ -11310,6 +11388,9 @@ msgstr "Uygulamada yayında."
 msgid "Live preview"
 msgstr "Canlı önizleme"
 
+msgid "LLM"
+msgstr "LLM"
+
 msgid "llms.txt (index for AI agents)"
 msgstr "llms.txt (AI ajanları için dizin)"
 
@@ -11745,6 +11826,9 @@ msgstr "Kısayolları klavyenizdeki etiketlerle eşleştirin (örn. ⌘Z her zam
 
 msgid "Max"
 msgstr "En yüksek"
+
+msgid "Max tokens"
+msgstr "Maksimum token"
 
 msgid "Maximum"
 msgstr "En yüksek"
@@ -12444,6 +12528,9 @@ msgstr "Yeni pencere"
 msgid "New Window"
 msgstr "Yeni pencere"
 
+msgid "New workflow"
+msgstr "Yeni iş akışı"
+
 msgid "New workspace"
 msgstr "Yeni çalışma alanı"
 
@@ -12534,6 +12621,9 @@ msgstr "Harika iş"
 
 msgid "Nightly audit"
 msgstr "Gece denetimi"
+
+msgid "no"
+msgstr "hayır"
 
 msgid "No"
 msgstr "Hayır"
@@ -13156,6 +13246,9 @@ msgstr "Henüz ileti dizisi yok"
 msgid "No triggers"
 msgstr "Tetikleyici yok"
 
+msgid "No triggers yet. The workflow only runs when started manually."
+msgstr "Henüz tetikleyici yok. İş akışı yalnızca elle başlatıldığında çalışır."
+
 msgid "No Updates"
 msgstr "Güncelleme yok"
 
@@ -13185,6 +13278,9 @@ msgstr "Henüz sürüm yok"
 
 msgid "No versions yet."
 msgstr "Henüz sürüm yok."
+
+msgid "No workflows yet"
+msgstr "Henüz iş akışı yok"
 
 msgid "No workspace run command configured"
 msgstr "Yapılandırılmış çalışma alanı çalıştırma komutu yok"
@@ -13596,6 +13692,9 @@ msgstr "Yalnızca macOS'ta kullanılabilir."
 msgid "Only channel admins can do that"
 msgstr "Bunu yalnızca kanal yöneticileri yapabilir"
 
+msgid "Only condition nodes have branch handles."
+msgstr "Dal tutamaçları yalnızca koşul düğümlerinde bulunur."
+
 msgid "Only host owners can change membership"
 msgstr "Üyeliği yalnızca host sahipleri değiştirebilir"
 
@@ -13613,6 +13712,9 @@ msgstr "Bu ajanı yalnızca oluşturan kişi veya bir kuruluş yöneticisi deği
 
 msgid "Only on this machine: gitignored, and applied to every worktree of this repository. Any key set here replaces the shared one."
 msgstr "Yalnızca bu makinede: git tarafından yok sayılır ve bu deponun her worktree'sine uygulanır. Burada ayarlanan her anahtar paylaşılanın yerini alır."
+
+msgid "Only one trigger node is allowed."
+msgstr "Yalnızca bir tetikleyici düğüme izin verilir."
 
 msgid "Only organization owners and admins can connect GitHub accounts. Ask one of them to connect it."
 msgstr "GitHub hesaplarını yalnızca kuruluş sahipleri ve yöneticileri bağlayabilir. Hesabı bağlaması için bunlardan birine başvurun."
@@ -16062,6 +16164,9 @@ msgstr "Uygulamayı yeniden yükle"
 msgid "Reload from disk"
 msgstr "Diskten yeniden yükle"
 
+msgid "Reload latest"
+msgstr "En son sürümü yükle"
+
 msgid "Reload Paradev to refresh the workspace list."
 msgstr "Çalışma alanı listesini yenilemek için Paradev'i yeniden yükleyin."
 
@@ -16160,6 +16265,9 @@ msgstr "Kenar çubuğundan kaldır"
 
 msgid "Remove from Sidebar"
 msgstr "Kenar çubuğundan kaldır"
+
+msgid "Remove header"
+msgstr "Üstbilgiyi kaldır"
 
 msgid "Remove icon"
 msgstr "Simgeyi kaldır"
@@ -17589,8 +17697,14 @@ msgstr "Seçim"
 msgid "Select {0}"
 msgstr "{0} öğesini seç"
 
+msgid "Select a device"
+msgstr "Bir cihaz seçin"
+
 msgid "Select a file to view it here"
 msgstr "Burada görüntülemek için bir dosya seçin"
+
+msgid "Select a node to configure it."
+msgstr "Yapılandırmak için bir düğüm seçin."
 
 msgid "Select a project"
 msgstr "Bir proje seçin"
@@ -18636,6 +18750,9 @@ msgstr "Biri bu çalışma alanını taşıyor…"
 msgid "Someone on the Paradev team will review this page. We only follow up if we need more from you."
 msgstr "Paradev ekibinden biri bu sayfayı inceleyecek. Yalnızca ek bilgiye ihtiyacımız olursa sizinle iletişime geçeriz."
 
+msgid "Someone saved a newer version of this workflow. Reload to get their changes, or keep editing and save again to retry on top of your copy."
+msgstr "Birisi bu iş akışının daha yeni bir sürümünü kaydetti. Değişiklikleri almak için yeniden yükleyin veya düzenlemeye devam edip kendi kopyanızın üzerine tekrar kaydedin."
+
 msgid "Something else"
 msgstr "Başka bir şey"
 
@@ -19394,6 +19511,9 @@ msgstr "Sistem tasarımı"
 msgid "System memory"
 msgstr "Sistem belleği"
 
+msgid "System prompt"
+msgstr "Sistem promptu"
+
 msgid "System RAM share"
 msgstr "Sistem RAM payı"
 
@@ -19918,6 +20038,12 @@ msgstr "Ekibimizi destekleyen fonlar ve melek yatırımcılar."
 msgid "The future home for reusable Paradev agent configs, prompts, and setup guides."
 msgstr "Yeniden kullanılabilir Paradev ajan yapılandırmaları, istemleri ve kurulum kılavuzları için gelecekteki adres."
 
+msgid "The graph has a cycle through: {nodeIds}"
+msgstr "Grafikte şu düğümlerden geçen bir döngü var: {nodeIds}"
+
+msgid "The graph needs a trigger node."
+msgstr "Grafiğin bir tetikleyici düğüme ihtiyacı var."
+
 #. placeholder {0}: info.version
 msgid "The host came back on {0}, not {targetVersion}."
 msgstr "Ana makine {targetVersion} yerine {0} ile geri döndü."
@@ -20170,6 +20296,9 @@ msgstr "Worktree ve commit'lenmemiş tüm değişiklikler kaldırılacak. Bu ger
 
 msgid "The worktree has uncommitted edits from the agent session."
 msgstr "Worktree'de ajan oturumundan kalan commit'lenmemiş düzenlemeler var."
+
+msgid "The yes branch runs when this is true, the no branch otherwise."
+msgstr "Bu doğruysa evet dalı, değilse hayır dalı çalışır."
 
 msgid "Theme"
 msgstr "Tema"
@@ -20697,6 +20826,12 @@ msgstr "İlk çalışma alanına kadar geçen süre"
 
 msgid "Time zone"
 msgstr "Saat dilimi"
+
+msgid "Timeout (minutes)"
+msgstr "Zaman aşımı (dakika)"
+
+msgid "Timeout (seconds)"
+msgstr "Zaman aşımı (saniye)"
 
 msgid "Tinted"
 msgstr "Renkli"
@@ -21309,6 +21444,9 @@ msgstr "Sırasız"
 msgid "Unranked until {0} days carry usage."
 msgstr "{0} gün kullanım birikene kadar sıralama dışısın."
 
+msgid "Unreachable nodes: {nodeIds}"
+msgstr "Ulaşılamayan düğümler: {nodeIds}"
+
 msgid "Unresolve"
 msgstr "Çözümü geri al"
 
@@ -21652,6 +21790,12 @@ msgstr "kullanıcı@host, ssh://kullanıcı@host:2222 veya bir ssh yapılandırm
 
 msgid "v2ProjectId does not match the workspace's project"
 msgstr "v2ProjectId, çalışma alanının projesiyle eşleşmiyor"
+
+msgid "Value"
+msgstr "Değer"
+
+msgid "Value to test"
+msgstr "Sınanacak değer"
 
 msgid "Variables"
 msgstr "Değişkenler"
@@ -22098,6 +22242,12 @@ msgstr "Yayınlananlar"
 msgid "What should run automatically?"
 msgstr "Ne otomatik çalışmalı?"
 
+msgid "What should the agent do?"
+msgstr "Ajan ne yapmalı?"
+
+msgid "What should the model do?"
+msgstr "Model ne yapmalı?"
+
 msgid "What should the page show?"
 msgstr "Sayfa ne göstermeli?"
 
@@ -22260,11 +22410,32 @@ msgstr "{0} dk {1} sn çalıştı"
 msgid "Worked for {seconds}s"
 msgstr "{seconds} sn çalıştı"
 
+msgid "Workflow actions"
+msgstr "İş akışı eylemleri"
+
+msgid "Workflow archived"
+msgstr "İş akışı arşivlendi"
+
+msgid "Workflow changed elsewhere"
+msgstr "İş akışı başka bir yerde değiştirildi"
+
+msgid "Workflow name"
+msgstr "İş akışı adı"
+
+msgid "Workflow not found."
+msgstr "İş akışı bulunamadı."
+
 msgid "Workflow run completed…"
 msgstr "Workflow çalıştırması tamamlandı…"
 
+msgid "Workflow saved"
+msgstr "İş akışı kaydedildi"
+
 msgid "Workflow Tutorials"
 msgstr "İş akışı eğitimleri"
+
+msgid "Workflows"
+msgstr "İş akışları"
 
 msgid "Working"
 msgstr "Çalışıyor"
@@ -22333,6 +22504,9 @@ msgstr "Çalışma alanı oluşturuldu"
 msgid "Workspace details"
 msgstr "Çalışma alanı ayrıntıları"
 
+msgid "Workspace ID"
+msgstr "Çalışma alanı kimliği"
+
 msgid "Workspace ID copied"
 msgstr "Çalışma alanı kimliği kopyalandı"
 
@@ -22368,6 +22542,9 @@ msgstr "Çalışma alanı çalıştırması: {workspaceRunState}"
 
 msgid "Workspace settings"
 msgstr "Çalışma alanı ayarları"
+
+msgid "Workspace to run in"
+msgstr "Çalıştırılacak çalışma alanı"
 
 msgid "Workspace views"
 msgstr "Çalışma alanı görünümleri"
@@ -22485,6 +22662,9 @@ msgstr "Yıllık"
 
 msgid "Yellow"
 msgstr "Sarı"
+
+msgid "yes"
+msgstr "evet"
 
 msgid "Yes"
 msgstr "Evet"
