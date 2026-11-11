@@ -11,7 +11,11 @@ import { and, desc, eq, sql } from "drizzle-orm";
 import { z } from "zod";
 import { personProcedure } from "../../trpc";
 import { requireActiveOrgMembership } from "../utils/active-org";
-import { getWorkflowForUser, workflowNotFound } from "./helpers";
+import {
+	getWorkflowForUser,
+	getWorkflowInOrg,
+	workflowNotFound,
+} from "./helpers";
 
 export function graphContentHash(graph: WorkflowGraph): string {
 	return createHash("sha256").update(JSON.stringify(graph)).digest("hex");
@@ -127,7 +131,7 @@ export const workflowGraphProcedures = {
 		)
 		.query(async ({ ctx, input }) => {
 			const organizationId = await requireActiveOrgMembership(ctx);
-			await getWorkflowForUser(ctx.session.user.id, organizationId, input.workflowId);
+			await getWorkflowInOrg(organizationId, input.workflowId);
 			return db
 				.select({
 					id: workflowVersions.id,
@@ -149,8 +153,9 @@ export const workflowGraphProcedures = {
 			z.object({ workflowId: z.string().uuid(), versionId: z.string().uuid() }),
 		)
 		.query(async ({ ctx, input }) => {
+			// Org-scoped like getRun: any member can open a run's pinned graph.
 			const organizationId = await requireActiveOrgMembership(ctx);
-			await getWorkflowForUser(ctx.session.user.id, organizationId, input.workflowId);
+			await getWorkflowInOrg(organizationId, input.workflowId);
 			const [row] = await db
 				.select()
 				.from(workflowVersions)
