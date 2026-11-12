@@ -11,6 +11,7 @@ export interface EngineSelection {
 	workflowEngine: WorkflowEngineId;
 	startTemporal: boolean;
 	startPostgres: boolean;
+	startInngest: boolean;
 }
 
 /** Same default as the API: temporal when an address is set, postgres otherwise. */
@@ -24,6 +25,7 @@ export function selectEngines(args: {
 		workflowEngine,
 		startTemporal: address !== undefined || workflowEngine === "temporal",
 		startPostgres: workflowEngine === "postgres",
+		startInngest: workflowEngine === "inngest",
 	};
 }
 

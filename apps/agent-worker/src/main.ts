@@ -16,12 +16,6 @@ const api = workflowApi({
 	workerSecret: requireEnv({ env, name: "AGENT_WORKER_SECRET" }),
 });
 
-if (selection.workflowEngine === "inngest") {
-	throw new Error(
-		"WORKFLOW_ENGINE=inngest is not available in this worker yet",
-	);
-}
-
 const engines: EngineHandle[] = [];
 if (selection.startTemporal) {
 	engines.push(await startTemporalWorker({ env, workflowApi: api }));
@@ -32,6 +26,25 @@ if (selection.startPostgres) {
 			api,
 			workerId: `${hostname()}-${process.pid}-${crypto.randomUUID().slice(0, 8)}`,
 			sleep: abortableSleep,
+			activities: (runtime) => createWorkflowActivities({ api, runtime }),
+		}),
+	);
+}
+if (selection.startInngest) {
+	const { startInngestEngine } = await import(
+		"./engines/inngest/inngestEngine"
+	);
+	const isDev = env.INNGEST_DEV === "1";
+	engines.push(
+		await startInngestEngine({
+			client: {
+				signingKey: isDev
+					? env.INNGEST_SIGNING_KEY
+					: requireEnv({ env, name: "INNGEST_SIGNING_KEY" }),
+				baseUrl: env.INNGEST_BASE_URL,
+				isDev: env.INNGEST_DEV ? isDev : undefined,
+			},
+			instanceId: `${hostname()}-${process.pid}`,
 			activities: (runtime) => createWorkflowActivities({ api, runtime }),
 		}),
 	);

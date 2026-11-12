@@ -41,8 +41,8 @@ An organization can also bring its own engine account. In the desktop app, under
 - [ ] Milestone 2: database migration, engine registry in `packages/trpc`, API-side cancel cleanup.
 - [x] (2026-11-12 19:50Z) Milestone 3: journaled context shared by the Postgres and Trigger.dev engines.
 - [ ] Milestone 4: Postgres engine (completed: registry entry, claim/renew/release procedures, worker engine, main.ts composition root, unit and integration tests, a reduced end-to-end with three HTTP nodes and a worker restart on a throwaway database; remaining: the plan's acceptance with the real API, the desktop app and an agent node, and a SIGKILL takeover by lease expiry outside the DB-level test).
-- [ ] Milestone 5: Inngest engine.
-- [ ] Milestone 6: Trigger.dev engine.
+- [ ] Milestone 5: Inngest engine (completed: spike, API adapter, worker context and engine over Connect, terminal-run refusal for polls, env examples, container build with `inngest` external, end-to-end against the dev server with stub activities; remaining: acceptance with the real API, desktop app and an agent node; on `stop()` abort in-flight polls before draining, done in Milestone 7).
+- [ ] Milestone 6: Trigger.dev engine (completed: API adapter, `trigger.config.ts`, the `workflow-run` task, scripts; typecheck only. remaining: any real run, which needs a Trigger.dev project).
 - [x] (2026-11-12 18:10Z) User decision recorded: organizations can connect their own Inngest or Temporal from the UI; plan revised (Milestone 7 added).
 - [ ] Milestone 7: per-organization Inngest and Temporal connections, with the Settings UI.
 - [ ] Milestone 8: environment variables, documentation, full `/ci-check`.
@@ -126,7 +126,15 @@ An organization can also bring its own engine account. In the desktop app, under
 - Decision: The worker procedures `observeAgent` and `pollHostJob` refuse with a non-retryable error when the run is already terminal.
   Rationale: Spike: an Inngest cancel does not stop a step handler that is already running, and plain code after that step still runs. A poll chunk of up to 30 minutes would keep polling a canceled run; refusing at the API ends it at the next poll on every engine.
   Date/Author: 2026-11-13, Milestone 5 spike.
-- Decision: Trigger.dev handle and base URL. (placeholder, Open Question 3)
+- Decision: Trigger.dev handle and base URL: the run id is `handle.id`; the SDK reads `TRIGGER_API_URL` (default `https://api.trigger.dev`) and `TRIGGER_SECRET_KEY`. The adapter passes both with `auth.withAuth({ accessToken, baseURL }, fn)` so no global SDK state changes.
+  Rationale: Read from the installed `@trigger.dev/core` 4.8.2 type definitions and `apiClientManager`.
+  Date/Author: 2026-11-13, Milestone 6 implementation.
+- Decision: `inngest` is external in the worker's `bun build` and listed in `apps/agent-worker/container/package.json`.
+  Rationale: Bundled, `inngest/connect` crashed with "Worker thread exited with code 1 during connect": its worker thread loads a file from beside the module.
+  Date/Author: 2026-11-13, Milestone 5 implementation.
+- Decision: A `NodeError` crossing an Inngest step is encoded into the error message as `[code,timed_out] message` and decoded by the context.
+  Rationale: Inngest keeps only the message of a step error.
+  Date/Author: 2026-11-13, Milestone 5 implementation.
 
 
 ## Outcomes & Retrospective

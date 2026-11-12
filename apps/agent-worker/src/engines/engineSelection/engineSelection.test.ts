@@ -7,6 +7,7 @@ describe("selectEngines", () => {
 			workflowEngine: "postgres",
 			startTemporal: false,
 			startPostgres: true,
+			startInngest: false,
 		});
 	});
 
@@ -15,6 +16,7 @@ describe("selectEngines", () => {
 			workflowEngine: "temporal",
 			startTemporal: true,
 			startPostgres: false,
+			startInngest: false,
 		});
 	});
 
@@ -37,6 +39,22 @@ describe("selectEngines", () => {
 		const selection = selectEngines({ env: { WORKFLOW_ENGINE: "inngest" } });
 
 		expect(selection.startTemporal).toBe(false);
+	});
+
+	test("starts the inngest engine when it is configured", () => {
+		const selection = selectEngines({ env: { WORKFLOW_ENGINE: "inngest" } });
+
+		expect(selection.startInngest).toBe(true);
+	});
+
+	test("starts no engine process for trigger without an address", () => {
+		const selection = selectEngines({ env: { WORKFLOW_ENGINE: "trigger" } });
+
+		expect([
+			selection.startTemporal,
+			selection.startPostgres,
+			selection.startInngest,
+		]).toEqual([false, false, false]);
 	});
 
 	test("treats an empty value as unset", () => {

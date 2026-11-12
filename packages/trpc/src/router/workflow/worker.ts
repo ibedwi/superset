@@ -35,6 +35,7 @@ import {
 	runNotFound,
 	runScope,
 } from "./hostRelay";
+import { assertRunActive } from "./runFinished";
 
 const runIdSchema = z.object({ runId: z.string().uuid() });
 
@@ -366,6 +367,7 @@ export const workflowWorkerRouter = {
 		)
 		.mutation(async ({ input }) => {
 			const scope = await runScope(input.runId);
+			assertRunActive(scope);
 			const host = hostCaller(await hostRelay(scope, input.hostId));
 			const bindings = await host.query<
 				Array<{ terminalId: string; lastEventType: string }>
@@ -503,6 +505,7 @@ export const workflowWorkerRouter = {
 		)
 		.mutation(async ({ input }) => {
 			const scope = await runScope(input.runId);
+			assertRunActive(scope);
 			const host = hostCaller(await hostRelay(scope, input.hostId, 40_000));
 			return host.mutation<{
 				status: "running" | "done" | "failed" | "killed" | "timed_out" | "lost";

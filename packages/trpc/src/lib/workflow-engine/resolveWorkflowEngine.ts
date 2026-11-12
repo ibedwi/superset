@@ -1,15 +1,19 @@
 import { env } from "../../env";
+import { inngestWorkflowEngine } from "./engines/inngest";
 import { postgresWorkflowEngine } from "./engines/postgres";
 import { temporalWorkflowEngine } from "./engines/temporal";
+import { triggerWorkflowEngine } from "./engines/trigger";
 import {
 	WORKFLOW_ENGINE_IDS,
 	type WorkflowEngine,
 	type WorkflowEngineId,
 } from "./types";
 
-const REGISTERED_ENGINES: Partial<Record<WorkflowEngineId, WorkflowEngine>> = {
+const REGISTERED_ENGINES: Record<WorkflowEngineId, WorkflowEngine> = {
 	temporal: temporalWorkflowEngine,
 	postgres: postgresWorkflowEngine,
+	inngest: inngestWorkflowEngine,
+	trigger: triggerWorkflowEngine,
 };
 
 export function defaultWorkflowEngineId(args: {

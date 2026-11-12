@@ -42,6 +42,14 @@ export const env = createEnv({
 		WORKFLOW_ENGINE: z
 			.enum(["temporal", "postgres", "inngest", "trigger"])
 			.optional(),
+		// Workflow engine inngest: events go to Inngest Cloud unless INNGEST_BASE_URL points at a
+		// self-hosted server; INNGEST_DEV=1 uses the local dev server and needs no key.
+		INNGEST_EVENT_KEY: z.string().min(1).optional(),
+		INNGEST_BASE_URL: z.string().url().optional(),
+		INNGEST_DEV: z.enum(["0", "1"]).optional(),
+		// Workflow engine trigger: the project's secret key; TRIGGER_API_URL only for a self-hosted server.
+		TRIGGER_SECRET_KEY: z.string().min(1).optional(),
+		TRIGGER_API_URL: z.string().url().optional(),
 		// Local only: on Vercel the channel router calls Jev with the deployment's OIDC token.
 		VERCEL_AI_GATEWAY_KEY: z.string().min(1).optional(),
 		// Optional: page thumbnails are skipped wherever this is unset.

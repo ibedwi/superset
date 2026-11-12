@@ -19,7 +19,8 @@ export type WorkflowStepStatus =
 	| "skipped"
 	| "canceled";
 
-import { type TrpcCallOptions, trpcMutation } from "../trpcCall";
+import { NodeError } from "../../engines/nodeError";
+import { TrpcCallError, type TrpcCallOptions, trpcMutation } from "../trpcCall";
 
 const WORKER_SECRET_HEADER = "x-agent-worker-secret";
 
@@ -143,6 +144,22 @@ export interface WorkflowApi {
 	}): Promise<{ text: string; json?: unknown }>;
 }
 
+/** The API answers CONFLICT when a poll targets a run that is already finished. */
+async function endWithRun<T>(call: Promise<T>): Promise<T> {
+	try {
+		return await call;
+	} catch (error) {
+		if (error instanceof TrpcCallError && error.code === "CONFLICT") {
+			throw new NodeError({
+				message: error.message,
+				code: "RunFinished",
+				retryable: false,
+			});
+		}
+		throw error;
+	}
+}
+
 /** The API's `workflowWorker` routes, called with the shared worker secret. */
 export function workflowApi(options: {
 	apiUrl: string;
@@ -161,12 +178,17 @@ export function workflowApi(options: {
 		recordRunStatus: (input) => call("recordRunStatus", input),
 		recordStep: (input) => call("recordStep", input),
 		dispatchAgent: (input) => call("dispatchAgent", input),
-		observeAgent: (input) => call("observeAgent", input),
+		observeAgent: (input) => endWithRun(call("observeAgent", input)),
 		readHostFile: (input) => call("readHostFile", input),
 		agentTranscript: (input) => call("agentTranscript", input),
 		execHostJob: (input) => call("execHostJob", input),
 		pollHostJob: (input) =>
-			call("pollHostJob", { ...input, waitMs: Math.min(input.waitMs, 25_000) }),
+			endWithRun(
+				call("pollHostJob", {
+					...input,
+					waitMs: Math.min(input.waitMs, 25_000),
+				}),
+			),
 		killHostJob: (input) => call("killHostJob", input),
 		llmCall: (input) => call("llmCall", input),
 		loadCheckpoints: (input) => call("loadCheckpoints", input),

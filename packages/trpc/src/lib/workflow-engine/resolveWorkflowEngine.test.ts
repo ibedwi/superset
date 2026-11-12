@@ -52,8 +52,30 @@ describe("workflowEngineById", () => {
 		expect(workflowEngineById("postgres").id).toBe("postgres");
 	});
 
-	test("names an engine that is not registered", () => {
-		expect(() => workflowEngineById("inngest")).toThrow(/inngest/);
+	test("returns the inngest adapter", () => {
+		expect(workflowEngineById("inngest").id).toBe("inngest");
+	});
+
+	test("returns the trigger adapter", () => {
+		expect(workflowEngineById("trigger").id).toBe("trigger");
+	});
+
+	test("inngest refuses to start without an event key", async () => {
+		await expect(
+			workflowEngineById("inngest").start({
+				runId: "run-1",
+				organizationId: "org-1",
+			}),
+		).rejects.toThrow("INNGEST_EVENT_KEY is not set");
+	});
+
+	test("trigger refuses to start without a secret key", async () => {
+		await expect(
+			workflowEngineById("trigger").start({
+				runId: "run-1",
+				organizationId: "org-1",
+			}),
+		).rejects.toThrow("TRIGGER_SECRET_KEY is not set");
 	});
 
 	test("names an unknown engine id", () => {
