@@ -142,3 +142,7 @@ export function httpSummary(config: HttpConfig): string {
 	const timeout = `${config.timeoutSeconds ?? 30}s timeout`;
 	return [headers, body, timeout].join(" · ");
 }
+
+export function nodeDisplayName(node: { id: string; name?: string }): string {
+	return node.name?.trim() || node.id;
+}
