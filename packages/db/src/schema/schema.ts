@@ -2222,6 +2222,11 @@ export const workflowRuns = pgTable(
 		status: workflowRunStatus().notNull(),
 		error: text(),
 
+		engine: text().notNull().default("temporal"),
+		engineRunId: text("engine_run_id"),
+		leaseOwner: text("lease_owner"),
+		leaseExpiresAt: timestamp("lease_expires_at", { withTimezone: true }),
+
 		startedAt: timestamp("started_at", { withTimezone: true }),
 		finishedAt: timestamp("finished_at", { withTimezone: true }),
 		createdAt: timestamp("created_at", { withTimezone: true })
@@ -2247,6 +2252,9 @@ export const workflowRuns = pgTable(
 		// ON DELETE SET NULL on event_id resolves through this; without it every
 		// automation_events row deleted by retention scans this table.
 		index("workflow_runs_event_idx").on(t.eventId),
+		index("workflow_runs_postgres_claim_idx")
+			.on(t.createdAt)
+			.where(sql`engine = 'postgres' AND status IN ('pending', 'running')`),
 	],
 );
 
@@ -2272,6 +2280,8 @@ export const workflowRunSteps = pgTable(
 		output: jsonb(),
 		error: text(),
 		attempt: integer().notNull().default(1),
+		// What the step started on a host (agent handle or CLI job); cancel reads it.
+		externalRef: jsonb("external_ref"),
 
 		startedAt: timestamp("started_at", { withTimezone: true }),
 		finishedAt: timestamp("finished_at", { withTimezone: true }),
@@ -2284,6 +2294,26 @@ export const workflowRunSteps = pgTable(
 
 export type InsertWorkflowRunStep = typeof workflowRunSteps.$inferInsert;
 export type SelectWorkflowRunStep = typeof workflowRunSteps.$inferSelect;
+
+export const workflowRunCheckpoints = pgTable(
+	"workflow_run_checkpoints",
+	{
+		runId: uuid("run_id")
+			.notNull()
+			.references(() => workflowRuns.id, { onDelete: "cascade" }),
+		key: text().notNull(),
+		result: jsonb(),
+		createdAt: timestamp("created_at", { withTimezone: true })
+			.notNull()
+			.defaultNow(),
+	},
+	(t) => [primaryKey({ columns: [t.runId, t.key] })],
+);
+
+export type InsertWorkflowRunCheckpoint =
+	typeof workflowRunCheckpoints.$inferInsert;
+export type SelectWorkflowRunCheckpoint =
+	typeof workflowRunCheckpoints.$inferSelect;
 
 export const submittedPrompts = pgTable(
 	"submitted_prompts",

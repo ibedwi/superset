@@ -1,14 +1,12 @@
-import { AGENT_TASK_QUEUE } from "@superset/agent-harness/session/definitions";
 import { db } from "@superset/db/client";
 import { workflowRuns } from "@superset/db/schema";
-import { WorkflowIdConflictPolicy } from "@temporalio/client";
+import { rawErrorMessage } from "@superset/i18n/errors";
 import { eq, sql } from "drizzle-orm";
-import { agentTemporal } from "../../lib/agent-runtime";
 import { nudge } from "../../lib/realtime";
-
-export function workflowRunWorkflowId(runId: string): string {
-	return `workflow-run-${runId}`;
-}
+import {
+	resolveWorkflowEngine,
+	type WorkflowEngine,
+} from "../../lib/workflow-engine";
 
 export type WorkflowDispatchCause =
 	| { scheduledFor: Date; triggerId?: string; trigger?: null }
@@ -26,9 +24,9 @@ export type WorkflowDispatchOutcome =
 
 /**
  * Start one workflow run: pin the live graph version, insert the run row
- * (the partial unique indexes absorb QStash replays), and start the Temporal
- * workflow. USE_EXISTING makes the Temporal start idempotent too, so a replay
- * that lost the insert race still converges on the same execution.
+ * (the partial unique indexes absorb QStash replays), and start the run on the
+ * configured engine. Engine starts are idempotent, so a replay that lost the
+ * insert race still converges on the same execution.
  */
 export async function dispatchWorkflow(
 	opts: {
@@ -47,6 +45,12 @@ export async function dispatchWorkflow(
 		return { status: "rejected", error: "workflow has no saved graph" };
 	}
 	const cause = runCause(opts);
+	let engine: WorkflowEngine;
+	try {
+		engine = resolveWorkflowEngine({ organizationId: workflow.organizationId });
+	} catch (error) {
+		return { status: "rejected", error: rawErrorMessage(error) };
+	}
 	const [run] = await db
 		.insert(workflowRuns)
 		.values({
@@ -57,21 +61,25 @@ export async function dispatchWorkflow(
 			...cause,
 			triggerContext: opts.triggerContext ?? null,
 			status: "pending",
+			engine: engine.id,
 		})
 		.onConflictDoNothing(runDedupTarget(cause))
 		.returning({ id: workflowRuns.id });
 	if (!run) return { status: "conflict" };
 
 	try {
-		const temporal = await agentTemporal();
-		await temporal.workflow.start("workflowRun", {
-			workflowId: workflowRunWorkflowId(run.id),
-			taskQueue: AGENT_TASK_QUEUE,
-			args: [{ runId: run.id }],
-			workflowIdConflictPolicy: WorkflowIdConflictPolicy.USE_EXISTING,
+		const { engineRunId } = await engine.start({
+			runId: run.id,
+			organizationId: workflow.organizationId,
 		});
+		if (engineRunId) {
+			await db
+				.update(workflowRuns)
+				.set({ engineRunId })
+				.where(eq(workflowRuns.id, run.id));
+		}
 	} catch (error) {
-		const message = error instanceof Error ? error.message : String(error);
+		const message = rawErrorMessage(error);
 		await db
 			.update(workflowRuns)
 			.set({ status: "failed", error: message, finishedAt: new Date() })

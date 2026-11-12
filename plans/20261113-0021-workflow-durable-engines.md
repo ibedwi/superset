@@ -37,7 +37,7 @@ An organization can also bring its own engine account. In the desktop app, under
 
 - [x] (2026-11-12 17:21Z) Mapped the current Temporal-only engine and confirmed the Inngest and Trigger.dev SDK surfaces.
 - [x] (2026-11-12 17:21Z) User decisions recorded: deployment-level switch first, shaped for a per-organization override; all four engines in this effort.
-- [ ] Milestone 1: engine-neutral graph interpreter; Temporal runs through it.
+- [x] (2026-11-12 19:00Z) Milestone 1: engine-neutral graph interpreter; Temporal runs through it (commit 33b3a51c2).
 - [ ] Milestone 2: database migration, engine registry in `packages/trpc`, API-side cancel cleanup.
 - [ ] Milestone 3: journaled context shared by the Postgres and Trigger.dev engines.
 - [ ] Milestone 4: Postgres engine.
@@ -59,6 +59,13 @@ An organization can also bring its own engine account. In the desktop app, under
 
 
 ## Decision Log
+
+- Decision: `CallOptions.timeoutMs` bounds one try, not all tries; poll calls retry at most 10 times per chunk; a node that already failed is not re-marked canceled.
+  Rationale: Found in Milestone 1. A total bound would remove the retries of the 30-second bookkeeping calls.
+  Date/Author: 2026-11-13, Milestone 1 implementation.
+- Decision: Database-backed lifecycle tests for cancel and the status guards live in `packages/trpc/src/router/workflow/workflowRunLifecycle.integration.ts`, which `bun test` does not pick up; run it by path with `DATABASE_URL` set.
+  Rationale: CI has no database for the package suite and the repo forbids mocking the db client.
+  Date/Author: 2026-11-13, Milestone 2 implementation.
 
 - Decision: The engine is chosen per deployment by `WORKFLOW_ENGINE`; every run row stores the engine that started it.
   Rationale: The user asked for "both, deployment first". Storing the engine on the run makes cancel correct after an operator switches engines, and is the seam a per-organization override needs later.

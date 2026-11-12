@@ -367,7 +367,7 @@ describe("workflowRun workflow", () => {
 		assert.deepEqual(runStatuses(calls), ["running", "timed_out"]);
 	});
 
-	it("cancels a running agent node and records canceled statuses", async () => {
+	it("stops a running agent node on cancel and leaves the statuses to the API", async () => {
 		const graph: WorkflowGraph = {
 			nodes: [trigger, agentNode("long", 240)],
 			edges: [edge("start", "long")],
@@ -384,7 +384,6 @@ describe("workflowRun workflow", () => {
 		});
 		assert.equal(result.outcome, "failed");
 		await waitFor(() => cancelled);
-		assert.ok(steps(calls).includes("long:canceled"));
-		assert.ok(runStatuses(calls).includes("canceled"));
+		assert.deepEqual(runStatuses(calls), ["running"]);
 	});
 });

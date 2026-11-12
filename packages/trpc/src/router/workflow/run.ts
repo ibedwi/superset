@@ -5,14 +5,16 @@ import {
 	workflows,
 	workflowTriggers,
 } from "@superset/db/schema";
+import { rawErrorMessage } from "@superset/i18n/errors";
 import { TRPCError, type TRPCRouterRecord } from "@trpc/server";
-import { and, asc, desc, eq, inArray, lt, or, sql } from "drizzle-orm";
+import { and, asc, desc, eq, lt, or, sql } from "drizzle-orm";
 import { z } from "zod";
-import { agentTemporal } from "../../lib/agent-runtime";
 import { nudge } from "../../lib/realtime";
+import { workflowEngineById } from "../../lib/workflow-engine";
 import { personProcedure } from "../../trpc";
 import { requireActiveOrgMembership } from "../utils/active-org";
-import { dispatchWorkflow, workflowRunWorkflowId } from "./dispatch";
+import { dispatchWorkflow } from "./dispatch";
+import { finalizeCanceledRun } from "./finalizeCanceledRun";
 import {
 	assertWorkflowNotArchived,
 	getWorkflowForUser,
@@ -196,7 +198,8 @@ export const workflowRunProcedures = {
 				.select({
 					id: workflowRuns.id,
 					workflowId: workflowRuns.workflowId,
-					status: workflowRuns.status,
+					engine: workflowRuns.engine,
+					engineRunId: workflowRuns.engineRunId,
 				})
 				.from(workflowRuns)
 				.where(
@@ -213,25 +216,19 @@ export const workflowRunProcedures = {
 				run.workflowId,
 			);
 
-			// The workflow records its own canceled state on the way down; this
-			// write covers runs whose Temporal execution never started.
-			await db
-				.update(workflowRuns)
-				.set({ status: "canceled", finishedAt: new Date() })
-				.where(
-					and(
-						eq(workflowRuns.id, run.id),
-						inArray(workflowRuns.status, ["pending", "running"]),
-					),
-				);
 			try {
-				const temporal = await agentTemporal();
-				await temporal.workflow
-					.getHandle(workflowRunWorkflowId(run.id))
-					.cancel();
-			} catch {
-				// Not started or already finished — the status write above stands.
+				await workflowEngineById(run.engine).cancel({
+					runId: run.id,
+					engineRunId: run.engineRunId,
+				});
+			} catch (error) {
+				console.warn(
+					"[workflow/cancelRun] engine cancel failed",
+					run.id,
+					rawErrorMessage(error),
+				);
 			}
+			await finalizeCanceledRun({ runId: run.id });
 			nudge(organizationId, "workflow_runs");
 			return { canceled: true };
 		}),

@@ -1,21 +1,17 @@
 import Anthropic from "@anthropic-ai/sdk";
-import { mintUserJwt } from "@superset/auth/server";
 import { db } from "@superset/db/client";
 import {
 	workflowRunStatusValues,
 	workflowStepStatusValues,
 } from "@superset/db/enums";
 import {
+	workflowRunCheckpoints,
 	workflowRunSteps,
 	workflowRuns,
-	workflows,
 	workflowVersions,
 } from "@superset/db/schema";
 import { agentRunState } from "@superset/shared/agent-status";
-import {
-	buildHostRoutingKey,
-	CLOUD_HOST_ID,
-} from "@superset/shared/host-routing";
+import { CLOUD_HOST_ID } from "@superset/shared/host-routing";
 import {
 	workflowLlmEffortConfig,
 	workflowLlmEffortValues,
@@ -25,72 +21,34 @@ import {
 	slugifyForBranch,
 } from "@superset/shared/workspace-launch";
 import { TRPCError, type TRPCRouterRecord } from "@trpc/server";
-import { eq, sql } from "drizzle-orm";
+import { and, eq, inArray, sql } from "drizzle-orm";
 import { z } from "zod";
 import { env } from "../../env";
 import { nudge } from "../../lib/realtime";
 import { workerProcedure } from "../../trpc";
+import { RelayDispatchError } from "../automation/relay-client";
 import {
-	type RelayClientOptions,
-	RelayDispatchError,
-	relayMutation,
-	relayQuery,
-} from "../automation/relay-client";
+	hostCaller,
+	hostRelay,
+	jobSessionId,
+	killHostJob,
+	runNotFound,
+	runScope,
+} from "./hostRelay";
 
 const runIdSchema = z.object({ runId: z.string().uuid() });
-
-const runNotFound = () =>
-	new TRPCError({ code: "NOT_FOUND", message: "Workflow run not found." });
 
 const MAX_OUTPUT_BYTES = 256 * 1024;
 const MAX_RESULT_FILE_BYTES = 256 * 1024;
 
-async function runScope(runId: string) {
-	const [row] = await db
-		.select({
-			runId: workflowRuns.id,
-			workflowId: workflowRuns.workflowId,
-			organizationId: workflowRuns.organizationId,
-			ownerUserId: workflows.ownerUserId,
-		})
-		.from(workflowRuns)
-		.innerJoin(workflows, eq(workflows.id, workflowRuns.workflowId))
-		.where(eq(workflowRuns.id, runId))
-		.limit(1);
-	if (!row) throw runNotFound();
-	return row;
-}
+const ACTIVE_RUN_STATUSES = ["pending", "running"] as const;
 
-async function hostRelay(
-	scope: { runId: string; organizationId: string; ownerUserId: string },
-	hostId: string,
-	timeoutMs?: number,
-): Promise<RelayClientOptions> {
-	const jwt = await mintUserJwt({
-		userId: scope.ownerUserId,
-		organizationIds: [scope.organizationId],
-		scope: "workflow-run",
-		runId: scope.runId,
-		ttlSeconds: 300,
-	});
-	return {
-		relayUrl: env.RELAY_URL,
-		hostId: buildHostRoutingKey(scope.organizationId, hostId),
-		jwt,
-		...(timeoutMs ? { timeoutMs } : {}),
-	};
-}
-
-function hostCaller(options: RelayClientOptions) {
-	return {
-		mutation: <TOutput>(procedure: string, input: object) =>
-			relayMutation<object, TOutput>(options, procedure, input),
-		query: <TOutput>(procedure: string, input: object) =>
-			relayQuery<object, TOutput>(options, procedure, input),
-	};
-}
-
-const jobSessionId = (runId: string) => `workflow-${runId}`;
+const agentRefSchema = z.object({
+	kind: z.literal("agent"),
+	hostId: z.string(),
+	workspaceId: z.string(),
+	terminalId: z.string(),
+});
 
 /** Serialized output must fit the step row; truncation is visible to readers. */
 function capJson(value: unknown): unknown {
@@ -142,9 +100,22 @@ export const workflowWorkerRouter = {
 						: {}),
 					...(terminal ? { finishedAt: new Date() } : {}),
 				})
-				.where(eq(workflowRuns.id, input.runId))
+				.where(
+					and(
+						eq(workflowRuns.id, input.runId),
+						inArray(workflowRuns.status, ACTIVE_RUN_STATUSES),
+					),
+				)
 				.returning({ organizationId: workflowRuns.organizationId });
-			if (!row) throw runNotFound();
+			if (!row) {
+				await runScope(input.runId);
+				return { recorded: false };
+			}
+			if (terminal) {
+				await db
+					.delete(workflowRunCheckpoints)
+					.where(eq(workflowRunCheckpoints.runId, input.runId));
+			}
 			nudge(row.organizationId, "workflow_runs");
 			return { recorded: true };
 		}),
@@ -163,6 +134,9 @@ export const workflowWorkerRouter = {
 		)
 		.mutation(async ({ input }) => {
 			const scope = await runScope(input.runId);
+			if (!ACTIVE_RUN_STATUSES.some((status) => status === scope.status)) {
+				return { recorded: false };
+			}
 			const terminal = input.status !== "pending" && input.status !== "running";
 			const now = new Date();
 			await db
@@ -228,6 +202,8 @@ export const workflowWorkerRouter = {
 				});
 			}
 			const scope = await runScope(input.runId);
+			const existing = await startedAgent(input.runId, input.nodeId);
+			if (existing) return existing;
 			const relay = await hostRelay(scope, input.target.hostId, 90_000);
 			const host = hostCaller(relay);
 
@@ -244,11 +220,21 @@ export const workflowWorkerRouter = {
 				...(input.effort ? { effort: input.effort } : {}),
 				prompt: input.prompt,
 			});
-			return {
+			const handle = {
 				hostId: input.target.hostId,
 				workspaceId,
 				terminalId: session.sessionId,
 			};
+			await db
+				.update(workflowRunSteps)
+				.set({ externalRef: { kind: "agent", ...handle } })
+				.where(
+					and(
+						eq(workflowRunSteps.runId, input.runId),
+						eq(workflowRunSteps.nodeId, input.nodeId),
+					),
+				);
+			return handle;
 		}),
 
 	/** One observation of a host agent, mirroring the CLI's `waitForAgent` reads. */
@@ -370,6 +356,21 @@ export const workflowWorkerRouter = {
 					maxRuntimeMs: input.maxRuntimeMs,
 				},
 			);
+			await db
+				.update(workflowRunSteps)
+				.set({
+					externalRef: {
+						kind: "cli",
+						hostId: input.hostId,
+						jobId: job.jobId,
+					},
+				})
+				.where(
+					and(
+						eq(workflowRunSteps.runId, input.runId),
+						eq(workflowRunSteps.nodeId, input.nodeId),
+					),
+				);
 			return job;
 		}),
 
@@ -407,13 +408,11 @@ export const workflowWorkerRouter = {
 		)
 		.mutation(async ({ input }) => {
 			const scope = await runScope(input.runId);
-			const host = hostCaller(await hostRelay(scope, input.hostId));
-			await host
-				.mutation("agentJobs.kill", {
-					sessionId: jobSessionId(input.runId),
-					jobId: input.jobId,
-				})
-				.catch(() => {});
+			await killHostJob({
+				scope,
+				hostId: input.hostId,
+				jobId: input.jobId,
+			});
 			return { killed: true };
 		}),
 
@@ -481,6 +480,23 @@ export const workflowWorkerRouter = {
 			return { text: retryText, json: second };
 		}),
 } satisfies TRPCRouterRecord;
+
+async function startedAgent(runId: string, nodeId: string) {
+	const [step] = await db
+		.select({ externalRef: workflowRunSteps.externalRef })
+		.from(workflowRunSteps)
+		.where(
+			and(
+				eq(workflowRunSteps.runId, runId),
+				eq(workflowRunSteps.nodeId, nodeId),
+			),
+		)
+		.limit(1);
+	const ref = agentRefSchema.safeParse(step?.externalRef);
+	if (!ref.success) return null;
+	const { hostId, workspaceId, terminalId } = ref.data;
+	return { hostId, workspaceId, terminalId };
+}
 
 function parseJson(text: string): unknown {
 	const trimmed = text.replace(/^```(?:json)?\n?|```$/g, "").trim();

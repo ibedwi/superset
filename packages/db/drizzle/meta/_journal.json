@@ -1359,6 +1359,13 @@
       "when": 1794379366665,
       "tag": "0193_add_workflows",
       "breakpoints": true
+    },
+    {
+      "idx": 194,
+      "version": "7",
+      "when": 1794505171357,
+      "tag": "0194_workflow_durable_engines",
+      "breakpoints": true
     }
   ]
 }

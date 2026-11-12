@@ -38,6 +38,10 @@ export const env = createEnv({
 		TEMPORAL_ADDRESS: z.string().min(1).optional(),
 		TEMPORAL_NAMESPACE: z.string().min(1).default("default"),
 		TEMPORAL_API_KEY: z.string().min(1).optional(),
+		// Unset: temporal when TEMPORAL_ADDRESS is set, postgres otherwise.
+		WORKFLOW_ENGINE: z
+			.enum(["temporal", "postgres", "inngest", "trigger"])
+			.optional(),
 		// Local only: on Vercel the channel router calls Jev with the deployment's OIDC token.
 		VERCEL_AI_GATEWAY_KEY: z.string().min(1).optional(),
 		// Optional: page thumbnails are skipped wherever this is unset.
