@@ -3,14 +3,13 @@ import type {
 	WorkflowGraph,
 	WorkflowLlmEffort,
 } from "@superset/shared/workflow-graph";
-import { Context as ActivityContext } from "@temporalio/activity";
-import { ApplicationFailure } from "@temporalio/common";
 import type {
 	AgentHandle,
 	AgentState,
 	JobStatus,
 	WorkflowApi,
 } from "../../clients/workflowApi";
+import { NodeError } from "../../engines/nodeError";
 import { assertPublicUrl, type ResolveHost } from "./ssrf";
 
 export const RESULT_FILE_PATH = ".superset/workflow/result.json";
@@ -22,8 +21,22 @@ const MAX_TEXT_OUTPUT = 32 * 1024;
 const MAX_CLI_TAIL = 64 * 1024;
 const MAX_HTTP_BODY = 256 * 1024;
 
+export interface ActivityRuntime {
+	heartbeat(): void;
+	signal: AbortSignal;
+	sleep(ms: number): Promise<void>;
+}
+
+const idleRuntime: ActivityRuntime = {
+	heartbeat: () => {},
+	signal: new AbortController().signal,
+	sleep: (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+};
+
 export interface WorkflowActivityDeps {
 	api: WorkflowApi;
+	/** Engine hook for heartbeat, cancellation and sleep; defaults to a runtime that never aborts. */
+	runtime?: () => ActivityRuntime;
 	/** Injectable for tests; production resolves with the system resolver. */
 	resolveHost?: ResolveHost;
 	fetchFn?: typeof fetch;
@@ -43,6 +56,16 @@ export function createWorkflowActivities(deps: WorkflowActivityDeps) {
 	const startTimeoutMs = deps.startTimeoutMs ?? 2 * 60_000;
 	const now = deps.now ?? Date.now;
 	const fetchFn = deps.fetchFn ?? fetch;
+	const runtime = deps.runtime ?? (() => idleRuntime);
+	const throwIfCancelled = () => {
+		if (runtime().signal.aborted) {
+			throw new NodeError({
+				message: "Activity cancelled",
+				code: "Cancelled",
+				retryable: false,
+			});
+		}
+	};
 	const resolveHost: ResolveHost =
 		deps.resolveHost ??
 		(async (hostname) =>
@@ -111,32 +134,36 @@ export function createWorkflowActivities(deps: WorkflowActivityDeps) {
 		},
 
 		/**
-		 * Polls the agent until it settles, heartbeating so a worker loss hands
-		 * the poll to another worker instead of hanging the node.
+		 * Polls the agent until it settles or the budget is used, heartbeating
+		 * so a worker loss hands the poll to another worker.
 		 */
 		async awaitAgentNode(input: {
 			runId: string;
 			handle: AgentHandle;
-		}): Promise<{ state: AgentState }> {
+			budgetMs: number;
+		}): Promise<{ settled: true; state: AgentState } | { settled: false }> {
 			const startedAt = now();
 			for (;;) {
 				throwIfCancelled();
-				heartbeat();
+				runtime().heartbeat();
 				const { state } = await deps.api.observeAgent({
 					runId: input.runId,
 					...input.handle,
 				});
 				if (state === "idle" || state === "exited" || state === "blocked") {
-					return { state };
+					return { settled: true, state };
 				}
+				const elapsedMs = now() - startedAt;
 				// No hook event yet: the agent can sit on a startup prompt forever.
-				if (state === "starting" && now() - startedAt >= startTimeoutMs) {
-					throw ApplicationFailure.nonRetryable(
-						`Agent did not start within ${Math.round(startTimeoutMs / 1000)} s. It may be waiting for input in its terminal (workspace ${input.handle.workspaceId}).`,
-						"AgentNotStarted",
-					);
+				if (state === "starting" && elapsedMs >= startTimeoutMs) {
+					throw new NodeError({
+						message: `Agent did not start within ${Math.round(startTimeoutMs / 1000)} s. It may be waiting for input in its terminal (workspace ${input.handle.workspaceId}).`,
+						code: "AgentNotStarted",
+						retryable: false,
+					});
 				}
-				await sleep(pollEveryMs);
+				if (elapsedMs >= input.budgetMs) return { settled: false };
+				await runtime().sleep(pollEveryMs);
 			}
 		},
 
@@ -180,12 +207,20 @@ export function createWorkflowActivities(deps: WorkflowActivityDeps) {
 			runId: string;
 			hostId: string;
 			jobId: string;
-		}): Promise<{ status: JobStatus; exitCode: number | null; tail: string }> {
-			let offset = 0;
+			offset: number;
+			budgetMs: number;
+		}): Promise<{
+			status: JobStatus;
+			exitCode: number | null;
+			tail: string;
+			offset: number;
+		}> {
+			const startedAt = now();
+			let offset = input.offset;
 			let tail = "";
 			for (;;) {
 				throwIfCancelled();
-				heartbeat();
+				runtime().heartbeat();
 				const output = await deps.api.pollHostJob({
 					runId: input.runId,
 					hostId: input.hostId,
@@ -195,8 +230,16 @@ export function createWorkflowActivities(deps: WorkflowActivityDeps) {
 				});
 				offset = output.nextOffset;
 				tail = (tail + output.chunk).slice(-MAX_CLI_TAIL);
-				if (output.status !== "running") {
-					return { status: output.status, exitCode: output.exitCode, tail };
+				if (
+					output.status !== "running" ||
+					now() - startedAt >= input.budgetMs
+				) {
+					return {
+						status: output.status,
+						exitCode: output.exitCode,
+						tail,
+						offset,
+					};
 				}
 			}
 		},
@@ -230,10 +273,11 @@ export function createWorkflowActivities(deps: WorkflowActivityDeps) {
 		}): Promise<{ status: number; body: string; json?: unknown }> {
 			const url = await assertPublicUrl(input.url, resolveHost).catch(
 				(error: unknown) => {
-					throw ApplicationFailure.nonRetryable(
-						error instanceof Error ? error.message : String(error),
-						"BadHttpNode",
-					);
+					throw new NodeError({
+						message: error instanceof Error ? error.message : String(error),
+						code: "BadHttpNode",
+						retryable: false,
+					});
 				},
 			);
 			const response = await fetchFn(url, {
@@ -248,21 +292,20 @@ export function createWorkflowActivities(deps: WorkflowActivityDeps) {
 				signal: AbortSignal.timeout(input.timeoutSeconds * 1000),
 			});
 			const body = (await response.text()).slice(0, MAX_HTTP_BODY);
-			let json: unknown;
-			try {
-				json = JSON.parse(body) as unknown;
-			} catch {}
+			const json = parseJson(body);
 			if (response.status >= 500) {
-				throw ApplicationFailure.retryable(
-					`HTTP ${response.status} from ${url.hostname}`,
-					"HttpNodeServerError",
-				);
+				throw new NodeError({
+					message: `HTTP ${response.status} from ${url.hostname}`,
+					code: "HttpNodeServerError",
+					retryable: true,
+				});
 			}
 			if (response.status >= 400) {
-				throw ApplicationFailure.nonRetryable(
-					`HTTP ${response.status} from ${url.hostname}: ${body.slice(0, 500)}`,
-					"HttpNodeClientError",
-				);
+				throw new NodeError({
+					message: `HTTP ${response.status} from ${url.hostname}: ${body.slice(0, 500)}`,
+					code: "HttpNodeClientError",
+					retryable: false,
+				});
 			}
 			return {
 				status: response.status,
@@ -279,30 +322,10 @@ function cap(text: string): string {
 	return text.length > MAX_TEXT_OUTPUT ? text.slice(-MAX_TEXT_OUTPUT) : text;
 }
 
-function heartbeat(): void {
+function parseJson(text: string): unknown {
 	try {
-		ActivityContext.current().heartbeat();
-	} catch {}
-}
-
-function throwIfCancelled(): void {
-	try {
-		const context = ActivityContext.current();
-		if (context.cancellationSignal.aborted) {
-			throw new ApplicationFailure("Activity cancelled", "Cancelled");
-		}
-	} catch (error) {
-		if (error instanceof ApplicationFailure) throw error;
-	}
-}
-
-async function sleep(ms: number): Promise<void> {
-	try {
-		await ActivityContext.current().sleep(ms);
-	} catch (error) {
-		// Context.sleep rejects on cancellation; outside an activity, fall back.
-		if (error instanceof Error && error.name === "CancelledFailure")
-			throw error;
-		await new Promise((resolve) => setTimeout(resolve, ms));
+		return JSON.parse(text) as unknown;
+	} catch {
+		return undefined;
 	}
 }

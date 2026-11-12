@@ -1,4 +1,5 @@
 export {
+	type ActivityRuntime,
 	type AgentNodeOutput,
 	createWorkflowActivities,
 	RESULT_FILE_INSTRUCTION,

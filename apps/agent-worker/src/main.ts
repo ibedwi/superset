@@ -15,9 +15,9 @@ import {
 } from "@temporalio/client";
 import { NativeConnection, Worker } from "@temporalio/worker";
 import { createActivities } from "./activities/createActivities";
-import { createWorkflowActivities } from "./activities/workflowActivities";
 import { workerApi } from "./clients/workerApi";
 import { workflowApi } from "./clients/workflowApi";
+import { createTemporalActivities } from "./engines/temporal/temporalActivities";
 
 const need = (name: string) => {
 	const value = process.env[name];
@@ -87,7 +87,7 @@ const worker = await Worker.create({
 			turnSteers: (workflowId, turnId) =>
 				client.workflow.getHandle(workflowId).query(turnSteersQuery, turnId),
 		}),
-		...createWorkflowActivities({
+		...createTemporalActivities({
 			api: workflowApi({
 				apiUrl: need("AGENT_API_URL"),
 				workerSecret: need("AGENT_WORKER_SECRET"),

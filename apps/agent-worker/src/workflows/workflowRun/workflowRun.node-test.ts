@@ -68,6 +68,7 @@ interface Script {
 	graph: WorkflowGraph;
 	triggerContext?: unknown;
 	agentHangs?: boolean;
+	agentNeverSettles?: boolean;
 	httpFails?: boolean;
 	llmJson?: unknown;
 }
@@ -116,7 +117,8 @@ function fakeActivities(
 					hooks.agentCancelled?.();
 				}
 			}
-			return { state: "idle" as const };
+			if (script.agentNeverSettles) return { settled: false as const };
+			return { settled: true as const, state: "idle" as const };
 		},
 		async captureAgentOutput(input) {
 			push("captureAgentOutput", input as Record<string, unknown>);
@@ -128,7 +130,12 @@ function fakeActivities(
 		},
 		async pollCliNode(input) {
 			push("pollCliNode", input);
-			return { status: "done" as const, exitCode: 0, tail: "ok\n" };
+			return {
+				status: "done" as const,
+				exitCode: 0,
+				tail: "ok\n",
+				offset: 3,
+			};
 		},
 		async killCliNode(input) {
 			push("killCliNode", input);
@@ -352,7 +359,7 @@ describe("workflowRun workflow", () => {
 		};
 		const calls: Call[] = [];
 		const result = await runWorkflow(
-			fakeActivities({ graph, agentHangs: true }, calls),
+			fakeActivities({ graph, agentNeverSettles: true }, calls),
 			"r5",
 		);
 		assert.equal(result.outcome, "completed");
