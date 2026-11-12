@@ -44,7 +44,7 @@ An organization can also bring its own engine account. In the desktop app, under
 - [ ] Milestone 5: Inngest engine (completed: spike, API adapter, worker context and engine over Connect, terminal-run refusal for polls, env examples, container build with `inngest` external, end-to-end against the dev server with stub activities; remaining: acceptance with the real API, desktop app and an agent node; on `stop()` abort in-flight polls before draining, done in Milestone 7).
 - [ ] Milestone 6: Trigger.dev engine (completed: API adapter, `trigger.config.ts`, the `workflow-run` task, scripts; typecheck only. remaining: any real run, which needs a Trigger.dev project).
 - [x] (2026-11-12 18:10Z) User decision recorded: organizations can connect their own Inngest or Temporal from the UI; plan revised (Milestone 7 added).
-- [ ] Milestone 7: per-organization Inngest and Temporal connections, with the Settings UI.
+- [ ] Milestone 7: per-organization Inngest and Temporal connections, with the Settings UI. Backend half done (migration 0195, `workflowEngine` router, engine adapters with connections, shared SSRF guard, connection manager and per-connection Temporal worker, Inngest stop abort; Temporal path run end to end against a local dev server with stub activities). Remaining: the Settings UI, the Inngest dev-server run with a connection, and the acceptance script with the real API and desktop.
 - [ ] Milestone 8: environment variables, documentation, full `/ci-check`.
 
 
@@ -126,6 +126,12 @@ An organization can also bring its own engine account. In the desktop app, under
 - Decision: The worker procedures `observeAgent` and `pollHostJob` refuse with a non-retryable error when the run is already terminal.
   Rationale: Spike: an Inngest cancel does not stop a step handler that is already running, and plain code after that step still runs. A poll chunk of up to 30 minutes would keep polling a canceled run; refusing at the API ends it at the next poll on every engine.
   Date/Author: 2026-11-13, Milestone 5 spike.
+- Decision: An organization connection is replaced or removed only when no run is `pending` or `running` on it; both procedures lock the connection row, count those runs, and refuse with the count. `updatedAt` is written by hand on connect (and by a passing `test` after an error) and never by a status write, because the worker restarts a connection's engine when it changes.
+  Rationale: Runs find their account through the stored connection id, so swapping credentials under a live run would strand it. The worker reports status for the `updatedAt` it acted on, so a late report cannot overwrite a newer edit.
+  Date/Author: 2026-11-13, Milestone 7 implementation.
+- Decision: Connection workers on one process share one webpack bundle of `workflowRun` (`dist/workflow-bundle-connections.js` in a build, bundled once in memory from a checkout), and a connection engine that fails to start is retried every five minutes.
+  Rationale: A bundle per connection costs seconds and memory each; a dead address must not be dialed every poll.
+  Date/Author: 2026-11-13, Milestone 7 implementation.
 - Decision: Trigger.dev handle and base URL: the run id is `handle.id`; the SDK reads `TRIGGER_API_URL` (default `https://api.trigger.dev`) and `TRIGGER_SECRET_KEY`. The adapter passes both with `auth.withAuth({ accessToken, baseURL }, fn)` so no global SDK state changes.
   Rationale: Read from the installed `@trigger.dev/core` 4.8.2 type definitions and `apiClientManager`.
   Date/Author: 2026-11-13, Milestone 6 implementation.

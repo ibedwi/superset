@@ -4,9 +4,11 @@ import { rawErrorMessage } from "@superset/i18n/errors";
 import { eq, sql } from "drizzle-orm";
 import { nudge } from "../../lib/realtime";
 import {
+	type ResolvedWorkflowEngine,
 	resolveWorkflowEngine,
-	type WorkflowEngine,
 } from "../../lib/workflow-engine";
+
+const PROVIDER_LABELS = { inngest: "Inngest", temporal: "Temporal" } as const;
 
 export type WorkflowDispatchCause =
 	| { scheduledFor: Date; triggerId?: string; trigger?: null }
@@ -25,7 +27,7 @@ export type WorkflowDispatchOutcome =
 /**
  * Start one workflow run: pin the live graph version, insert the run row
  * (the partial unique indexes absorb QStash replays), and start the run on the
- * configured engine. Engine starts are idempotent, so a replay that lost the
+ * organization's connected engine or the deployment engine. Engine starts are idempotent, so a replay that lost the
  * insert race still converges on the same execution.
  */
 export async function dispatchWorkflow(
@@ -45,12 +47,15 @@ export async function dispatchWorkflow(
 		return { status: "rejected", error: "workflow has no saved graph" };
 	}
 	const cause = runCause(opts);
-	let engine: WorkflowEngine;
+	let resolved: ResolvedWorkflowEngine;
 	try {
-		engine = resolveWorkflowEngine({ organizationId: workflow.organizationId });
+		resolved = await resolveWorkflowEngine({
+			organizationId: workflow.organizationId,
+		});
 	} catch (error) {
 		return { status: "rejected", error: rawErrorMessage(error) };
 	}
+	const { engine, connection } = resolved;
 	const [run] = await db
 		.insert(workflowRuns)
 		.values({
@@ -62,6 +67,7 @@ export async function dispatchWorkflow(
 			triggerContext: opts.triggerContext ?? null,
 			status: "pending",
 			engine: engine.id,
+			engineConnectionId: connection?.id ?? null,
 		})
 		.onConflictDoNothing(runDedupTarget(cause))
 		.returning({ id: workflowRuns.id });
@@ -71,6 +77,7 @@ export async function dispatchWorkflow(
 		const { engineRunId } = await engine.start({
 			runId: run.id,
 			organizationId: workflow.organizationId,
+			connection,
 		});
 		if (engineRunId) {
 			await db
@@ -79,7 +86,9 @@ export async function dispatchWorkflow(
 				.where(eq(workflowRuns.id, run.id));
 		}
 	} catch (error) {
-		const message = rawErrorMessage(error);
+		const message = connection
+			? `Could not start the run on your ${PROVIDER_LABELS[connection.provider]} connection: ${rawErrorMessage(error)}`
+			: rawErrorMessage(error);
 		await db
 			.update(workflowRuns)
 			.set({ status: "failed", error: message, finishedAt: new Date() })

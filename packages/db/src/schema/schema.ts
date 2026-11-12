@@ -2188,6 +2188,39 @@ export const workflowTriggers = pgTable(
 export type InsertWorkflowTrigger = typeof workflowTriggers.$inferInsert;
 export type SelectWorkflowTrigger = typeof workflowTriggers.$inferSelect;
 
+export const workflowEngineConnections = pgTable(
+	"workflow_engine_connections",
+	{
+		id: uuid().primaryKey().defaultRandom(),
+		organizationId: uuid("organization_id")
+			.notNull()
+			.unique()
+			.references(() => organizations.id, { onDelete: "cascade" }),
+		provider: text().notNull(),
+		config: jsonb().notNull(),
+		encryptedCredentials: text("encrypted_credentials").notNull(),
+		status: text().notNull().default("pending"),
+		lastError: text("last_error"),
+		lastCheckedAt: timestamp("last_checked_at", { withTimezone: true }),
+		connectedByUserId: uuid("connected_by_user_id").references(() => users.id, {
+			onDelete: "set null",
+		}),
+		createdAt: timestamp("created_at", { withTimezone: true })
+			.notNull()
+			.defaultNow(),
+		// Set by hand when the organization edits the connection: the worker
+		// restarts its engine when this changes, so a status write must not touch it.
+		updatedAt: timestamp("updated_at", { withTimezone: true })
+			.notNull()
+			.defaultNow(),
+	},
+);
+
+export type InsertWorkflowEngineConnection =
+	typeof workflowEngineConnections.$inferInsert;
+export type SelectWorkflowEngineConnection =
+	typeof workflowEngineConnections.$inferSelect;
+
 export const workflowRuns = pgTable(
 	"workflow_runs",
 	{
@@ -2224,6 +2257,10 @@ export const workflowRuns = pgTable(
 
 		engine: text().notNull().default("temporal"),
 		engineRunId: text("engine_run_id"),
+		engineConnectionId: uuid("engine_connection_id").references(
+			() => workflowEngineConnections.id,
+			{ onDelete: "set null" },
+		),
 		leaseOwner: text("lease_owner"),
 		leaseExpiresAt: timestamp("lease_expires_at", { withTimezone: true }),
 
@@ -2252,6 +2289,7 @@ export const workflowRuns = pgTable(
 		// ON DELETE SET NULL on event_id resolves through this; without it every
 		// automation_events row deleted by retention scans this table.
 		index("workflow_runs_event_idx").on(t.eventId),
+		index("workflow_runs_engine_connection_idx").on(t.engineConnectionId),
 		index("workflow_runs_postgres_claim_idx")
 			.on(t.createdAt)
 			.where(sql`engine = 'postgres' AND status IN ('pending', 'running')`),

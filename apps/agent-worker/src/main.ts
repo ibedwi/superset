@@ -4,10 +4,15 @@ import { createWorkflowActivities } from "./activities/workflowActivities";
 import { workflowApi } from "./clients/workflowApi";
 import { requireEnv } from "./config/requireEnv";
 import { abortableSleep } from "./engines/abortableSleep";
+import { startConnectionManager } from "./engines/connections/connectionManager";
+import { createConnectionStarters } from "./engines/connections/connectionStarters";
+import { readMaxTemporalConnections } from "./engines/connections/maxTemporalConnections";
 import type { EngineHandle } from "./engines/engineHandle";
 import { selectEngines } from "./engines/engineSelection";
 import { startPostgresEngine } from "./engines/postgres/postgresEngine";
 import { startTemporalWorker } from "./engines/temporal/startTemporalWorker";
+import { startWorkflowTemporalWorker } from "./engines/temporal/startWorkflowTemporalWorker";
+import { createTemporalActivities } from "./engines/temporal/temporalActivities";
 
 const env = process.env;
 const selection = selectEngines({ env });
@@ -50,11 +55,25 @@ if (selection.startInngest) {
 	);
 }
 
-if (engines.length === 0) {
-	throw new Error(
-		`WORKFLOW_ENGINE=${selection.workflowEngine} needs no process in this worker, and TEMPORAL_ADDRESS is not set; nothing to start`,
-	);
-}
+const workerId = `${hostname()}-${process.pid}`;
+const starters = createConnectionStarters({
+	startInngestEngine: async (deps) =>
+		(await import("./engines/inngest/inngestEngine")).startInngestEngine(deps),
+	startTemporalWorker: startWorkflowTemporalWorker,
+	activities: (runtime) => createWorkflowActivities({ api, runtime }),
+	temporalActivities: createTemporalActivities({ api }),
+	allowPrivateHosts: env.WORKFLOW_ENGINE_ALLOW_PRIVATE_HOSTS === "1",
+	instanceId: workerId,
+});
+engines.push(
+	startConnectionManager({
+		api,
+		startInngest: starters.startInngest,
+		startTemporal: starters.startTemporal,
+		sleep: abortableSleep,
+		maxTemporalConnections: readMaxTemporalConnections({ env }),
+	}),
+);
 
 const stopAll = () => Promise.all(engines.map((engine) => engine.stop()));
 for (const signal of ["SIGINT", "SIGTERM"] as const) {

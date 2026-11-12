@@ -9,6 +9,7 @@ import type {
 } from "../../durableContext";
 import { attempt } from "../../journal";
 import { decodeStepFailure, encodeStepFailure } from "../stepFailure";
+import { WorkerStoppingError } from "../workerStopping";
 
 const POLL_CHUNK_MS = 30 * 60_000;
 
@@ -29,6 +30,8 @@ export function createInngestContext(args: {
 	step: InngestStep;
 	activities: WorkflowRunActivities;
 	sleep?: (ms: number) => Promise<void>;
+	/** Aborts when the worker shuts down; an interrupted step then fails retryably. */
+	shutdown?: AbortSignal;
 }): DurableContext {
 	const sleep = args.sleep ?? realSleep;
 	return {
@@ -52,9 +55,11 @@ export function createInngestContext(args: {
 								attempts: options.attempts,
 								timeoutMs: options.timeoutMs,
 								sleep,
+								signal: args.shutdown,
 							})) ?? null
 						);
 					} catch (error) {
+						if (args.shutdown?.aborted) throw new WorkerStoppingError();
 						throw new NonRetriableError(encodeStepFailure(error), {
 							cause: error,
 						});

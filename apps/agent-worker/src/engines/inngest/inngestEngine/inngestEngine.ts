@@ -4,6 +4,7 @@ import type {
 	ActivityRuntime,
 	WorkflowRunActivities,
 } from "../../../activities/workflowActivities";
+import { abortableSleep } from "../../abortableSleep";
 import type { EngineHandle } from "../../engineHandle";
 import { runGraph } from "../../runGraph";
 import { createInngestContext } from "../inngestContext";
@@ -23,7 +24,7 @@ export interface InngestClientSettings {
 
 export interface InngestEngineDeps {
 	client: InngestClientSettings;
-	/** Builds the activities of one run; the runtime never aborts a step. */
+	/** Builds the activities of one run; the runtime aborts when the engine stops. */
 	activities: (runtime: () => ActivityRuntime) => WorkflowRunActivities;
 	instanceId?: string;
 }
@@ -39,10 +40,11 @@ export async function startInngestEngine(
 		...(settings.isDev !== undefined ? { isDev: settings.isDev } : {}),
 	});
 
+	const shutdown = new AbortController();
 	const runtime: ActivityRuntime = {
 		heartbeat: () => {},
-		signal: new AbortController().signal,
-		sleep: (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+		signal: shutdown.signal,
+		sleep: (ms) => abortableSleep({ ms, signal: shutdown.signal }),
 	};
 
 	const workflowRun = inngest.createFunction(
@@ -60,6 +62,7 @@ export async function startInngestEngine(
 			const ctx = createInngestContext({
 				step,
 				activities: deps.activities(() => runtime),
+				shutdown: shutdown.signal,
 			});
 			await runGraph({ ctx, runId });
 		},
@@ -76,6 +79,19 @@ export async function startInngestEngine(
 		isRunning: () =>
 			connection.state !== ConnectionState.CLOSING &&
 			connection.state !== ConnectionState.CLOSED,
-		stop: () => connection.close(),
+		stop: () => stopAbortingFirst({ shutdown, connection }),
 	};
+}
+
+/**
+ * Draining waits for in-flight steps, and a poll chunk lasts up to 30
+ * minutes, so the polls are aborted first. Inngest then retries them on
+ * another worker.
+ */
+export function stopAbortingFirst(args: {
+	shutdown: AbortController;
+	connection: { close(): Promise<void> };
+}): Promise<void> {
+	args.shutdown.abort();
+	return args.connection.close();
 }

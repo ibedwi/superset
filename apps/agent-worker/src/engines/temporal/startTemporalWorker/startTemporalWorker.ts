@@ -1,8 +1,6 @@
 import { execFile } from "node:child_process";
-import { existsSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { fileURLToPath } from "node:url";
 import { promisify } from "node:util";
 import { AGENT_TASK_QUEUE } from "@superset/agent-harness/session";
 import { turnSteersQuery } from "@superset/agent-harness/session/definitions";
@@ -19,6 +17,7 @@ import type { WorkflowApi } from "../../../clients/workflowApi";
 import { requireEnv } from "../../../config/requireEnv";
 import type { EngineHandle } from "../../engineHandle";
 import { createTemporalActivities } from "../temporalActivities";
+import { deploymentWorkflowSource } from "../workflowSource";
 
 const MIN_PDEV = [0, 2, 3];
 
@@ -69,7 +68,7 @@ export async function startTemporalWorker(deps: {
 		taskQueue: AGENT_TASK_QUEUE,
 		defaultHeartbeatThrottleInterval: "2 seconds",
 		maxHeartbeatThrottleInterval: "2 seconds",
-		...workflowSource(),
+		...deploymentWorkflowSource(),
 		activities: {
 			...createActivities({
 				credentials: api.credentials,
@@ -101,19 +100,6 @@ export async function startTemporalWorker(deps: {
 			if (worker.getState() === "RUNNING") worker.shutdown();
 			await closed;
 		},
-	};
-}
-
-/** A built image ships the workflows already bundled; a checkout bundles them at start. */
-function workflowSource() {
-	const bundle = fileURLToPath(
-		new URL("./workflow-bundle.js", import.meta.url),
-	);
-	if (existsSync(bundle)) return { workflowBundle: { codePath: bundle } };
-	return {
-		workflowsPath: fileURLToPath(
-			new URL("../../../workflows/index.ts", import.meta.url),
-		),
 	};
 }
 

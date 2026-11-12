@@ -1,0 +1,1 @@
+export { readMaxTemporalConnections } from "./maxTemporalConnections";

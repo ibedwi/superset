@@ -2,6 +2,7 @@ import { describe, expect, test } from "bun:test";
 import { NonRetriableError } from "inngest";
 import { NodeError } from "../../nodeError";
 import { stubActivities } from "../../testing/stubActivities";
+import { WorkerStoppingError } from "../workerStopping";
 import { createInngestContext, type InngestStep } from "./inngestContext";
 
 function fakeStep() {
@@ -195,5 +196,87 @@ describe("createInngestContext", () => {
 		const { step } = fakeStep();
 		const ctx = createInngestContext({ step, activities: stubActivities() });
 		expect(ctx.pollChunkMs).toBe(30 * 60_000);
+	});
+});
+
+describe("createInngestContext on shutdown", () => {
+	function failingStep() {
+		let thrown: unknown;
+		const step: InngestStep = {
+			async run(_id, handler) {
+				try {
+					return await handler();
+				} catch (error) {
+					thrown = error;
+					throw error;
+				}
+			},
+			sleep: async () => {},
+		};
+		return { step, thrown: () => thrown };
+	}
+
+	test("an activity interrupted by shutdown fails the step retryably", async () => {
+		const { step, thrown } = failingStep();
+		const shutdown = new AbortController();
+		const ctx = createInngestContext({
+			step,
+			shutdown: shutdown.signal,
+			activities: stubActivities({
+				recordRunStatus: () => {
+					shutdown.abort();
+					return new Promise<void>(() => {});
+				},
+			}),
+		});
+		await ctx.call("recordRunStatus", RECORD, OPTIONS).catch(() => {});
+		expect(thrown()).toBeInstanceOf(WorkerStoppingError);
+		expect(thrown()).not.toBeInstanceOf(NonRetriableError);
+	});
+
+	test("a NodeError raised after the abort is still retryable", async () => {
+		const { step, thrown } = failingStep();
+		const shutdown = new AbortController();
+		const ctx = createInngestContext({
+			step,
+			shutdown: shutdown.signal,
+			activities: stubActivities({
+				awaitAgentNode: async () => {
+					shutdown.abort();
+					throw new NodeError({
+						message: "Activity cancelled",
+						code: "Cancelled",
+						retryable: false,
+					});
+				},
+			}),
+		});
+		await ctx
+			.call(
+				"awaitAgentNode",
+				{
+					runId: "run-1",
+					handle: { hostId: "h", workspaceId: "w", terminalId: "t" },
+					budgetMs: 1000,
+				},
+				OPTIONS,
+			)
+			.catch(() => {});
+		expect(thrown()).toBeInstanceOf(WorkerStoppingError);
+	});
+
+	test("without a shutdown a failure still gives up for good", async () => {
+		const { step, thrown } = failingStep();
+		const ctx = createInngestContext({
+			step,
+			sleep: async () => {},
+			activities: stubActivities({
+				recordRunStatus: async () => {
+					throw new Error("always");
+				},
+			}),
+		});
+		await ctx.call("recordRunStatus", RECORD, OPTIONS).catch(() => {});
+		expect(thrown()).toBeInstanceOf(NonRetriableError);
 	});
 });

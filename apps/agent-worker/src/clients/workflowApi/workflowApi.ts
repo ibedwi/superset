@@ -1,3 +1,4 @@
+import type { WorkflowEngineConnection } from "@superset/shared/workflow-engine";
 import type {
 	WorkflowGraph,
 	WorkflowLlmEffort,
@@ -48,6 +49,7 @@ export interface LoadedRun {
 	status: WorkflowRunStatus;
 	triggerContext: unknown;
 	graph: WorkflowGraph;
+	engineConnectionId: string | null;
 }
 
 export interface WorkflowApi {
@@ -133,6 +135,13 @@ export interface WorkflowApi {
 		leaseSeconds: number;
 	}): Promise<{ held: boolean }>;
 	releaseLease(input: { runId: string; workerId: string }): Promise<unknown>;
+	listEngineConnections(): Promise<WorkflowEngineConnection[]>;
+	reportEngineConnection(input: {
+		connectionId: string;
+		version: string;
+		status: "connected" | "error";
+		error?: string | null;
+	}): Promise<{ recorded: boolean }>;
 	llmCall(input: {
 		runId: string;
 		prompt: string;
@@ -196,5 +205,7 @@ export function workflowApi(options: {
 		claimRuns: (input) => call("claimRuns", input),
 		renewLease: (input) => call("renewLease", input),
 		releaseLease: (input) => call("releaseLease", input),
+		listEngineConnections: () => call("listEngineConnections", {}),
+		reportEngineConnection: (input) => call("reportEngineConnection", input),
 	};
 }

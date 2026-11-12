@@ -44,21 +44,12 @@ function isForbiddenV6(address: string): boolean {
 	return false;
 }
 
-export async function assertPublicUrl(
-	rawUrl: string,
-	resolve: ResolveHost,
-): Promise<URL> {
-	let url: URL;
-	try {
-		url = new URL(rawUrl);
-	} catch {
-		throw new Error(`Invalid URL: ${rawUrl}`);
-	}
-	if (url.protocol !== "http:" && url.protocol !== "https:") {
-		throw new Error(`Unsupported protocol: ${url.protocol}`);
-	}
-	const hostname = url.hostname.replace(/^\[|\]$/g, "");
-	const addresses = isIP(hostname) ? [hostname] : await resolve(hostname);
+async function assertResolvesPublic(args: {
+	hostname: string;
+	resolveHost: ResolveHost;
+}): Promise<void> {
+	const { hostname, resolveHost } = args;
+	const addresses = isIP(hostname) ? [hostname] : await resolveHost(hostname);
 	if (addresses.length === 0) {
 		throw new Error(`Could not resolve host: ${hostname}`);
 	}
@@ -67,5 +58,42 @@ export async function assertPublicUrl(
 			throw new Error(`URL resolves to a forbidden address: ${hostname}`);
 		}
 	}
+}
+
+export async function assertPublicUrl(args: {
+	url: string;
+	resolveHost: ResolveHost;
+}): Promise<URL> {
+	let url: URL;
+	try {
+		url = new URL(args.url);
+	} catch {
+		throw new Error(`Invalid URL: ${args.url}`);
+	}
+	if (url.protocol !== "http:" && url.protocol !== "https:") {
+		throw new Error(`Unsupported protocol: ${url.protocol}`);
+	}
+	await assertResolvesPublic({
+		hostname: url.hostname.replace(/^\[|\]$/g, ""),
+		resolveHost: args.resolveHost,
+	});
 	return url;
+}
+
+export async function assertPublicHost(args: {
+	host: string;
+	resolveHost: ResolveHost;
+}): Promise<void> {
+	const hostname = args.host.trim().replace(/^\[|\]$/g, "");
+	if (!hostname) throw new Error("Host is empty");
+	await assertResolvesPublic({ hostname, resolveHost: args.resolveHost });
+}
+
+/** Host part of "host", "host:port", "[::1]:port" or a bare IPv6 address. */
+export function hostFromAddress(address: string): string {
+	const trimmed = address.trim();
+	const bracketed = trimmed.match(/^\[([^\]]+)\](?::\d+)?$/);
+	if (bracketed?.[1]) return bracketed[1];
+	if (isIP(trimmed) === 6) return trimmed;
+	return trimmed.replace(/:\d+$/, "");
 }

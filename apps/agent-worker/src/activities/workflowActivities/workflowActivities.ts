@@ -1,4 +1,5 @@
 import { lookup } from "node:dns/promises";
+import { assertPublicUrl, type ResolveHost } from "@superset/shared/ssrf";
 import type {
 	WorkflowGraph,
 	WorkflowLlmEffort,
@@ -10,7 +11,6 @@ import type {
 	WorkflowApi,
 } from "../../clients/workflowApi";
 import { NodeError } from "../../engines/nodeError";
-import { assertPublicUrl, type ResolveHost } from "./ssrf";
 
 export const RESULT_FILE_PATH = ".superset/workflow/result.json";
 
@@ -271,15 +271,16 @@ export function createWorkflowActivities(deps: WorkflowActivityDeps) {
 			body?: string;
 			timeoutSeconds: number;
 		}): Promise<{ status: number; body: string; json?: unknown }> {
-			const url = await assertPublicUrl(input.url, resolveHost).catch(
-				(error: unknown) => {
-					throw new NodeError({
-						message: error instanceof Error ? error.message : String(error),
-						code: "BadHttpNode",
-						retryable: false,
-					});
-				},
-			);
+			const url = await assertPublicUrl({
+				url: input.url,
+				resolveHost,
+			}).catch((error: unknown) => {
+				throw new NodeError({
+					message: error instanceof Error ? error.message : String(error),
+					code: "BadHttpNode",
+					retryable: false,
+				});
+			});
 			const response = await fetchFn(url, {
 				method: input.method,
 				headers: input.headers,

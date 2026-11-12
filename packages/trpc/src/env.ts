@@ -47,6 +47,8 @@ export const env = createEnv({
 		INNGEST_EVENT_KEY: z.string().min(1).optional(),
 		INNGEST_BASE_URL: z.string().url().optional(),
 		INNGEST_DEV: z.enum(["0", "1"]).optional(),
+		// 1 lets an organization's engine connection point at a private address; set only for a self-hosted deployment.
+		WORKFLOW_ENGINE_ALLOW_PRIVATE_HOSTS: z.enum(["0", "1"]).optional(),
 		// Workflow engine trigger: the project's secret key; TRIGGER_API_URL only for a self-hosted server.
 		TRIGGER_SECRET_KEY: z.string().min(1).optional(),
 		TRIGGER_API_URL: z.string().url().optional(),

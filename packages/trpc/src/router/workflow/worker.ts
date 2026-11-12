@@ -5,13 +5,16 @@ import {
 	workflowStepStatusValues,
 } from "@superset/db/enums";
 import {
+	workflowEngineConnections,
 	workflowRunCheckpoints,
 	workflowRunSteps,
 	workflowRuns,
 	workflowVersions,
 } from "@superset/db/schema";
+import { rawErrorMessage } from "@superset/i18n/errors";
 import { agentRunState } from "@superset/shared/agent-status";
 import { CLOUD_HOST_ID } from "@superset/shared/host-routing";
+import type { WorkflowEngineConnection } from "@superset/shared/workflow-engine";
 import {
 	workflowLlmEffortConfig,
 	workflowLlmEffortValues,
@@ -25,6 +28,10 @@ import { and, asc, eq, inArray, isNull, lt, or, sql } from "drizzle-orm";
 import { z } from "zod";
 import { env } from "../../env";
 import { nudge } from "../../lib/realtime";
+import {
+	connectionFromRow,
+	listConnectionRows,
+} from "../../lib/workflow-engine/connections";
 import { workerProcedure } from "../../trpc";
 import { RelayDispatchError } from "../automation/relay-client";
 import {
@@ -68,6 +75,55 @@ function capJson(value: unknown): unknown {
 
 /** Our Temporal worker running workflow graphs; secret-gated like agentWorker. */
 export const workflowWorkerRouter = {
+	listEngineConnections: workerProcedure.mutation(async () => {
+		const rows = await listConnectionRows();
+		const connections: WorkflowEngineConnection[] = [];
+		for (const row of rows) {
+			try {
+				connections.push(connectionFromRow(row));
+			} catch (error) {
+				const reason = `Stored credentials cannot be read: ${rawErrorMessage(error)}`;
+				console.warn("[workflowWorker/listEngineConnections]", row.id, reason);
+				await db
+					.update(workflowEngineConnections)
+					.set({
+						status: "error",
+						lastError: reason,
+						lastCheckedAt: new Date(),
+					})
+					.where(eq(workflowEngineConnections.id, row.id));
+			}
+		}
+		return connections;
+	}),
+
+	reportEngineConnection: workerProcedure
+		.input(
+			z.object({
+				connectionId: z.string().uuid(),
+				version: z.string().min(1),
+				status: z.enum(["connected", "error"]),
+				error: z.string().max(2000).nullish(),
+			}),
+		)
+		.mutation(async ({ input }) => {
+			const updated = await db
+				.update(workflowEngineConnections)
+				.set({
+					status: input.status,
+					lastError: input.status === "error" ? (input.error ?? null) : null,
+					lastCheckedAt: new Date(),
+				})
+				.where(
+					and(
+						eq(workflowEngineConnections.id, input.connectionId),
+						sql`${workflowEngineConnections.updatedAt}::text = ${input.version}`,
+					),
+				)
+				.returning({ id: workflowEngineConnections.id });
+			return { recorded: updated.length > 0 };
+		}),
+
 	loadRun: workerProcedure.input(runIdSchema).mutation(async ({ input }) => {
 		const [row] = await db
 			.select({
@@ -78,6 +134,7 @@ export const workflowWorkerRouter = {
 				status: workflowRuns.status,
 				triggerContext: workflowRuns.triggerContext,
 				graph: workflowVersions.graph,
+				engineConnectionId: workflowRuns.engineConnectionId,
 			})
 			.from(workflowRuns)
 			.innerJoin(

@@ -11,6 +11,7 @@ import { and, asc, desc, eq, lt, or, sql } from "drizzle-orm";
 import { z } from "zod";
 import { nudge } from "../../lib/realtime";
 import { workflowEngineById } from "../../lib/workflow-engine";
+
 import { personProcedure } from "../../trpc";
 import { requireActiveOrgMembership } from "../utils/active-org";
 import { dispatchWorkflow } from "./dispatch";
@@ -21,6 +22,7 @@ import {
 	getWorkflowInOrg,
 	workflowNotFound,
 } from "./helpers";
+import { loadRunConnection } from "./loadRunConnection";
 
 const cursorSchema = z.object({
 	// Text form of createdAt: a JS Date truncates Postgres microseconds and
@@ -200,6 +202,7 @@ export const workflowRunProcedures = {
 					workflowId: workflowRuns.workflowId,
 					engine: workflowRuns.engine,
 					engineRunId: workflowRuns.engineRunId,
+					engineConnectionId: workflowRuns.engineConnectionId,
 				})
 				.from(workflowRuns)
 				.where(
@@ -220,6 +223,7 @@ export const workflowRunProcedures = {
 				await workflowEngineById(run.engine).cancel({
 					runId: run.id,
 					engineRunId: run.engineRunId,
+					connection: await loadRunConnection(run.engineConnectionId),
 				});
 			} catch (error) {
 				console.warn(
