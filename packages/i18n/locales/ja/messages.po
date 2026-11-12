@@ -2254,6 +2254,9 @@ msgstr "{organizationName} にメンバーを追加するには有料プラン�
 msgid "Adding..."
 msgstr "追加中..."
 
+msgid "Address"
+msgstr "アドレス"
+
 msgid "Address Comments with Agent"
 msgstr "エージェントでコメントに対応"
 
@@ -3868,6 +3871,9 @@ msgstr "トークン数順"
 msgid "by users"
 msgstr "ユーザー数順"
 
+msgid "CA certificate (PEM, optional)"
+msgstr "CA 証明書（PEM、任意）"
+
 msgid "Cache"
 msgstr "キャッシュ"
 
@@ -4556,6 +4562,15 @@ msgstr "クリックしてプルリクエストを開く"
 msgid "Click two commits to define the range."
 msgstr "2つのコミットをクリックして範囲を指定してください。"
 
+msgid "Client certificate"
+msgstr "クライアント証明書"
+
+msgid "Client certificate (PEM)"
+msgstr "クライアント証明書（PEM）"
+
+msgid "Client key (PEM)"
+msgstr "クライアントキー（PEM）"
+
 msgid "Clients"
 msgstr "クライアント"
 
@@ -5211,6 +5226,9 @@ msgstr "GitHub を接続…"
 msgid "Connect Google"
 msgstr "Googleを接続"
 
+msgid "Connect Inngest"
+msgstr "Inngest を接続"
+
 msgid "Connect Linear"
 msgstr "Linearを接続"
 
@@ -5234,6 +5252,9 @@ msgstr "Slackを接続"
 
 msgid "Connect Slack to manage tasks from conversations. Mention the bot in any channel or send it a direct message to create and update tasks."
 msgstr "Slackを接続して会話からタスクを管理します。任意のチャンネルでボットにメンションするか、ダイレクトメッセージを送ると、タスクの作成と更新ができます。"
+
+msgid "Connect Temporal"
+msgstr "Temporal を接続"
 
 msgid "Connect this computer"
 msgstr "このコンピューターに接続"
@@ -5332,6 +5353,9 @@ msgstr "デスクトップに接続しています…"
 msgid "Connecting to the workspace"
 msgstr "ワークスペースに接続中"
 
+msgid "Connecting..."
+msgstr "接続中..."
+
 msgid "Connecting…"
 msgstr "接続中…"
 
@@ -5347,6 +5371,9 @@ msgstr "接続に失敗しました。"
 #. js-lingui-explicit-id
 msgid "serverError.plugins.connectionNotFound"
 msgstr "接続が見つかりません"
+
+msgid "Connection reachable"
+msgstr "接続に到達できます"
 
 msgid "Connection Refused"
 msgstr "接続が拒否されました"
@@ -5773,6 +5800,9 @@ msgstr "このページを削除できませんでした"
 msgid "Could not disable plugin"
 msgstr "プラグインを無効にできませんでした"
 
+msgid "Could not disconnect"
+msgstr "接続を解除できませんでした"
+
 msgid "Could not disconnect."
 msgstr "接続を解除できませんでした。"
 
@@ -5815,6 +5845,9 @@ msgstr "プラグインを読み込めませんでした。接続を確認して
 
 msgid "Could not load presets from the host"
 msgstr "ホストからプリセットを読み込めませんでした"
+
+msgid "Could not load the engine."
+msgstr "エンジンを読み込めませんでした。"
 
 msgid "Could not load this diff"
 msgstr "この差分を読み込めませんでした"
@@ -5860,6 +5893,9 @@ msgstr "モバイルシミュレーターに接続できませんでした。"
 
 msgid "Could not reach the desktop."
 msgstr "デスクトップに接続できませんでした。"
+
+msgid "Could not reach the engine"
+msgstr "エンジンに到達できませんでした"
 
 msgid "Could not reach the host to start the update. Check that it is online and try again."
 msgstr "更新を開始するためにホストに接続できませんでした。オンラインであることを確認して、もう一度お試しください。"
@@ -5986,6 +6022,9 @@ msgstr "同期できませんでした"
 
 msgid "Could not take a screenshot"
 msgstr "スクリーンショットを撮れませんでした"
+
+msgid "Could not test the connection"
+msgstr "接続をテストできませんでした"
 
 msgid "Could not undo"
 msgstr "取り消せませんでした"
@@ -7340,8 +7379,14 @@ msgstr "{accountLogin}の接続を解除しますか？"
 msgid "Disconnect {credential}?"
 msgstr "{credential}の接続を解除しますか？"
 
+msgid "Disconnect {providerName}? New runs go back to the built-in engine. Run history stays in your {providerName} account."
+msgstr "{providerName} の接続を解除しますか？新しい実行は組み込みエンジンに戻ります。実行履歴は {providerName} アカウントに残ります。"
+
 msgid "Disconnect {title}"
 msgstr "{title} を切断"
+
+msgid "Disconnect engine"
+msgstr "エンジンの接続を解除"
 
 msgid "Disconnect GitHub?"
 msgstr "GitHubの接続を解除しますか?"
@@ -7901,6 +7946,9 @@ msgstr "終了しました"
 msgid "Ending the call"
 msgstr "通話を終了中"
 
+msgid "Engine disconnected"
+msgstr "エンジンの接続を解除しました"
+
 msgid "Ensure no regression"
 msgstr "デグレがないことを確認して"
 
@@ -7933,6 +7981,21 @@ msgstr "整数を入力"
 
 msgid "Enter a whole number from {minHours} to {maxHours} GB-hours."
 msgstr "{minHours} から {maxHours} GB 時間までの整数を入力してください。"
+
+msgid "Enter the address as host:port, without https://."
+msgstr "アドレスを https:// なしの host:port 形式で入力してください。"
+
+msgid "Enter the API key."
+msgstr "API キーを入力してください。"
+
+msgid "Enter the event key."
+msgstr "イベントキーを入力してください。"
+
+msgid "Enter the namespace."
+msgstr "ネームスペースを入力してください。"
+
+msgid "Enter the signing key."
+msgstr "署名キーを入力してください。"
 
 msgid "Enter this code when OpenAI asks for it:"
 msgstr "OpenAI に求められたら、このコードを入力してください:"
@@ -7976,6 +8039,9 @@ msgstr "エラー"
 msgid "Error {statusCode}"
 msgstr "エラー {statusCode}"
 
+msgid "Error: {lastError}"
+msgstr "エラー: {lastError}"
+
 msgid "esc to dismiss"
 msgstr "escで閉じる"
 
@@ -7984,6 +8050,9 @@ msgstr "escで終了"
 
 msgid "Event"
 msgstr "イベント"
+
+msgid "Event key"
+msgstr "イベントキー"
 
 msgid "Event log"
 msgstr "イベントログ"
@@ -10304,6 +10373,12 @@ msgstr "Inline Citation"
 msgid "Inline code"
 msgstr "インラインコード"
 
+msgid "Inngest Cloud"
+msgstr "Inngest Cloud"
+
+msgid "Inngest connected"
+msgstr "Inngest を接続しました"
+
 msgid "Input"
 msgstr "入力"
 
@@ -10932,6 +11007,9 @@ msgstr "最後のエージェントメッセージ"
 msgid "Last attached"
 msgstr "最終接続"
 
+msgid "Last checked {lastChecked}"
+msgstr "最終確認: {lastChecked}"
+
 msgid "Last day of each month"
 msgstr "毎月末日"
 
@@ -11062,6 +11140,9 @@ msgstr "チャンネルから退出"
 
 msgid "Leave comment mode"
 msgstr "コメントモードを終了"
+
+msgid "Leave empty to use Inngest Cloud."
+msgstr "Inngest Cloud を使う場合は空のままにしてください。"
 
 msgid "Leave it empty to go back to the name the terminal reports."
 msgstr "空欄にすると、ターミナルが報告する名前に戻ります。"
@@ -12243,6 +12324,9 @@ msgstr "名無しの職長"
 msgid "Names, emails, or teams"
 msgstr "名前、メール、チーム"
 
+msgid "Namespace"
+msgstr "ネームスペース"
+
 msgid "Namespace new branches for this project. Defaults to the host-wide Git setting."
 msgstr "このプロジェクトの新しいブランチに名前空間を付けます。既定ではホスト全体のGit設定に従います。"
 
@@ -13366,6 +13450,12 @@ msgstr "{pathname}には何もありません。"
 
 msgid "Nothing needs a retry"
 msgstr "再実行が必要なものはありません"
+
+msgid "Nothing needs to be deployed: your Inngest account stores the run history, and this platform's worker does the work."
+msgstr "デプロイは不要です。実行履歴は Inngest アカウントに保存され、処理はこのプラットフォームのワーカーが行います。"
+
+msgid "Nothing needs to be deployed: your Temporal namespace stores the run history, and this platform's worker does the work."
+msgstr "デプロイは不要です。実行履歴は Temporal のネームスペースに保存され、処理はこのプラットフォームのワーカーが行います。"
 
 msgid "Nothing published in the last 30 days yet. Your rank appears once usage from this machine syncs, publishing as <0>{handle}</0>."
 msgstr "直近30日に公開された実績はまだありません。このマシンの利用状況が同期されるとランクが表示されます(<0>{handle}</0>として公開)。"
@@ -14724,6 +14814,12 @@ msgstr "貼り付け"
 
 msgid "Paste a link"
 msgstr "リンクを貼り付け"
+
+msgid "Paste the client certificate in PEM format."
+msgstr "クライアント証明書を PEM 形式で貼り付けてください。"
+
+msgid "Paste the client key in PEM format."
+msgstr "クライアントキーを PEM 形式で貼り付けてください。"
 
 msgid "Paste this into Paradev CLI:"
 msgstr "これをParadev CLIに貼り付けてください:"
@@ -17745,6 +17841,9 @@ msgstr "選択したワークスペースの操作"
 msgid "Selecting text in a terminal copies it to the clipboard right away, with trailing whitespace trimmed"
 msgstr "ターミナルでテキストを選択すると、行末の空白を取り除いてすぐにクリップボードへコピーします"
 
+msgid "Self-hosted"
+msgstr "セルフホスト"
+
 msgid "Send"
 msgstr "送信"
 
@@ -17835,6 +17934,9 @@ msgstr "再接続するまでSentryのトリガーは動作しなくなります
 
 msgid "Separator"
 msgstr "Separator"
+
+msgid "Server name (optional)"
+msgstr "サーバー名（任意）"
 
 msgid "Service availability is published at <0>{statusHost}</0>, and security and compliance documentation at <1>{trustHost}</1>."
 msgstr "サービスの稼働状況は<0>{statusHost}</0>で、セキュリティとコンプライアンスに関するドキュメントは<1>{trustHost}</1>で公開しています。"
@@ -18423,6 +18525,9 @@ msgstr "サインイン中のサイト"
 
 msgid "Signing in..."
 msgstr "サインイン中..."
+
+msgid "Signing key"
+msgstr "署名キー"
 
 msgid "Signup works. The welcome screen loads and the console is clean."
 msgstr "登録は正常に動いています。ウェルカム画面が表示され、コンソールにエラーはありません。"
@@ -19593,6 +19698,9 @@ msgstr "任意のエージェントに<0>superset</0> CLIを使わせて、ワ�
 msgid "Tell us what is wrong with it. Reporting does not remove the page on its own."
 msgstr "どこに問題があるか教えてください。報告しただけでページが削除されることはありません。"
 
+msgid "Temporal connected"
+msgstr "Temporal を接続しました"
+
 msgid "Ten parallel workstreams running, each landing merged work"
 msgstr "10本の並列作業がそれぞれ成果をマージします"
 
@@ -19670,6 +19778,9 @@ msgstr "利用規約"
 
 msgid "Terms of Service"
 msgstr "利用規約"
+
+msgid "Test"
+msgstr "テスト"
 
 msgid "test the signup flow on my dev server"
 msgstr "開発サーバーで登録フローをテストして"
@@ -19792,11 +19903,17 @@ msgstr "オートメーションとその実行履歴が削除されます。こ
 msgid "The automation's owner can't use cloud workspaces in this organization anymore. Ask them to check their access, or run the automation on a device."
 msgstr "このオートメーションの所有者は、この組織でクラウドワークスペースを使用できなくなりました。所有者にアクセス権の確認を依頼するか、デバイス上でオートメーションを実行してください。"
 
+msgid "The base URL is not a valid URL."
+msgstr "ベース URL が有効な URL ではありません。"
+
 msgid "The best agent will change.<0/>Your workflow shouldn't."
 msgstr "最良のエージェントは変わります。<0/>ワークフローは変わるべきではありません。"
 
 msgid "The button now stands out. I checked it in your pane."
 msgstr "ボタンが目立つようになりました。ペインで確認済みです。"
+
+msgid "The CA certificate must be in PEM format."
+msgstr "CA 証明書は PEM 形式である必要があります。"
 
 msgid "The change starts now. You pay only the difference for the rest of this period."
 msgstr "変更はすぐに適用されます。期間の残りについて差額のみをお支払いいただきます。"
@@ -20322,6 +20439,9 @@ msgstr "再起動やクラッシュからの復旧に使う保存済みスクロ
 msgid "This deletes the session's folder and everything in it from disk."
 msgstr "セッションのフォルダとその中身すべてをディスクから削除します。"
 
+msgid "This deployment cannot store engine credentials, so connecting is turned off."
+msgstr "このデプロイではエンジンの認証情報を保存できないため、接続は無効です。"
+
 msgid "this device"
 msgstr "このデバイス"
 
@@ -20707,6 +20827,9 @@ msgstr "ヒント"
 msgid "Title"
 msgstr "タイトル"
 
+msgid "TLS"
+msgstr "TLS"
+
 msgid "to"
 msgstr "〜"
 
@@ -21036,6 +21159,9 @@ msgstr "デザインをオンにして、変更したいページの部分をク
 
 msgid "Turn on device code sign-in for Codex."
 msgstr "Codex のデバイスコードによるサインインを有効にします。"
+
+msgid "Turn on TLS to set a server name."
+msgstr "サーバー名を設定するには TLS をオンにしてください。"
 
 msgid "Turn Slack conversations into tasks, run agents from your workspace, and keep teammates in the loop where work starts."
 msgstr "Slackの会話をタスクに変え、ワークスペースからエージェントを実行し、仕事が始まる場所でチームと共有できます。"
@@ -21857,6 +21983,9 @@ msgstr "サインインを待機中…"
 msgid "Waiting for the subagent's first message…"
 msgstr "サブエージェントの最初のメッセージを待っています…"
 
+msgid "Waiting for the worker to connect"
+msgstr "ワーカーの接続を待っています"
+
 msgid "Waiting for your input"
 msgstr "入力を待っています"
 
@@ -22260,6 +22389,9 @@ msgstr "作業時間 {0}分{1}秒"
 msgid "Worked for {seconds}s"
 msgstr "作業時間 {seconds}秒"
 
+msgid "Workflow engine"
+msgstr "ワークフローエンジン"
+
 msgid "Workflow run completed…"
 msgstr "ワークフロー実行完了…"
 
@@ -22268,6 +22400,9 @@ msgstr "ワークフローのチュートリアル"
 
 msgid "Workflows"
 msgstr "ワークフロー"
+
+msgid "Workflows run on the built-in engine. Connect your own Inngest or Temporal account to run them there instead."
+msgstr "ワークフローは組み込みエンジンで実行されます。独自の Inngest または Temporal アカウントを接続すると、そちらで実行されます。"
 
 msgid "Working"
 msgstr "作業中"

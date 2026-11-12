@@ -11,7 +11,7 @@ are rendered in each locale's natural term, not kept as English islands.
 These are literal identifiers, not vocabulary:
 
 - **Paradev** (brand), **Superset** (former name), product names of
-  third-party agents and tools (Claude, Claude Code, Codex, Gemini, Cursor, GitHub, Linear, Slack, ...)
+  third-party agents and tools (Claude, Claude Code, Codex, Gemini, Cursor, GitHub, Linear, Slack, Inngest, Temporal, ...)
 - CLI commands and flags (`superset ws create`, `--json`), file paths,
   environment variables, code identifiers
 - Keyboard keys and chords (⌘K, Ctrl+Shift+P)

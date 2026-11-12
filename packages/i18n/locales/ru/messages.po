@@ -2254,6 +2254,9 @@ msgstr "Чтобы добавлять людей в {organizationName}, нуже
 msgid "Adding..."
 msgstr "Добавление..."
 
+msgid "Address"
+msgstr "Адрес"
+
 msgid "Address Comments with Agent"
 msgstr "Разобрать комментарии агентом"
 
@@ -3868,6 +3871,9 @@ msgstr "по токенам"
 msgid "by users"
 msgstr "по пользователям"
 
+msgid "CA certificate (PEM, optional)"
+msgstr "Сертификат CA (PEM, необязательно)"
+
 msgid "Cache"
 msgstr "Кеш"
 
@@ -4556,6 +4562,15 @@ msgstr "Нажмите, чтобы открыть пул-реквест"
 msgid "Click two commits to define the range."
 msgstr "Кликните по двум коммитам, чтобы задать диапазон."
 
+msgid "Client certificate"
+msgstr "Клиентский сертификат"
+
+msgid "Client certificate (PEM)"
+msgstr "Клиентский сертификат (PEM)"
+
+msgid "Client key (PEM)"
+msgstr "Клиентский ключ (PEM)"
+
 msgid "Clients"
 msgstr "Клиенты"
 
@@ -5211,6 +5226,9 @@ msgstr "Подключить GitHub…"
 msgid "Connect Google"
 msgstr "Подключить Google"
 
+msgid "Connect Inngest"
+msgstr "Подключить Inngest"
+
 msgid "Connect Linear"
 msgstr "Подключить Linear"
 
@@ -5234,6 +5252,9 @@ msgstr "Подключить Slack"
 
 msgid "Connect Slack to manage tasks from conversations. Mention the bot in any channel or send it a direct message to create and update tasks."
 msgstr "Подключите Slack, чтобы управлять задачами из обсуждений. Упомяните бота в любом канале или напишите ему в личные сообщения, чтобы создавать и обновлять задачи."
+
+msgid "Connect Temporal"
+msgstr "Подключить Temporal"
 
 msgid "Connect this computer"
 msgstr "Подключите этот компьютер"
@@ -5332,6 +5353,9 @@ msgstr "Подключение к рабочему столу…"
 msgid "Connecting to the workspace"
 msgstr "Подключение к рабочей области"
 
+msgid "Connecting..."
+msgstr "Подключение..."
+
 msgid "Connecting…"
 msgstr "Подключение…"
 
@@ -5347,6 +5371,9 @@ msgstr "Не удалось подключиться."
 #. js-lingui-explicit-id
 msgid "serverError.plugins.connectionNotFound"
 msgstr "Подключение не найдено"
+
+msgid "Connection reachable"
+msgstr "Подключение доступно"
 
 msgid "Connection Refused"
 msgstr "В соединении отказано"
@@ -5773,6 +5800,9 @@ msgstr "Не удалось удалить эту страницу"
 msgid "Could not disable plugin"
 msgstr "Не удалось отключить плагин"
 
+msgid "Could not disconnect"
+msgstr "Не удалось отключить"
+
 msgid "Could not disconnect."
 msgstr "Не удалось отключить."
 
@@ -5815,6 +5845,9 @@ msgstr "Не удалось загрузить плагины. Проверьт�
 
 msgid "Could not load presets from the host"
 msgstr "Не удалось загрузить пресеты с хоста"
+
+msgid "Could not load the engine."
+msgstr "Не удалось загрузить движок."
 
 msgid "Could not load this diff"
 msgstr "Не удалось загрузить этот diff"
@@ -5860,6 +5893,9 @@ msgstr "Не удалось подключиться к мобильному с�
 
 msgid "Could not reach the desktop."
 msgstr "Не удалось подключиться к рабочему столу."
+
+msgid "Could not reach the engine"
+msgstr "Не удалось связаться с движком"
 
 msgid "Could not reach the host to start the update. Check that it is online and try again."
 msgstr "Не удалось связаться с хостом, чтобы начать обновление. Убедитесь, что он в сети, и попробуйте снова."
@@ -5986,6 +6022,9 @@ msgstr "Не удалось синхронизировать"
 
 msgid "Could not take a screenshot"
 msgstr "Не удалось сделать скриншот"
+
+msgid "Could not test the connection"
+msgstr "Не удалось проверить подключение"
 
 msgid "Could not undo"
 msgstr "Не удалось отменить"
@@ -7340,8 +7379,14 @@ msgstr "Отключить {accountLogin}?"
 msgid "Disconnect {credential}?"
 msgstr "Отключить {credential}?"
 
+msgid "Disconnect {providerName}? New runs go back to the built-in engine. Run history stays in your {providerName} account."
+msgstr "Отключить {providerName}? Новые запуски вернутся на встроенный движок. История запусков останется в вашем аккаунте {providerName}."
+
 msgid "Disconnect {title}"
 msgstr "Отключить {title}"
+
+msgid "Disconnect engine"
+msgstr "Отключить движок"
 
 msgid "Disconnect GitHub?"
 msgstr "Отключить GitHub?"
@@ -7901,6 +7946,9 @@ msgstr "Завершено"
 msgid "Ending the call"
 msgstr "Завершение звонка"
 
+msgid "Engine disconnected"
+msgstr "Движок отключён"
+
 msgid "Ensure no regression"
 msgstr "Убедись, что нет регрессии"
 
@@ -7933,6 +7981,21 @@ msgstr "Введите целое число"
 
 msgid "Enter a whole number from {minHours} to {maxHours} GB-hours."
 msgstr "Введите целое число от {minHours} до {maxHours} ГБ-часов."
+
+msgid "Enter the address as host:port, without https://."
+msgstr "Введите адрес в виде host:port, без https://."
+
+msgid "Enter the API key."
+msgstr "Введите ключ API."
+
+msgid "Enter the event key."
+msgstr "Введите ключ событий."
+
+msgid "Enter the namespace."
+msgstr "Введите namespace."
+
+msgid "Enter the signing key."
+msgstr "Введите ключ подписи."
 
 msgid "Enter this code when OpenAI asks for it:"
 msgstr "Введите этот код, когда OpenAI попросит:"
@@ -7976,6 +8039,9 @@ msgstr "Ошибка"
 msgid "Error {statusCode}"
 msgstr "Ошибка {statusCode}"
 
+msgid "Error: {lastError}"
+msgstr "Ошибка: {lastError}"
+
 msgid "esc to dismiss"
 msgstr "esc — закрыть"
 
@@ -7984,6 +8050,9 @@ msgstr "esc — выход"
 
 msgid "Event"
 msgstr "Событие"
+
+msgid "Event key"
+msgstr "Ключ событий"
 
 msgid "Event log"
 msgstr "Журнал событий"
@@ -10304,6 +10373,12 @@ msgstr "Ссылка в тексте"
 msgid "Inline code"
 msgstr "Код в строке"
 
+msgid "Inngest Cloud"
+msgstr "Inngest Cloud"
+
+msgid "Inngest connected"
+msgstr "Inngest подключён"
+
 msgid "Input"
 msgstr "Ввод"
 
@@ -10932,6 +11007,9 @@ msgstr "Последнее сообщение агента"
 msgid "Last attached"
 msgstr "Последнее подключение"
 
+msgid "Last checked {lastChecked}"
+msgstr "Последняя проверка: {lastChecked}"
+
 msgid "Last day of each month"
 msgstr "В последний день каждого месяца"
 
@@ -11062,6 +11140,9 @@ msgstr "Покинуть канал"
 
 msgid "Leave comment mode"
 msgstr "Выйти из режима комментариев"
+
+msgid "Leave empty to use Inngest Cloud."
+msgstr "Оставьте пустым, чтобы использовать Inngest Cloud."
 
 msgid "Leave it empty to go back to the name the terminal reports."
 msgstr "Оставьте поле пустым, чтобы вернуть имя, которое сообщает терминал."
@@ -12243,6 +12324,9 @@ msgstr "Безымянный бригадир"
 msgid "Names, emails, or teams"
 msgstr "Имена, почта или команды"
 
+msgid "Namespace"
+msgstr "Namespace"
+
 msgid "Namespace new branches for this project. Defaults to the host-wide Git setting."
 msgstr "Пространство имён для новых веток этого проекта. По умолчанию берётся общая настройка Git на хосте."
 
@@ -13366,6 +13450,12 @@ msgstr "По адресу {pathname} ничего нет."
 
 msgid "Nothing needs a retry"
 msgstr "Повторять нечего"
+
+msgid "Nothing needs to be deployed: your Inngest account stores the run history, and this platform's worker does the work."
+msgstr "Ничего разворачивать не нужно: ваш аккаунт Inngest хранит историю запусков, а работу выполняет воркер этой платформы."
+
+msgid "Nothing needs to be deployed: your Temporal namespace stores the run history, and this platform's worker does the work."
+msgstr "Ничего разворачивать не нужно: ваш namespace Temporal хранит историю запусков, а работу выполняет воркер этой платформы."
 
 msgid "Nothing published in the last 30 days yet. Your rank appears once usage from this machine syncs, publishing as <0>{handle}</0>."
 msgstr "За последние 30 дней ещё ничего не опубликовано. Ваше место появится, как только синхронизируется использование с этой машины; публикация как <0>{handle}</0>."
@@ -14724,6 +14814,12 @@ msgstr "Вставить"
 
 msgid "Paste a link"
 msgstr "Вставьте ссылку"
+
+msgid "Paste the client certificate in PEM format."
+msgstr "Вставьте клиентский сертификат в формате PEM."
+
+msgid "Paste the client key in PEM format."
+msgstr "Вставьте клиентский ключ в формате PEM."
 
 msgid "Paste this into Paradev CLI:"
 msgstr "Вставьте это в Paradev CLI:"
@@ -17745,6 +17841,9 @@ msgstr "Действия с выбранными рабочими областя
 msgid "Selecting text in a terminal copies it to the clipboard right away, with trailing whitespace trimmed"
 msgstr "Выделенный в терминале текст сразу копируется в буфер обмена, без конечных пробелов"
 
+msgid "Self-hosted"
+msgstr "Собственный хостинг"
+
 msgid "Send"
 msgstr "Отправить"
 
@@ -17835,6 +17934,9 @@ msgstr "Триггеры Sentry перестанут срабатывать, п�
 
 msgid "Separator"
 msgstr "Разделитель"
+
+msgid "Server name (optional)"
+msgstr "Имя сервера (необязательно)"
 
 msgid "Service availability is published at <0>{statusHost}</0>, and security and compliance documentation at <1>{trustHost}</1>."
 msgstr "Доступность сервиса публикуется на <0>{statusHost}</0>, а документация по безопасности и соответствию — на <1>{trustHost}</1>."
@@ -18423,6 +18525,9 @@ msgstr "Сайты с выполненным входом"
 
 msgid "Signing in..."
 msgstr "Вход..."
+
+msgid "Signing key"
+msgstr "Ключ подписи"
 
 msgid "Signup works. The welcome screen loads and the console is clean."
 msgstr "Регистрация работает. Экран приветствия загружается, в консоли нет ошибок."
@@ -19593,6 +19698,9 @@ msgstr "Попросите любого агента использовать CL
 msgid "Tell us what is wrong with it. Reporting does not remove the page on its own."
 msgstr "Расскажите, что с ней не так. Сама по себе жалоба страницу не удаляет."
 
+msgid "Temporal connected"
+msgstr "Temporal подключён"
+
 msgid "Ten parallel workstreams running, each landing merged work"
 msgstr "Десять параллельных рабочих потоков, каждый из которых доводит работу до объединения"
 
@@ -19670,6 +19778,9 @@ msgstr "Условия"
 
 msgid "Terms of Service"
 msgstr "Условия использования"
+
+msgid "Test"
+msgstr "Проверить"
 
 msgid "test the signup flow on my dev server"
 msgstr "протестируй регистрацию на моём dev-сервере"
@@ -19792,11 +19903,17 @@ msgstr "Автоматизация и её история запусков бу�
 msgid "The automation's owner can't use cloud workspaces in this organization anymore. Ask them to check their access, or run the automation on a device."
 msgstr "Владелец автоматизации больше не может использовать облачные рабочие области в этой организации. Попросите его проверить доступ или запустите автоматизацию на устройстве."
 
+msgid "The base URL is not a valid URL."
+msgstr "Базовый URL не является допустимым URL."
+
 msgid "The best agent will change.<0/>Your workflow shouldn't."
 msgstr "Лучший агент будет меняться.<0/>Ваш процесс — нет."
 
 msgid "The button now stands out. I checked it in your pane."
 msgstr "Теперь кнопка выделяется. Я проверил это в вашей панели."
+
+msgid "The CA certificate must be in PEM format."
+msgstr "Сертификат CA должен быть в формате PEM."
 
 msgid "The change starts now. You pay only the difference for the rest of this period."
 msgstr "Изменение вступает в силу сразу. Вы платите только разницу за остаток периода."
@@ -20322,6 +20439,9 @@ msgstr "Это удалит сохранённую прокрутку, испо�
 msgid "This deletes the session's folder and everything in it from disk."
 msgstr "Это удалит папку сессии и всё её содержимое с диска."
 
+msgid "This deployment cannot store engine credentials, so connecting is turned off."
+msgstr "Это развёртывание не может хранить учётные данные движка, поэтому подключение отключено."
+
 msgid "this device"
 msgstr "это устройство"
 
@@ -20707,6 +20827,9 @@ msgstr "Совет"
 msgid "Title"
 msgstr "Название"
 
+msgid "TLS"
+msgstr "TLS"
+
 msgid "to"
 msgstr "до"
 
@@ -21036,6 +21159,9 @@ msgstr "Включите «Дизайн» и нажмите на ту часть
 
 msgid "Turn on device code sign-in for Codex."
 msgstr "Включите вход по коду устройства для Codex."
+
+msgid "Turn on TLS to set a server name."
+msgstr "Включите TLS, чтобы задать имя сервера."
 
 msgid "Turn Slack conversations into tasks, run agents from your workspace, and keep teammates in the loop where work starts."
 msgstr "Превращайте обсуждения в Slack в задачи, запускайте агентов из рабочей области и держите команду в курсе там, где начинается работа."
@@ -21857,6 +21983,9 @@ msgstr "Ожидание входа…"
 msgid "Waiting for the subagent's first message…"
 msgstr "Ожидание первого сообщения субагента…"
 
+msgid "Waiting for the worker to connect"
+msgstr "Ожидание подключения воркера"
+
 msgid "Waiting for your input"
 msgstr "Ждёт вашего ответа"
 
@@ -22260,6 +22389,9 @@ msgstr "Работал {0} мин {1} с"
 msgid "Worked for {seconds}s"
 msgstr "Работал {seconds} с"
 
+msgid "Workflow engine"
+msgstr "Движок воркфлоу"
+
 msgid "Workflow run completed…"
 msgstr "Запуск workflow завершён…"
 
@@ -22268,6 +22400,9 @@ msgstr "Руководства по рабочим процессам"
 
 msgid "Workflows"
 msgstr "Рабочие процессы"
+
+msgid "Workflows run on the built-in engine. Connect your own Inngest or Temporal account to run them there instead."
+msgstr "Воркфлоу выполняются на встроенном движке. Подключите собственный аккаунт Inngest или Temporal, чтобы запускать их там."
 
 msgid "Working"
 msgstr "Работает"

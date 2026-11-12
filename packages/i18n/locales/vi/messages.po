@@ -2254,6 +2254,9 @@ msgstr "Để thêm người vào {organizationName}, bạn cần gói trả ph�
 msgid "Adding..."
 msgstr "Đang thêm..."
 
+msgid "Address"
+msgstr "Địa chỉ"
+
 msgid "Address Comments with Agent"
 msgstr "Xử lý bình luận bằng agent"
 
@@ -3868,6 +3871,9 @@ msgstr "theo token"
 msgid "by users"
 msgstr "theo người dùng"
 
+msgid "CA certificate (PEM, optional)"
+msgstr "Chứng chỉ CA (PEM, tùy chọn)"
+
 msgid "Cache"
 msgstr "Cache"
 
@@ -4556,6 +4562,15 @@ msgstr "Nhấp để mở pull request"
 msgid "Click two commits to define the range."
 msgstr "Nhấp vào hai commit để xác định khoảng."
 
+msgid "Client certificate"
+msgstr "Chứng chỉ máy khách"
+
+msgid "Client certificate (PEM)"
+msgstr "Chứng chỉ máy khách (PEM)"
+
+msgid "Client key (PEM)"
+msgstr "Khóa máy khách (PEM)"
+
 msgid "Clients"
 msgstr "Client"
 
@@ -5211,6 +5226,9 @@ msgstr "Kết nối GitHub…"
 msgid "Connect Google"
 msgstr "Kết nối Google"
 
+msgid "Connect Inngest"
+msgstr "Kết nối Inngest"
+
 msgid "Connect Linear"
 msgstr "Kết nối Linear"
 
@@ -5234,6 +5252,9 @@ msgstr "Kết nối Slack"
 
 msgid "Connect Slack to manage tasks from conversations. Mention the bot in any channel or send it a direct message to create and update tasks."
 msgstr "Kết nối Slack để quản lý tác vụ ngay trong hội thoại. Nhắc bot ở bất kỳ kênh nào hoặc nhắn tin trực tiếp cho nó để tạo và cập nhật tác vụ."
+
+msgid "Connect Temporal"
+msgstr "Kết nối Temporal"
 
 msgid "Connect this computer"
 msgstr "Kết nối máy tính này"
@@ -5332,6 +5353,9 @@ msgstr "Đang kết nối tới màn hình nền…"
 msgid "Connecting to the workspace"
 msgstr "Đang kết nối tới workspace"
 
+msgid "Connecting..."
+msgstr "Đang kết nối..."
+
 msgid "Connecting…"
 msgstr "Đang kết nối…"
 
@@ -5347,6 +5371,9 @@ msgstr "Kết nối thất bại."
 #. js-lingui-explicit-id
 msgid "serverError.plugins.connectionNotFound"
 msgstr "Không tìm thấy kết nối"
+
+msgid "Connection reachable"
+msgstr "Kết nối truy cập được"
 
 msgid "Connection Refused"
 msgstr "Kết nối bị từ chối"
@@ -5773,6 +5800,9 @@ msgstr "Không thể xóa trang này"
 msgid "Could not disable plugin"
 msgstr "Không thể tắt plugin"
 
+msgid "Could not disconnect"
+msgstr "Không thể ngắt kết nối"
+
 msgid "Could not disconnect."
 msgstr "Không thể ngắt kết nối."
 
@@ -5815,6 +5845,9 @@ msgstr "Không tải được plugin. Hãy kiểm tra kết nối và thử lạ
 
 msgid "Could not load presets from the host"
 msgstr "Không thể tải preset từ host"
+
+msgid "Could not load the engine."
+msgstr "Không thể tải engine."
 
 msgid "Could not load this diff"
 msgstr "Không thể tải diff này"
@@ -5860,6 +5893,9 @@ msgstr "Không thể kết nối tới trình giả lập di động."
 
 msgid "Could not reach the desktop."
 msgstr "Không thể kết nối tới màn hình nền."
+
+msgid "Could not reach the engine"
+msgstr "Không thể truy cập engine"
 
 msgid "Could not reach the host to start the update. Check that it is online and try again."
 msgstr "Không thể kết nối tới máy chủ để bắt đầu cập nhật. Hãy kiểm tra máy chủ đang trực tuyến rồi thử lại."
@@ -5986,6 +6022,9 @@ msgstr "Không thể đồng bộ"
 
 msgid "Could not take a screenshot"
 msgstr "Không thể chụp màn hình"
+
+msgid "Could not test the connection"
+msgstr "Không thể kiểm tra kết nối"
 
 msgid "Could not undo"
 msgstr "Không thể hoàn tác"
@@ -7340,8 +7379,14 @@ msgstr "Ngắt kết nối {accountLogin}?"
 msgid "Disconnect {credential}?"
 msgstr "Ngắt kết nối {credential}?"
 
+msgid "Disconnect {providerName}? New runs go back to the built-in engine. Run history stays in your {providerName} account."
+msgstr "Ngắt kết nối {providerName}? Các lượt chạy mới sẽ quay lại engine tích hợp sẵn. Lịch sử chạy vẫn nằm trong tài khoản {providerName} của bạn."
+
 msgid "Disconnect {title}"
 msgstr "Ngắt kết nối {title}"
+
+msgid "Disconnect engine"
+msgstr "Ngắt kết nối engine"
 
 msgid "Disconnect GitHub?"
 msgstr "Ngắt kết nối GitHub?"
@@ -7901,6 +7946,9 @@ msgstr "Đã kết thúc"
 msgid "Ending the call"
 msgstr "Đang kết thúc cuộc gọi"
 
+msgid "Engine disconnected"
+msgstr "Đã ngắt kết nối engine"
+
 msgid "Ensure no regression"
 msgstr "Đảm bảo không có hồi quy"
 
@@ -7933,6 +7981,21 @@ msgstr "Nhập một số nguyên"
 
 msgid "Enter a whole number from {minHours} to {maxHours} GB-hours."
 msgstr "Nhập số nguyên từ {minHours} đến {maxHours} GB-giờ."
+
+msgid "Enter the address as host:port, without https://."
+msgstr "Nhập địa chỉ dạng host:port, không có https://."
+
+msgid "Enter the API key."
+msgstr "Nhập khóa API."
+
+msgid "Enter the event key."
+msgstr "Nhập khóa sự kiện."
+
+msgid "Enter the namespace."
+msgstr "Nhập namespace."
+
+msgid "Enter the signing key."
+msgstr "Nhập khóa ký."
 
 msgid "Enter this code when OpenAI asks for it:"
 msgstr "Nhập mã này khi OpenAI yêu cầu:"
@@ -7976,6 +8039,9 @@ msgstr "Lỗi"
 msgid "Error {statusCode}"
 msgstr "Lỗi {statusCode}"
 
+msgid "Error: {lastError}"
+msgstr "Lỗi: {lastError}"
+
 msgid "esc to dismiss"
 msgstr "esc để đóng"
 
@@ -7984,6 +8050,9 @@ msgstr "esc để thoát"
 
 msgid "Event"
 msgstr "Sự kiện"
+
+msgid "Event key"
+msgstr "Khóa sự kiện"
 
 msgid "Event log"
 msgstr "Nhật ký sự kiện"
@@ -10304,6 +10373,12 @@ msgstr "Inline Citation"
 msgid "Inline code"
 msgstr "Mã nội dòng"
 
+msgid "Inngest Cloud"
+msgstr "Inngest Cloud"
+
+msgid "Inngest connected"
+msgstr "Đã kết nối Inngest"
+
 msgid "Input"
 msgstr "Đầu vào"
 
@@ -10932,6 +11007,9 @@ msgstr "Tin nhắn agent gần nhất"
 msgid "Last attached"
 msgstr "Lần gắn cuối"
 
+msgid "Last checked {lastChecked}"
+msgstr "Kiểm tra lần cuối {lastChecked}"
+
 msgid "Last day of each month"
 msgstr "Ngày cuối mỗi tháng"
 
@@ -11062,6 +11140,9 @@ msgstr "Rời kênh"
 
 msgid "Leave comment mode"
 msgstr "Thoát chế độ bình luận"
+
+msgid "Leave empty to use Inngest Cloud."
+msgstr "Để trống để dùng Inngest Cloud."
 
 msgid "Leave it empty to go back to the name the terminal reports."
 msgstr "Để trống để quay lại tên do terminal báo cáo."
@@ -12243,6 +12324,9 @@ msgstr "Quản đốc vô danh"
 msgid "Names, emails, or teams"
 msgstr "Tên, email hoặc nhóm"
 
+msgid "Namespace"
+msgstr "Namespace"
+
 msgid "Namespace new branches for this project. Defaults to the host-wide Git setting."
 msgstr "Đặt không gian tên cho nhánh mới của dự án này. Mặc định theo cài đặt Git của toàn host."
 
@@ -13366,6 +13450,12 @@ msgstr "Không có gì ở {pathname}."
 
 msgid "Nothing needs a retry"
 msgstr "Không có gì cần chạy lại"
+
+msgid "Nothing needs to be deployed: your Inngest account stores the run history, and this platform's worker does the work."
+msgstr "Không cần triển khai gì cả: tài khoản Inngest của bạn lưu lịch sử chạy, còn worker của nền tảng này thực hiện công việc."
+
+msgid "Nothing needs to be deployed: your Temporal namespace stores the run history, and this platform's worker does the work."
+msgstr "Không cần triển khai gì cả: namespace Temporal của bạn lưu lịch sử chạy, còn worker của nền tảng này thực hiện công việc."
 
 msgid "Nothing published in the last 30 days yet. Your rank appears once usage from this machine syncs, publishing as <0>{handle}</0>."
 msgstr "Chưa có gì được công khai trong 30 ngày qua. Thứ hạng của bạn sẽ xuất hiện khi dữ liệu sử dụng từ máy này đồng bộ, công khai dưới tên <0>{handle}</0>."
@@ -14724,6 +14814,12 @@ msgstr "Dán"
 
 msgid "Paste a link"
 msgstr "Dán liên kết"
+
+msgid "Paste the client certificate in PEM format."
+msgstr "Dán chứng chỉ máy khách ở định dạng PEM."
+
+msgid "Paste the client key in PEM format."
+msgstr "Dán khóa máy khách ở định dạng PEM."
 
 msgid "Paste this into Paradev CLI:"
 msgstr "Dán mã này vào Paradev CLI:"
@@ -17745,6 +17841,9 @@ msgstr "Hành động cho workspace đã chọn"
 msgid "Selecting text in a terminal copies it to the clipboard right away, with trailing whitespace trimmed"
 msgstr "Chọn văn bản trong terminal sẽ sao chép ngay vào clipboard, đã cắt khoảng trắng ở cuối"
 
+msgid "Self-hosted"
+msgstr "Tự lưu trữ"
+
 msgid "Send"
 msgstr "Gửi"
 
@@ -17835,6 +17934,9 @@ msgstr "Các trigger Sentry sẽ ngừng chạy cho đến khi bạn kết nối
 
 msgid "Separator"
 msgstr "Separator"
+
+msgid "Server name (optional)"
+msgstr "Tên máy chủ (tùy chọn)"
 
 msgid "Service availability is published at <0>{statusHost}</0>, and security and compliance documentation at <1>{trustHost}</1>."
 msgstr "Tình trạng dịch vụ được công bố tại <0>{statusHost}</0>, còn tài liệu bảo mật và tuân thủ tại <1>{trustHost}</1>."
@@ -18423,6 +18525,9 @@ msgstr "Trang đang đăng nhập"
 
 msgid "Signing in..."
 msgstr "Đang đăng nhập..."
+
+msgid "Signing key"
+msgstr "Khóa ký"
 
 msgid "Signup works. The welcome screen loads and the console is clean."
 msgstr "Đăng ký hoạt động tốt. Màn hình chào mừng tải xong và console không có lỗi."
@@ -19593,6 +19698,9 @@ msgstr "Bảo bất kỳ agent nào dùng CLI <0>superset</0> để tạo worksp
 msgid "Tell us what is wrong with it. Reporting does not remove the page on its own."
 msgstr "Hãy cho chúng tôi biết vấn đề là gì. Việc báo cáo không tự động gỡ trang này."
 
+msgid "Temporal connected"
+msgstr "Đã kết nối Temporal"
+
 msgid "Ten parallel workstreams running, each landing merged work"
 msgstr "Mười luồng công việc song song, mỗi luồng đều tạo ra công việc được hợp nhất"
 
@@ -19670,6 +19778,9 @@ msgstr "Điều khoản"
 
 msgid "Terms of Service"
 msgstr "Điều khoản dịch vụ"
+
+msgid "Test"
+msgstr "Kiểm tra"
 
 msgid "test the signup flow on my dev server"
 msgstr "kiểm tra luồng đăng ký trên dev server của tôi"
@@ -19792,11 +19903,17 @@ msgstr "Tự động hóa và lịch sử chạy của nó sẽ bị xóa. Khôn
 msgid "The automation's owner can't use cloud workspaces in this organization anymore. Ask them to check their access, or run the automation on a device."
 msgstr "Chủ sở hữu của tự động hóa không còn dùng được workspace cloud trong tổ chức này. Hãy nhờ họ kiểm tra quyền truy cập, hoặc chạy tự động hóa trên một thiết bị."
 
+msgid "The base URL is not a valid URL."
+msgstr "URL gốc không phải là URL hợp lệ."
+
 msgid "The best agent will change.<0/>Your workflow shouldn't."
 msgstr "Agent tốt nhất sẽ thay đổi.<0/>Quy trình của bạn thì không."
 
 msgid "The button now stands out. I checked it in your pane."
 msgstr "Nút giờ đã nổi bật. Tôi đã kiểm tra trong ngăn của bạn."
+
+msgid "The CA certificate must be in PEM format."
+msgstr "Chứng chỉ CA phải ở định dạng PEM."
 
 msgid "The change starts now. You pay only the difference for the rest of this period."
 msgstr "Thay đổi có hiệu lực ngay. Bạn chỉ trả phần chênh lệch cho thời gian còn lại của kỳ này."
@@ -20322,6 +20439,9 @@ msgstr "Thao tác này xóa phần scrollback đã lưu dùng để khôi phục
 msgid "This deletes the session's folder and everything in it from disk."
 msgstr "Thao tác này xóa thư mục của phiên và mọi thứ trong đó khỏi đĩa."
 
+msgid "This deployment cannot store engine credentials, so connecting is turned off."
+msgstr "Bản triển khai này không thể lưu thông tin xác thực của engine nên tính năng kết nối đang tắt."
+
 msgid "this device"
 msgstr "thiết bị này"
 
@@ -20707,6 +20827,9 @@ msgstr "Mẹo"
 msgid "Title"
 msgstr "Tiêu đề"
 
+msgid "TLS"
+msgstr "TLS"
+
 msgid "to"
 msgstr "đến"
 
@@ -21036,6 +21159,9 @@ msgstr "Bật Thiết kế và nhấp vào phần của trang mà bạn muốn t
 
 msgid "Turn on device code sign-in for Codex."
 msgstr "Bật đăng nhập bằng mã thiết bị cho Codex."
+
+msgid "Turn on TLS to set a server name."
+msgstr "Bật TLS để đặt tên máy chủ."
 
 msgid "Turn Slack conversations into tasks, run agents from your workspace, and keep teammates in the loop where work starts."
 msgstr "Biến hội thoại Slack thành tác vụ, chạy agent từ workspace của bạn và giữ đồng đội nắm thông tin ngay nơi công việc bắt đầu."
@@ -21857,6 +21983,9 @@ msgstr "Đang chờ đăng nhập…"
 msgid "Waiting for the subagent's first message…"
 msgstr "Đang chờ tin nhắn đầu tiên của agent con…"
 
+msgid "Waiting for the worker to connect"
+msgstr "Đang chờ worker kết nối"
+
 msgid "Waiting for your input"
 msgstr "Đang chờ bạn phản hồi"
 
@@ -22260,6 +22389,9 @@ msgstr "Đã chạy {0} phút {1} giây"
 msgid "Worked for {seconds}s"
 msgstr "Đã chạy {seconds} giây"
 
+msgid "Workflow engine"
+msgstr "Engine workflow"
+
 msgid "Workflow run completed…"
 msgstr "Workflow chạy xong…"
 
@@ -22268,6 +22400,9 @@ msgstr "Hướng dẫn quy trình"
 
 msgid "Workflows"
 msgstr "Quy trình"
+
+msgid "Workflows run on the built-in engine. Connect your own Inngest or Temporal account to run them there instead."
+msgstr "Workflow chạy trên engine tích hợp sẵn. Hãy kết nối tài khoản Inngest hoặc Temporal của riêng bạn để chạy chúng ở đó."
 
 msgid "Working"
 msgstr "Đang làm"

@@ -2254,6 +2254,9 @@ msgstr "將成員加入 {organizationName} 需要付費方案。你組織的方�
 msgid "Adding..."
 msgstr "正在新增..."
 
+msgid "Address"
+msgstr "位址"
+
 msgid "Address Comments with Agent"
 msgstr "用代理程式處理評論"
 
@@ -3868,6 +3871,9 @@ msgstr "按token"
 msgid "by users"
 msgstr "按使用者數"
 
+msgid "CA certificate (PEM, optional)"
+msgstr "CA 憑證（PEM，選填）"
+
 msgid "Cache"
 msgstr "快取"
 
@@ -4556,6 +4562,15 @@ msgstr "點擊開啟拉取請求"
 msgid "Click two commits to define the range."
 msgstr "點選兩個提交以確定範圍。"
 
+msgid "Client certificate"
+msgstr "用戶端憑證"
+
+msgid "Client certificate (PEM)"
+msgstr "用戶端憑證（PEM）"
+
+msgid "Client key (PEM)"
+msgstr "用戶端金鑰（PEM）"
+
 msgid "Clients"
 msgstr "客戶端"
 
@@ -5211,6 +5226,9 @@ msgstr "連結 GitHub…"
 msgid "Connect Google"
 msgstr "連線Google"
 
+msgid "Connect Inngest"
+msgstr "連接 Inngest"
+
 msgid "Connect Linear"
 msgstr "連線Linear"
 
@@ -5234,6 +5252,9 @@ msgstr "連線Slack"
 
 msgid "Connect Slack to manage tasks from conversations. Mention the bot in any channel or send it a direct message to create and update tasks."
 msgstr "連線Slack，直接在對話中管理任務。在任意頻道提及機器人或給它發私訊，即可建立和更新任務。"
+
+msgid "Connect Temporal"
+msgstr "連接 Temporal"
 
 msgid "Connect this computer"
 msgstr "連線至這台電腦"
@@ -5332,6 +5353,9 @@ msgstr "正在連線至桌面…"
 msgid "Connecting to the workspace"
 msgstr "正在連線工作區"
 
+msgid "Connecting..."
+msgstr "連接中..."
+
 msgid "Connecting…"
 msgstr "正在連線…"
 
@@ -5347,6 +5371,9 @@ msgstr "連線失敗。"
 #. js-lingui-explicit-id
 msgid "serverError.plugins.connectionNotFound"
 msgstr "找不到連線"
+
+msgid "Connection reachable"
+msgstr "連線可存取"
 
 msgid "Connection Refused"
 msgstr "連線被拒絕"
@@ -5773,6 +5800,9 @@ msgstr "無法刪除這個頁面"
 msgid "Could not disable plugin"
 msgstr "無法停用外掛"
 
+msgid "Could not disconnect"
+msgstr "無法中斷連線"
+
 msgid "Could not disconnect."
 msgstr "無法中斷連線。"
 
@@ -5815,6 +5845,9 @@ msgstr "無法載入外掛。請檢查連線後再試一次。"
 
 msgid "Could not load presets from the host"
 msgstr "無法從主機載入預設"
+
+msgid "Could not load the engine."
+msgstr "無法載入引擎。"
 
 msgid "Could not load this diff"
 msgstr "無法載入這個差異"
@@ -5860,6 +5893,9 @@ msgstr "無法連線至行動模擬器。"
 
 msgid "Could not reach the desktop."
 msgstr "無法連線至桌面。"
+
+msgid "Could not reach the engine"
+msgstr "無法存取引擎"
 
 msgid "Could not reach the host to start the update. Check that it is online and try again."
 msgstr "無法連線主機以開始更新。請確認主機在線上後重試。"
@@ -5986,6 +6022,9 @@ msgstr "無法同步"
 
 msgid "Could not take a screenshot"
 msgstr "無法截圖"
+
+msgid "Could not test the connection"
+msgstr "無法測試連線"
 
 msgid "Could not undo"
 msgstr "無法撤銷"
@@ -7340,8 +7379,14 @@ msgstr "要中斷 {accountLogin} 的連線嗎？"
 msgid "Disconnect {credential}?"
 msgstr "中斷{credential}連線？"
 
+msgid "Disconnect {providerName}? New runs go back to the built-in engine. Run history stays in your {providerName} account."
+msgstr "要中斷 {providerName} 的連線嗎？新的執行會回到內建引擎。執行記錄仍保留在你的 {providerName} 帳號中。"
+
 msgid "Disconnect {title}"
 msgstr "中斷 {title}"
+
+msgid "Disconnect engine"
+msgstr "中斷引擎連線"
 
 msgid "Disconnect GitHub?"
 msgstr "斷開GitHub連線？"
@@ -7901,6 +7946,9 @@ msgstr "已結束"
 msgid "Ending the call"
 msgstr "正在結束通話"
 
+msgid "Engine disconnected"
+msgstr "引擎已中斷連線"
+
 msgid "Ensure no regression"
 msgstr "確保沒有回歸"
 
@@ -7933,6 +7981,21 @@ msgstr "輸入整數"
 
 msgid "Enter a whole number from {minHours} to {maxHours} GB-hours."
 msgstr "請輸入 {minHours} 到 {maxHours} 之間的整數 GB 小時。"
+
+msgid "Enter the address as host:port, without https://."
+msgstr "請以 host:port 格式輸入位址，不含 https://。"
+
+msgid "Enter the API key."
+msgstr "請輸入 API 金鑰。"
+
+msgid "Enter the event key."
+msgstr "請輸入事件金鑰。"
+
+msgid "Enter the namespace."
+msgstr "請輸入命名空間。"
+
+msgid "Enter the signing key."
+msgstr "請輸入簽署金鑰。"
 
 msgid "Enter this code when OpenAI asks for it:"
 msgstr "OpenAI 要求時輸入此代碼："
@@ -7976,6 +8039,9 @@ msgstr "錯誤"
 msgid "Error {statusCode}"
 msgstr "錯誤{statusCode}"
 
+msgid "Error: {lastError}"
+msgstr "錯誤：{lastError}"
+
 msgid "esc to dismiss"
 msgstr "按esc關閉"
 
@@ -7984,6 +8050,9 @@ msgstr "esc退出"
 
 msgid "Event"
 msgstr "事件"
+
+msgid "Event key"
+msgstr "事件金鑰"
 
 msgid "Event log"
 msgstr "事件記錄"
@@ -10304,6 +10373,12 @@ msgstr "行內引用"
 msgid "Inline code"
 msgstr "行內程式碼"
 
+msgid "Inngest Cloud"
+msgstr "Inngest Cloud"
+
+msgid "Inngest connected"
+msgstr "Inngest 已連接"
+
 msgid "Input"
 msgstr "輸入"
 
@@ -10932,6 +11007,9 @@ msgstr "最近一則代理程式訊息"
 msgid "Last attached"
 msgstr "上次連線"
 
+msgid "Last checked {lastChecked}"
+msgstr "上次檢查：{lastChecked}"
+
 msgid "Last day of each month"
 msgstr "每月最後一天"
 
@@ -11062,6 +11140,9 @@ msgstr "離開頻道"
 
 msgid "Leave comment mode"
 msgstr "退出評論模式"
+
+msgid "Leave empty to use Inngest Cloud."
+msgstr "留空即使用 Inngest Cloud。"
 
 msgid "Leave it empty to go back to the name the terminal reports."
 msgstr "留空即可恢復終端回報的名稱。"
@@ -12243,6 +12324,9 @@ msgstr "無名工頭"
 msgid "Names, emails, or teams"
 msgstr "姓名、電子郵件或團隊"
 
+msgid "Namespace"
+msgstr "命名空間"
+
 msgid "Namespace new branches for this project. Defaults to the host-wide Git setting."
 msgstr "為此專案的新分支設定名稱空間。預設使用主機全域性的Git設定。"
 
@@ -13366,6 +13450,12 @@ msgstr "{pathname}下沒有任何內容。"
 
 msgid "Nothing needs a retry"
 msgstr "沒有需要重試的執行"
+
+msgid "Nothing needs to be deployed: your Inngest account stores the run history, and this platform's worker does the work."
+msgstr "不需要部署任何東西：執行記錄存放在你的 Inngest 帳號中，由本平台的 worker 負責執行。"
+
+msgid "Nothing needs to be deployed: your Temporal namespace stores the run history, and this platform's worker does the work."
+msgstr "不需要部署任何東西：執行記錄存放在你的 Temporal 命名空間中，由本平台的 worker 負責執行。"
 
 msgid "Nothing published in the last 30 days yet. Your rank appears once usage from this machine syncs, publishing as <0>{handle}</0>."
 msgstr "最近 30 天尚未發佈任何資料。這台機器的用量同步後即會顯示你的排名，將以 <0>{handle}</0> 發佈。"
@@ -14724,6 +14814,12 @@ msgstr "貼上"
 
 msgid "Paste a link"
 msgstr "貼上連結"
+
+msgid "Paste the client certificate in PEM format."
+msgstr "請以 PEM 格式貼上用戶端憑證。"
+
+msgid "Paste the client key in PEM format."
+msgstr "請以 PEM 格式貼上用戶端金鑰。"
 
 msgid "Paste this into Paradev CLI:"
 msgstr "把它貼上到Paradev CLI："
@@ -17745,6 +17841,9 @@ msgstr "選中工作區的操作"
 msgid "Selecting text in a terminal copies it to the clipboard right away, with trailing whitespace trimmed"
 msgstr "在終端中選取文字後立即複製到剪貼簿，並移除結尾空白"
 
+msgid "Self-hosted"
+msgstr "自行代管"
+
 msgid "Send"
 msgstr "傳送"
 
@@ -17835,6 +17934,9 @@ msgstr "在你重新連線之前，Sentry觸發器會停止觸發。該整合仍
 
 msgid "Separator"
 msgstr "分隔線"
+
+msgid "Server name (optional)"
+msgstr "伺服器名稱（選填）"
 
 msgid "Service availability is published at <0>{statusHost}</0>, and security and compliance documentation at <1>{trustHost}</1>."
 msgstr "服務可用性發布在<0>{statusHost}</0>，安全與合規文件在<1>{trustHost}</1>。"
@@ -18423,6 +18525,9 @@ msgstr "已登入的站點"
 
 msgid "Signing in..."
 msgstr "正在登入..."
+
+msgid "Signing key"
+msgstr "簽署金鑰"
 
 msgid "Signup works. The welcome screen loads and the console is clean."
 msgstr "註冊正常。歡迎畫面已載入，主控台沒有錯誤。"
@@ -19593,6 +19698,9 @@ msgstr "讓任意代理程式用<0>superset</0> CLI來建立工作區、執行�
 msgid "Tell us what is wrong with it. Reporting does not remove the page on its own."
 msgstr "請告訴我們問題所在。檢舉本身不會移除該頁面。"
 
+msgid "Temporal connected"
+msgstr "Temporal 已連接"
+
 msgid "Ten parallel workstreams running, each landing merged work"
 msgstr "十條並行工作流程同時執行，各自交付已合併的成果"
 
@@ -19670,6 +19778,9 @@ msgstr "條款"
 
 msgid "Terms of Service"
 msgstr "服務條款"
+
+msgid "Test"
+msgstr "測試"
 
 msgid "test the signup flow on my dev server"
 msgstr "在我的開發伺服器上測試註冊流程"
@@ -19792,11 +19903,17 @@ msgstr "此自動化及其執行歷史將被刪除。此操作無法復原。"
 msgid "The automation's owner can't use cloud workspaces in this organization anymore. Ask them to check their access, or run the automation on a device."
 msgstr "此自動化的擁有者已無法在此組織中使用雲端工作區。請對方檢查存取權限，或在裝置上執行此自動化。"
 
+msgid "The base URL is not a valid URL."
+msgstr "基本 URL 不是有效的 URL。"
+
 msgid "The best agent will change.<0/>Your workflow shouldn't."
 msgstr "最好的代理程式會變。<0/>你的工作流不該變。"
 
 msgid "The button now stands out. I checked it in your pane."
 msgstr "按鈕現在更醒目了。我已在你的窗格中確認過。"
+
+msgid "The CA certificate must be in PEM format."
+msgstr "CA 憑證必須為 PEM 格式。"
 
 msgid "The change starts now. You pay only the difference for the rest of this period."
 msgstr "變更立即生效。您只需支付本期剩餘時間的差額。"
@@ -20322,6 +20439,9 @@ msgstr "這將刪除用於重啟/崩潰恢復的已儲存回滾緩衝。"
 msgid "This deletes the session's folder and everything in it from disk."
 msgstr "這會從磁碟上刪除會話的資料夾和其中的所有內容。"
 
+msgid "This deployment cannot store engine credentials, so connecting is turned off."
+msgstr "此部署無法儲存引擎憑證，因此已停用連接。"
+
 msgid "this device"
 msgstr "本裝置"
 
@@ -20707,6 +20827,9 @@ msgstr "提示"
 msgid "Title"
 msgstr "標題"
 
+msgid "TLS"
+msgstr "TLS"
+
 msgid "to"
 msgstr "至"
 
@@ -21036,6 +21159,9 @@ msgstr "開啟「設計」，然後點擊頁面上想修改的部分。"
 
 msgid "Turn on device code sign-in for Codex."
 msgstr "為 Codex 開啟裝置代碼登入。"
+
+msgid "Turn on TLS to set a server name."
+msgstr "開啟 TLS 後才能設定伺服器名稱。"
 
 msgid "Turn Slack conversations into tasks, run agents from your workspace, and keep teammates in the loop where work starts."
 msgstr "把Slack對話變成任務，從工作區執行代理程式，讓隊友在工作開始的地方保持同步。"
@@ -21857,6 +21983,9 @@ msgstr "等待登入…"
 msgid "Waiting for the subagent's first message…"
 msgstr "正在等待子代理程式的第一則訊息…"
 
+msgid "Waiting for the worker to connect"
+msgstr "正在等待 worker 連接"
+
 msgid "Waiting for your input"
 msgstr "等待你的輸入"
 
@@ -22260,6 +22389,9 @@ msgstr "用時 {0} 分 {1} 秒"
 msgid "Worked for {seconds}s"
 msgstr "用時 {seconds} 秒"
 
+msgid "Workflow engine"
+msgstr "工作流程引擎"
+
 msgid "Workflow run completed…"
 msgstr "工作流執行完成…"
 
@@ -22268,6 +22400,9 @@ msgstr "工作流教程"
 
 msgid "Workflows"
 msgstr "工作流程"
+
+msgid "Workflows run on the built-in engine. Connect your own Inngest or Temporal account to run them there instead."
+msgstr "工作流程會在內建引擎上執行。連接你自己的 Inngest 或 Temporal 帳號，即可改在那裡執行。"
 
 msgid "Working"
 msgstr "工作中"

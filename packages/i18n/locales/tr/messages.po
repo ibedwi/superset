@@ -2254,6 +2254,9 @@ msgstr "{organizationName} kuruluşuna kişi eklemek için ücretli bir plan ger
 msgid "Adding..."
 msgstr "Ekleniyor..."
 
+msgid "Address"
+msgstr "Adres"
+
 msgid "Address Comments with Agent"
 msgstr "Yorumları ajanla ele al"
 
@@ -3868,6 +3871,9 @@ msgstr "token'a göre"
 msgid "by users"
 msgstr "kullanıcıya göre"
 
+msgid "CA certificate (PEM, optional)"
+msgstr "CA sertifikası (PEM, isteğe bağlı)"
+
 msgid "Cache"
 msgstr "Önbellek"
 
@@ -4556,6 +4562,15 @@ msgstr "Pull request'i açmak için tıklayın"
 msgid "Click two commits to define the range."
 msgstr "Aralığı tanımlamak için iki commit'e tıklayın."
 
+msgid "Client certificate"
+msgstr "İstemci sertifikası"
+
+msgid "Client certificate (PEM)"
+msgstr "İstemci sertifikası (PEM)"
+
+msgid "Client key (PEM)"
+msgstr "İstemci anahtarı (PEM)"
+
 msgid "Clients"
 msgstr "İstemciler"
 
@@ -5211,6 +5226,9 @@ msgstr "GitHub'ı bağla…"
 msgid "Connect Google"
 msgstr "Google'ı bağla"
 
+msgid "Connect Inngest"
+msgstr "Inngest'i bağla"
+
 msgid "Connect Linear"
 msgstr "Linear'ı bağla"
 
@@ -5234,6 +5252,9 @@ msgstr "Slack'i bağla"
 
 msgid "Connect Slack to manage tasks from conversations. Mention the bot in any channel or send it a direct message to create and update tasks."
 msgstr "Görevleri konuşmalardan yönetmek için Slack'i bağlayın. Görev oluşturmak ve güncellemek için herhangi bir kanalda bottan bahsedin veya ona doğrudan mesaj gönderin."
+
+msgid "Connect Temporal"
+msgstr "Temporal'ı bağla"
 
 msgid "Connect this computer"
 msgstr "Bu bilgisayarı bağlayın"
@@ -5332,6 +5353,9 @@ msgstr "Masaüstüne bağlanılıyor…"
 msgid "Connecting to the workspace"
 msgstr "Çalışma alanına bağlanılıyor"
 
+msgid "Connecting..."
+msgstr "Bağlanıyor..."
+
 msgid "Connecting…"
 msgstr "Bağlanılıyor…"
 
@@ -5347,6 +5371,9 @@ msgstr "Bağlantı başarısız."
 #. js-lingui-explicit-id
 msgid "serverError.plugins.connectionNotFound"
 msgstr "Bağlantı bulunamadı"
+
+msgid "Connection reachable"
+msgstr "Bağlantıya ulaşılabiliyor"
 
 msgid "Connection Refused"
 msgstr "Bağlantı reddedildi"
@@ -5773,6 +5800,9 @@ msgstr "Bu sayfa silinemedi"
 msgid "Could not disable plugin"
 msgstr "Eklenti devre dışı bırakılamadı"
 
+msgid "Could not disconnect"
+msgstr "Bağlantı kesilemedi"
+
 msgid "Could not disconnect."
 msgstr "Bağlantı kesilemedi."
 
@@ -5815,6 +5845,9 @@ msgstr "Eklentiler yüklenemedi. Bağlantınızı kontrol edip tekrar deneyin."
 
 msgid "Could not load presets from the host"
 msgstr "Host'tan hazır ayarlar yüklenemedi"
+
+msgid "Could not load the engine."
+msgstr "Motor yüklenemedi."
 
 msgid "Could not load this diff"
 msgstr "Bu fark yüklenemedi"
@@ -5860,6 +5893,9 @@ msgstr "Bir mobil simülatöre ulaşılamadı."
 
 msgid "Could not reach the desktop."
 msgstr "Masaüstüne ulaşılamadı."
+
+msgid "Could not reach the engine"
+msgstr "Motora ulaşılamadı"
 
 msgid "Could not reach the host to start the update. Check that it is online and try again."
 msgstr "Güncellemeyi başlatmak için ana makineye ulaşılamadı. Çevrimiçi olduğundan emin olup tekrar deneyin."
@@ -5986,6 +6022,9 @@ msgstr "Eşitlenemedi"
 
 msgid "Could not take a screenshot"
 msgstr "Ekran görüntüsü alınamadı"
+
+msgid "Could not test the connection"
+msgstr "Bağlantı test edilemedi"
 
 msgid "Could not undo"
 msgstr "Geri alınamadı"
@@ -7340,8 +7379,14 @@ msgstr "{accountLogin} bağlantısı kesilsin mi?"
 msgid "Disconnect {credential}?"
 msgstr "{credential} bağlantısı kesilsin mi?"
 
+msgid "Disconnect {providerName}? New runs go back to the built-in engine. Run history stays in your {providerName} account."
+msgstr "{providerName} bağlantısı kesilsin mi? Yeni çalıştırmalar yerleşik motora döner. Çalıştırma geçmişi {providerName} hesabınızda kalır."
+
 msgid "Disconnect {title}"
 msgstr "{title} bağlantısını kes"
+
+msgid "Disconnect engine"
+msgstr "Motorun bağlantısını kes"
 
 msgid "Disconnect GitHub?"
 msgstr "GitHub bağlantısı kesilsin mi?"
@@ -7901,6 +7946,9 @@ msgstr "Bitti"
 msgid "Ending the call"
 msgstr "Arama sonlandırılıyor"
 
+msgid "Engine disconnected"
+msgstr "Motorun bağlantısı kesildi"
+
 msgid "Ensure no regression"
 msgstr "Regresyon olmadığından emin ol"
 
@@ -7933,6 +7981,21 @@ msgstr "Bir tam sayı girin"
 
 msgid "Enter a whole number from {minHours} to {maxHours} GB-hours."
 msgstr "{minHours} ile {maxHours} GB-saat arasında tam sayı girin."
+
+msgid "Enter the address as host:port, without https://."
+msgstr "Adresi https:// olmadan host:port biçiminde girin."
+
+msgid "Enter the API key."
+msgstr "API anahtarını girin."
+
+msgid "Enter the event key."
+msgstr "Olay anahtarını girin."
+
+msgid "Enter the namespace."
+msgstr "Namespace'i girin."
+
+msgid "Enter the signing key."
+msgstr "İmzalama anahtarını girin."
 
 msgid "Enter this code when OpenAI asks for it:"
 msgstr "OpenAI istediğinde bu kodu girin:"
@@ -7976,6 +8039,9 @@ msgstr "Hata"
 msgid "Error {statusCode}"
 msgstr "Hata {statusCode}"
 
+msgid "Error: {lastError}"
+msgstr "Hata: {lastError}"
+
 msgid "esc to dismiss"
 msgstr "kapatmak için esc"
 
@@ -7984,6 +8050,9 @@ msgstr "çıkmak için esc"
 
 msgid "Event"
 msgstr "Olay"
+
+msgid "Event key"
+msgstr "Olay anahtarı"
 
 msgid "Event log"
 msgstr "Olay günlüğü"
@@ -10304,6 +10373,12 @@ msgstr "Satır içi kaynak"
 msgid "Inline code"
 msgstr "Satır içi kod"
 
+msgid "Inngest Cloud"
+msgstr "Inngest Cloud"
+
+msgid "Inngest connected"
+msgstr "Inngest bağlandı"
+
 msgid "Input"
 msgstr "Girdi"
 
@@ -10932,6 +11007,9 @@ msgstr "Son ajan mesajı"
 msgid "Last attached"
 msgstr "Son bağlanma"
 
+msgid "Last checked {lastChecked}"
+msgstr "Son kontrol {lastChecked}"
+
 msgid "Last day of each month"
 msgstr "Her ayın son günü"
 
@@ -11062,6 +11140,9 @@ msgstr "Kanaldan ayrıl"
 
 msgid "Leave comment mode"
 msgstr "Yorum modundan çık"
+
+msgid "Leave empty to use Inngest Cloud."
+msgstr "Inngest Cloud kullanmak için boş bırakın."
 
 msgid "Leave it empty to go back to the name the terminal reports."
 msgstr "Terminalin bildirdiği ada dönmek için boş bırakın."
@@ -12243,6 +12324,9 @@ msgstr "İsimsiz Ustabaşı"
 msgid "Names, emails, or teams"
 msgstr "Adlar, e-postalar veya ekipler"
 
+msgid "Namespace"
+msgstr "Namespace"
+
 msgid "Namespace new branches for this project. Defaults to the host-wide Git setting."
 msgstr "Bu projedeki yeni dalları bir ad alanına alın. Varsayılan olarak host genelindeki Git ayarını kullanır."
 
@@ -13366,6 +13450,12 @@ msgstr "{pathname} yolunda bir şey yok."
 
 msgid "Nothing needs a retry"
 msgstr "Yeniden denenecek bir şey yok"
+
+msgid "Nothing needs to be deployed: your Inngest account stores the run history, and this platform's worker does the work."
+msgstr "Hiçbir şey dağıtmanız gerekmez: Inngest hesabınız çalıştırma geçmişini saklar, işi bu platformun worker'ı yapar."
+
+msgid "Nothing needs to be deployed: your Temporal namespace stores the run history, and this platform's worker does the work."
+msgstr "Hiçbir şey dağıtmanız gerekmez: Temporal namespace'iniz çalıştırma geçmişini saklar, işi bu platformun worker'ı yapar."
 
 msgid "Nothing published in the last 30 days yet. Your rank appears once usage from this machine syncs, publishing as <0>{handle}</0>."
 msgstr "Son 30 günde henüz hiçbir şey yayınlanmadı. Bu makinedeki kullanım eşitlendiğinde sıralamanız görünür; <0>{handle}</0> olarak yayınlanıyor."
@@ -14724,6 +14814,12 @@ msgstr "Yapıştır"
 
 msgid "Paste a link"
 msgstr "Bağlantı yapıştır"
+
+msgid "Paste the client certificate in PEM format."
+msgstr "İstemci sertifikasını PEM biçiminde yapıştırın."
+
+msgid "Paste the client key in PEM format."
+msgstr "İstemci anahtarını PEM biçiminde yapıştırın."
 
 msgid "Paste this into Paradev CLI:"
 msgstr "Bunu Paradev CLI'ye yapıştırın:"
@@ -17745,6 +17841,9 @@ msgstr "Seçili çalışma alanı eylemleri"
 msgid "Selecting text in a terminal copies it to the clipboard right away, with trailing whitespace trimmed"
 msgstr "Terminalde metin seçmek, sondaki boşluklar kırpılmış olarak panoya hemen kopyalar"
 
+msgid "Self-hosted"
+msgstr "Kendi sunucunda barındırılan"
+
 msgid "Send"
 msgstr "Gönder"
 
@@ -17835,6 +17934,9 @@ msgstr "Siz yeniden bağlanana kadar Sentry tetikleyicileri çalışmaz. Entegra
 
 msgid "Separator"
 msgstr "Ayırıcı"
+
+msgid "Server name (optional)"
+msgstr "Sunucu adı (isteğe bağlı)"
 
 msgid "Service availability is published at <0>{statusHost}</0>, and security and compliance documentation at <1>{trustHost}</1>."
 msgstr "Hizmet durumu <0>{statusHost}</0> adresinde, güvenlik ve uyumluluk belgeleri ise <1>{trustHost}</1> adresinde yayımlanır."
@@ -18423,6 +18525,9 @@ msgstr "Oturum açılmış siteler"
 
 msgid "Signing in..."
 msgstr "Oturum açılıyor..."
+
+msgid "Signing key"
+msgstr "İmzalama anahtarı"
 
 msgid "Signup works. The welcome screen loads and the console is clean."
 msgstr "Kayıt çalışıyor. Hoş geldiniz ekranı yükleniyor ve konsol temiz."
@@ -19593,6 +19698,9 @@ msgstr "Çalışma alanı açmak, görev çalıştırmak veya otomasyonları yö
 msgid "Tell us what is wrong with it. Reporting does not remove the page on its own."
 msgstr "Neyin yanlış olduğunu anlatın. Bildirim tek başına sayfayı kaldırmaz."
 
+msgid "Temporal connected"
+msgstr "Temporal bağlandı"
+
 msgid "Ten parallel workstreams running, each landing merged work"
 msgstr "Her biri birleştirilmiş iş üreten on paralel iş akışı"
 
@@ -19670,6 +19778,9 @@ msgstr "Koşullar"
 
 msgid "Terms of Service"
 msgstr "Hizmet Şartları"
+
+msgid "Test"
+msgstr "Test et"
 
 msgid "test the signup flow on my dev server"
 msgstr "geliştirme sunucumda kayıt akışını test et"
@@ -19792,11 +19903,17 @@ msgstr "Otomasyon ve çalıştırma geçmişi kaldırılır. Bu işlem geri alı
 msgid "The automation's owner can't use cloud workspaces in this organization anymore. Ask them to check their access, or run the automation on a device."
 msgstr "Otomasyonun sahibi artık bu kuruluşta bulut çalışma alanlarını kullanamıyor. Erişimini kontrol etmesini isteyin veya otomasyonu bir cihazda çalıştırın."
 
+msgid "The base URL is not a valid URL."
+msgstr "Temel URL geçerli bir URL değil."
+
 msgid "The best agent will change.<0/>Your workflow shouldn't."
 msgstr "En iyi ajan değişecek.<0/>İş akışınız değişmemeli."
 
 msgid "The button now stands out. I checked it in your pane."
 msgstr "Düğme artık öne çıkıyor. Bölmenizde kontrol ettim."
+
+msgid "The CA certificate must be in PEM format."
+msgstr "CA sertifikası PEM biçiminde olmalıdır."
 
 msgid "The change starts now. You pay only the difference for the rest of this period."
 msgstr "Değişiklik hemen başlar. Dönemin kalanı için yalnızca farkı ödersiniz."
@@ -20322,6 +20439,9 @@ msgstr "Bu işlem, yeniden başlatma/çökme kurtarma için saklanan kaydırma g
 msgid "This deletes the session's folder and everything in it from disk."
 msgstr "Bu işlem, oturumun klasörünü ve içindeki her şeyi diskten siler."
 
+msgid "This deployment cannot store engine credentials, so connecting is turned off."
+msgstr "Bu dağıtım motor kimlik bilgilerini saklayamıyor, bu yüzden bağlanma kapalı."
+
 msgid "this device"
 msgstr "bu cihaz"
 
@@ -20707,6 +20827,9 @@ msgstr "İpucu"
 msgid "Title"
 msgstr "Başlık"
 
+msgid "TLS"
+msgstr "TLS"
+
 msgid "to"
 msgstr "-"
 
@@ -21036,6 +21159,9 @@ msgstr "Tasarım'ı açın ve sayfada değiştirmek istediğiniz bölüme tıkla
 
 msgid "Turn on device code sign-in for Codex."
 msgstr "Codex için cihaz koduyla girişi açın."
+
+msgid "Turn on TLS to set a server name."
+msgstr "Sunucu adı ayarlamak için TLS'yi açın."
 
 msgid "Turn Slack conversations into tasks, run agents from your workspace, and keep teammates in the loop where work starts."
 msgstr "Slack konuşmalarını göreve dönüştürün, çalışma alanınızdan ajan çalıştırın ve takım arkadaşlarınızı işin başladığı yerde haberdar edin."
@@ -21857,6 +21983,9 @@ msgstr "Oturum açma bekleniyor…"
 msgid "Waiting for the subagent's first message…"
 msgstr "Alt ajanın ilk mesajı bekleniyor…"
 
+msgid "Waiting for the worker to connect"
+msgstr "Worker'ın bağlanması bekleniyor"
+
 msgid "Waiting for your input"
 msgstr "Girdinizi bekliyor"
 
@@ -22260,6 +22389,9 @@ msgstr "{0} dk {1} sn çalıştı"
 msgid "Worked for {seconds}s"
 msgstr "{seconds} sn çalıştı"
 
+msgid "Workflow engine"
+msgstr "İş akışı motoru"
+
 msgid "Workflow run completed…"
 msgstr "Workflow çalıştırması tamamlandı…"
 
@@ -22268,6 +22400,9 @@ msgstr "İş akışı eğitimleri"
 
 msgid "Workflows"
 msgstr "İş akışları"
+
+msgid "Workflows run on the built-in engine. Connect your own Inngest or Temporal account to run them there instead."
+msgstr "İş akışları yerleşik motorda çalışır. Onları orada çalıştırmak için kendi Inngest veya Temporal hesabınızı bağlayın."
 
 msgid "Working"
 msgstr "Çalışıyor"

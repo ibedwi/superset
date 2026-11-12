@@ -2254,6 +2254,9 @@ msgstr "Añadir personas a {organizationName} requiere un plan de pago. El propi
 msgid "Adding..."
 msgstr "Añadiendo..."
 
+msgid "Address"
+msgstr "Dirección"
+
 msgid "Address Comments with Agent"
 msgstr "Atender comentarios con el agente"
 
@@ -3868,6 +3871,9 @@ msgstr "por tokens"
 msgid "by users"
 msgstr "por usuarios"
 
+msgid "CA certificate (PEM, optional)"
+msgstr "Certificado de CA (PEM, opcional)"
+
 msgid "Cache"
 msgstr "Caché"
 
@@ -4556,6 +4562,15 @@ msgstr "Haz clic para abrir el pull request"
 msgid "Click two commits to define the range."
 msgstr "Haz clic en dos commits para definir el intervalo."
 
+msgid "Client certificate"
+msgstr "Certificado de cliente"
+
+msgid "Client certificate (PEM)"
+msgstr "Certificado de cliente (PEM)"
+
+msgid "Client key (PEM)"
+msgstr "Clave de cliente (PEM)"
+
 msgid "Clients"
 msgstr "Clientes"
 
@@ -5211,6 +5226,9 @@ msgstr "Conectar GitHub…"
 msgid "Connect Google"
 msgstr "Conectar Google"
 
+msgid "Connect Inngest"
+msgstr "Conectar Inngest"
+
 msgid "Connect Linear"
 msgstr "Conectar Linear"
 
@@ -5234,6 +5252,9 @@ msgstr "Conectar Slack"
 
 msgid "Connect Slack to manage tasks from conversations. Mention the bot in any channel or send it a direct message to create and update tasks."
 msgstr "Conecta Slack para gestionar tareas desde las conversaciones. Menciona al bot en cualquier canal o envíale un mensaje directo para crear y actualizar tareas."
+
+msgid "Connect Temporal"
+msgstr "Conectar Temporal"
 
 msgid "Connect this computer"
 msgstr "Conectar este ordenador"
@@ -5332,6 +5353,9 @@ msgstr "Conectando con el escritorio…"
 msgid "Connecting to the workspace"
 msgstr "Conectando con el espacio de trabajo"
 
+msgid "Connecting..."
+msgstr "Conectando..."
+
 msgid "Connecting…"
 msgstr "Conectando…"
 
@@ -5347,6 +5371,9 @@ msgstr "Falló la conexión."
 #. js-lingui-explicit-id
 msgid "serverError.plugins.connectionNotFound"
 msgstr "Conexión no encontrada"
+
+msgid "Connection reachable"
+msgstr "Conexión accesible"
 
 msgid "Connection Refused"
 msgstr "Conexión rechazada"
@@ -5773,6 +5800,9 @@ msgstr "No se pudo eliminar esta página"
 msgid "Could not disable plugin"
 msgstr "No se pudo desactivar el plugin"
 
+msgid "Could not disconnect"
+msgstr "No se pudo desconectar"
+
 msgid "Could not disconnect."
 msgstr "No se pudo desconectar."
 
@@ -5815,6 +5845,9 @@ msgstr "No se pudieron cargar los plugins. Comprueba tu conexión e inténtalo d
 
 msgid "Could not load presets from the host"
 msgstr "No se pudieron cargar los preajustes del host"
+
+msgid "Could not load the engine."
+msgstr "No se pudo cargar el motor."
 
 msgid "Could not load this diff"
 msgstr "No se pudo cargar este diff"
@@ -5860,6 +5893,9 @@ msgstr "No se pudo acceder a un simulador móvil."
 
 msgid "Could not reach the desktop."
 msgstr "No se pudo acceder al escritorio."
+
+msgid "Could not reach the engine"
+msgstr "No se pudo acceder al motor"
 
 msgid "Could not reach the host to start the update. Check that it is online and try again."
 msgstr "No se pudo contactar con el host para iniciar la actualización. Comprueba que está en línea y vuelve a intentarlo."
@@ -5986,6 +6022,9 @@ msgstr "No se pudo sincronizar"
 
 msgid "Could not take a screenshot"
 msgstr "No se pudo hacer la captura"
+
+msgid "Could not test the connection"
+msgstr "No se pudo probar la conexión"
 
 msgid "Could not undo"
 msgstr "No se pudo deshacer"
@@ -7340,8 +7379,14 @@ msgstr "¿Desconectar {accountLogin}?"
 msgid "Disconnect {credential}?"
 msgstr "¿Desconectar {credential}?"
 
+msgid "Disconnect {providerName}? New runs go back to the built-in engine. Run history stays in your {providerName} account."
+msgstr "¿Desconectar {providerName}? Las nuevas ejecuciones vuelven al motor integrado. El historial de ejecuciones permanece en tu cuenta de {providerName}."
+
 msgid "Disconnect {title}"
 msgstr "Desconectar {title}"
+
+msgid "Disconnect engine"
+msgstr "Desconectar motor"
 
 msgid "Disconnect GitHub?"
 msgstr "¿Desconectar GitHub?"
@@ -7901,6 +7946,9 @@ msgstr "Terminada"
 msgid "Ending the call"
 msgstr "Finalizando la llamada"
 
+msgid "Engine disconnected"
+msgstr "Motor desconectado"
+
 msgid "Ensure no regression"
 msgstr "Asegura que no haya regresión"
 
@@ -7933,6 +7981,21 @@ msgstr "Introduce un número entero"
 
 msgid "Enter a whole number from {minHours} to {maxHours} GB-hours."
 msgstr "Introduce un número entero de {minHours} a {maxHours} GB-horas."
+
+msgid "Enter the address as host:port, without https://."
+msgstr "Introduce la dirección como host:puerto, sin https://."
+
+msgid "Enter the API key."
+msgstr "Introduce la clave de API."
+
+msgid "Enter the event key."
+msgstr "Introduce la clave de evento."
+
+msgid "Enter the namespace."
+msgstr "Introduce el namespace."
+
+msgid "Enter the signing key."
+msgstr "Introduce la clave de firma."
 
 msgid "Enter this code when OpenAI asks for it:"
 msgstr "Introduce este código cuando OpenAI lo pida:"
@@ -7976,6 +8039,9 @@ msgstr "Error"
 msgid "Error {statusCode}"
 msgstr "Error {statusCode}"
 
+msgid "Error: {lastError}"
+msgstr "Error: {lastError}"
+
 msgid "esc to dismiss"
 msgstr "esc para descartar"
 
@@ -7984,6 +8050,9 @@ msgstr "esc para salir"
 
 msgid "Event"
 msgstr "Evento"
+
+msgid "Event key"
+msgstr "Clave de evento"
 
 msgid "Event log"
 msgstr "Registro de eventos"
@@ -10304,6 +10373,12 @@ msgstr "Cita en línea"
 msgid "Inline code"
 msgstr "Código en línea"
 
+msgid "Inngest Cloud"
+msgstr "Inngest Cloud"
+
+msgid "Inngest connected"
+msgstr "Inngest conectado"
+
 msgid "Input"
 msgstr "Entrada"
 
@@ -10932,6 +11007,9 @@ msgstr "Último mensaje del agente"
 msgid "Last attached"
 msgstr "Última conexión"
 
+msgid "Last checked {lastChecked}"
+msgstr "Última comprobación {lastChecked}"
+
 msgid "Last day of each month"
 msgstr "El último día de cada mes"
 
@@ -11062,6 +11140,9 @@ msgstr "Salir del canal"
 
 msgid "Leave comment mode"
 msgstr "Salir del modo comentario"
+
+msgid "Leave empty to use Inngest Cloud."
+msgstr "Déjalo vacío para usar Inngest Cloud."
 
 msgid "Leave it empty to go back to the name the terminal reports."
 msgstr "Déjalo vacío para volver al nombre que indica la terminal."
@@ -12243,6 +12324,9 @@ msgstr "Capataz sin nombre"
 msgid "Names, emails, or teams"
 msgstr "Nombres, correos o equipos"
 
+msgid "Namespace"
+msgstr "Namespace"
+
 msgid "Namespace new branches for this project. Defaults to the host-wide Git setting."
 msgstr "Agrupa las ramas nuevas de este proyecto bajo un espacio de nombres. Por defecto usa la configuración de Git de todo el host."
 
@@ -13366,6 +13450,12 @@ msgstr "No hay nada en {pathname}."
 
 msgid "Nothing needs a retry"
 msgstr "Nada necesita reintento"
+
+msgid "Nothing needs to be deployed: your Inngest account stores the run history, and this platform's worker does the work."
+msgstr "No hace falta desplegar nada: tu cuenta de Inngest guarda el historial de ejecuciones y el worker de esta plataforma hace el trabajo."
+
+msgid "Nothing needs to be deployed: your Temporal namespace stores the run history, and this platform's worker does the work."
+msgstr "No hace falta desplegar nada: tu namespace de Temporal guarda el historial de ejecuciones y el worker de esta plataforma hace el trabajo."
 
 msgid "Nothing published in the last 30 days yet. Your rank appears once usage from this machine syncs, publishing as <0>{handle}</0>."
 msgstr "Aún no has publicado nada en los últimos 30 días. Tu puesto aparecerá cuando se sincronice el uso de esta máquina, publicando como <0>{handle}</0>."
@@ -14724,6 +14814,12 @@ msgstr "Pegar"
 
 msgid "Paste a link"
 msgstr "Pega un enlace"
+
+msgid "Paste the client certificate in PEM format."
+msgstr "Pega el certificado de cliente en formato PEM."
+
+msgid "Paste the client key in PEM format."
+msgstr "Pega la clave de cliente en formato PEM."
 
 msgid "Paste this into Paradev CLI:"
 msgstr "Pega esto en la CLI de Paradev:"
@@ -17745,6 +17841,9 @@ msgstr "Acciones de los espacios de trabajo seleccionados"
 msgid "Selecting text in a terminal copies it to the clipboard right away, with trailing whitespace trimmed"
 msgstr "Seleccionar texto en un terminal lo copia de inmediato al portapapeles, sin los espacios finales"
 
+msgid "Self-hosted"
+msgstr "Autoalojado"
+
 msgid "Send"
 msgstr "Enviar"
 
@@ -17835,6 +17934,9 @@ msgstr "Los disparadores de Sentry dejarán de dispararse hasta que vuelvas a co
 
 msgid "Separator"
 msgstr "Separador"
+
+msgid "Server name (optional)"
+msgstr "Nombre del servidor (opcional)"
 
 msgid "Service availability is published at <0>{statusHost}</0>, and security and compliance documentation at <1>{trustHost}</1>."
 msgstr "La disponibilidad del servicio se publica en <0>{statusHost}</0>, y la documentación de seguridad y cumplimiento en <1>{trustHost}</1>."
@@ -18423,6 +18525,9 @@ msgstr "Sitios con sesión iniciada"
 
 msgid "Signing in..."
 msgstr "Iniciando sesión..."
+
+msgid "Signing key"
+msgstr "Clave de firma"
 
 msgid "Signup works. The welcome screen loads and the console is clean."
 msgstr "El registro funciona. La pantalla de bienvenida carga y la consola está limpia."
@@ -19593,6 +19698,9 @@ msgstr "Pide a cualquier agente que use la CLI <0>superset</0> para crear espaci
 msgid "Tell us what is wrong with it. Reporting does not remove the page on its own."
 msgstr "Cuéntanos qué está mal. Denunciar no elimina la página por sí solo."
 
+msgid "Temporal connected"
+msgstr "Temporal conectado"
+
 msgid "Ten parallel workstreams running, each landing merged work"
 msgstr "Diez flujos de trabajo paralelos, cada uno entregando trabajo fusionado"
 
@@ -19670,6 +19778,9 @@ msgstr "Términos"
 
 msgid "Terms of Service"
 msgstr "Condiciones del servicio"
+
+msgid "Test"
+msgstr "Probar"
 
 msgid "test the signup flow on my dev server"
 msgstr "prueba el flujo de registro en mi servidor de desarrollo"
@@ -19792,11 +19903,17 @@ msgstr "Se eliminan la automatización y su historial de ejecuciones. Esta acci�
 msgid "The automation's owner can't use cloud workspaces in this organization anymore. Ask them to check their access, or run the automation on a device."
 msgstr "El propietario de la automatización ya no puede usar espacios de trabajo en la nube en esta organización. Pídele que revise su acceso o ejecuta la automatización en un dispositivo."
 
+msgid "The base URL is not a valid URL."
+msgstr "La URL base no es una URL válida."
+
 msgid "The best agent will change.<0/>Your workflow shouldn't."
 msgstr "El mejor agente cambiará.<0/>Tu flujo de trabajo, no."
 
 msgid "The button now stands out. I checked it in your pane."
 msgstr "El botón ahora destaca. Lo he comprobado en tu panel."
+
+msgid "The CA certificate must be in PEM format."
+msgstr "El certificado de CA debe estar en formato PEM."
 
 msgid "The change starts now. You pay only the difference for the rest of this period."
 msgstr "El cambio empieza ahora. Solo pagas la diferencia por el resto de este período."
@@ -20322,6 +20439,9 @@ msgstr "Esto elimina el historial guardado que se usa para recuperarse tras un r
 msgid "This deletes the session's folder and everything in it from disk."
 msgstr "Esto elimina del disco la carpeta de la sesión y todo su contenido."
 
+msgid "This deployment cannot store engine credentials, so connecting is turned off."
+msgstr "Este despliegue no puede guardar credenciales del motor, por lo que la conexión está desactivada."
+
 msgid "this device"
 msgstr "este dispositivo"
 
@@ -20707,6 +20827,9 @@ msgstr "Consejo"
 msgid "Title"
 msgstr "Título"
 
+msgid "TLS"
+msgstr "TLS"
+
 msgid "to"
 msgstr "a"
 
@@ -21036,6 +21159,9 @@ msgstr "Activa Diseño y haz clic en la parte de la página que quieras cambiar.
 
 msgid "Turn on device code sign-in for Codex."
 msgstr "Activa el inicio de sesión con código de dispositivo para Codex."
+
+msgid "Turn on TLS to set a server name."
+msgstr "Activa TLS para definir un nombre de servidor."
 
 msgid "Turn Slack conversations into tasks, run agents from your workspace, and keep teammates in the loop where work starts."
 msgstr "Convertir conversaciones de Slack en tareas, ejecutar agentes desde el espacio de trabajo y mantener al equipo al tanto allí donde empieza el trabajo."
@@ -21857,6 +21983,9 @@ msgstr "Esperando el inicio de sesión…"
 msgid "Waiting for the subagent's first message…"
 msgstr "Esperando el primer mensaje del subagente…"
 
+msgid "Waiting for the worker to connect"
+msgstr "Esperando a que el worker se conecte"
+
 msgid "Waiting for your input"
 msgstr "Esperando tu respuesta"
 
@@ -22260,6 +22389,9 @@ msgstr "Trabajó {0} min {1} s"
 msgid "Worked for {seconds}s"
 msgstr "Trabajó {seconds} s"
 
+msgid "Workflow engine"
+msgstr "Motor de workflows"
+
 msgid "Workflow run completed…"
 msgstr "Ejecución de workflow completada…"
 
@@ -22268,6 +22400,9 @@ msgstr "Tutoriales de flujo de trabajo"
 
 msgid "Workflows"
 msgstr "Flujos de trabajo"
+
+msgid "Workflows run on the built-in engine. Connect your own Inngest or Temporal account to run them there instead."
+msgstr "Los workflows se ejecutan en el motor integrado. Conecta tu propia cuenta de Inngest o Temporal para ejecutarlos allí."
 
 msgid "Working"
 msgstr "Trabajando"

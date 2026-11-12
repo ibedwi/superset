@@ -2254,6 +2254,9 @@ msgstr "向 {organizationName} 添加成员需要付费套餐。你所在组织�
 msgid "Adding..."
 msgstr "正在添加..."
 
+msgid "Address"
+msgstr "地址"
+
 msgid "Address Comments with Agent"
 msgstr "用智能体处理评论"
 
@@ -3868,6 +3871,9 @@ msgstr "按token"
 msgid "by users"
 msgstr "按用户数"
 
+msgid "CA certificate (PEM, optional)"
+msgstr "CA 证书（PEM，可选）"
+
 msgid "Cache"
 msgstr "缓存"
 
@@ -4556,6 +4562,15 @@ msgstr "点击打开拉取请求"
 msgid "Click two commits to define the range."
 msgstr "点击两个提交以确定范围。"
 
+msgid "Client certificate"
+msgstr "客户端证书"
+
+msgid "Client certificate (PEM)"
+msgstr "客户端证书（PEM）"
+
+msgid "Client key (PEM)"
+msgstr "客户端密钥（PEM）"
+
 msgid "Clients"
 msgstr "客户端"
 
@@ -5211,6 +5226,9 @@ msgstr "连接 GitHub…"
 msgid "Connect Google"
 msgstr "连接Google"
 
+msgid "Connect Inngest"
+msgstr "连接 Inngest"
+
 msgid "Connect Linear"
 msgstr "连接Linear"
 
@@ -5234,6 +5252,9 @@ msgstr "连接Slack"
 
 msgid "Connect Slack to manage tasks from conversations. Mention the bot in any channel or send it a direct message to create and update tasks."
 msgstr "连接Slack，直接在对话中管理任务。在任意频道提及机器人或给它发私信，即可创建和更新任务。"
+
+msgid "Connect Temporal"
+msgstr "连接 Temporal"
 
 msgid "Connect this computer"
 msgstr "连接这台电脑"
@@ -5332,6 +5353,9 @@ msgstr "正在连接桌面…"
 msgid "Connecting to the workspace"
 msgstr "正在连接工作区"
 
+msgid "Connecting..."
+msgstr "正在连接..."
+
 msgid "Connecting…"
 msgstr "正在连接…"
 
@@ -5347,6 +5371,9 @@ msgstr "连接失败。"
 #. js-lingui-explicit-id
 msgid "serverError.plugins.connectionNotFound"
 msgstr "未找到连接"
+
+msgid "Connection reachable"
+msgstr "连接可访问"
 
 msgid "Connection Refused"
 msgstr "连接被拒绝"
@@ -5773,6 +5800,9 @@ msgstr "无法删除这个页面"
 msgid "Could not disable plugin"
 msgstr "无法停用插件"
 
+msgid "Could not disconnect"
+msgstr "无法断开连接"
+
 msgid "Could not disconnect."
 msgstr "无法断开连接。"
 
@@ -5815,6 +5845,9 @@ msgstr "无法加载插件。请检查网络连接后重试。"
 
 msgid "Could not load presets from the host"
 msgstr "无法从主机加载预设"
+
+msgid "Could not load the engine."
+msgstr "无法加载引擎。"
 
 msgid "Could not load this diff"
 msgstr "无法加载这个差异"
@@ -5860,6 +5893,9 @@ msgstr "无法连接到移动模拟器。"
 
 msgid "Could not reach the desktop."
 msgstr "无法连接到桌面。"
+
+msgid "Could not reach the engine"
+msgstr "无法访问引擎"
 
 msgid "Could not reach the host to start the update. Check that it is online and try again."
 msgstr "无法连接主机以开始更新。请确认主机在线后重试。"
@@ -5986,6 +6022,9 @@ msgstr "无法同步"
 
 msgid "Could not take a screenshot"
 msgstr "无法截图"
+
+msgid "Could not test the connection"
+msgstr "无法测试连接"
 
 msgid "Could not undo"
 msgstr "无法撤销"
@@ -7340,8 +7379,14 @@ msgstr "断开 {accountLogin} 的连接？"
 msgid "Disconnect {credential}?"
 msgstr "断开{credential}？"
 
+msgid "Disconnect {providerName}? New runs go back to the built-in engine. Run history stays in your {providerName} account."
+msgstr "断开 {providerName}？新的运行将回到内置引擎。运行历史仍保留在你的 {providerName} 账户中。"
+
 msgid "Disconnect {title}"
 msgstr "断开 {title}"
+
+msgid "Disconnect engine"
+msgstr "断开引擎"
 
 msgid "Disconnect GitHub?"
 msgstr "断开GitHub连接？"
@@ -7901,6 +7946,9 @@ msgstr "已结束"
 msgid "Ending the call"
 msgstr "正在结束通话"
 
+msgid "Engine disconnected"
+msgstr "引擎已断开连接"
+
 msgid "Ensure no regression"
 msgstr "确保没有回归"
 
@@ -7933,6 +7981,21 @@ msgstr "输入整数"
 
 msgid "Enter a whole number from {minHours} to {maxHours} GB-hours."
 msgstr "请输入 {minHours} 到 {maxHours} 之间的整数 GB 小时。"
+
+msgid "Enter the address as host:port, without https://."
+msgstr "请以 host:port 格式输入地址，不带 https://。"
+
+msgid "Enter the API key."
+msgstr "请输入 API 密钥。"
+
+msgid "Enter the event key."
+msgstr "请输入事件密钥。"
+
+msgid "Enter the namespace."
+msgstr "请输入命名空间。"
+
+msgid "Enter the signing key."
+msgstr "请输入签名密钥。"
 
 msgid "Enter this code when OpenAI asks for it:"
 msgstr "OpenAI 要求时输入此代码："
@@ -7976,6 +8039,9 @@ msgstr "错误"
 msgid "Error {statusCode}"
 msgstr "错误{statusCode}"
 
+msgid "Error: {lastError}"
+msgstr "错误：{lastError}"
+
 msgid "esc to dismiss"
 msgstr "按esc关闭"
 
@@ -7984,6 +8050,9 @@ msgstr "esc退出"
 
 msgid "Event"
 msgstr "事件"
+
+msgid "Event key"
+msgstr "事件密钥"
 
 msgid "Event log"
 msgstr "事件日志"
@@ -10304,6 +10373,12 @@ msgstr "内联引用"
 msgid "Inline code"
 msgstr "行内代码"
 
+msgid "Inngest Cloud"
+msgstr "Inngest Cloud"
+
+msgid "Inngest connected"
+msgstr "Inngest 已连接"
+
 msgid "Input"
 msgstr "输入"
 
@@ -10932,6 +11007,9 @@ msgstr "最近一条智能体消息"
 msgid "Last attached"
 msgstr "上次连接"
 
+msgid "Last checked {lastChecked}"
+msgstr "上次检查：{lastChecked}"
+
 msgid "Last day of each month"
 msgstr "每月最后一天"
 
@@ -11062,6 +11140,9 @@ msgstr "退出频道"
 
 msgid "Leave comment mode"
 msgstr "退出评论模式"
+
+msgid "Leave empty to use Inngest Cloud."
+msgstr "留空则使用 Inngest Cloud。"
 
 msgid "Leave it empty to go back to the name the terminal reports."
 msgstr "留空即可恢复终端报告的名称。"
@@ -12243,6 +12324,9 @@ msgstr "无名工头"
 msgid "Names, emails, or teams"
 msgstr "姓名、邮箱或团队"
 
+msgid "Namespace"
+msgstr "命名空间"
+
 msgid "Namespace new branches for this project. Defaults to the host-wide Git setting."
 msgstr "为此项目的新分支设置命名空间。默认使用主机全局的Git设置。"
 
@@ -13366,6 +13450,12 @@ msgstr "{pathname}下没有任何内容。"
 
 msgid "Nothing needs a retry"
 msgstr "没有需要重试的运行"
+
+msgid "Nothing needs to be deployed: your Inngest account stores the run history, and this platform's worker does the work."
+msgstr "无需部署任何内容：运行历史保存在你的 Inngest 账户中，由本平台的 worker 完成工作。"
+
+msgid "Nothing needs to be deployed: your Temporal namespace stores the run history, and this platform's worker does the work."
+msgstr "无需部署任何内容：运行历史保存在你的 Temporal 命名空间中，由本平台的 worker 完成工作。"
 
 msgid "Nothing published in the last 30 days yet. Your rank appears once usage from this machine syncs, publishing as <0>{handle}</0>."
 msgstr "最近30天还没有已公开的数据。待本机用量同步后，你的排名就会显示，将以<0>{handle}</0>身份公开。"
@@ -14724,6 +14814,12 @@ msgstr "粘贴"
 
 msgid "Paste a link"
 msgstr "粘贴链接"
+
+msgid "Paste the client certificate in PEM format."
+msgstr "请以 PEM 格式粘贴客户端证书。"
+
+msgid "Paste the client key in PEM format."
+msgstr "请以 PEM 格式粘贴客户端密钥。"
 
 msgid "Paste this into Paradev CLI:"
 msgstr "把它粘贴到Paradev CLI："
@@ -17745,6 +17841,9 @@ msgstr "选中工作区的操作"
 msgid "Selecting text in a terminal copies it to the clipboard right away, with trailing whitespace trimmed"
 msgstr "在终端中选中文本后立即复制到剪贴板，并去除行尾空白"
 
+msgid "Self-hosted"
+msgstr "自托管"
+
 msgid "Send"
 msgstr "发送"
 
@@ -17835,6 +17934,9 @@ msgstr "在你重新连接之前，Sentry触发器会停止触发。该集成仍
 
 msgid "Separator"
 msgstr "分隔线"
+
+msgid "Server name (optional)"
+msgstr "服务器名称（可选）"
 
 msgid "Service availability is published at <0>{statusHost}</0>, and security and compliance documentation at <1>{trustHost}</1>."
 msgstr "服务可用性发布在<0>{statusHost}</0>，安全与合规文档在<1>{trustHost}</1>。"
@@ -18423,6 +18525,9 @@ msgstr "已登录的站点"
 
 msgid "Signing in..."
 msgstr "正在登录..."
+
+msgid "Signing key"
+msgstr "签名密钥"
 
 msgid "Signup works. The welcome screen loads and the console is clean."
 msgstr "注册正常。欢迎页面已加载，控制台没有错误。"
@@ -19593,6 +19698,9 @@ msgstr "让任意智能体用<0>superset</0> CLI来创建工作区、运行任�
 msgid "Tell us what is wrong with it. Reporting does not remove the page on its own."
 msgstr "请告诉我们问题所在。举报本身不会移除该页面。"
 
+msgid "Temporal connected"
+msgstr "Temporal 已连接"
+
 msgid "Ten parallel workstreams running, each landing merged work"
 msgstr "十条并行工作流同时运行，各自交付已合并的成果"
 
@@ -19670,6 +19778,9 @@ msgstr "条款"
 
 msgid "Terms of Service"
 msgstr "服务条款"
+
+msgid "Test"
+msgstr "测试"
 
 msgid "test the signup flow on my dev server"
 msgstr "在我的开发服务器上测试注册流程"
@@ -19792,11 +19903,17 @@ msgstr "此自动化及其运行历史将被删除。此操作无法撤销。"
 msgid "The automation's owner can't use cloud workspaces in this organization anymore. Ask them to check their access, or run the automation on a device."
 msgstr "该自动化的所有者已无法在此组织中使用云端工作区。请让其检查访问权限，或在设备上运行该自动化。"
 
+msgid "The base URL is not a valid URL."
+msgstr "基础 URL 不是有效的 URL。"
+
 msgid "The best agent will change.<0/>Your workflow shouldn't."
 msgstr "最好的智能体会变。<0/>你的工作流不该变。"
 
 msgid "The button now stands out. I checked it in your pane."
 msgstr "按钮现在更醒目了。我已在你的窗格中确认过。"
+
+msgid "The CA certificate must be in PEM format."
+msgstr "CA 证书必须为 PEM 格式。"
 
 msgid "The change starts now. You pay only the difference for the rest of this period."
 msgstr "变更立即生效。您只需支付本期剩余时间的差价。"
@@ -20322,6 +20439,9 @@ msgstr "这将删除用于重启/崩溃恢复的已保存回滚缓冲。"
 msgid "This deletes the session's folder and everything in it from disk."
 msgstr "这会从磁盘上删除会话的文件夹和其中的所有内容。"
 
+msgid "This deployment cannot store engine credentials, so connecting is turned off."
+msgstr "此部署无法存储引擎凭据，因此已禁用连接。"
+
 msgid "this device"
 msgstr "本设备"
 
@@ -20707,6 +20827,9 @@ msgstr "提示"
 msgid "Title"
 msgstr "标题"
 
+msgid "TLS"
+msgstr "TLS"
+
 msgid "to"
 msgstr "至"
 
@@ -21036,6 +21159,9 @@ msgstr "开启“设计”，然后点击页面上想修改的部分。"
 
 msgid "Turn on device code sign-in for Codex."
 msgstr "为 Codex 开启设备代码登录。"
+
+msgid "Turn on TLS to set a server name."
+msgstr "开启 TLS 后才能设置服务器名称。"
 
 msgid "Turn Slack conversations into tasks, run agents from your workspace, and keep teammates in the loop where work starts."
 msgstr "把Slack对话变成任务，从工作区运行智能体，让队友在工作开始的地方保持同步。"
@@ -21857,6 +21983,9 @@ msgstr "等待登录…"
 msgid "Waiting for the subagent's first message…"
 msgstr "正在等待子智能体的第一条消息…"
 
+msgid "Waiting for the worker to connect"
+msgstr "正在等待 worker 连接"
+
 msgid "Waiting for your input"
 msgstr "等待你的输入"
 
@@ -22260,6 +22389,9 @@ msgstr "用时 {0} 分 {1} 秒"
 msgid "Worked for {seconds}s"
 msgstr "用时 {seconds} 秒"
 
+msgid "Workflow engine"
+msgstr "工作流引擎"
+
 msgid "Workflow run completed…"
 msgstr "工作流运行完成…"
 
@@ -22268,6 +22400,9 @@ msgstr "工作流教程"
 
 msgid "Workflows"
 msgstr "工作流"
+
+msgid "Workflows run on the built-in engine. Connect your own Inngest or Temporal account to run them there instead."
+msgstr "工作流在内置引擎上运行。连接你自己的 Inngest 或 Temporal 账户，即可改在那里运行。"
 
 msgid "Working"
 msgstr "工作中"

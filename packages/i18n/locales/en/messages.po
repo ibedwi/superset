@@ -2254,6 +2254,9 @@ msgstr "Adding people to {organizationName} needs a paid plan. Your organization
 msgid "Adding..."
 msgstr "Adding..."
 
+msgid "Address"
+msgstr "Address"
+
 msgid "Address Comments with Agent"
 msgstr "Address Comments with Agent"
 
@@ -3868,6 +3871,9 @@ msgstr "by tokens"
 msgid "by users"
 msgstr "by users"
 
+msgid "CA certificate (PEM, optional)"
+msgstr "CA certificate (PEM, optional)"
+
 msgid "Cache"
 msgstr "Cache"
 
@@ -4556,6 +4562,15 @@ msgstr "Click to open the pull request"
 msgid "Click two commits to define the range."
 msgstr "Click two commits to define the range."
 
+msgid "Client certificate"
+msgstr "Client certificate"
+
+msgid "Client certificate (PEM)"
+msgstr "Client certificate (PEM)"
+
+msgid "Client key (PEM)"
+msgstr "Client key (PEM)"
+
 msgid "Clients"
 msgstr "Clients"
 
@@ -5211,6 +5226,9 @@ msgstr "Connect GitHub…"
 msgid "Connect Google"
 msgstr "Connect Google"
 
+msgid "Connect Inngest"
+msgstr "Connect Inngest"
+
 msgid "Connect Linear"
 msgstr "Connect Linear"
 
@@ -5234,6 +5252,9 @@ msgstr "Connect Slack"
 
 msgid "Connect Slack to manage tasks from conversations. Mention the bot in any channel or send it a direct message to create and update tasks."
 msgstr "Connect Slack to manage tasks from conversations. Mention the bot in any channel or send it a direct message to create and update tasks."
+
+msgid "Connect Temporal"
+msgstr "Connect Temporal"
 
 msgid "Connect this computer"
 msgstr "Connect this computer"
@@ -5332,6 +5353,9 @@ msgstr "Connecting to the desktop…"
 msgid "Connecting to the workspace"
 msgstr "Connecting to the workspace"
 
+msgid "Connecting..."
+msgstr "Connecting..."
+
 msgid "Connecting…"
 msgstr "Connecting…"
 
@@ -5347,6 +5371,9 @@ msgstr "Connection failed."
 #. js-lingui-explicit-id
 msgid "serverError.plugins.connectionNotFound"
 msgstr "Connection not found"
+
+msgid "Connection reachable"
+msgstr "Connection reachable"
 
 msgid "Connection Refused"
 msgstr "Connection Refused"
@@ -5773,6 +5800,9 @@ msgstr "Could not delete this page"
 msgid "Could not disable plugin"
 msgstr "Could not disable plugin"
 
+msgid "Could not disconnect"
+msgstr "Could not disconnect"
+
 msgid "Could not disconnect."
 msgstr "Could not disconnect."
 
@@ -5815,6 +5845,9 @@ msgstr "Could not load plugins. Check your connection and try again."
 
 msgid "Could not load presets from the host"
 msgstr "Could not load presets from the host"
+
+msgid "Could not load the engine."
+msgstr "Could not load the engine."
 
 msgid "Could not load this diff"
 msgstr "Could not load this diff"
@@ -5860,6 +5893,9 @@ msgstr "Could not reach a mobile simulator."
 
 msgid "Could not reach the desktop."
 msgstr "Could not reach the desktop."
+
+msgid "Could not reach the engine"
+msgstr "Could not reach the engine"
 
 msgid "Could not reach the host to start the update. Check that it is online and try again."
 msgstr "Could not reach the host to start the update. Check that it is online and try again."
@@ -5986,6 +6022,9 @@ msgstr "Could not sync"
 
 msgid "Could not take a screenshot"
 msgstr "Could not take a screenshot"
+
+msgid "Could not test the connection"
+msgstr "Could not test the connection"
 
 msgid "Could not undo"
 msgstr "Could not undo"
@@ -7340,8 +7379,14 @@ msgstr "Disconnect {accountLogin}?"
 msgid "Disconnect {credential}?"
 msgstr "Disconnect {credential}?"
 
+msgid "Disconnect {providerName}? New runs go back to the built-in engine. Run history stays in your {providerName} account."
+msgstr "Disconnect {providerName}? New runs go back to the built-in engine. Run history stays in your {providerName} account."
+
 msgid "Disconnect {title}"
 msgstr "Disconnect {title}"
+
+msgid "Disconnect engine"
+msgstr "Disconnect engine"
 
 msgid "Disconnect GitHub?"
 msgstr "Disconnect GitHub?"
@@ -7901,6 +7946,9 @@ msgstr "Ended"
 msgid "Ending the call"
 msgstr "Ending the call"
 
+msgid "Engine disconnected"
+msgstr "Engine disconnected"
+
 msgid "Ensure no regression"
 msgstr "Ensure no regression"
 
@@ -7933,6 +7981,21 @@ msgstr "Enter a whole number"
 
 msgid "Enter a whole number from {minHours} to {maxHours} GB-hours."
 msgstr "Enter a whole number from {minHours} to {maxHours} GB-hours."
+
+msgid "Enter the address as host:port, without https://."
+msgstr "Enter the address as host:port, without https://."
+
+msgid "Enter the API key."
+msgstr "Enter the API key."
+
+msgid "Enter the event key."
+msgstr "Enter the event key."
+
+msgid "Enter the namespace."
+msgstr "Enter the namespace."
+
+msgid "Enter the signing key."
+msgstr "Enter the signing key."
 
 msgid "Enter this code when OpenAI asks for it:"
 msgstr "Enter this code when OpenAI asks for it:"
@@ -7976,6 +8039,9 @@ msgstr "Error"
 msgid "Error {statusCode}"
 msgstr "Error {statusCode}"
 
+msgid "Error: {lastError}"
+msgstr "Error: {lastError}"
+
 msgid "esc to dismiss"
 msgstr "esc to dismiss"
 
@@ -7984,6 +8050,9 @@ msgstr "esc to exit"
 
 msgid "Event"
 msgstr "Event"
+
+msgid "Event key"
+msgstr "Event key"
 
 msgid "Event log"
 msgstr "Event log"
@@ -10304,6 +10373,12 @@ msgstr "Inline Citation"
 msgid "Inline code"
 msgstr "Inline code"
 
+msgid "Inngest Cloud"
+msgstr "Inngest Cloud"
+
+msgid "Inngest connected"
+msgstr "Inngest connected"
+
 msgid "Input"
 msgstr "Input"
 
@@ -10932,6 +11007,9 @@ msgstr "Last agent message"
 msgid "Last attached"
 msgstr "Last attached"
 
+msgid "Last checked {lastChecked}"
+msgstr "Last checked {lastChecked}"
+
 msgid "Last day of each month"
 msgstr "Last day of each month"
 
@@ -11062,6 +11140,9 @@ msgstr "Leave channel"
 
 msgid "Leave comment mode"
 msgstr "Leave comment mode"
+
+msgid "Leave empty to use Inngest Cloud."
+msgstr "Leave empty to use Inngest Cloud."
 
 msgid "Leave it empty to go back to the name the terminal reports."
 msgstr "Leave it empty to go back to the name the terminal reports."
@@ -12243,6 +12324,9 @@ msgstr "Nameless Foreman"
 msgid "Names, emails, or teams"
 msgstr "Names, emails, or teams"
 
+msgid "Namespace"
+msgstr "Namespace"
+
 msgid "Namespace new branches for this project. Defaults to the host-wide Git setting."
 msgstr "Namespace new branches for this project. Defaults to the host-wide Git setting."
 
@@ -13366,6 +13450,12 @@ msgstr "Nothing lives at {pathname}."
 
 msgid "Nothing needs a retry"
 msgstr "Nothing needs a retry"
+
+msgid "Nothing needs to be deployed: your Inngest account stores the run history, and this platform's worker does the work."
+msgstr "Nothing needs to be deployed: your Inngest account stores the run history, and this platform's worker does the work."
+
+msgid "Nothing needs to be deployed: your Temporal namespace stores the run history, and this platform's worker does the work."
+msgstr "Nothing needs to be deployed: your Temporal namespace stores the run history, and this platform's worker does the work."
 
 msgid "Nothing published in the last 30 days yet. Your rank appears once usage from this machine syncs, publishing as <0>{handle}</0>."
 msgstr "Nothing published in the last 30 days yet. Your rank appears once usage from this machine syncs, publishing as <0>{handle}</0>."
@@ -14724,6 +14814,12 @@ msgstr "Paste"
 
 msgid "Paste a link"
 msgstr "Paste a link"
+
+msgid "Paste the client certificate in PEM format."
+msgstr "Paste the client certificate in PEM format."
+
+msgid "Paste the client key in PEM format."
+msgstr "Paste the client key in PEM format."
 
 msgid "Paste this into Paradev CLI:"
 msgstr "Paste this into Paradev CLI:"
@@ -17745,6 +17841,9 @@ msgstr "Selected workspace actions"
 msgid "Selecting text in a terminal copies it to the clipboard right away, with trailing whitespace trimmed"
 msgstr "Selecting text in a terminal copies it to the clipboard right away, with trailing whitespace trimmed"
 
+msgid "Self-hosted"
+msgstr "Self-hosted"
+
 msgid "Send"
 msgstr "Send"
 
@@ -17835,6 +17934,9 @@ msgstr "Sentry triggers stop firing until you connect again. The integration sta
 
 msgid "Separator"
 msgstr "Separator"
+
+msgid "Server name (optional)"
+msgstr "Server name (optional)"
 
 msgid "Service availability is published at <0>{statusHost}</0>, and security and compliance documentation at <1>{trustHost}</1>."
 msgstr "Service availability is published at <0>{statusHost}</0>, and security and compliance documentation at <1>{trustHost}</1>."
@@ -18423,6 +18525,9 @@ msgstr "Signed-in sites"
 
 msgid "Signing in..."
 msgstr "Signing in..."
+
+msgid "Signing key"
+msgstr "Signing key"
 
 msgid "Signup works. The welcome screen loads and the console is clean."
 msgstr "Signup works. The welcome screen loads and the console is clean."
@@ -19593,6 +19698,9 @@ msgstr "Tell any agent to use the <0>superset</0> CLI to spin up workspaces, run
 msgid "Tell us what is wrong with it. Reporting does not remove the page on its own."
 msgstr "Tell us what is wrong with it. Reporting does not remove the page on its own."
 
+msgid "Temporal connected"
+msgstr "Temporal connected"
+
 msgid "Ten parallel workstreams running, each landing merged work"
 msgstr "Ten parallel workstreams running, each landing merged work"
 
@@ -19670,6 +19778,9 @@ msgstr "Terms"
 
 msgid "Terms of Service"
 msgstr "Terms of Service"
+
+msgid "Test"
+msgstr "Test"
 
 msgid "test the signup flow on my dev server"
 msgstr "test the signup flow on my dev server"
@@ -19792,11 +19903,17 @@ msgstr "The automation and its run history are removed. This can't be undone."
 msgid "The automation's owner can't use cloud workspaces in this organization anymore. Ask them to check their access, or run the automation on a device."
 msgstr "The automation's owner can't use cloud workspaces in this organization anymore. Ask them to check their access, or run the automation on a device."
 
+msgid "The base URL is not a valid URL."
+msgstr "The base URL is not a valid URL."
+
 msgid "The best agent will change.<0/>Your workflow shouldn't."
 msgstr "The best agent will change.<0/>Your workflow shouldn't."
 
 msgid "The button now stands out. I checked it in your pane."
 msgstr "The button now stands out. I checked it in your pane."
+
+msgid "The CA certificate must be in PEM format."
+msgstr "The CA certificate must be in PEM format."
 
 msgid "The change starts now. You pay only the difference for the rest of this period."
 msgstr "The change starts now. You pay only the difference for the rest of this period."
@@ -20322,6 +20439,9 @@ msgstr "This deletes the saved scrollback used for reboot/crash recovery."
 msgid "This deletes the session's folder and everything in it from disk."
 msgstr "This deletes the session's folder and everything in it from disk."
 
+msgid "This deployment cannot store engine credentials, so connecting is turned off."
+msgstr "This deployment cannot store engine credentials, so connecting is turned off."
+
 msgid "this device"
 msgstr "this device"
 
@@ -20707,6 +20827,9 @@ msgstr "Tip"
 msgid "Title"
 msgstr "Title"
 
+msgid "TLS"
+msgstr "TLS"
+
 msgid "to"
 msgstr "to"
 
@@ -21036,6 +21159,9 @@ msgstr "Turn on Design and click the part of the page you want to change."
 
 msgid "Turn on device code sign-in for Codex."
 msgstr "Turn on device code sign-in for Codex."
+
+msgid "Turn on TLS to set a server name."
+msgstr "Turn on TLS to set a server name."
 
 msgid "Turn Slack conversations into tasks, run agents from your workspace, and keep teammates in the loop where work starts."
 msgstr "Turn Slack conversations into tasks, run agents from your workspace, and keep teammates in the loop where work starts."
@@ -21857,6 +21983,9 @@ msgstr "Waiting for sign-in…"
 msgid "Waiting for the subagent's first message…"
 msgstr "Waiting for the subagent's first message…"
 
+msgid "Waiting for the worker to connect"
+msgstr "Waiting for the worker to connect"
+
 msgid "Waiting for your input"
 msgstr "Waiting for your input"
 
@@ -22260,6 +22389,9 @@ msgstr "Worked for {0}m {1}s"
 msgid "Worked for {seconds}s"
 msgstr "Worked for {seconds}s"
 
+msgid "Workflow engine"
+msgstr "Workflow engine"
+
 msgid "Workflow run completed…"
 msgstr "Workflow run completed…"
 
@@ -22268,6 +22400,9 @@ msgstr "Workflow Tutorials"
 
 msgid "Workflows"
 msgstr "Workflows"
+
+msgid "Workflows run on the built-in engine. Connect your own Inngest or Temporal account to run them there instead."
+msgstr "Workflows run on the built-in engine. Connect your own Inngest or Temporal account to run them there instead."
 
 msgid "Working"
 msgstr "Working"

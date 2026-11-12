@@ -2254,6 +2254,9 @@ msgstr "{organizationName}에 사람을 추가하려면 유료 플랜이 필요�
 msgid "Adding..."
 msgstr "추가 중..."
 
+msgid "Address"
+msgstr "주소"
+
 msgid "Address Comments with Agent"
 msgstr "에이전트로 코멘트 처리"
 
@@ -3868,6 +3871,9 @@ msgstr "토큰 기준"
 msgid "by users"
 msgstr "사용자 기준"
 
+msgid "CA certificate (PEM, optional)"
+msgstr "CA 인증서(PEM, 선택 사항)"
+
 msgid "Cache"
 msgstr "캐시"
 
@@ -4556,6 +4562,15 @@ msgstr "클릭하여 풀 리퀘스트 열기"
 msgid "Click two commits to define the range."
 msgstr "커밋 두 개를 클릭해 범위를 지정하세요."
 
+msgid "Client certificate"
+msgstr "클라이언트 인증서"
+
+msgid "Client certificate (PEM)"
+msgstr "클라이언트 인증서(PEM)"
+
+msgid "Client key (PEM)"
+msgstr "클라이언트 키(PEM)"
+
 msgid "Clients"
 msgstr "클라이언트"
 
@@ -5211,6 +5226,9 @@ msgstr "GitHub 연결…"
 msgid "Connect Google"
 msgstr "Google 연결"
 
+msgid "Connect Inngest"
+msgstr "Inngest 연결"
+
 msgid "Connect Linear"
 msgstr "Linear 연결"
 
@@ -5234,6 +5252,9 @@ msgstr "Slack 연결"
 
 msgid "Connect Slack to manage tasks from conversations. Mention the bot in any channel or send it a direct message to create and update tasks."
 msgstr "Slack을 연결해 대화에서 바로 작업을 관리하세요. 아무 채널에서나 봇을 멘션하거나 다이렉트 메시지를 보내 작업을 만들고 업데이트할 수 있습니다."
+
+msgid "Connect Temporal"
+msgstr "Temporal 연결"
 
 msgid "Connect this computer"
 msgstr "이 컴퓨터에 연결"
@@ -5332,6 +5353,9 @@ msgstr "데스크톱에 연결하는 중…"
 msgid "Connecting to the workspace"
 msgstr "워크스페이스에 연결하는 중"
 
+msgid "Connecting..."
+msgstr "연결 중..."
+
 msgid "Connecting…"
 msgstr "연결 중…"
 
@@ -5347,6 +5371,9 @@ msgstr "연결에 실패했습니다."
 #. js-lingui-explicit-id
 msgid "serverError.plugins.connectionNotFound"
 msgstr "연결을 찾을 수 없습니다"
+
+msgid "Connection reachable"
+msgstr "연결에 접근할 수 있음"
 
 msgid "Connection Refused"
 msgstr "연결이 거부됨"
@@ -5773,6 +5800,9 @@ msgstr "이 페이지를 삭제할 수 없습니다"
 msgid "Could not disable plugin"
 msgstr "플러그인을 비활성화할 수 없습니다"
 
+msgid "Could not disconnect"
+msgstr "연결을 해제하지 못했습니다"
+
 msgid "Could not disconnect."
 msgstr "연결을 해제하지 못했습니다."
 
@@ -5815,6 +5845,9 @@ msgstr "플러그인을 불러오지 못했습니다. 연결을 확인하고 다
 
 msgid "Could not load presets from the host"
 msgstr "호스트에서 프리셋을 불러올 수 없습니다"
+
+msgid "Could not load the engine."
+msgstr "엔진을 불러오지 못했습니다."
 
 msgid "Could not load this diff"
 msgstr "이 차이를 불러올 수 없습니다"
@@ -5860,6 +5893,9 @@ msgstr "모바일 시뮬레이터에 연결할 수 없습니다."
 
 msgid "Could not reach the desktop."
 msgstr "데스크톱에 연결할 수 없습니다."
+
+msgid "Could not reach the engine"
+msgstr "엔진에 접근하지 못했습니다"
 
 msgid "Could not reach the host to start the update. Check that it is online and try again."
 msgstr "업데이트를 시작하기 위해 호스트에 연결할 수 없습니다. 온라인 상태인지 확인한 후 다시 시도하세요."
@@ -5986,6 +6022,9 @@ msgstr "동기화할 수 없습니다"
 
 msgid "Could not take a screenshot"
 msgstr "스크린샷을 찍을 수 없습니다"
+
+msgid "Could not test the connection"
+msgstr "연결을 테스트하지 못했습니다"
 
 msgid "Could not undo"
 msgstr "실행 취소할 수 없습니다"
@@ -7340,8 +7379,14 @@ msgstr "{accountLogin} 연결을 해제할까요?"
 msgid "Disconnect {credential}?"
 msgstr "{credential} 연결을 해제할까요?"
 
+msgid "Disconnect {providerName}? New runs go back to the built-in engine. Run history stays in your {providerName} account."
+msgstr "{providerName} 연결을 해제할까요? 새 실행은 기본 제공 엔진으로 돌아갑니다. 실행 기록은 {providerName} 계정에 남습니다."
+
 msgid "Disconnect {title}"
 msgstr "{title} 연결 해제"
+
+msgid "Disconnect engine"
+msgstr "엔진 연결 해제"
 
 msgid "Disconnect GitHub?"
 msgstr "GitHub 연결을 해제할까요?"
@@ -7901,6 +7946,9 @@ msgstr "종료됨"
 msgid "Ending the call"
 msgstr "통화 종료 중"
 
+msgid "Engine disconnected"
+msgstr "엔진 연결이 해제되었습니다"
+
 msgid "Ensure no regression"
 msgstr "회귀가 없는지 확인해 주세요"
 
@@ -7933,6 +7981,21 @@ msgstr "정수 입력"
 
 msgid "Enter a whole number from {minHours} to {maxHours} GB-hours."
 msgstr "{minHours}에서 {maxHours} GB 시간 사이의 정수를 입력하세요."
+
+msgid "Enter the address as host:port, without https://."
+msgstr "주소를 https:// 없이 host:port 형식으로 입력하세요."
+
+msgid "Enter the API key."
+msgstr "API 키를 입력하세요."
+
+msgid "Enter the event key."
+msgstr "이벤트 키를 입력하세요."
+
+msgid "Enter the namespace."
+msgstr "네임스페이스를 입력하세요."
+
+msgid "Enter the signing key."
+msgstr "서명 키를 입력하세요."
 
 msgid "Enter this code when OpenAI asks for it:"
 msgstr "OpenAI가 요청하면 이 코드를 입력하세요:"
@@ -7976,6 +8039,9 @@ msgstr "오류"
 msgid "Error {statusCode}"
 msgstr "오류 {statusCode}"
 
+msgid "Error: {lastError}"
+msgstr "오류: {lastError}"
+
 msgid "esc to dismiss"
 msgstr "esc로 닫기"
 
@@ -7984,6 +8050,9 @@ msgstr "esc로 종료"
 
 msgid "Event"
 msgstr "이벤트"
+
+msgid "Event key"
+msgstr "이벤트 키"
 
 msgid "Event log"
 msgstr "이벤트 로그"
@@ -10304,6 +10373,12 @@ msgstr "인라인 인용"
 msgid "Inline code"
 msgstr "인라인 코드"
 
+msgid "Inngest Cloud"
+msgstr "Inngest Cloud"
+
+msgid "Inngest connected"
+msgstr "Inngest가 연결되었습니다"
+
 msgid "Input"
 msgstr "입력"
 
@@ -10932,6 +11007,9 @@ msgstr "마지막 에이전트 메시지"
 msgid "Last attached"
 msgstr "마지막 연결"
 
+msgid "Last checked {lastChecked}"
+msgstr "마지막 확인: {lastChecked}"
+
 msgid "Last day of each month"
 msgstr "매월 마지막 날"
 
@@ -11062,6 +11140,9 @@ msgstr "채널 나가기"
 
 msgid "Leave comment mode"
 msgstr "댓글 모드 나가기"
+
+msgid "Leave empty to use Inngest Cloud."
+msgstr "Inngest Cloud를 사용하려면 비워 두세요."
 
 msgid "Leave it empty to go back to the name the terminal reports."
 msgstr "비워 두면 터미널이 보고하는 이름으로 돌아갑니다."
@@ -12243,6 +12324,9 @@ msgstr "이름 없는 작업반장"
 msgid "Names, emails, or teams"
 msgstr "이름, 이메일 또는 팀"
 
+msgid "Namespace"
+msgstr "네임스페이스"
+
 msgid "Namespace new branches for this project. Defaults to the host-wide Git setting."
 msgstr "이 프로젝트의 새 브랜치에 네임스페이스를 붙입니다. 기본값은 호스트 전체 Git 설정입니다."
 
@@ -13366,6 +13450,12 @@ msgstr "{pathname}에는 아무것도 없습니다."
 
 msgid "Nothing needs a retry"
 msgstr "재시도가 필요한 항목이 없습니다"
+
+msgid "Nothing needs to be deployed: your Inngest account stores the run history, and this platform's worker does the work."
+msgstr "배포할 것은 없습니다. 실행 기록은 Inngest 계정에 저장되고, 작업은 이 플랫폼의 워커가 처리합니다."
+
+msgid "Nothing needs to be deployed: your Temporal namespace stores the run history, and this platform's worker does the work."
+msgstr "배포할 것은 없습니다. 실행 기록은 Temporal 네임스페이스에 저장되고, 작업은 이 플랫폼의 워커가 처리합니다."
 
 msgid "Nothing published in the last 30 days yet. Your rank appears once usage from this machine syncs, publishing as <0>{handle}</0>."
 msgstr "최근 30일 동안 게시된 사용량이 아직 없습니다. 이 기기의 사용량이 동기화되면 <0>{handle}</0>(으)로 게시되며 순위가 표시됩니다."
@@ -14724,6 +14814,12 @@ msgstr "붙여넣기"
 
 msgid "Paste a link"
 msgstr "링크 붙여넣기"
+
+msgid "Paste the client certificate in PEM format."
+msgstr "클라이언트 인증서를 PEM 형식으로 붙여넣으세요."
+
+msgid "Paste the client key in PEM format."
+msgstr "클라이언트 키를 PEM 형식으로 붙여넣으세요."
 
 msgid "Paste this into Paradev CLI:"
 msgstr "Paradev CLI에 붙여 넣으세요:"
@@ -17745,6 +17841,9 @@ msgstr "선택한 워크스페이스 작업"
 msgid "Selecting text in a terminal copies it to the clipboard right away, with trailing whitespace trimmed"
 msgstr "터미널에서 텍스트를 선택하면 끝의 공백이 제거된 상태로 즉시 클립보드에 복사됩니다"
 
+msgid "Self-hosted"
+msgstr "셀프 호스팅"
+
 msgid "Send"
 msgstr "보내기"
 
@@ -17835,6 +17934,9 @@ msgstr "다시 연결할 때까지 Sentry 트리거가 실행되지 않습니다
 
 msgid "Separator"
 msgstr "구분선"
+
+msgid "Server name (optional)"
+msgstr "서버 이름(선택 사항)"
 
 msgid "Service availability is published at <0>{statusHost}</0>, and security and compliance documentation at <1>{trustHost}</1>."
 msgstr "서비스 가용성은 <0>{statusHost}</0>에, 보안 및 규정 준수 문서는 <1>{trustHost}</1>에 공개되어 있습니다."
@@ -18423,6 +18525,9 @@ msgstr "로그인한 사이트"
 
 msgid "Signing in..."
 msgstr "로그인하는 중..."
+
+msgid "Signing key"
+msgstr "서명 키"
 
 msgid "Signup works. The welcome screen loads and the console is clean."
 msgstr "가입이 잘 됩니다. 환영 화면이 열리고 콘솔에 오류가 없습니다."
@@ -19593,6 +19698,9 @@ msgstr "어떤 에이전트에게든 <0>superset</0> CLI로 워크스페이스�
 msgid "Tell us what is wrong with it. Reporting does not remove the page on its own."
 msgstr "무엇이 문제인지 알려주세요. 신고만으로 페이지가 삭제되지는 않습니다."
 
+msgid "Temporal connected"
+msgstr "Temporal이 연결되었습니다"
+
 msgid "Ten parallel workstreams running, each landing merged work"
 msgstr "10개의 병렬 작업 흐름이 각각 병합된 결과를 만듭니다"
 
@@ -19670,6 +19778,9 @@ msgstr "약관"
 
 msgid "Terms of Service"
 msgstr "서비스 약관"
+
+msgid "Test"
+msgstr "테스트"
 
 msgid "test the signup flow on my dev server"
 msgstr "내 개발 서버에서 가입 흐름을 테스트해 줘"
@@ -19792,11 +19903,17 @@ msgstr "자동화와 실행 기록이 삭제됩니다. 이 작업은 되돌릴 �
 msgid "The automation's owner can't use cloud workspaces in this organization anymore. Ask them to check their access, or run the automation on a device."
 msgstr "자동화 소유자가 더 이상 이 조직에서 클라우드 워크스페이스를 사용할 수 없습니다. 소유자에게 액세스 권한을 확인해 달라고 요청하거나, 기기에서 자동화를 실행하세요."
 
+msgid "The base URL is not a valid URL."
+msgstr "기본 URL이 올바른 URL이 아닙니다."
+
 msgid "The best agent will change.<0/>Your workflow shouldn't."
 msgstr "최고의 에이전트는 바뀝니다.<0/>워크플로는 그럴 필요 없습니다."
 
 msgid "The button now stands out. I checked it in your pane."
 msgstr "버튼이 이제 눈에 띕니다. 패널에서 확인했습니다."
+
+msgid "The CA certificate must be in PEM format."
+msgstr "CA 인증서는 PEM 형식이어야 합니다."
 
 msgid "The change starts now. You pay only the difference for the rest of this period."
 msgstr "변경은 바로 적용됩니다. 남은 기간에 대한 차액만 결제합니다."
@@ -20322,6 +20439,9 @@ msgstr "재부팅/충돌 복구에 사용하는 저장된 스크롤백을 삭제
 msgid "This deletes the session's folder and everything in it from disk."
 msgstr "세션 폴더와 그 안의 모든 항목을 디스크에서 삭제합니다."
 
+msgid "This deployment cannot store engine credentials, so connecting is turned off."
+msgstr "이 배포는 엔진 자격 증명을 저장할 수 없어 연결이 비활성화되어 있습니다."
+
 msgid "this device"
 msgstr "이 기기"
 
@@ -20707,6 +20827,9 @@ msgstr "팁"
 msgid "Title"
 msgstr "제목"
 
+msgid "TLS"
+msgstr "TLS"
+
 msgid "to"
 msgstr "~"
 
@@ -21036,6 +21159,9 @@ msgstr "디자인을 켜고 변경하고 싶은 페이지 부분을 클릭하세
 
 msgid "Turn on device code sign-in for Codex."
 msgstr "Codex의 기기 코드 로그인을 켜세요."
+
+msgid "Turn on TLS to set a server name."
+msgstr "서버 이름을 설정하려면 TLS를 켜세요."
 
 msgid "Turn Slack conversations into tasks, run agents from your workspace, and keep teammates in the loop where work starts."
 msgstr "Slack 대화를 작업으로 바꾸고, 워크스페이스에서 에이전트를 실행하고, 일이 시작되는 곳에서 팀원과 상황을 공유하세요."
@@ -21857,6 +21983,9 @@ msgstr "로그인 대기 중…"
 msgid "Waiting for the subagent's first message…"
 msgstr "서브 에이전트의 첫 메시지를 기다리는 중…"
 
+msgid "Waiting for the worker to connect"
+msgstr "워커가 연결되기를 기다리는 중"
+
 msgid "Waiting for your input"
 msgstr "입력을 기다리는 중"
 
@@ -22260,6 +22389,9 @@ msgstr "{0}분 {1}초 동안 작업함"
 msgid "Worked for {seconds}s"
 msgstr "{seconds}초 동안 작업함"
 
+msgid "Workflow engine"
+msgstr "워크플로 엔진"
+
 msgid "Workflow run completed…"
 msgstr "워크플로 실행 완료…"
 
@@ -22268,6 +22400,9 @@ msgstr "워크플로 튜토리얼"
 
 msgid "Workflows"
 msgstr "워크플로"
+
+msgid "Workflows run on the built-in engine. Connect your own Inngest or Temporal account to run them there instead."
+msgstr "워크플로는 기본 제공 엔진에서 실행됩니다. 직접 사용하는 Inngest 또는 Temporal 계정을 연결하면 그곳에서 실행됩니다."
 
 msgid "Working"
 msgstr "작업 중"

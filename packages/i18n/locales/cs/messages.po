@@ -2254,6 +2254,9 @@ msgstr "Přidávání lidí do {organizationName} vyžaduje placený tarif. Tari
 msgid "Adding..."
 msgstr "Přidávání..."
 
+msgid "Address"
+msgstr "Adresa"
+
 msgid "Address Comments with Agent"
 msgstr "Vyřešit komentáře agentem"
 
@@ -3868,6 +3871,9 @@ msgstr "podle tokenů"
 msgid "by users"
 msgstr "podle uživatelů"
 
+msgid "CA certificate (PEM, optional)"
+msgstr "Certifikát CA (PEM, volitelné)"
+
 msgid "Cache"
 msgstr "Cache"
 
@@ -4556,6 +4562,15 @@ msgstr "Kliknutím otevřete pull request"
 msgid "Click two commits to define the range."
 msgstr "Kliknutím na dva commity určíte rozsah."
 
+msgid "Client certificate"
+msgstr "Klientský certifikát"
+
+msgid "Client certificate (PEM)"
+msgstr "Klientský certifikát (PEM)"
+
+msgid "Client key (PEM)"
+msgstr "Klientský klíč (PEM)"
+
 msgid "Clients"
 msgstr "Klienti"
 
@@ -5211,6 +5226,9 @@ msgstr "Připojit GitHub…"
 msgid "Connect Google"
 msgstr "Připojit Google"
 
+msgid "Connect Inngest"
+msgstr "Připojit Inngest"
+
 msgid "Connect Linear"
 msgstr "Připojit Linear"
 
@@ -5234,6 +5252,9 @@ msgstr "Připojit Slack"
 
 msgid "Connect Slack to manage tasks from conversations. Mention the bot in any channel or send it a direct message to create and update tasks."
 msgstr "Připojte Slack a spravujte úkoly přímo z konverzací. Zmiňte bota v libovolném kanálu nebo mu pošlete přímou zprávu a úkoly vytvářejte i aktualizujte."
+
+msgid "Connect Temporal"
+msgstr "Připojit Temporal"
 
 msgid "Connect this computer"
 msgstr "Připojte tento počítač"
@@ -5332,6 +5353,9 @@ msgstr "Připojování k ploše…"
 msgid "Connecting to the workspace"
 msgstr "Připojuji se k pracovnímu prostoru"
 
+msgid "Connecting..."
+msgstr "Připojování..."
+
 msgid "Connecting…"
 msgstr "Připojuji…"
 
@@ -5347,6 +5371,9 @@ msgstr "Připojení selhalo."
 #. js-lingui-explicit-id
 msgid "serverError.plugins.connectionNotFound"
 msgstr "Připojení nenalezeno"
+
+msgid "Connection reachable"
+msgstr "Připojení je dostupné"
 
 msgid "Connection Refused"
 msgstr "Spojení odmítnuto"
@@ -5773,6 +5800,9 @@ msgstr "Tuto stránku se nepodařilo smazat"
 msgid "Could not disable plugin"
 msgstr "Plugin se nepodařilo zakázat"
 
+msgid "Could not disconnect"
+msgstr "Odpojení se nepodařilo"
+
 msgid "Could not disconnect."
 msgstr "Odpojení se nezdařilo."
 
@@ -5815,6 +5845,9 @@ msgstr "Pluginy se nepodařilo načíst. Zkontrolujte připojení a zkuste to zn
 
 msgid "Could not load presets from the host"
 msgstr "Nepodařilo se načíst přednastavení z hosta"
+
+msgid "Could not load the engine."
+msgstr "Engine se nepodařilo načíst."
 
 msgid "Could not load this diff"
 msgstr "Tento rozdíl se nepodařilo načíst"
@@ -5860,6 +5893,9 @@ msgstr "Nepodařilo se připojit k mobilnímu simulátoru."
 
 msgid "Could not reach the desktop."
 msgstr "K ploše se nepodařilo připojit."
+
+msgid "Could not reach the engine"
+msgstr "Engine není dostupný"
 
 msgid "Could not reach the host to start the update. Check that it is online and try again."
 msgstr "Nepodařilo se spojit s hostitelem a zahájit aktualizaci. Zkontrolujte, že je online, a zkuste to znovu."
@@ -5986,6 +6022,9 @@ msgstr "Synchronizace se nezdařila"
 
 msgid "Could not take a screenshot"
 msgstr "Nepodařilo se pořídit snímek obrazovky"
+
+msgid "Could not test the connection"
+msgstr "Připojení se nepodařilo otestovat"
 
 msgid "Could not undo"
 msgstr "Nepodařilo se vrátit zpět"
@@ -7340,8 +7379,14 @@ msgstr "Odpojit {accountLogin}?"
 msgid "Disconnect {credential}?"
 msgstr "Odpojit {credential}?"
 
+msgid "Disconnect {providerName}? New runs go back to the built-in engine. Run history stays in your {providerName} account."
+msgstr "Odpojit {providerName}? Nové běhy se vrátí na vestavěný engine. Historie běhů zůstane ve vašem účtu {providerName}."
+
 msgid "Disconnect {title}"
 msgstr "Odpojit {title}"
+
+msgid "Disconnect engine"
+msgstr "Odpojit engine"
 
 msgid "Disconnect GitHub?"
 msgstr "Odpojit GitHub?"
@@ -7901,6 +7946,9 @@ msgstr "Ukončeno"
 msgid "Ending the call"
 msgstr "Ukončuje se hovor"
 
+msgid "Engine disconnected"
+msgstr "Engine odpojen"
+
 msgid "Ensure no regression"
 msgstr "Zajisti žádnou regresi"
 
@@ -7933,6 +7981,21 @@ msgstr "Zadejte celé číslo"
 
 msgid "Enter a whole number from {minHours} to {maxHours} GB-hours."
 msgstr "Zadejte celé číslo od {minHours} do {maxHours} GB-hodin."
+
+msgid "Enter the address as host:port, without https://."
+msgstr "Zadejte adresu ve tvaru host:port, bez https://."
+
+msgid "Enter the API key."
+msgstr "Zadejte klíč API."
+
+msgid "Enter the event key."
+msgstr "Zadejte klíč událostí."
+
+msgid "Enter the namespace."
+msgstr "Zadejte namespace."
+
+msgid "Enter the signing key."
+msgstr "Zadejte podpisový klíč."
 
 msgid "Enter this code when OpenAI asks for it:"
 msgstr "Až o to OpenAI požádá, zadejte tento kód:"
@@ -7976,6 +8039,9 @@ msgstr "Chyba"
 msgid "Error {statusCode}"
 msgstr "Chyba {statusCode}"
 
+msgid "Error: {lastError}"
+msgstr "Chyba: {lastError}"
+
 msgid "esc to dismiss"
 msgstr "esc zavře"
 
@@ -7984,6 +8050,9 @@ msgstr "esc pro ukončení"
 
 msgid "Event"
 msgstr "Událost"
+
+msgid "Event key"
+msgstr "Klíč událostí"
 
 msgid "Event log"
 msgstr "Protokol událostí"
@@ -10304,6 +10373,12 @@ msgstr "Citace v textu"
 msgid "Inline code"
 msgstr "Kód v textu"
 
+msgid "Inngest Cloud"
+msgstr "Inngest Cloud"
+
+msgid "Inngest connected"
+msgstr "Inngest připojen"
+
 msgid "Input"
 msgstr "Vstup"
 
@@ -10932,6 +11007,9 @@ msgstr "Poslední zpráva agenta"
 msgid "Last attached"
 msgstr "Naposledy připojeno"
 
+msgid "Last checked {lastChecked}"
+msgstr "Naposledy zkontrolováno {lastChecked}"
+
 msgid "Last day of each month"
 msgstr "Poslední den v měsíci"
 
@@ -11062,6 +11140,9 @@ msgstr "Opustit kanál"
 
 msgid "Leave comment mode"
 msgstr "Opustit režim komentářů"
+
+msgid "Leave empty to use Inngest Cloud."
+msgstr "Nechte prázdné pro použití Inngest Cloud."
 
 msgid "Leave it empty to go back to the name the terminal reports."
 msgstr "Nechte prázdné pro návrat k názvu, který hlásí terminál."
@@ -12243,6 +12324,9 @@ msgstr "Bezejmenný mistr"
 msgid "Names, emails, or teams"
 msgstr "Jména, e-maily nebo týmy"
 
+msgid "Namespace"
+msgstr "Namespace"
+
 msgid "Namespace new branches for this project. Defaults to the host-wide Git setting."
 msgstr "Zařaďte nové větve tohoto projektu pod jmenný prostor. Ve výchozím stavu se použije nastavení Gitu pro celého hosta."
 
@@ -13366,6 +13450,12 @@ msgstr "Na {pathname} nic není."
 
 msgid "Nothing needs a retry"
 msgstr "Není co opakovat"
+
+msgid "Nothing needs to be deployed: your Inngest account stores the run history, and this platform's worker does the work."
+msgstr "Nic není třeba nasazovat: váš účet Inngest uchovává historii běhů a práci odvádí worker této platformy."
+
+msgid "Nothing needs to be deployed: your Temporal namespace stores the run history, and this platform's worker does the work."
+msgstr "Nic není třeba nasazovat: váš namespace Temporal uchovává historii běhů a práci odvádí worker této platformy."
 
 msgid "Nothing published in the last 30 days yet. Your rank appears once usage from this machine syncs, publishing as <0>{handle}</0>."
 msgstr "Za posledních 30 dní zatím nebylo nic publikováno. Vaše pozice se objeví, jakmile se synchronizuje využití z tohoto počítače; publikujete jako <0>{handle}</0>."
@@ -14724,6 +14814,12 @@ msgstr "Vložit"
 
 msgid "Paste a link"
 msgstr "Vložte odkaz"
+
+msgid "Paste the client certificate in PEM format."
+msgstr "Vložte klientský certifikát ve formátu PEM."
+
+msgid "Paste the client key in PEM format."
+msgstr "Vložte klientský klíč ve formátu PEM."
 
 msgid "Paste this into Paradev CLI:"
 msgstr "Vložte to do Paradev CLI:"
@@ -17745,6 +17841,9 @@ msgstr "Akce pro vybrané pracovní prostory"
 msgid "Selecting text in a terminal copies it to the clipboard right away, with trailing whitespace trimmed"
 msgstr "Výběr textu v terminálu ho hned zkopíruje do schránky, bez koncových mezer"
 
+msgid "Self-hosted"
+msgstr "Vlastní hosting"
+
 msgid "Send"
 msgstr "Odeslat"
 
@@ -17835,6 +17934,9 @@ msgstr "Spouštěče Sentry se přestanou spouštět, dokud se znovu nepřipojí
 
 msgid "Separator"
 msgstr "Oddělovač"
+
+msgid "Server name (optional)"
+msgstr "Název serveru (volitelné)"
 
 msgid "Service availability is published at <0>{statusHost}</0>, and security and compliance documentation at <1>{trustHost}</1>."
 msgstr "Dostupnost služby zveřejňujeme na <0>{statusHost}</0> a dokumentaci k bezpečnosti a compliance na <1>{trustHost}</1>."
@@ -18423,6 +18525,9 @@ msgstr "Weby, kde jste přihlášeni"
 
 msgid "Signing in..."
 msgstr "Přihlašuji..."
+
+msgid "Signing key"
+msgstr "Podpisový klíč"
 
 msgid "Signup works. The welcome screen loads and the console is clean."
 msgstr "Registrace funguje. Uvítací obrazovka se načte a konzole je čistá."
@@ -19593,6 +19698,9 @@ msgstr "Řekněte libovolnému agentovi, ať použije CLI <0>superset</0> k vytv
 msgid "Tell us what is wrong with it. Reporting does not remove the page on its own."
 msgstr "Napište nám, co je špatně. Samotné nahlášení stránku neodstraní."
 
+msgid "Temporal connected"
+msgstr "Temporal připojen"
+
 msgid "Ten parallel workstreams running, each landing merged work"
 msgstr "Deset souběžných pracovních toků, z nichž každý dodává sloučenou práci"
 
@@ -19670,6 +19778,9 @@ msgstr "Podmínky"
 
 msgid "Terms of Service"
 msgstr "Podmínky služby"
+
+msgid "Test"
+msgstr "Otestovat"
 
 msgid "test the signup flow on my dev server"
 msgstr "otestuj registraci na mém vývojovém serveru"
@@ -19792,11 +19903,17 @@ msgstr "Automatizace a její historie spuštění budou odstraněny. Tuto akci n
 msgid "The automation's owner can't use cloud workspaces in this organization anymore. Ask them to check their access, or run the automation on a device."
 msgstr "Vlastník automatizace už v této organizaci nemůže používat cloudové pracovní prostory. Požádejte ho, aby si zkontroloval přístup, nebo automatizaci spusťte na zařízení."
 
+msgid "The base URL is not a valid URL."
+msgstr "Základní URL není platné URL."
+
 msgid "The best agent will change.<0/>Your workflow shouldn't."
 msgstr "Nejlepší agent se změní.<0/>Vaše workflow ne."
 
 msgid "The button now stands out. I checked it in your pane."
 msgstr "Tlačítko je teď výrazné. Zkontroloval jsem to ve vašem panelu."
+
+msgid "The CA certificate must be in PEM format."
+msgstr "Certifikát CA musí být ve formátu PEM."
 
 msgid "The change starts now. You pay only the difference for the rest of this period."
 msgstr "Změna platí hned. Platíte jen rozdíl za zbytek období."
@@ -20322,6 +20439,9 @@ msgstr "Tímto se smaže uložený scrollback používaný k obnovení po restar
 msgid "This deletes the session's folder and everything in it from disk."
 msgstr "Tímto se z disku smaže složka relace a vše v ní."
 
+msgid "This deployment cannot store engine credentials, so connecting is turned off."
+msgstr "Toto nasazení nemůže ukládat přihlašovací údaje enginu, proto je připojení vypnuto."
+
 msgid "this device"
 msgstr "tomto zařízení"
 
@@ -20707,6 +20827,9 @@ msgstr "Tip"
 msgid "Title"
 msgstr "Název"
 
+msgid "TLS"
+msgstr "TLS"
+
 msgid "to"
 msgstr "až"
 
@@ -21036,6 +21159,9 @@ msgstr "Zapněte Design a klikněte na část stránky, kterou chcete změnit."
 
 msgid "Turn on device code sign-in for Codex."
 msgstr "Zapněte pro Codex přihlášení kódem zařízení."
+
+msgid "Turn on TLS to set a server name."
+msgstr "Pro nastavení názvu serveru zapněte TLS."
 
 msgid "Turn Slack conversations into tasks, run agents from your workspace, and keep teammates in the loop where work starts."
 msgstr "Proměňte konverzace ve Slacku v úkoly, spouštějte agenty ze svého pracovního prostoru a držte kolegy v obraze tam, kde práce začíná."
@@ -21857,6 +21983,9 @@ msgstr "Čeká se na přihlášení…"
 msgid "Waiting for the subagent's first message…"
 msgstr "Čekání na první zprávu subagenta…"
 
+msgid "Waiting for the worker to connect"
+msgstr "Čeká se na připojení workeru"
+
 msgid "Waiting for your input"
 msgstr "Čeká na váš vstup"
 
@@ -22260,6 +22389,9 @@ msgstr "Pracoval {0} m {1} s"
 msgid "Worked for {seconds}s"
 msgstr "Pracoval {seconds} s"
 
+msgid "Workflow engine"
+msgstr "Engine workflow"
+
 msgid "Workflow run completed…"
 msgstr "Dokončen běh workflow…"
 
@@ -22268,6 +22400,9 @@ msgstr "Návody k workflow"
 
 msgid "Workflows"
 msgstr "Pracovní postupy"
+
+msgid "Workflows run on the built-in engine. Connect your own Inngest or Temporal account to run them there instead."
+msgstr "Workflow běží na vestavěném enginu. Připojte vlastní účet Inngest nebo Temporal a spouštějte je tam."
 
 msgid "Working"
 msgstr "Pracuje"

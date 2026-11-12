@@ -27,8 +27,10 @@ import { useSettingsSearchQuery } from "renderer/stores/settings-state";
 import {
 	integrationSettingItemId,
 	isItemVisible,
+	SETTING_ITEM_ID,
 	type SettingItemId,
 } from "../../../utils/settings-search";
+import { WorkflowEngineCard } from "../WorkflowEngineCard";
 
 interface IntegrationsSettingsProps {
 	visibleItems?: SettingItemId[] | null;
@@ -259,6 +261,11 @@ export function IntegrationsSettings({
 					);
 				})}
 			</div>
+
+			{isItemVisible(
+				SETTING_ITEM_ID.INTEGRATIONS_WORKFLOW_ENGINE,
+				visibleItems,
+			) && <WorkflowEngineCard />}
 
 			<p className="mt-6 text-xs text-muted-foreground">
 				<Trans>
