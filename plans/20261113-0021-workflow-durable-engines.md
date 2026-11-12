@@ -50,6 +50,13 @@ An organization can also bring its own engine account. In the desktop app, under
 
 ## Surprises & Discoveries
 
+- Observation: After a worker crash, Inngest takes about two minutes to notice and re-run the interrupted step.
+  Evidence: Spike log: killed 17:50:46, step restarted 17:53:00.
+- Observation: Inngest version 4 runs several steps inside one request ("checkpointing") and re-enters the function body only after a `step.sleep`; `triggers` is an array, `triggers: [{ event }]`.
+  Evidence: Spike against `inngest` 4.26.2.
+- Observation: The Inngest dev server reported "Completed" on `/v1/events/{id}/runs` for a run still in flight. Do not use that endpoint for status.
+  Evidence: Spike.
+
 - Observation: Trigger.dev has no step memoization inside one task. A retry runs the task function again from the first line.
   Evidence: Trigger.dev "How it works" documentation: "When retried, it starts from the beginning, but leverages cached results for completed subtasks."
 - Observation: Inngest has no per-step retry override; `retries` is set per function and each step counts on its own.
@@ -97,9 +104,18 @@ An organization can also bring its own engine account. In the desktop app, under
 - Decision: Engine credentials are stored in a new table, encrypted with the existing `secret-box` helper, not in the `connections` or `integration_connections` tables.
   Rationale: Those tables model OAuth grants (access token, refresh token, external account) and store tokens as plain text. `packages/trpc/src/lib/secret-box.ts` already encrypts environment secrets with `SECRETS_ENCRYPTION_KEY`; `packages/shared/src/auth-token-crypto.ts` must not be used because its key is derived from the machine it runs on.
   Date/Author: 2026-11-13, plan author.
-- Decision: Inngest connections per process. (placeholder, Open Question 4)
-- Decision: Inngest transport. (placeholder, Open Question 1)
-- Decision: Inngest retry policy. (placeholder, Open Question 2)
+- Decision: Inngest connections per process: one `Inngest` client and one `connect()` call per connection, each with `handleShutdownSignals: []` and its own `instanceId`.
+  Rationale: Spike, run against the dev server: two `connect()` calls in one process gave two active connections with events routed correctly. From the package source, the signing key belongs to the client and a `connect()` call authenticates with its first app's key only, so one call cannot serve two accounts. Real keys were not exercised (the dev server does not check them).
+  Date/Author: 2026-11-13, Milestone 5 spike.
+- Decision: Inngest transport: Connect. No HTTP fallback is built.
+  Rationale: Spike: `connect()` worked under `node --import tsx` with `INNGEST_DEV=1`, connected in about 50 ms, and drained on `close()`.
+  Date/Author: 2026-11-13, Milestone 5 spike.
+- Decision: Inngest retry policy: function `retries: 3`; our own attempt loop runs inside the step handler and throws `NonRetriableError` (imported from `inngest`) when it gives up, so Inngest's retries cover only a lost worker.
+  Rationale: Spike: with `retries: 0` a worker killed in the middle of a step failed the run after about 2 minutes with `connect_worker_stopped_responding`; with `retries: 3` the step ran again from its start after about 134 seconds and finished steps were not repeated.
+  Date/Author: 2026-11-13, Milestone 5 spike.
+- Decision: The worker procedures `observeAgent` and `pollHostJob` refuse with a non-retryable error when the run is already terminal.
+  Rationale: Spike: an Inngest cancel does not stop a step handler that is already running, and plain code after that step still runs. A poll chunk of up to 30 minutes would keep polling a canceled run; refusing at the API ends it at the next poll on every engine.
+  Date/Author: 2026-11-13, Milestone 5 spike.
 - Decision: Trigger.dev handle and base URL. (placeholder, Open Question 3)
 
 
