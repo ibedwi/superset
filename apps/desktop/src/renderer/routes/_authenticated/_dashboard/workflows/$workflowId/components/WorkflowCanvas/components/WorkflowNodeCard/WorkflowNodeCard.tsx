@@ -102,7 +102,7 @@ export function WorkflowNodeCard({ data, selected }: NodeProps<CanvasNode>) {
 			)}
 		>
 			{node.type !== "trigger" && (
-				<Handle type="target" position={Position.Left} />
+				<Handle type="target" position={Position.Top} />
 			)}
 
 			<div className="flex items-start gap-2.5">
@@ -135,8 +135,25 @@ export function WorkflowNodeCard({ data, selected }: NodeProps<CanvasNode>) {
 				</div>
 			)}
 
-			{node.type !== "condition" && (
-				<Handle type="source" position={Position.Right} />
+			{node.type === "condition" ? (
+				<>
+					<Handle
+						id="true"
+						type="source"
+						position={Position.Bottom}
+						style={{ left: "30%" }}
+						className="!bg-emerald-500"
+					/>
+					<Handle
+						id="false"
+						type="source"
+						position={Position.Bottom}
+						style={{ left: "70%" }}
+						className="!bg-stone-400"
+					/>
+				</>
+			) : (
+				<Handle type="source" position={Position.Bottom} />
 			)}
 		</div>
 	);

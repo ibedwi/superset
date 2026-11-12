@@ -17,7 +17,7 @@ import {
 	ReactFlow,
 } from "@xyflow/react";
 import { useCallback } from "react";
-import { LuPlus } from "react-icons/lu";
+import { LuNetwork, LuPlus } from "react-icons/lu";
 import type { CanvasEdge, CanvasNode } from "../../utils/graphMapping";
 import { WorkflowNodeCard } from "./components/WorkflowNodeCard";
 
@@ -49,6 +49,7 @@ interface WorkflowCanvasProps {
 	onConnect: (connection: Connection) => void;
 	onSelectNode: (nodeId: string | null) => void;
 	onAddNode: (type: Exclude<WorkflowNodeType, "trigger">) => void;
+	onArrange?: () => void;
 	readOnly: boolean;
 }
 
@@ -60,6 +61,7 @@ export function WorkflowCanvas({
 	onConnect,
 	onSelectNode,
 	onAddNode,
+	onArrange,
 	readOnly,
 }: WorkflowCanvasProps) {
 	const isValidConnection = useCallback(
@@ -99,7 +101,7 @@ export function WorkflowCanvas({
 			<Background gap={16} />
 			<Controls showInteractive={false} />
 			{!readOnly && (
-				<Panel position="top-left">
+				<Panel position="top-left" className="flex gap-2">
 					<DropdownMenu>
 						<DropdownMenuTrigger asChild>
 							<Button size="sm" variant="secondary">
@@ -115,6 +117,12 @@ export function WorkflowCanvas({
 							))}
 						</DropdownMenuContent>
 					</DropdownMenu>
+					{onArrange && (
+						<Button size="sm" variant="secondary" onClick={onArrange}>
+							<LuNetwork className="size-3.5" />
+							Arrange
+						</Button>
+					)}
 				</Panel>
 			)}
 		</ReactFlow>

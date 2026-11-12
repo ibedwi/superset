@@ -6,6 +6,8 @@ import {
 import {
 	type DraftWorkflowNode,
 	type GraphProblem,
+	LAYOUT_RANK_GAP,
+	layoutWorkflowGraph,
 	validateGraph,
 	workflowGraphSchema,
 } from "@superset/shared/workflow-graph";
@@ -41,6 +43,7 @@ import {
 	LuHistory,
 	LuPlay,
 	LuSave,
+	LuSparkles,
 	LuX,
 } from "react-icons/lu";
 import { useNow } from "renderer/hooks/useNow";
@@ -49,6 +52,11 @@ import { authClient } from "renderer/lib/auth-client";
 import { cloudTrpc } from "renderer/lib/cloud-trpc";
 import { EditableTitle } from "renderer/routes/_authenticated/_dashboard/components/EditableTitle";
 import { ResizablePanel } from "renderer/screens/main/components/ResizablePanel";
+import {
+	type GeneratedWorkflow,
+	GenerateWorkflowDialog,
+} from "../components/GenerateWorkflowDialog";
+import { usePendingWorkflowDraftStore } from "../stores/pendingWorkflowDraftStore";
 import { isActiveRunStatus, RUN_STATUS_META } from "../utils/runStatus";
 import { NodeConfigPanel } from "./components/NodeConfigPanel";
 import { RunStepPanel, type RunStepRow } from "./components/RunStepPanel";
@@ -163,6 +171,10 @@ function WorkflowEditorPage() {
 		if (nodeId) setPanelTab("config");
 	}, []);
 	const [dirty, setDirty] = useState(false);
+	const [generateOpen, setGenerateOpen] = useState(false);
+	// Remounting the canvas fits the view to a newly generated graph.
+	const [canvasKey, setCanvasKey] = useState(0);
+	const takePendingDraft = usePendingWorkflowDraftStore((s) => s.takeDraft);
 	const [conflictOpen, setConflictOpen] = useState(false);
 	// The version the loaded graph was built on; saves race against it.
 	const expectedVersionRef = useRef(0);
@@ -173,12 +185,13 @@ function WorkflowEditorPage() {
 		// Only seed once per workflow; later refetches must not clobber edits.
 		if (loadedWorkflowRef.current === workflow.id) return;
 		loadedWorkflowRef.current = workflow.id;
-		const graph = workflow.liveGraph?.graph ?? EMPTY_GRAPH;
+		const pendingDraft = takePendingDraft(workflow.id);
+		const graph = pendingDraft ?? workflow.liveGraph?.graph ?? EMPTY_GRAPH;
 		setNodes(toCanvasNodes(graph));
 		setEdges(toCanvasEdges(graph));
 		expectedVersionRef.current = workflow.headVersion;
-		setDirty(false);
-	}, [workflow]);
+		setDirty(pendingDraft !== null);
+	}, [workflow, takePendingDraft]);
 
 	const readOnly =
 		session?.user?.id !== undefined &&
@@ -218,7 +231,7 @@ function WorkflowEditorPage() {
 		setNodes((current) => {
 			const last = current.at(-1);
 			const position = last
-				? { x: last.position.x + 300, y: last.position.y }
+				? { x: last.position.x, y: last.position.y + LAYOUT_RANK_GAP }
 				: { x: 0, y: 0 };
 			const node = createNode(
 				type,
@@ -249,6 +262,32 @@ function WorkflowEditorPage() {
 		setSelectedNodeId(null);
 		setDirty(true);
 	}, []);
+
+	const applyGenerated = useCallback((generated: GeneratedWorkflow) => {
+		setNodes(toCanvasNodes(generated.graph));
+		setEdges(toCanvasEdges(generated.graph));
+		setSelectedNodeId(null);
+		setCanvasKey((key) => key + 1);
+		setDirty(true);
+		toast.success("Graph generated. Review it, then save.");
+	}, []);
+
+	const arrange = useCallback(() => {
+		const graph = layoutWorkflowGraph(fromCanvas(nodes, edges));
+		const byId = new Map(graph.nodes.map((node) => [node.id, node.position]));
+		setNodes((current) =>
+			current.map((node) => {
+				const position = byId.get(node.id) ?? node.position;
+				return {
+					...node,
+					position,
+					data: { ...node.data, wf: { ...node.data.wf, position } },
+				};
+			}),
+		);
+		setCanvasKey((key) => key + 1);
+		setDirty(true);
+	}, [nodes, edges]);
 
 	const saveMutation = useMutation({
 		mutationFn: (graph: unknown) =>
@@ -435,6 +474,21 @@ function WorkflowEditorPage() {
 					/>
 				</div>
 				<div className="flex items-center gap-2">
+					{dirty && !run && (
+						<span className="text-xs text-muted-foreground">
+							Unsaved changes
+						</span>
+					)}
+					{!readOnly && !run && (
+						<Button
+							variant="outline"
+							size="sm"
+							onClick={() => setGenerateOpen(true)}
+						>
+							<LuSparkles className="size-3.5" />
+							Generate
+						</Button>
+					)}
 					<Switch
 						checked={workflow.enabled}
 						onCheckedChange={(enabled) => setEnabledMutation.mutate(enabled)}
@@ -538,6 +592,7 @@ function WorkflowEditorPage() {
 						/>
 					) : (
 						<WorkflowCanvas
+							key={canvasKey}
 							nodes={nodes}
 							edges={edges}
 							onNodesChange={onNodesChange}
@@ -545,6 +600,7 @@ function WorkflowEditorPage() {
 							onConnect={onConnect}
 							onSelectNode={selectNode}
 							onAddNode={onAddNode}
+							onArrange={arrange}
 							readOnly={readOnly}
 						/>
 					)}
@@ -581,6 +637,15 @@ function WorkflowEditorPage() {
 					)}
 				</ResizablePanel>
 			</div>
+
+			<GenerateWorkflowDialog
+				open={generateOpen}
+				onOpenChange={setGenerateOpen}
+				title="Generate with AI"
+				description="Describe the workflow or the change you want. The result stays unsaved until you click Save."
+				getCurrentGraph={() => fromCanvas(nodes, edges)}
+				onGenerated={applyGenerated}
+			/>
 
 			<AlertDialog open={conflictOpen} onOpenChange={setConflictOpen}>
 				<AlertDialogContent>

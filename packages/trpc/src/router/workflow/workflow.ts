@@ -10,6 +10,7 @@ import { and, asc, desc, eq, ilike, isNotNull, isNull } from "drizzle-orm";
 import { z } from "zod";
 import { personProcedure } from "../../trpc";
 import { requireActiveOrgMembership } from "../utils/active-org";
+import { workflowGenerateProcedures } from "./generate";
 import { workflowGraphProcedures } from "./graph";
 import {
 	getWorkflowForUser,
@@ -184,6 +185,7 @@ const workflowCrud = {
 export const workflowRouter = {
 	...workflowCrud,
 	...workflowGraphProcedures,
+	...workflowGenerateProcedures,
 	...workflowRunProcedures,
 	...workflowTriggerProcedures,
 } satisfies TRPCRouterRecord;

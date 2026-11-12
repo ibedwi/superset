@@ -27,12 +27,18 @@ import {
 } from "@superset/ui/table";
 import { useMutation } from "@tanstack/react-query";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useState } from "react";
 import { LuEllipsisVertical, LuHistory } from "react-icons/lu";
 import { useNow } from "renderer/hooks/useNow";
 import { apiTrpcClient } from "renderer/lib/api-trpc-client";
 import { cloudTrpc } from "renderer/lib/cloud-trpc";
 import { FeatureHeader } from "renderer/routes/_authenticated/_dashboard/components/FeatureHeader";
 import { PageHeader } from "renderer/routes/_authenticated/_dashboard/components/PageHeader";
+import {
+	type GeneratedWorkflow,
+	GenerateWorkflowDialog,
+} from "./components/GenerateWorkflowDialog";
+import { usePendingWorkflowDraftStore } from "./stores/pendingWorkflowDraftStore";
 
 export const Route = createFileRoute("/_authenticated/_dashboard/workflows/")({
 	component: WorkflowsListPage,
@@ -49,6 +55,20 @@ function WorkflowsListPage() {
 	const workflows = workflowsQuery.data ?? [];
 
 	const invalidate = () => void utils.workflow.list.invalidate();
+	const [generateOpen, setGenerateOpen] = useState(false);
+	const setPendingDraft = usePendingWorkflowDraftStore((s) => s.setDraft);
+
+	const createFromGenerated = async (generated: GeneratedWorkflow) => {
+		const workflow = await apiTrpcClient.workflow.create.mutate({
+			name: generated.name ?? "New workflow",
+		});
+		setPendingDraft(workflow.id, generated.graph);
+		invalidate();
+		void navigate({
+			to: "/workflows/$workflowId",
+			params: { workflowId: workflow.id },
+		});
+	};
 
 	const createMutation = useMutation({
 		mutationFn: () =>
@@ -93,8 +113,9 @@ function WorkflowsListPage() {
 					<FeatureHeader
 						title="Workflows"
 						docsUrl={`${COMPANY.DOCS_URL}/workflows`}
-						onCreate={() => createMutation.mutate()}
+						onCreate={() => setGenerateOpen(true)}
 						isCreating={createMutation.isPending}
+						createDescription="Describe the automation and review the generated graph."
 						primaryAction={{
 							label: "New workflow",
 							onSelect: () => createMutation.mutate(),
@@ -206,6 +227,14 @@ function WorkflowsListPage() {
 					</div>
 				</div>
 			</div>
+
+			<GenerateWorkflowDialog
+				open={generateOpen}
+				onOpenChange={setGenerateOpen}
+				title="Create workflow with AI"
+				description="Describe what should happen and when. You can review and edit the graph before you save it."
+				onGenerated={createFromGenerated}
+			/>
 		</div>
 	);
 }

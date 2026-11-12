@@ -1,13 +1,8 @@
 import type { DraftWorkflowNode } from "@superset/shared/workflow-graph";
 import { cn } from "@superset/ui/utils";
-import {
-	Handle,
-	Position,
-	useNodeConnections,
-	useNodesData,
-} from "@xyflow/react";
+import { useNodeConnections, useNodesData } from "@xyflow/react";
 import type { ReactNode } from "react";
-import { LuArrowRight } from "react-icons/lu";
+import { LuArrowDown } from "react-icons/lu";
 import type { CanvasNode } from "../../../../../../utils/graphMapping";
 import {
 	conditionLeaf,
@@ -81,7 +76,7 @@ export function ConditionCardBody({ config }: { config: ConditionConfig }) {
 				return (
 					<div
 						key={branch.handleId}
-						className="relative -mx-3.5 flex items-center gap-2 px-3.5 py-0.5 text-xs"
+						className="flex items-center gap-2 py-0.5 text-xs"
 					>
 						<span className={cn("size-1.5 rounded-full", branch.dot)} />
 						<span className={cn("w-8 shrink-0", branch.text)}>
@@ -95,12 +90,7 @@ export function ConditionCardBody({ config }: { config: ConditionConfig }) {
 						>
 							{name ?? "Not connected"}
 						</span>
-						<LuArrowRight className={cn("size-3.5", branch.text)} />
-						<Handle
-							id={branch.handleId}
-							type="source"
-							position={Position.Right}
-						/>
+						<LuArrowDown className={cn("size-3.5", branch.text)} />
 					</div>
 				);
 			})}
