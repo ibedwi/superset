@@ -48,6 +48,10 @@ describe("workflowEngineById", () => {
 		expect(workflowEngineById("temporal").id).toBe("temporal");
 	});
 
+	test("returns the postgres adapter", () => {
+		expect(workflowEngineById("postgres").id).toBe("postgres");
+	});
+
 	test("names an engine that is not registered", () => {
 		expect(() => workflowEngineById("inngest")).toThrow(/inngest/);
 	});

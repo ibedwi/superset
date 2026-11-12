@@ -1,4 +1,5 @@
 import { env } from "../../env";
+import { postgresWorkflowEngine } from "./engines/postgres";
 import { temporalWorkflowEngine } from "./engines/temporal";
 import {
 	WORKFLOW_ENGINE_IDS,
@@ -8,6 +9,7 @@ import {
 
 const REGISTERED_ENGINES: Partial<Record<WorkflowEngineId, WorkflowEngine>> = {
 	temporal: temporalWorkflowEngine,
+	postgres: postgresWorkflowEngine,
 };
 
 export function defaultWorkflowEngineId(args: {

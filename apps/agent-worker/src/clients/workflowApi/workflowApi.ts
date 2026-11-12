@@ -113,6 +113,25 @@ export interface WorkflowApi {
 		hostId: string;
 		jobId: string;
 	}): Promise<unknown>;
+	loadCheckpoints(input: {
+		runId: string;
+	}): Promise<Array<{ key: string; result: unknown }>>;
+	saveCheckpoint(input: {
+		runId: string;
+		key: string;
+		result: unknown;
+	}): Promise<unknown>;
+	claimRuns(input: {
+		workerId: string;
+		limit: number;
+		leaseSeconds: number;
+	}): Promise<{ runIds: string[] }>;
+	renewLease(input: {
+		runId: string;
+		workerId: string;
+		leaseSeconds: number;
+	}): Promise<{ held: boolean }>;
+	releaseLease(input: { runId: string; workerId: string }): Promise<unknown>;
 	llmCall(input: {
 		runId: string;
 		prompt: string;
@@ -150,5 +169,10 @@ export function workflowApi(options: {
 			call("pollHostJob", { ...input, waitMs: Math.min(input.waitMs, 25_000) }),
 		killHostJob: (input) => call("killHostJob", input),
 		llmCall: (input) => call("llmCall", input),
+		loadCheckpoints: (input) => call("loadCheckpoints", input),
+		saveCheckpoint: (input) => call("saveCheckpoint", input),
+		claimRuns: (input) => call("claimRuns", input),
+		renewLease: (input) => call("renewLease", input),
+		releaseLease: (input) => call("releaseLease", input),
 	};
 }

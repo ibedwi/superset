@@ -39,8 +39,8 @@ An organization can also bring its own engine account. In the desktop app, under
 - [x] (2026-11-12 17:21Z) User decisions recorded: deployment-level switch first, shaped for a per-organization override; all four engines in this effort.
 - [x] (2026-11-12 19:00Z) Milestone 1: engine-neutral graph interpreter; Temporal runs through it (commit 33b3a51c2).
 - [ ] Milestone 2: database migration, engine registry in `packages/trpc`, API-side cancel cleanup.
-- [ ] Milestone 3: journaled context shared by the Postgres and Trigger.dev engines.
-- [ ] Milestone 4: Postgres engine.
+- [x] (2026-11-12 19:50Z) Milestone 3: journaled context shared by the Postgres and Trigger.dev engines.
+- [ ] Milestone 4: Postgres engine (completed: registry entry, claim/renew/release procedures, worker engine, main.ts composition root, unit and integration tests, a reduced end-to-end with three HTTP nodes and a worker restart on a throwaway database; remaining: the plan's acceptance with the real API, the desktop app and an agent node, and a SIGKILL takeover by lease expiry outside the DB-level test).
 - [ ] Milestone 5: Inngest engine.
 - [ ] Milestone 6: Trigger.dev engine.
 - [x] (2026-11-12 18:10Z) User decision recorded: organizations can connect their own Inngest or Temporal from the UI; plan revised (Milestone 7 added).
@@ -66,6 +66,16 @@ An organization can also bring its own engine account. In the desktop app, under
 
 
 ## Decision Log
+
+- Decision: Worker-side engine starters take `activities` as a factory `(runtime) => WorkflowRunActivities`, and return an `EngineHandle` with `stop()`, `isRunning()` and `closed`.
+  Rationale: Found in Milestone 4. Each run needs its own abort signal so cancel and `stop()` reach an in-flight poll; `main.ts` needs `isRunning` for the health server and `closed` to exit.
+  Date/Author: 2026-11-13, Milestone 4 implementation.
+- Decision: The Postgres engine polls in 5-minute chunks; a run that fails unexpectedly keeps its lease until it expires; a run aborts itself when lease renewals fail for longer than the lease.
+  Rationale: Found in Milestone 4. Keeping the lease avoids a tight reclaim loop on a run that crashes every time.
+  Date/Author: 2026-11-13, Milestone 4 implementation.
+- Decision: Worker logs use a local `logError` helper in `apps/agent-worker/src/engines/logError`, not `rawErrorMessage`.
+  Rationale: The worker does not depend on `@superset/i18n` and never produces translated messages.
+  Date/Author: 2026-11-13, Milestone 4 implementation.
 
 - Decision: `CallOptions.timeoutMs` bounds one try, not all tries; poll calls retry at most 10 times per chunk; a node that already failed is not re-marked canceled.
   Rationale: Found in Milestone 1. A total bound would remove the retries of the 30-second bookkeeping calls.

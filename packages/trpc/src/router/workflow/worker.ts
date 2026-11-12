@@ -21,7 +21,7 @@ import {
 	slugifyForBranch,
 } from "@superset/shared/workspace-launch";
 import { TRPCError, type TRPCRouterRecord } from "@trpc/server";
-import { and, eq, inArray, sql } from "drizzle-orm";
+import { and, asc, eq, inArray, isNull, lt, or, sql } from "drizzle-orm";
 import { z } from "zod";
 import { env } from "../../env";
 import { nudge } from "../../lib/realtime";
@@ -42,6 +42,14 @@ const MAX_OUTPUT_BYTES = 256 * 1024;
 const MAX_RESULT_FILE_BYTES = 256 * 1024;
 
 const ACTIVE_RUN_STATUSES = ["pending", "running"] as const;
+const MAX_CHECKPOINT_BYTES = 1024 * 1024;
+const MAX_CLAIM_LIMIT = 100;
+const MAX_LEASE_SECONDS = 3600;
+
+const leaseSchema = z.object({
+	workerId: z.string().min(1).max(128),
+	leaseSeconds: z.number().int().min(1).max(MAX_LEASE_SECONDS),
+});
 
 const agentRefSchema = z.object({
 	kind: z.literal("agent"),
@@ -171,6 +179,116 @@ export const workflowWorkerRouter = {
 				});
 			nudge(scope.organizationId, "workflow_runs");
 			return { recorded: true };
+		}),
+
+	loadCheckpoints: workerProcedure
+		.input(runIdSchema)
+		.mutation(async ({ input }) => {
+			return db
+				.select({
+					key: workflowRunCheckpoints.key,
+					result: workflowRunCheckpoints.result,
+				})
+				.from(workflowRunCheckpoints)
+				.where(eq(workflowRunCheckpoints.runId, input.runId));
+		}),
+
+	saveCheckpoint: workerProcedure
+		.input(
+			runIdSchema.extend({
+				key: z.string().min(1).max(256),
+				result: z.unknown(),
+			}),
+		)
+		.mutation(async ({ input }) => {
+			const size = (JSON.stringify(input.result ?? null) ?? "null").length;
+			if (size > MAX_CHECKPOINT_BYTES) {
+				throw new TRPCError({
+					code: "PAYLOAD_TOO_LARGE",
+					message: "Checkpoint result is larger than 1 MB.",
+				});
+			}
+			const scope = await runScope(input.runId);
+			if (!ACTIVE_RUN_STATUSES.some((status) => status === scope.status)) {
+				return { saved: false };
+			}
+			await db
+				.insert(workflowRunCheckpoints)
+				.values({
+					runId: input.runId,
+					key: input.key,
+					result: input.result ?? null,
+				})
+				.onConflictDoNothing();
+			return { saved: true };
+		}),
+
+	claimRuns: workerProcedure
+		.input(
+			leaseSchema.extend({
+				limit: z.number().int().min(1).max(MAX_CLAIM_LIMIT),
+			}),
+		)
+		.mutation(async ({ input }) => {
+			const candidates = db
+				.select({ id: workflowRuns.id })
+				.from(workflowRuns)
+				.where(
+					and(
+						eq(workflowRuns.engine, "postgres"),
+						inArray(workflowRuns.status, ACTIVE_RUN_STATUSES),
+						or(
+							isNull(workflowRuns.leaseExpiresAt),
+							lt(workflowRuns.leaseExpiresAt, sql`now()`),
+						),
+					),
+				)
+				.orderBy(asc(workflowRuns.createdAt))
+				.limit(input.limit)
+				.for("update", { skipLocked: true });
+			const rows = await db
+				.update(workflowRuns)
+				.set({
+					leaseOwner: input.workerId,
+					leaseExpiresAt: sql`now() + make_interval(secs => ${input.leaseSeconds}::double precision)`,
+				})
+				.where(inArray(workflowRuns.id, candidates))
+				.returning({ id: workflowRuns.id });
+			return { runIds: rows.map((row) => row.id) };
+		}),
+
+	renewLease: workerProcedure
+		.input(runIdSchema.extend(leaseSchema.shape))
+		.mutation(async ({ input }) => {
+			const rows = await db
+				.update(workflowRuns)
+				.set({
+					leaseExpiresAt: sql`now() + make_interval(secs => ${input.leaseSeconds}::double precision)`,
+				})
+				.where(
+					and(
+						eq(workflowRuns.id, input.runId),
+						eq(workflowRuns.leaseOwner, input.workerId),
+						inArray(workflowRuns.status, ACTIVE_RUN_STATUSES),
+					),
+				)
+				.returning({ id: workflowRuns.id });
+			return { held: rows.length > 0 };
+		}),
+
+	releaseLease: workerProcedure
+		.input(runIdSchema.extend({ workerId: z.string().min(1).max(128) }))
+		.mutation(async ({ input }) => {
+			await db
+				.update(workflowRuns)
+				.set({ leaseOwner: null, leaseExpiresAt: null })
+				.where(
+					and(
+						eq(workflowRuns.id, input.runId),
+						eq(workflowRuns.leaseOwner, input.workerId),
+					),
+				);
+			return { released: true };
 		}),
 
 	/**
