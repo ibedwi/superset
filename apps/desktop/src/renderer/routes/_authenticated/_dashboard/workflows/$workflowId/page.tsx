@@ -1,9 +1,5 @@
 import { errorMessage } from "@superset/i18n/errors";
 import {
-	formatCompactRelativeTime,
-	formatElapsed,
-} from "@superset/i18n/format";
-import {
 	type DraftWorkflowNode,
 	type GraphProblem,
 	LAYOUT_RANK_GAP,
@@ -24,7 +20,6 @@ import {
 import { Button } from "@superset/ui/button";
 import { toast } from "@superset/ui/sonner";
 import { Switch } from "@superset/ui/switch";
-import { cn } from "@superset/ui/utils";
 import { useMutation } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { TRPCClientError } from "@trpc/client";
@@ -39,37 +34,27 @@ import {
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
 	LuChevronLeft,
-	LuCircleStop,
 	LuHistory,
 	LuPlay,
 	LuSave,
 	LuSparkles,
-	LuX,
 } from "react-icons/lu";
-import { useNow } from "renderer/hooks/useNow";
 import { apiTrpcClient } from "renderer/lib/api-trpc-client";
 import { authClient } from "renderer/lib/auth-client";
 import { cloudTrpc } from "renderer/lib/cloud-trpc";
 import { EditableTitle } from "renderer/routes/_authenticated/_dashboard/components/EditableTitle";
-import { ResizablePanel } from "renderer/screens/main/components/ResizablePanel";
 import {
 	type GeneratedWorkflow,
 	GenerateWorkflowDialog,
 } from "../components/GenerateWorkflowDialog";
 import { usePendingWorkflowDraftStore } from "../stores/pendingWorkflowDraftStore";
-import { isActiveRunStatus, RUN_STATUS_META } from "../utils/runStatus";
+import { isActiveRunStatus } from "../utils/runStatus";
 import { NodeConfigPanel } from "./components/NodeConfigPanel";
-import { RunStepPanel, type RunStepRow } from "./components/RunStepPanel";
 import { RunsPanel } from "./components/RunsPanel";
+import { RunView } from "./components/RunView";
 import { WorkflowCanvas } from "./components/WorkflowCanvas";
+import { WorkflowSidePanel } from "./components/WorkflowSidePanel";
 import {
-	DEFAULT_WORKFLOW_SIDE_PANEL_WIDTH,
-	MAX_WORKFLOW_SIDE_PANEL_WIDTH,
-	MIN_WORKFLOW_SIDE_PANEL_WIDTH,
-	useWorkflowSidePanelStore,
-} from "./stores/workflowSidePanelStore";
-import {
-	applyRunSteps,
 	type CanvasEdge,
 	type CanvasNode,
 	createNode,
@@ -133,14 +118,11 @@ function WorkflowEditorPage() {
 	const navigate = Route.useNavigate();
 	const { data: session } = authClient.useSession();
 	const utils = cloudTrpc.useUtils();
-	const now = useNow(10_000);
 
 	const workflowQuery = cloudTrpc.workflow.get.useQuery({ id: workflowId });
 	const workflow = workflowQuery.data;
 
 	const [panelTab, setPanelTab] = useState<"config" | "runs">("config");
-	const sidePanelWidth = useWorkflowSidePanelStore((s) => s.width);
-	const setSidePanelWidth = useWorkflowSidePanelStore((s) => s.setWidth);
 
 	const runQuery = cloudTrpc.workflow.getRun.useQuery(
 		{ runId: runId ?? "" },
@@ -166,9 +148,9 @@ function WorkflowEditorPage() {
 	const [nodes, setNodes] = useState<CanvasNode[]>([]);
 	const [edges, setEdges] = useState<CanvasEdge[]>([]);
 	const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
-	const selectNode = useCallback((nodeId: string | null) => {
+	const selectNode = useCallback((nodeId: string | null, reveal = true) => {
 		setSelectedNodeId(nodeId);
-		if (nodeId) setPanelTab("config");
+		if (nodeId && reveal) setPanelTab("config");
 	}, []);
 	const [dirty, setDirty] = useState(false);
 	const [generateOpen, setGenerateOpen] = useState(false);
@@ -421,30 +403,14 @@ function WorkflowEditorPage() {
 		return workflow?.liveGraph?.graph ?? null;
 	}, [run, needsPinnedVersion, pinnedVersionQuery.data, workflow]);
 
-	const runCanvas = useMemo(() => {
-		if (!run || !runGraph) return null;
-		const decorated = applyRunSteps(
-			toCanvasNodes(runGraph),
-			toCanvasEdges(runGraph),
-			run.steps,
-		);
-		return {
-			nodes: decorated.nodes.map((node) => ({
-				...node,
-				selected: node.id === selectedNodeId,
-			})),
-			edges: decorated.edges,
-		};
-	}, [run, runGraph, selectedNodeId]);
-
-	const selectedStep: RunStepRow | null = useMemo(() => {
-		if (!run || !selectedNodeId) return null;
-		return (
-			(run.steps.find((step) => step.nodeId === selectedNodeId) as
-				| RunStepRow
-				| undefined) ?? null
-		);
-	}, [run, selectedNodeId]);
+	const runVersion = useMemo(() => {
+		const liveVersion = workflow?.liveGraph?.version ?? null;
+		if (!run) return { version: null, liveVersion };
+		const version = needsPinnedVersion
+			? (pinnedVersionQuery.data?.version ?? null)
+			: liveVersion;
+		return { version, liveVersion };
+	}, [run, needsPinnedVersion, pinnedVersionQuery.data, workflow]);
 
 	if (!workflow) {
 		if (workflowQuery.isPending) return null;
@@ -526,71 +492,32 @@ function WorkflowEditorPage() {
 				</div>
 			</div>
 
-			{run && (
-				<div className="flex items-center gap-3 border-b bg-muted/40 px-4 py-1.5 text-sm">
-					<span
-						className={cn(
-							"size-2 rounded-full",
-							RUN_STATUS_META[run.status].dot,
-						)}
+			{run ? (
+				runGraph && (
+					<RunView
+						key={run.id}
+						run={run}
+						graph={runGraph}
+						version={runVersion}
+						selectedNodeId={selectedNodeId}
+						onSelectNode={selectNode}
+						onCancel={() => setCancelOpen(true)}
+						cancelDisabled={cancelMutation.isPending}
+						onBack={exitRunView}
+						historyPanel={
+							panelTab === "runs" ? (
+								<RunsPanel
+									workflowId={workflowId}
+									selectedRunId={runId ?? null}
+									onSelectRun={selectRun}
+								/>
+							) : null
+						}
 					/>
-					<span className="font-medium">
-						{RUN_STATUS_META[run.status].label}
-					</span>
-					<span className="text-xs text-muted-foreground">
-						{formatCompactRelativeTime(
-							new Date(run.startedAt ?? run.createdAt),
-							now,
-						)}
-						{run.startedAt && run.finishedAt && (
-							<>
-								{" · "}
-								{formatElapsed(
-									new Date(run.startedAt),
-									new Date(run.finishedAt),
-								)}
-							</>
-						)}
-					</span>
-					{run.error && (
-						<span className="min-w-0 truncate text-xs text-red-500">
-							{run.error}
-						</span>
-					)}
-					<div className="ml-auto flex items-center gap-2">
-						{isActiveRunStatus(run.status) && (
-							<Button
-								variant="outline"
-								size="sm"
-								onClick={() => setCancelOpen(true)}
-								disabled={cancelMutation.isPending}
-							>
-								<LuCircleStop className="size-3.5" />
-								Cancel run
-							</Button>
-						)}
-						<Button variant="ghost" size="sm" onClick={exitRunView}>
-							<LuX className="size-3.5" />
-							Back to editor
-						</Button>
-					</div>
-				</div>
-			)}
-
-			<div className="flex min-h-0 flex-1">
-				<div className="min-w-0 flex-1">
-					{run && runCanvas ? (
-						<WorkflowCanvas
-							nodes={runCanvas.nodes}
-							edges={runCanvas.edges}
-							onNodesChange={() => {}}
-							onEdgesChange={() => {}}
-							onConnect={() => {}}
-							onSelectNode={selectNode}
-							onAddNode={() => {}}
-							readOnly
-						/>
-					) : (
+				)
+			) : (
+				<div className="flex min-h-0 flex-1">
+					<div className="min-w-0 flex-1">
 						<WorkflowCanvas
 							key={canvasKey}
 							nodes={nodes}
@@ -603,40 +530,28 @@ function WorkflowEditorPage() {
 							onArrange={arrange}
 							readOnly={readOnly}
 						/>
-					)}
+					</div>
+					<WorkflowSidePanel>
+						{panelTab === "runs" ? (
+							<RunsPanel
+								workflowId={workflowId}
+								selectedRunId={runId ?? null}
+								onSelectRun={selectRun}
+							/>
+						) : (
+							<NodeConfigPanel
+								workflowId={workflowId}
+								node={selectedNode}
+								nodes={nodes}
+								edges={edges}
+								onChangeNode={onChangeNode}
+								onDeleteNode={onDeleteNode}
+								readOnly={readOnly}
+							/>
+						)}
+					</WorkflowSidePanel>
 				</div>
-				<ResizablePanel
-					width={sidePanelWidth}
-					onWidthChange={setSidePanelWidth}
-					minWidth={MIN_WORKFLOW_SIDE_PANEL_WIDTH}
-					maxWidth={MAX_WORKFLOW_SIDE_PANEL_WIDTH}
-					handleSide="left"
-					commitOnRelease
-					onDoubleClickHandle={() =>
-						setSidePanelWidth(DEFAULT_WORKFLOW_SIDE_PANEL_WIDTH)
-					}
-				>
-					{panelTab === "runs" ? (
-						<RunsPanel
-							workflowId={workflowId}
-							selectedRunId={runId ?? null}
-							onSelectRun={selectRun}
-						/>
-					) : run ? (
-						<RunStepPanel step={selectedStep} />
-					) : (
-						<NodeConfigPanel
-							workflowId={workflowId}
-							node={selectedNode}
-							nodes={nodes}
-							edges={edges}
-							onChangeNode={onChangeNode}
-							onDeleteNode={onDeleteNode}
-							readOnly={readOnly}
-						/>
-					)}
-				</ResizablePanel>
-			</div>
+			)}
 
 			<GenerateWorkflowDialog
 				open={generateOpen}

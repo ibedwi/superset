@@ -1,0 +1,30 @@
+.run-timeline-running {
+	background-image: repeating-linear-gradient(
+		-45deg,
+		rgb(245 158 11) 0 6px,
+		rgb(251 191 36) 6px 12px
+	);
+	background-size: 17px 17px;
+	animation: run-timeline-march 0.8s linear infinite;
+}
+
+.run-timeline-queued {
+	background-image: repeating-linear-gradient(
+		-45deg,
+		rgb(100 116 139 / 0.45) 0 3px,
+		transparent 3px 6px
+	);
+	border: 1px solid rgb(100 116 139 / 0.5);
+}
+
+@keyframes run-timeline-march {
+	to {
+		background-position: 17px 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.run-timeline-running {
+		animation: none;
+	}
+}
