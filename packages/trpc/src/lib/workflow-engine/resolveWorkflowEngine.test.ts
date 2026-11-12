@@ -1,4 +1,5 @@
 import { describe, expect, test } from "bun:test";
+import { assertTemporalAddress } from "./engines/temporal";
 import {
 	defaultWorkflowEngineId,
 	resolveWorkflowEngine,
@@ -59,6 +60,12 @@ describe("workflowEngineById", () => {
 
 	test("returns the trigger adapter", () => {
 		expect(workflowEngineById("trigger").id).toBe("trigger");
+	});
+
+	test("temporal names the missing address", () => {
+		expect(() => assertTemporalAddress({ address: undefined })).toThrow(
+			"Workflow engine temporal is not configured: TEMPORAL_ADDRESS is not set.",
+		);
 	});
 
 	test("inngest refuses to start without an event key", async () => {

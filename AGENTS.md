@@ -240,6 +240,8 @@ earns its place by catching a regression quickly.
 - `docs/agent-tooling.md`: where commands, skills, and per-agent-CLI config live.
 - `docs/plugins.md`: authoring, publishing, and installing marketplace plugins — the manifest
   contract, the credential proxy, and which files are generated.
+- `docs/workflow-engines.md`: choosing the durable engine for Workflows (Temporal, Postgres, Inngest,
+  Trigger.dev), switching engines, organization connections, and what has and has not been verified.
 - `docs/environment-variables.md`: read before adding an environment variable. Five places,
   and missing one fails silently.
 - `docs/deploy-workflows.md`: read before writing or testing a deploy workflow step. `run:` has

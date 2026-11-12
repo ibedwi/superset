@@ -1,16 +1,29 @@
 import { AGENT_TASK_QUEUE } from "@superset/agent-harness/session/definitions";
 import { WORKFLOW_CONNECTION_TASK_QUEUE } from "@superset/shared/workflow-engine";
+import { env } from "../../../env";
 import { agentTemporal } from "../../agent-runtime";
 import { assertConnectionHostAllowed } from "../hostGuard";
 import type { WorkflowEngine, WorkflowEngineConnection } from "../types";
 import { temporalClientFor } from "./temporalClients";
 
+const NOT_CONFIGURED =
+	"Workflow engine temporal is not configured: TEMPORAL_ADDRESS is not set.";
+
 export function workflowRunWorkflowId(runId: string): string {
 	return `workflow-run-${runId}`;
 }
 
+export function assertTemporalAddress(args: {
+	address: string | undefined;
+}): void {
+	if (!args.address) throw new Error(NOT_CONFIGURED);
+}
+
 async function clientFor(connection: WorkflowEngineConnection | null) {
-	if (!connection) return agentTemporal();
+	if (!connection) {
+		assertTemporalAddress({ address: env.TEMPORAL_ADDRESS });
+		return agentTemporal();
+	}
 	if (connection.provider !== "temporal") {
 		throw new Error(`Connection ${connection.id} is not a Temporal connection`);
 	}

@@ -2,7 +2,7 @@ import { createServer } from "node:http";
 import { hostname } from "node:os";
 import { createWorkflowActivities } from "./activities/workflowActivities";
 import { workflowApi } from "./clients/workflowApi";
-import { requireEnv } from "./config/requireEnv";
+import { requireEngineEnv, requireEnv } from "./config/requireEnv";
 import { abortableSleep } from "./engines/abortableSleep";
 import { startConnectionManager } from "./engines/connections/connectionManager";
 import { createConnectionStarters } from "./engines/connections/connectionStarters";
@@ -45,7 +45,11 @@ if (selection.startInngest) {
 			client: {
 				signingKey: isDev
 					? env.INNGEST_SIGNING_KEY
-					: requireEnv({ env, name: "INNGEST_SIGNING_KEY" }),
+					: requireEngineEnv({
+							env,
+							engine: "inngest",
+							name: "INNGEST_SIGNING_KEY",
+						}),
 				baseUrl: env.INNGEST_BASE_URL,
 				isDev: env.INNGEST_DEV ? isDev : undefined,
 			},
