@@ -28,23 +28,24 @@ test("adds the Anthropic effort setting only for supported combinations", () => 
 });
 
 test("preserves LLM launch settings and legacy models in saved and draft graphs", () => {
-	for (const schema of [draftWorkflowGraphSchema, workflowGraphSchema]) {
-		for (const config of [
-			{
-				prompt: "Summarize",
-				model: "claude-opus-4-6",
-				effort: "max",
-				maxTokens: 4096,
-			},
-			{ prompt: "Summarize", model: "legacy-model", maxTokens: 4096 },
-		]) {
-			const parsed = schema.parse({
-				nodes: [
-					{ id: "summarize", type: "llm", position: { x: 0, y: 0 }, config },
-				],
-				edges: [],
-			});
-			expect(parsed.nodes[0]?.config).toEqual(config);
-		}
+	for (const config of [
+		{
+			prompt: "Summarize",
+			model: "claude-opus-4-6",
+			effort: "max" as const,
+			maxTokens: 4096,
+		},
+		{ prompt: "Summarize", model: "legacy-model", maxTokens: 4096 },
+	]) {
+		const graph = {
+			nodes: [
+				{ id: "summarize", type: "llm", position: { x: 0, y: 0 }, config },
+			],
+			edges: [],
+		};
+		expect(draftWorkflowGraphSchema.parse(graph).nodes[0]?.config).toEqual(
+			config,
+		);
+		expect(workflowGraphSchema.parse(graph).nodes[0]?.config).toEqual(config);
 	}
 });
