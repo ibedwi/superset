@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Workflows are here</title>
+		<style>
+			:root {
+				--sp-measure: 62ch;
+				--ok: #3fb68b;
+				--warn: #e0a43a;
+				--trig: #9b8cff;
+			}
+			body {
+				margin: 0;
+			}
+			main {
+				max-width: 1120px;
+				margin: 0 auto;
+				padding: 72px 24px 120px;
+			}
+			.eyebrow {
+				font: 600 12px/1 var(--sp-font-mono);
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				color: var(--sp-muted);
+				margin: 0 0 18px;
+			}
+			h1 {
+				font-size: clamp(44px, 8vw, 92px);
+				line-height: 0.95;
+				letter-spacing: -0.035em;
+				margin: 0;
+				max-width: 12ch;
+			}
+			h1 em {
+				font-style: normal;
+				color: var(--ok);
+			}
+			.lede {
+				font-size: clamp(18px, 2.2vw, 22px);
+				line-height: 1.45;
+				color: var(--sp-muted);
+				max-width: 46ch;
+				margin: 28px 0 0;
+			}
+			.hero {
+				display: grid;
+				grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+				gap: 48px;
+				align-items: center;
+			}
+			.hero svg {
+				width: 100%;
+				height: auto;
+				display: block;
+			}
+			.stats {
+				display: grid;
+				grid-template-columns: repeat(4, minmax(0, 1fr));
+				border-top: 1px solid var(--sp-border);
+				border-bottom: 1px solid var(--sp-border);
+				margin: 72px 0 96px;
+			}
+			.stat {
+				padding: 24px 20px 22px 0;
+			}
+			.stat + .stat {
+				padding-left: 20px;
+				border-left: 1px solid var(--sp-border);
+			}
+			.stat b {
+				display: block;
+				font-size: 44px;
+				line-height: 1;
+				letter-spacing: -0.03em;
+			}
+			.stat span {
+				display: block;
+				margin-top: 10px;
+				font-size: 14px;
+				color: var(--sp-muted);
+			}
+			section {
+				margin: 0 0 104px;
+			}
+			h2 {
+				font-size: clamp(28px, 4vw, 40px);
+				line-height: 1.05;
+				letter-spacing: -0.025em;
+				margin: 0 0 16px;
+				max-width: 20ch;
+			}
+			.split {
+				display: grid;
+				grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+				gap: 56px;
+				align-items: start;
+			}
+			.split p,
+			.split li {
+				color: var(--sp-muted);
+				line-height: 1.6;
+			}
+			.split strong {
+				color: var(--sp-text);
+				font-weight: 600;
+			}
+			.split ul {
+				padding-left: 18px;
+				margin: 20px 0 0;
+			}
+			.split li + li {
+				margin-top: 8px;
+			}
+			.prompt {
+				background: var(--sp-surface);
+				border: 1px solid var(--sp-border);
+				border-radius: 10px;
+				overflow: hidden;
+			}
+			.prompt header {
+				display: flex;
+				justify-content: space-between;
+				font: 12px/1 var(--sp-font-mono);
+				color: var(--sp-muted);
+				padding: 14px 18px;
+				border-bottom: 1px solid var(--sp-border);
+			}
+			.prompt blockquote {
+				margin: 0;
+				padding: 22px 18px;
+				font-size: 18px;
+				line-height: 1.5;
+				border: 0;
+			}
+			.prompt ol {
+				list-style: none;
+				margin: 0;
+				padding: 14px 18px 18px;
+				border-top: 1px dashed var(--sp-border);
+				font: 13px/1.9 var(--sp-font-mono);
+				counter-reset: step;
+			}
+			.prompt ol li {
+				counter-increment: step;
+				display: flex;
+				gap: 12px;
+			}
+			.prompt ol li::before {
+				content: counter(step, decimal-leading-zero);
+				color: var(--sp-muted);
+			}
+			.tag {
+				display: inline-block;
+				min-width: 76px;
+				font-weight: 600;
+			}
+			.t-trigger {
+				color: var(--trig);
+			}
+			.t-http {
+				color: var(--sp-chart-2);
+			}
+			.t-llm {
+				color: var(--sp-chart-3);
+			}
+			.t-cond {
+				color: var(--warn);
+			}
+			.t-agent {
+				color: var(--ok);
+			}
+			.t-cli {
+				color: var(--sp-chart-5);
+			}
+			.nodes {
+				display: grid;
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				gap: 1px;
+				background: var(--sp-border);
+				border: 1px solid var(--sp-border);
+				border-radius: 10px;
+				overflow: hidden;
+				margin-top: 36px;
+			}
+			.node {
+				background: var(--sp-bg);
+				padding: 26px 24px 28px;
+			}
+			.node h3 {
+				font: 600 13px/1 var(--sp-font-mono);
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				margin: 0 0 14px;
+			}
+			.node p {
+				margin: 0;
+				color: var(--sp-muted);
+				line-height: 1.55;
+				font-size: 15px;
+			}
+			.ledger {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 40px 56px;
+				margin-top: 36px;
+			}
+			.ledger h3 {
+				font-size: 18px;
+				margin: 0 0 8px;
+			}
+			.ledger p {
+				margin: 0;
+				color: var(--sp-muted);
+				line-height: 1.6;
+			}
+			.timeline {
+				list-style: none;
+				margin: 36px 0 0;
+				padding: 0;
+				border-left: 1px solid var(--sp-border);
+			}
+			.timeline li {
+				position: relative;
+				padding: 0 0 18px 24px;
+				line-height: 1.45;
+			}
+			.timeline li::before {
+				content: "";
+				position: absolute;
+				left: -4px;
+				top: 7px;
+				width: 7px;
+				height: 7px;
+				border-radius: 50%;
+				background: var(--sp-muted);
+			}
+			.timeline li.big::before {
+				background: var(--ok);
+			}
+			.timeline code {
+				font-size: 12px;
+				color: var(--sp-muted);
+				background: none;
+				padding: 0;
+				margin-right: 10px;
+			}
+			.intro,
+			.note {
+				color: var(--sp-muted);
+				line-height: 1.6;
+				max-width: var(--sp-measure);
+				margin: 0;
+			}
+			.note {
+				font-size: 14px;
+				margin-top: 36px;
+			}
+			.compare {
+				overflow-x: auto;
+				margin: 36px 0 48px;
+				border: 1px solid var(--sp-border);
+				border-radius: 10px;
+			}
+			.compare table {
+				width: 100%;
+				min-width: 640px;
+				border-collapse: collapse;
+				margin: 0;
+				font-size: 15px;
+			}
+			.compare th,
+			.compare td {
+				text-align: left;
+				vertical-align: top;
+				padding: 14px 18px;
+				border: 0;
+				border-top: 1px solid var(--sp-border);
+				line-height: 1.5;
+			}
+			.compare thead th {
+				border-top: 0;
+				font: 600 12px/1 var(--sp-font-mono);
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				color: var(--sp-muted);
+				padding-top: 16px;
+				padding-bottom: 14px;
+			}
+			.compare tbody th {
+				font-weight: 600;
+				width: 22%;
+			}
+			.compare td {
+				color: var(--sp-muted);
+				width: 39%;
+			}
+			.compare .win {
+				color: var(--sp-text);
+				font-weight: 600;
+			}
+			.closer {
+				border-top: 1px solid var(--sp-border);
+				padding-top: 48px;
+			}
+			.closer p {
+				font-size: 20px;
+				line-height: 1.5;
+				max-width: 52ch;
+				color: var(--sp-muted);
+				margin: 0;
+			}
+			.closer p strong {
+				color: var(--sp-text);
+			}
+			@media (max-width: 820px) {
+				main {
+					padding-top: 48px;
+				}
+				.hero,
+				.split,
+				.ledger {
+					grid-template-columns: 1fr;
+				}
+				.hero svg {
+					max-width: 380px;
+				}
+				.stats {
+					grid-template-columns: repeat(2, minmax(0, 1fr));
+				}
+				.stat:nth-child(3) {
+					padding-left: 0;
+					border-left: 0;
+				}
+				.stat:nth-child(n + 3) {
+					border-top: 1px solid var(--sp-border);
+				}
+				.nodes {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</head>
+	<body class="dark">
+		<main>
+			<div class="hero">
+				<div>
+					<p class="eyebrow">New in Paradev · Workflows</p>
+					<h1>Describe it. Wire it. <em>Run it.</em></h1>
+					<p class="lede">
+						Workflows chain agents, model calls, HTTP requests and shell
+						commands into one canvas that runs by itself. Type what you want in
+						plain words and Paradev draws the graph for you.
+					</p>
+				</div>
+				<svg
+					viewBox="0 0 360 470"
+					role="img"
+					aria-label="A workflow flowing top to bottom: a daily trigger, an HTTP request, an LLM summary, and a condition that branches to a webhook post or ends"
+				>
+					<g fill="none" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5">
+						<path d="M180 70 V102" />
+						<path d="M180 160 V192" />
+						<path d="M180 250 V282" />
+						<path d="M140 350 C140 380 90 380 90 402" />
+						<path d="M220 350 C220 380 270 380 270 402" />
+					</g>
+					<g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">
+						<rect x="70" y="12" width="220" height="58" rx="8" fill="#9b8cff" fill-opacity="0.1" stroke="#9b8cff" stroke-opacity="0.7" />
+						<text x="86" y="36" fill="#9b8cff" font-weight="600">TRIGGER</text>
+						<text x="86" y="56" fill="currentColor" fill-opacity="0.8">Every day · 09:00</text>
+
+						<rect x="70" y="102" width="220" height="58" rx="8" fill="currentColor" fill-opacity="0.04" stroke="currentColor" stroke-opacity="0.25" />
+						<text x="86" y="126" style="fill: var(--sp-chart-2)" font-weight="600">HTTP</text>
+						<text x="86" y="146" fill="currentColor" fill-opacity="0.8">GET /repos/…/pulls</text>
+
+						<rect x="70" y="192" width="220" height="58" rx="8" fill="currentColor" fill-opacity="0.04" stroke="currentColor" stroke-opacity="0.25" />
+						<text x="86" y="216" style="fill: var(--sp-chart-3)" font-weight="600">LLM</text>
+						<text x="86" y="236" fill="currentColor" fill-opacity="0.8">Summarize open PRs</text>
+
+						<rect x="70" y="282" width="220" height="68" rx="8" fill="#e0a43a" fill-opacity="0.08" stroke="#e0a43a" stroke-opacity="0.6" />
+						<text x="86" y="306" fill="#e0a43a" font-weight="600">CONDITION</text>
+						<text x="86" y="326" fill="currentColor" fill-opacity="0.8">PR count is greater than 0</text>
+						<text x="128" y="344" fill="#3fb68b">Yes</text>
+						<text x="212" y="344" fill="currentColor" fill-opacity="0.5">No</text>
+
+						<rect x="10" y="402" width="160" height="58" rx="8" fill="#3fb68b" fill-opacity="0.08" stroke="#3fb68b" stroke-opacity="0.7" />
+						<text x="26" y="426" style="fill: var(--sp-chart-2)" font-weight="600">HTTP</text>
+						<text x="26" y="446" fill="currentColor" fill-opacity="0.8">POST to webhook</text>
+						<circle cx="152" cy="420" r="4" fill="#3fb68b" />
+
+						<rect x="190" y="402" width="160" height="58" rx="8" fill="none" stroke="currentColor" stroke-opacity="0.18" stroke-dasharray="4 4" />
+						<text x="206" y="436" fill="currentColor" fill-opacity="0.45">Skipped</text>
+					</g>
+				</svg>
+			</div>
+
+			<div class="stats">
+				<div class="stat"><b>6</b><span>step types on one canvas</span></div>
+				<div class="stat"><b>1</b><span>sentence to a working draft</span></div>
+				<div class="stat"><b>88</b><span>new test cases</span></div>
+				<div class="stat"><b>15</b><span>commits, schema to canvas</span></div>
+			</div>
+
+			<section class="split">
+				<div>
+					<p class="eyebrow">Generate</p>
+					<h2>Say what you want. Get a graph.</h2>
+					<p>
+						Click <strong>Generate</strong>, describe the job, and Claude
+						builds the workflow. It can start from nothing or extend the graph
+						you already have.
+					</p>
+					<ul>
+						<li>
+							<strong>Checked, not trusted.</strong> Every answer is
+							validated against the workflow schema. Problems go back to the
+							model, up to three tries.
+						</li>
+						<li>
+							<strong>Grounded.</strong> Model names and devices the model
+							can't know are fixed on the server.
+						</li>
+						<li>
+							<strong>Yours to review.</strong> The draft opens unsaved,
+							already laid out. Nothing runs until you press Save.
+						</li>
+					</ul>
+				</div>
+				<div class="prompt" aria-label="Example generate prompt and resulting steps">
+					<header><span>Generate workflow</span><span>draft · unsaved</span></header>
+					<blockquote>
+						Every morning, fetch the open PRs on our repo, summarize them, and
+						post the summary to our team webhook if there are any.
+					</blockquote>
+					<ol>
+						<li><span class="tag t-trigger">trigger</span> daily at 09:00</li>
+						<li><span class="tag t-http">http</span> GET open pull requests</li>
+						<li><span class="tag t-llm">llm</span> summarize them in 5 bullets</li>
+						<li><span class="tag t-cond">condition</span> count is greater than 0</li>
+						<li><span class="tag t-http">http</span> POST summary to webhook</li>
+					</ol>
+				</div>
+			</section>
+
+			<section>
+				<p class="eyebrow">Building blocks</p>
+				<h2>Six steps cover most chores.</h2>
+				<div class="nodes">
+					<div class="node">
+						<h3 class="t-trigger">Trigger</h3>
+						<p>
+							Start by hand with Run now, or on a schedule in your own time
+							zone. Each card shows when the next run is.
+						</p>
+					</div>
+					<div class="node">
+						<h3 class="t-agent">Agent</h3>
+						<p>
+							Hand a task to Claude or Codex on this device or another of your
+							devices, in a fresh workspace. Pick the model and effort. An agent
+							that never starts fails in 2 minutes, not 1 hour.
+						</p>
+					</div>
+					<div class="node">
+						<h3 class="t-llm">LLM</h3>
+						<p>
+							One model call with an optional system prompt and a JSON schema
+							for structured output. Effort levels where the model supports
+							them.
+						</p>
+					</div>
+					<div class="node">
+						<h3 class="t-http">HTTP</h3>
+						<p>
+							Any method, headers and a body, with a timeout. The card shows
+							the endpoint at a glance.
+						</p>
+					</div>
+					<div class="node">
+						<h3 class="t-cli">Command</h3>
+						<p>
+							Run a shell command in a workspace on one of your devices, with
+							its own time limit.
+						</p>
+					</div>
+					<div class="node">
+						<h3 class="t-cond">Condition</h3>
+						<p>
+							Compare any earlier step's output with a rule builder. Yes and
+							No each connect to their own next step.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<p class="eyebrow">The canvas</p>
+				<h2>Reads top to bottom, like the run.</h2>
+				<div class="ledger">
+					<div>
+						<h3>Cards that say what they do</h3>
+						<p>
+							Every card summarizes its config: the endpoint, the model, the
+							rule, the schedule. You can read a workflow without opening a
+							single panel.
+						</p>
+					</div>
+					<div>
+						<h3>One-click Arrange</h3>
+						<p>
+							Arrange lays the graph out again, step under step, with a
+							condition's Yes branch on the left and No on the right.
+						</p>
+					</div>
+					<div>
+						<h3>A side panel that fits your work</h3>
+						<p>
+							Drag it wider for long prompts, double-click to reset. The
+							width is remembered. Click any node and its config is there.
+						</p>
+					</div>
+					<div>
+						<h3>Reference picker</h3>
+						<p>
+							Use an earlier step's output in a later one by picking it from
+							a list, not by typing a path from memory.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<p class="eyebrow">Runs</p>
+				<h2>Watch it work. Stop it if it shouldn't.</h2>
+				<div class="ledger">
+					<div>
+						<h3>A durable engine</h3>
+						<p>
+							Each run is a Temporal workflow. Steps run in topological order,
+							and parallel branches run together in one wave.
+						</p>
+					</div>
+					<div>
+						<h3>The run, drawn on the graph</h3>
+						<p>
+							Open a run and the canvas shows the exact version that ran, with
+							every step marked succeeded, failed, skipped or running.
+						</p>
+					</div>
+					<div>
+						<h3>Inputs and outputs, per step</h3>
+						<p>
+							Click a step to see what went in and what came out, as JSON. The
+							view updates on its own while the run is still active.
+						</p>
+					</div>
+					<div>
+						<h3>Cancel with confirmation</h3>
+						<p>
+							Running steps stop. Finished steps keep their results, so you
+							never lose the work that already happened.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<p class="eyebrow">Workflows or Automations?</p>
+				<h2>Two tools, two shapes of job.</h2>
+				<p class="intro">
+					An automation is one agent with one prompt, started by a schedule or
+					an event. A workflow is a graph of steps that pass data to each
+					other. They share the same trigger pipeline underneath, so the
+					choice is about the shape of the work, not where it runs.
+				</p>
+				<div class="compare">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col"></th>
+								<th scope="col">Automations</th>
+								<th scope="col">Workflows</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">Unit of work</th>
+								<td>One agent session, one prompt</td>
+								<td>A graph of steps: agent, LLM, HTTP, command, condition</td>
+							</tr>
+							<tr>
+								<th scope="row">Steps without an agent</th>
+								<td>No. Every run starts an agent</td>
+								<td><span class="win">Yes.</span> An HTTP call or one model call costs seconds, not an agent session</td>
+							</tr>
+							<tr>
+								<th scope="row">Branching and data flow</th>
+								<td>Whatever the agent decides inside its session</td>
+								<td><span class="win">Explicit.</span> Conditions pick a branch, later steps read earlier outputs</td>
+							</tr>
+							<tr>
+								<th scope="row">Seeing what happened</th>
+								<td>The agent's transcript</td>
+								<td><span class="win">Per step.</span> Status, input and output JSON for every step</td>
+							</tr>
+							<tr>
+								<th scope="row">Triggers in the editor</th>
+								<td><span class="win">Schedule, webhook, GitHub, Slack, Linear, Sentry, Gmail, Notion, Teams</span></td>
+								<td>Manual and daily schedule. Event kinds exist in the API but not in the editor yet</td>
+							</tr>
+							<tr>
+								<th scope="row">Event data</th>
+								<td>The PR, message or issue that fired is handed to the agent with its prompt</td>
+								<td><span class="win">Any step can reference it</span> as trigger data, and pick out only the fields it needs</td>
+							</tr>
+							<tr>
+								<th scope="row">Where agents run</th>
+								<td><span class="win">Your devices or cloud workspaces</span>, with environment and machine size</td>
+								<td>Your devices only. Cloud agent steps are not wired yet</td>
+							</tr>
+							<tr>
+								<th scope="row">Workspace between runs</th>
+								<td><span class="win">Pin or reuse one</span>, and optionally continue the last session</td>
+								<td>A fresh workspace and branch for each agent step, every run</td>
+							</tr>
+							<tr>
+								<th scope="row">Getting started</th>
+								<td>Write one prompt</td>
+								<td>Describe the job and Generate draws the graph</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="ledger">
+					<div>
+						<h3>Reach for an Automation when</h3>
+						<p>
+							the job is one open-ended task an agent should own end to end,
+							it reacts to an event like a new PR, Slack message or Sentry
+							issue, it needs a cloud machine, or it should keep working in the
+							same workspace and conversation day after day.
+						</p>
+					</div>
+					<div>
+						<h3>Reach for a Workflow when</h3>
+						<p>
+							the job is a pipeline with known steps, most of it is plain API
+							calls or one-shot model calls, it has to branch on a result, or
+							you need to see exactly which step failed and what it received.
+							Drop an agent step in only where judgment is needed.
+						</p>
+					</div>
+				</div>
+				<p class="note">
+					The gaps in the Workflows column are not design choices. Event
+					triggers in the editor and cloud agent steps are the next things to
+					close, and the backend already shares the pieces Automations use.
+				</p>
+			</section>
+
+			<section>
+				<p class="eyebrow">Safe by default</p>
+				<h2>Edits that never clobber each other.</h2>
+				<div class="ledger">
+					<div>
+						<h3>Every save is a version</h3>
+						<p>
+							Saves are checked against the version you started from. If
+							someone saved first, you choose: reload theirs, or keep editing
+							and save on top.
+						</p>
+					</div>
+					<div>
+						<h3>Runs pin their version</h3>
+						<p>
+							A run always records the graph it executed, so history stays
+							true after the workflow changes.
+						</p>
+					</div>
+					<div>
+						<h3>Shared reads, owned writes</h3>
+						<p>
+							Everyone in the org can open a workflow and its runs. Only the
+							owner can change it.
+						</p>
+					</div>
+					<div>
+						<h3>Tested where it matters</h3>
+						<p>
+							88 new test cases cover the graph schema, layout, AI generation
+							and validation, the run engine, and the editor's helpers.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<p class="eyebrow">How it was built</p>
+				<h2>Fifteen commits, bottom to top.</h2>
+				<ol class="timeline">
+					<li class="big"><code>d691250</code>Workflow graph schema, topological order, references and conditions</li>
+					<li class="big"><code>ce8e5ca</code>Database tables for workflows, versions, triggers, runs and run steps</li>
+					<li class="big"><code>6be6bce</code>The Temporal run engine and its worker API</li>
+					<li class="big"><code>ed62bf7</code>The workflow API and trigger pipeline</li>
+					<li class="big"><code>f1fd3ff</code>Workflows list and canvas editor</li>
+					<li class="big"><code>bf78d77</code>Run history, run overlay on the canvas, and cancel</li>
+					<li><code>2435ce2</code>Version reads are scoped to the org, so any member can open a run</li>
+					<li><code>454f2fc</code>Formatting and a zero-warning cleanup</li>
+					<li><code>f2e4efe</code>Agent steps that never start now fail fast</li>
+					<li class="big"><code>73cdb4d</code>Model and effort options for agent and LLM steps</li>
+					<li class="big"><code>c28529f</code>Richer config forms and canvas cards</li>
+					<li><code>a354c01</code>Resizable side panel, and node clicks open the right config</li>
+					<li><code>c9ad57e</code>Workflows UI in plain English</li>
+					<li><code>bea3e8d</code>Test typecheck fix</li>
+					<li class="big"><code>7941bb9</code>Generate workflows with AI, and a top-to-bottom canvas</li>
+				</ol>
+			</section>
+
+			<div class="closer">
+				<p>
+					<strong>Workflows turn a chore you do every morning into a canvas
+					you build once.</strong> Open Workflows in the sidebar, press Generate,
+					and describe the first one. For the architecture and a worked example,
+					read the <em>Workflows overview</em> page.
+				</p>
+			</div>
+		</main>
+	</body>
+</html>

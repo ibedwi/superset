@@ -1,0 +1,1655 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Workflow run timeline</title>
+		<style>
+			:root {
+				--sp-measure: 68ch;
+				--ok: #10b981;
+				--fail: #ef4444;
+				--run: #f59e0b;
+				--idle: #94a3b8;
+				--queued: #64748b;
+				--sel: color-mix(in srgb, var(--sp-text) 7%, transparent);
+				--hover: color-mix(in srgb, var(--sp-text) 4%, transparent);
+				--row: 34px;
+				--label-w: 248px;
+			}
+			body {
+				margin: 0;
+			}
+			main {
+				max-width: 1280px;
+				margin: 0 auto;
+				padding: 56px 24px 120px;
+			}
+			.eyebrow {
+				font: 600 11px/1 var(--sp-font-mono);
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				color: var(--sp-muted);
+				margin: 0 0 14px;
+			}
+			h1 {
+				font-size: clamp(32px, 5vw, 52px);
+				line-height: 1;
+				letter-spacing: -0.03em;
+				margin: 0;
+			}
+			.lede {
+				font-size: 18px;
+				line-height: 1.5;
+				color: var(--sp-muted);
+				max-width: 60ch;
+				margin: 18px 0 0;
+			}
+			h2 {
+				font-size: 26px;
+				letter-spacing: -0.02em;
+				margin: 0 0 12px;
+			}
+			section.notes {
+				margin-top: 88px;
+				display: grid;
+				grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+				gap: 40px;
+			}
+			section.notes > div > p,
+			section.notes li {
+				color: var(--sp-muted);
+				line-height: 1.6;
+				max-width: var(--sp-measure);
+			}
+			section.notes strong {
+				color: var(--sp-text);
+			}
+			section.notes ol,
+			section.notes ul {
+				padding-left: 20px;
+			}
+			section.notes li + li {
+				margin-top: 6px;
+			}
+			.kicker {
+				font: 12px/1.5 var(--sp-font-mono);
+				color: var(--sp-muted);
+			}
+			.table-wrap {
+				overflow-x: auto;
+			}
+			table.spec {
+				border-collapse: collapse;
+				width: 100%;
+				font-size: 14px;
+			}
+			table.spec th,
+			table.spec td {
+				text-align: left;
+				vertical-align: top;
+				padding: 10px 12px 10px 0;
+				border-bottom: 1px solid var(--sp-border);
+			}
+			table.spec td:first-child {
+				white-space: nowrap;
+				font-weight: 600;
+			}
+			table.spec td {
+				color: var(--sp-muted);
+			}
+			.tag {
+				display: inline-block;
+				font: 600 10px/1 var(--sp-font-mono);
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+				padding: 4px 6px;
+				border-radius: 4px;
+				border: 1px solid var(--sp-border);
+				white-space: nowrap;
+			}
+			.tag.v1 {
+				color: var(--ok);
+				border-color: color-mix(in srgb, var(--ok) 40%, transparent);
+			}
+			.tag.v2 {
+				color: var(--run);
+				border-color: color-mix(in srgb, var(--run) 40%, transparent);
+			}
+
+			/* Review controls (not part of the app) */
+			.review-bar {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 12px;
+				margin: 40px 0 14px;
+				font-size: 13px;
+				color: var(--sp-muted);
+			}
+			.seg {
+				display: inline-flex;
+				border: 1px solid var(--sp-border);
+				border-radius: 7px;
+				overflow: hidden;
+			}
+			.seg button {
+				font: inherit;
+				font-size: 13px;
+				background: transparent;
+				color: var(--sp-muted);
+				border: 0;
+				padding: 6px 12px;
+				cursor: pointer;
+			}
+			.seg button + button {
+				border-left: 1px solid var(--sp-border);
+			}
+			.seg button[aria-pressed="true"] {
+				background: var(--sp-text);
+				color: var(--sp-bg);
+			}
+
+			/* App frame */
+			.app {
+				border: 1px solid var(--sp-border);
+				border-radius: 12px;
+				overflow: hidden;
+				background: var(--sp-bg);
+				box-shadow: 0 30px 80px -40px rgb(0 0 0 / 0.35);
+				font-size: 13px;
+			}
+			.run-head {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 10px 14px;
+				padding: 12px 16px;
+				border-bottom: 1px solid var(--sp-border);
+			}
+			.run-head .title {
+				display: flex;
+				align-items: baseline;
+				gap: 8px;
+				min-width: 0;
+			}
+			.run-head .title b {
+				font-size: 15px;
+			}
+			.run-head .title span {
+				color: var(--sp-muted);
+			}
+			.pill {
+				display: inline-flex;
+				align-items: center;
+				gap: 6px;
+				padding: 3px 9px 3px 7px;
+				border-radius: 999px;
+				font-weight: 600;
+				font-size: 12px;
+				border: 1px solid;
+			}
+			.pill.succeeded {
+				color: var(--ok);
+				border-color: color-mix(in srgb, var(--ok) 35%, transparent);
+				background: color-mix(in srgb, var(--ok) 10%, transparent);
+			}
+			.pill.failed {
+				color: var(--fail);
+				border-color: color-mix(in srgb, var(--fail) 35%, transparent);
+				background: color-mix(in srgb, var(--fail) 10%, transparent);
+			}
+			.pill.running {
+				color: var(--run);
+				border-color: color-mix(in srgb, var(--run) 35%, transparent);
+				background: color-mix(in srgb, var(--run) 10%, transparent);
+			}
+			.dot {
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				flex: none;
+				background: var(--idle);
+			}
+			.dot.succeeded {
+				background: var(--ok);
+			}
+			.dot.failed {
+				background: var(--fail);
+			}
+			.dot.running {
+				background: var(--run);
+				animation: pulse 1.2s ease-in-out infinite;
+			}
+			.dot.skipped {
+				background: transparent;
+				border: 1.5px dashed var(--idle);
+				width: 7px;
+				height: 7px;
+			}
+			.dot.pending {
+				background: transparent;
+				border: 1.5px solid var(--idle);
+				width: 7px;
+				height: 7px;
+			}
+			@keyframes pulse {
+				50% {
+					opacity: 0.35;
+				}
+			}
+			.meta-line {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 4px 14px;
+				color: var(--sp-muted);
+			}
+			.meta-line b {
+				color: var(--sp-text);
+				font-weight: 500;
+			}
+			.chip {
+				font: 11px/1 var(--sp-font-mono);
+				padding: 3px 6px;
+				border-radius: 4px;
+				background: var(--sp-code-bg);
+				color: var(--sp-muted);
+			}
+			.head-actions {
+				margin-left: auto;
+				display: flex;
+				gap: 8px;
+			}
+			.btn {
+				font: inherit;
+				font-size: 12px;
+				font-weight: 500;
+				padding: 5px 10px;
+				border-radius: 6px;
+				border: 1px solid var(--sp-border);
+				background: transparent;
+				color: var(--sp-text);
+				cursor: pointer;
+				white-space: nowrap;
+			}
+			.btn.ghost {
+				border-color: transparent;
+				color: var(--sp-muted);
+			}
+			.btn:hover {
+				background: var(--hover);
+			}
+			.banner {
+				display: flex;
+				align-items: center;
+				gap: 12px;
+				padding: 10px 16px;
+				border-bottom: 1px solid var(--sp-border);
+				background: color-mix(in srgb, var(--fail) 8%, transparent);
+			}
+			.banner .msg {
+				min-width: 0;
+				flex: 1;
+			}
+			.banner .msg b {
+				color: var(--fail);
+			}
+			.banner code {
+				font-size: 12px;
+			}
+			.banner.insight {
+				background: transparent;
+				color: var(--sp-muted);
+			}
+			.banner.insight b {
+				color: var(--sp-text);
+			}
+
+			.toolbar {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 10px 16px;
+				padding: 8px 16px;
+				border-bottom: 1px solid var(--sp-border);
+			}
+			.tabs {
+				display: inline-flex;
+				gap: 2px;
+				padding: 2px;
+				background: var(--sp-code-bg);
+				border-radius: 7px;
+			}
+			.tabs button {
+				font: inherit;
+				font-size: 12px;
+				font-weight: 500;
+				border: 0;
+				background: transparent;
+				color: var(--sp-muted);
+				padding: 4px 12px;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+			.tabs button[aria-selected="true"] {
+				background: var(--sp-bg);
+				color: var(--sp-text);
+				box-shadow: 0 1px 2px rgb(0 0 0 / 0.15);
+			}
+			.strip {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				color: var(--sp-muted);
+				font-size: 12px;
+			}
+			.strip .bar {
+				display: flex;
+				gap: 2px;
+				width: 120px;
+				height: 6px;
+			}
+			.strip .bar i {
+				flex: 1;
+				border-radius: 2px;
+				background: var(--sp-border);
+			}
+			.strip .bar i.succeeded {
+				background: var(--ok);
+			}
+			.strip .bar i.failed {
+				background: var(--fail);
+			}
+			.strip .bar i.running {
+				background: var(--run);
+			}
+			.strip .bar i.skipped {
+				background: repeating-linear-gradient(
+					90deg,
+					var(--idle) 0 2px,
+					transparent 2px 4px
+				);
+			}
+			.tl-tools {
+				margin-left: auto;
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
+			.tl-tools label {
+				display: inline-flex;
+				align-items: center;
+				gap: 6px;
+				color: var(--sp-muted);
+				font-size: 12px;
+				cursor: pointer;
+			}
+			.icon-btn {
+				font: inherit;
+				width: 26px;
+				height: 26px;
+				border-radius: 6px;
+				border: 1px solid var(--sp-border);
+				background: transparent;
+				color: var(--sp-text);
+				cursor: pointer;
+			}
+
+			.body {
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) 340px;
+				min-height: 420px;
+			}
+			.pane {
+				min-width: 0;
+				position: relative;
+			}
+
+			/* Timeline */
+			.tl {
+				display: grid;
+				grid-template-columns: var(--label-w) minmax(0, 1fr);
+			}
+			.tl-labels {
+				border-right: 1px solid var(--sp-border);
+			}
+			.tl-scroll {
+				overflow-x: auto;
+				scrollbar-color: var(--sp-border) transparent;
+				overflow-y: hidden;
+			}
+			.tl-track {
+				position: relative;
+			}
+			.axis {
+				height: 28px;
+				position: relative;
+				border-bottom: 1px solid var(--sp-border);
+				font: 11px/1 var(--sp-font-mono);
+				color: var(--sp-muted);
+			}
+			.axis span {
+				position: absolute;
+				top: 10px;
+				transform: translateX(4px);
+				white-space: nowrap;
+			}
+			.label-head {
+				height: 28px;
+				border-bottom: 1px solid var(--sp-border);
+				display: flex;
+				align-items: center;
+				padding: 0 12px;
+				font-size: 11px;
+				font-weight: 600;
+				color: var(--sp-muted);
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+			}
+			.lrow,
+			.trow {
+				height: var(--row);
+				position: relative;
+				cursor: pointer;
+			}
+			.lrow {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				padding: 0 12px;
+				white-space: nowrap;
+				overflow: hidden;
+			}
+			.lrow .name {
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			.lrow.dim .name,
+			.trow.dim {
+				opacity: 0.45;
+			}
+			.lrow.run-row {
+				font-weight: 600;
+				border-bottom: 1px solid var(--sp-border);
+			}
+			.trow.run-row {
+				border-bottom: 1px solid var(--sp-border);
+			}
+			.is-hover {
+				background: var(--hover);
+			}
+			.is-sel {
+				background: var(--sel);
+			}
+			.lrow.is-sel {
+				box-shadow: inset 2px 0 0 var(--sp-text);
+			}
+			.ticon {
+				width: 34px;
+				height: 18px;
+				flex: none;
+				display: grid;
+				place-items: center;
+				border-radius: 5px;
+				font: 600 9px/1 var(--sp-font-mono);
+				background: var(--sp-code-bg);
+				color: var(--sp-muted);
+			}
+			.gridline {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				width: 1px;
+				background: color-mix(in srgb, var(--sp-border) 60%, transparent);
+				pointer-events: none;
+			}
+			.nowline {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				width: 0;
+				border-left: 1.5px solid var(--run);
+				pointer-events: none;
+				z-index: 2;
+			}
+			.nowline::before {
+				content: "now";
+				position: absolute;
+				top: 8px;
+				left: 4px;
+				font: 600 10px/1 var(--sp-font-mono);
+				color: var(--run);
+			}
+			.span {
+				position: absolute;
+				top: 9px;
+				height: 16px;
+				border-radius: 4px;
+				min-width: 3px;
+			}
+			.span.succeeded {
+				background: var(--ok);
+			}
+			.span.failed {
+				background: var(--fail);
+			}
+			.span.running {
+				background: repeating-linear-gradient(
+					-45deg,
+					var(--run) 0 6px,
+					color-mix(in srgb, var(--run) 70%, white) 6px 12px
+				);
+				background-size: 17px 17px;
+				animation: march 0.8s linear infinite;
+			}
+			@keyframes march {
+				to {
+					background-position: 17px 0;
+				}
+			}
+			.span.queued {
+				background: repeating-linear-gradient(
+					-45deg,
+					color-mix(in srgb, var(--queued) 45%, transparent) 0 3px,
+					transparent 3px 6px
+				);
+				border: 1px solid color-mix(in srgb, var(--queued) 50%, transparent);
+			}
+			.span.runspan {
+				top: 13px;
+				height: 8px;
+				opacity: 0.55;
+			}
+			.span.fade {
+				opacity: 0.25;
+			}
+			.span.crit {
+				box-shadow: 0 0 0 2px var(--sp-bg), 0 0 0 3.5px var(--sp-text);
+			}
+			.span-label {
+				position: absolute;
+				top: 0;
+				height: var(--row);
+				display: flex;
+				align-items: center;
+				font: 11px/1 var(--sp-font-mono);
+				color: var(--sp-muted);
+				white-space: nowrap;
+				pointer-events: none;
+			}
+			.span-label.fail {
+				color: var(--fail);
+			}
+			.ghost-line {
+				position: absolute;
+				top: 16px;
+				height: 0;
+				border-top: 1.5px dashed var(--idle);
+				opacity: 0.6;
+			}
+			.wait-link {
+				position: absolute;
+				top: 16px;
+				height: 0;
+				border-top: 1px dotted var(--sp-muted);
+				opacity: 0.7;
+				pointer-events: none;
+			}
+			.tip {
+				position: fixed;
+				z-index: 50;
+				pointer-events: none;
+				background: var(--sp-text);
+				color: var(--sp-bg);
+				border-radius: 8px;
+				padding: 9px 11px;
+				font-size: 12px;
+				line-height: 1.5;
+				max-width: 280px;
+				box-shadow: 0 8px 24px rgb(0 0 0 / 0.25);
+			}
+			.tip .k {
+				opacity: 0.6;
+				display: inline-block;
+				min-width: 64px;
+			}
+
+			/* Graph */
+			.graph-wrap {
+				display: grid;
+				place-items: center;
+				padding: 16px;
+				overflow: auto;
+			}
+			.graph-wrap svg {
+				max-width: 100%;
+				height: auto;
+			}
+			.gnode {
+				cursor: pointer;
+			}
+			.gnode rect {
+				fill: var(--sp-bg);
+				stroke: var(--sp-border);
+				stroke-width: 1.2;
+			}
+			.gnode.sel rect {
+				stroke: var(--sp-text);
+				stroke-width: 2;
+			}
+			.gnode text {
+				fill: var(--sp-text);
+				font: 12px var(--sp-font-sans);
+			}
+			.gnode .sub {
+				fill: var(--sp-muted);
+				font: 10.5px var(--sp-font-mono);
+			}
+			.gedge {
+				fill: none;
+				stroke: var(--sp-muted);
+				stroke-width: 1.3;
+			}
+			.gedge.dropped {
+				stroke-dasharray: 4 4;
+				opacity: 0.45;
+			}
+			.glabel {
+				fill: var(--sp-muted);
+				font: 10px var(--sp-font-mono);
+			}
+
+			/* Side panel */
+			.side {
+				border-left: 1px solid var(--sp-border);
+				padding: 16px;
+				display: flex;
+				flex-direction: column;
+				gap: 16px;
+				min-width: 0;
+				max-height: 640px;
+				overflow-y: auto;
+			}
+			.side h3 {
+				margin: 0;
+				font-size: 15px;
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
+			.side .sid {
+				font: 11px var(--sp-font-mono);
+				color: var(--sp-muted);
+				margin-top: 4px;
+			}
+			.kv {
+				display: grid;
+				grid-template-columns: 82px minmax(0, 1fr);
+				gap: 6px 10px;
+				font-size: 12px;
+			}
+			.kv dt {
+				color: var(--sp-muted);
+			}
+			.kv dd {
+				margin: 0;
+				min-width: 0;
+				overflow-wrap: anywhere;
+			}
+			.sec-label {
+				font-size: 11px;
+				font-weight: 600;
+				color: var(--sp-muted);
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				margin-bottom: 6px;
+				display: flex;
+				justify-content: space-between;
+			}
+			.box {
+				border: 1px solid var(--sp-border);
+				border-radius: 7px;
+				padding: 9px 10px;
+				font-size: 12px;
+				line-height: 1.55;
+				white-space: pre-wrap;
+				overflow-wrap: anywhere;
+				max-height: 180px;
+				overflow: auto;
+			}
+			.box.mono {
+				font-family: var(--sp-font-mono);
+				font-size: 11.5px;
+				background: var(--sp-code-bg);
+				border-color: transparent;
+			}
+			.box.err {
+				border-color: color-mix(in srgb, var(--fail) 40%, transparent);
+				background: color-mix(in srgb, var(--fail) 8%, transparent);
+				color: var(--fail);
+			}
+			.reqline {
+				font: 12px var(--sp-font-mono);
+				overflow-wrap: anywhere;
+			}
+			.reqline b {
+				font-weight: 700;
+			}
+			.verdict {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				font-size: 12px;
+			}
+			details.raw summary {
+				cursor: pointer;
+				font-size: 12px;
+				color: var(--sp-muted);
+			}
+			details.raw .box {
+				margin-top: 8px;
+			}
+			.counts {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 8px;
+			}
+			.counts div {
+				border: 1px solid var(--sp-border);
+				border-radius: 7px;
+				padding: 8px 10px;
+			}
+			.counts b {
+				display: block;
+				font-size: 18px;
+			}
+			.counts span {
+				color: var(--sp-muted);
+				font-size: 11px;
+			}
+			.annot {
+				display: inline-grid;
+				place-items: center;
+				width: 18px;
+				height: 18px;
+				border-radius: 50%;
+				background: var(--sp-accent);
+				color: var(--sp-accent-text);
+				font: 700 10px/1 var(--sp-font-mono);
+				flex: none;
+			}
+			.annots .annot {
+				display: none;
+			}
+			.annots.on .annot {
+				display: inline-grid;
+			}
+			.muted {
+				color: var(--sp-muted);
+			}
+
+			@media (max-width: 960px) {
+				.body {
+					grid-template-columns: minmax(0, 1fr);
+				}
+				.side {
+					border-left: 0;
+					border-top: 1px solid var(--sp-border);
+					max-height: none;
+				}
+				section.notes {
+					grid-template-columns: minmax(0, 1fr);
+					gap: 8px;
+				}
+				:root {
+					--label-w: 170px;
+				}
+			}
+		</style>
+	</head>
+	<body class="auto">
+		<main>
+			<p class="eyebrow">Workflows · design draft</p>
+			<h1>Run timeline</h1>
+			<p class="lede">
+				A run view that answers, at a glance: did it work, where did it stop,
+				where did the time go, and what did each step get and give back. The
+				timeline sits next to the graph we already have and shares its
+				selection.
+			</p>
+
+			<div class="review-bar">
+				<span>Show the run as</span>
+				<div class="seg" id="scenario">
+					<button data-s="failed" aria-pressed="true">Failed</button>
+					<button data-s="running">Running</button>
+					<button data-s="succeeded">Succeeded</button>
+				</div>
+				<label style="display: inline-flex; gap: 6px; align-items: center">
+					<input type="checkbox" id="annotToggle" checked /> Numbered callouts
+				</label>
+				<span class="muted">Mock data. Hover bars, click rows, switch tabs.</span>
+			</div>
+
+			<div class="app annots on" id="app">
+				<div class="run-head">
+					<span class="annot">1</span>
+					<button class="btn ghost" aria-label="Back">←</button>
+					<div class="title">
+						<b>Daily PR triage</b>
+						<span id="runTitle">Run · Nov 12, 09:00</span>
+					</div>
+					<span class="pill" id="statusPill"></span>
+					<div class="meta-line" id="headMeta"></div>
+					<div class="head-actions" id="headActions"></div>
+				</div>
+				<div id="banner"></div>
+				<div class="toolbar">
+					<span class="annot">3</span>
+					<div class="tabs" role="tablist">
+						<button role="tab" data-tab="timeline" aria-selected="true">
+							Timeline
+						</button>
+						<button role="tab" data-tab="graph" aria-selected="false">
+							Graph
+						</button>
+					</div>
+					<div class="strip" id="strip"></div>
+					<div class="tl-tools" id="tlTools">
+						<label
+							><input type="checkbox" id="critToggle" /> Critical path</label
+						>
+						<button class="icon-btn" id="zoomOut" aria-label="Zoom out">
+							−
+						</button>
+						<button class="btn" id="zoomFit">Fit</button>
+						<button class="icon-btn" id="zoomIn" aria-label="Zoom in">
+							+
+						</button>
+					</div>
+				</div>
+				<div class="body">
+					<div class="pane" id="pane"></div>
+					<aside class="side" id="side"></aside>
+				</div>
+			</div>
+
+			<section class="notes">
+				<div>
+					<p class="kicker">01</p>
+					<h2>What the view answers</h2>
+				</div>
+				<div>
+					<ol>
+						<li>
+							<strong>Did it work?</strong> Status pill, duration, and a step
+							strip with counts in the header. No scrolling needed.
+						</li>
+						<li>
+							<strong>If not, where and why?</strong> A failure banner names
+							the failed step in plain English with the first line of its
+							error, and opens that step on load.
+						</li>
+						<li>
+							<strong>Where did the time go?</strong> The timeline. Bars on a
+							shared clock show parallel branches, waits, and the step that
+							held the run up. A one-line insight says it in words.
+						</li>
+						<li>
+							<strong>What did a step get and return?</strong> The side panel,
+							shaped by node type: request and response for HTTP, verdict and
+							branch for a condition, prompt and result for agents and LLMs,
+							command and exit code for CLI. Raw JSON stays one click away.
+						</li>
+						<li>
+							<strong>What is it doing now?</strong> For a live run: a now
+							line, a growing striped bar, elapsed time that ticks, and the
+							steps still waiting with what they wait on.
+						</li>
+					</ol>
+				</div>
+			</section>
+
+			<section class="notes">
+				<div>
+					<p class="kicker">02</p>
+					<h2>Anatomy</h2>
+				</div>
+				<div class="table-wrap">
+					<table class="spec">
+						<tbody>
+							<tr>
+								<td>1 · Run header</td>
+								<td>
+									Workflow name, run start, status pill, cause (schedule,
+									manual, event), total duration (live while running), queued
+									time, and the pinned version with a note when it is older than
+									the live one. Actions: Cancel run while active, Back to
+									editor.
+								</td>
+							</tr>
+							<tr>
+								<td>2 · Banner</td>
+								<td>
+									Failed or timed out: the failed step, its error, and a Show
+									step button. Succeeded: one insight line about where the time
+									went. Running: hidden.
+								</td>
+							</tr>
+							<tr>
+								<td>3 · Tabs and strip</td>
+								<td>
+									Timeline and Graph share one selection, so a step picked in
+									one stays picked in the other. The strip is one segment per
+									step, coloured by status, with counts.
+								</td>
+							</tr>
+							<tr>
+								<td>4 · Timeline</td>
+								<td>
+									A Run row on top (queued, then running), then one row per
+									node. Time axis is relative to when the run was created;
+									hover shows wall-clock times.
+								</td>
+							</tr>
+							<tr>
+								<td>5 · Step panel</td>
+								<td>
+									With no step picked: run overview (counts, trigger, version,
+									error). With a step: summary, error, type-aware sections, raw
+									input and output.
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<section class="notes">
+				<div>
+					<p class="kicker">03</p>
+					<h2>Timeline rules</h2>
+				</div>
+				<div>
+					<ul>
+						<li>
+							<strong>Row order is graph order</strong> (topological, ties by
+							start time), not event order. Rows must not jump while a run is
+							live.
+						</li>
+						<li>
+							<strong>Linear scale, with zoom.</strong> Fit is the default.
+							Short steps get a 3 px minimum bar and their duration as a label,
+							so a 40 ms condition next to a 4 minute agent is still visible
+							and clickable. ⌘-scroll zooms, the label column stays put.
+						</li>
+						<li>
+							<strong>Status is shape as well as colour.</strong> Done: solid
+							bar. Failed: red bar with the error tag. Running: marching
+							stripes to the now line. Skipped: a dashed ring dot and a
+							sentence why, no bar. Pending: an empty ring and what it waits on.
+						</li>
+						<li>
+							<strong>Waits are drawn.</strong> A dotted line runs from the
+							latest dependency's end to the step's start, so engine overhead
+							and fan-in waits show up as gaps, not as nothing.
+						</li>
+						<li>
+							<strong>Critical path</strong> outlines the chain of steps that
+							set the total duration and fades the rest. The same data drives
+							the insight line in the banner.
+						</li>
+						<li>
+							<strong>Keyboard:</strong> ↑ ↓ move between steps, Esc clears the
+							selection, F fits, G and T switch tabs.
+						</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="notes">
+				<div>
+					<p class="kicker">04</p>
+					<h2>Data we have, and what is missing</h2>
+				</div>
+				<div>
+					<p>
+						Everything in the mock above except attempts and agent phases
+						comes from rows we already store:
+						<code>workflow_runs</code> gives created, started and finished
+						times, and <code>workflow_run_steps</code> gives one row per node
+						with status, input, output, error, and start and finish. Node names
+						and edges come from the run's pinned version.
+					</p>
+					<div class="table-wrap">
+						<table class="spec">
+							<thead>
+								<tr>
+									<th>Gap</th>
+									<th>Today</th>
+									<th>Fix</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Skip reason</td>
+									<td>Status is just <code>skipped</code>.</td>
+									<td>
+										Derive in the client: the upstream condition's
+										<code>output.result</code> and the edge handle it did not
+										take.
+									</td>
+									<td><span class="tag v1">v1</span></td>
+								</tr>
+								<tr>
+									<td>Waits on</td>
+									<td>Not stored.</td>
+									<td>
+										Derive from the pinned graph's edges and the steps that
+										are not finished.
+									</td>
+									<td><span class="tag v1">v1</span></td>
+								</tr>
+								<tr>
+									<td>Retries</td>
+									<td>
+										Temporal retries LLM and HTTP activities up to 3 times
+										inside one step, and the row keeps <code>attempt = 1</code>.
+										Each attempt is invisible.
+									</td>
+									<td>
+										Append-only <code>workflow_run_events</code> (run, node,
+										kind, at, data), one row per attempt start and end. The
+										timeline then draws attempts as segments in one row, with
+										the gaps as backoff.
+									</td>
+									<td><span class="tag v2">v2</span></td>
+								</tr>
+								<tr>
+									<td>Agent phases</td>
+									<td>
+										One span. Dispatch, start-up, work, and capture are not
+										told apart, and a stuck start-up looks like slow work.
+									</td>
+									<td>
+										Same events table: dispatched, started, blocked, done,
+										captured. Draw as sub-segments of the agent bar.
+									</td>
+									<td><span class="tag v2">v2</span></td>
+								</tr>
+								<tr>
+									<td>Agent workspace link</td>
+									<td>
+										The dispatch handle has the workspace id but the step does
+										not keep it.
+									</td>
+									<td>
+										Save the handle on the step's input when the agent is
+										dispatched, so the panel can offer Open workspace.
+									</td>
+									<td><span class="tag v2">v2</span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</section>
+
+			<section class="notes">
+				<div>
+					<p class="kicker">05</p>
+					<h2>Plan</h2>
+				</div>
+				<div>
+					<ul>
+						<li>
+							<strong>v1, desktop only, no schema change.</strong> Run header,
+							banner, Timeline and Graph tabs, type-aware step panel, derived
+							skip reasons and waits. Replaces today's run strip and raw-JSON
+							panel.
+						</li>
+						<li>
+							<strong>v2, engine events.</strong>
+							<code>workflow_run_events</code>, retry attempts, agent phases,
+							and the agent workspace link.
+						</li>
+						<li>
+							<strong>Later.</strong> A step strip on every row of the runs
+							list, so a column of runs reads as a history at a glance; compare
+							two runs on one axis.
+						</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="notes">
+				<div>
+					<p class="kicker">06</p>
+					<h2>Open questions</h2>
+				</div>
+				<div>
+					<ol>
+						<li>
+							When a run opens, which tab comes first? Draft: Timeline for
+							finished runs, Graph for live ones.
+						</li>
+						<li>
+							Tabs, or both at once with the timeline docked under the canvas?
+							Draft: tabs, because the side panel already takes width.
+						</li>
+						<li>Is v2 (events table, migration) in scope now, or later?</li>
+					</ol>
+				</div>
+			</section>
+		</main>
+
+		<div class="tip" id="tip" hidden></div>
+
+		<script>
+			const NODES = [
+				{ id: "trigger", name: "Every weekday at 9:00", type: "trigger", deps: [] },
+				{ id: "fetch_prs", name: "Fetch open PRs", type: "http", deps: ["trigger"] },
+				{ id: "any_prs", name: "Any PRs open?", type: "condition", deps: ["fetch_prs"] },
+				{ id: "summarize", name: "Summarize PRs", type: "llm", deps: ["any_prs"], branch: "true" },
+				{ id: "review", name: "Review riskiest PR", type: "agent", deps: ["any_prs"], branch: "true" },
+				{ id: "nothing", name: "Log “nothing to do”", type: "cli", deps: ["any_prs"], branch: "false" },
+				{ id: "post", name: "Post summary to Slack", type: "http", deps: ["summarize", "review"] },
+			];
+			const TYPE_TAG = { trigger: "TRG", http: "HTTP", condition: "IF", llm: "LLM", agent: "AGT", cli: "CLI" };
+
+			const base = {
+				trigger: { status: "succeeded", s: 1.2, e: 1.25 },
+				fetch_prs: { status: "succeeded", s: 1.34, e: 2.61 },
+				any_prs: { status: "succeeded", s: 2.7, e: 2.74 },
+				summarize: { status: "succeeded", s: 2.83, e: 11.4 },
+				review: { status: "succeeded", s: 2.83, e: 253.6 },
+				nothing: { status: "skipped" },
+			};
+			const SCENARIOS = {
+				failed: {
+					status: "failed",
+					queued: 1.2,
+					end: 254.9,
+					steps: { ...base, post: { status: "failed", s: 253.72, e: 254.9 } },
+				},
+				succeeded: {
+					status: "succeeded",
+					queued: 1.2,
+					end: 254.5,
+					steps: { ...base, post: { status: "succeeded", s: 253.72, e: 254.5 } },
+				},
+				running: {
+					status: "running",
+					queued: 1.2,
+					end: null,
+					now: 96,
+					steps: {
+						...base,
+						review: { status: "running", s: 2.83 },
+						post: { status: "pending" },
+					},
+				},
+			};
+
+			const DETAIL = {
+				trigger: {
+					fields: [["Cause", "Schedule"], ["Fires", "Mon–Fri 09:00 · Asia/Jakarta"]],
+					sections: [{ label: "Payload", mono: true, text: '{\n  "scheduledFor": "2026-11-12T02:00:00Z"\n}' }],
+				},
+				fetch_prs: {
+					request: ["GET", "https://api.github.com/repos/acme/web/pulls?state=open"],
+					fields: [["Response", "200 OK · 7 items · 18 KB"]],
+					sections: [{ label: "Response body", mono: true, text: '[\n  { "number": 1182, "title": "Move billing to v2 API", "changed_files": 41 },\n  { "number": 1179, "title": "Fix dark-mode toast", "changed_files": 2 },\n  … 5 more\n]' }],
+				},
+				any_prs: {
+					verdict: true,
+					sections: [
+						{ label: "Condition", mono: true, text: "{{fetch_prs.json.length}} > 0" },
+						{ label: "Evaluated", mono: true, text: "7 > 0  →  true" },
+					],
+					note: "Took the true branch to Summarize PRs and Review riskiest PR. Log “nothing to do” was skipped.",
+				},
+				summarize: {
+					fields: [["Model", "claude-sonnet-5-5 · effort low"], ["Tokens", "3.1k in · 412 out"]],
+					sections: [
+						{ label: "Prompt", text: "Summarize these open PRs for the team channel in under 8 bullet points. Mention anything blocked for more than 2 days.\n\n{{fetch_prs.json}}" },
+						{ label: "Result", text: "• #1182 Move billing to v2 API (41 files) needs a second reviewer\n• #1179 Fix dark-mode toast, ready to merge\n• 5 more, all in review < 1 day" },
+					],
+				},
+				review: {
+					fields: [["Agent", "Claude · opus · effort high"], ["Host", "ibe-mbp"], ["Workspace", "pr-triage-1182"]],
+					sections: [
+						{ label: "Prompt", text: "Check out PR #1182 and review it for data-loss risks in the billing migration. Reply with a verdict and the top 3 issues." },
+						{ label: "Result", text: "Verdict: request changes.\n1. Migration drops invoice.currency before backfill.\n2. No idempotency key on the v2 charge call.\n3. Retry loop has no cap." },
+					],
+					action: "Open workspace",
+				},
+				nothing: {
+					sections: [{ label: "Command", mono: true, text: 'echo "nothing to do"' }],
+				},
+				post: {
+					request: ["POST", "https://slack.com/api/chat.postMessage"],
+					fields: [["Headers", "Authorization, Content-Type"]],
+					sections: [],
+				},
+			};
+			const POST_FAIL = "HTTP 401 from slack.com: invalid_auth. The token in Authorization was rejected.";
+			const POST_OK = [["Response", "200 OK · ts 1731373254.0021"]];
+
+			const state = { scenario: "failed", tab: "timeline", sel: undefined, zoom: 1, crit: false, now: null, hover: null };
+			let ticker = null;
+
+			const $ = (s) => document.querySelector(s);
+			const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+			const nodeById = (id) => NODES.find((n) => n.id === id);
+			const sc = () => SCENARIOS[state.scenario];
+			const step = (id) => sc().steps[id];
+			const RUN_START_CLOCK = Date.UTC(2026, 10, 12, 2, 0, 0);
+
+			function fmtDur(sec) {
+				if (sec < 1) return `${Math.max(1, Math.round(sec * 1000))} ms`;
+				if (sec < 10) return `${sec.toFixed(1)} s`;
+				if (sec < 60) return `${Math.round(sec)} s`;
+				const m = Math.floor(sec / 60);
+				const s = Math.round(sec % 60);
+				return s ? `${m}m ${s}s` : `${m}m`;
+			}
+			function fmtTick(sec) {
+				if (sec === 0) return "0";
+				if (sec < 60) return `${+sec.toFixed(1)}s`;
+				const m = Math.floor(sec / 60);
+				const s = Math.round(sec % 60);
+				return s ? `${m}m${s}s` : `${m}m`;
+			}
+			function fmtClock(sec) {
+				const d = new Date(RUN_START_CLOCK + sec * 1000);
+				const hh = String(d.getUTCHours() + 7).padStart(2, "0");
+				const mm = String(d.getUTCMinutes()).padStart(2, "0");
+				const ss = String(d.getUTCSeconds()).padStart(2, "0");
+				const ms = String(d.getUTCMilliseconds()).padStart(3, "0");
+				return `${hh}:${mm}:${ss}.${ms}`;
+			}
+			const nowSec = () => (sc().end ?? state.now);
+			const stepEnd = (st) => (st.e ?? (st.status === "running" ? state.now : null));
+
+			function criticalPath() {
+				const ended = NODES.filter((n) => stepEnd(step(n.id) ?? {}) != null);
+				if (!ended.length) return new Set();
+				let cur = ended.reduce((a, b) => (stepEnd(step(a.id)) >= stepEnd(step(b.id)) ? a : b));
+				const path = new Set([cur.id]);
+				while (cur.deps.length) {
+					const prev = cur.deps
+						.map(nodeById)
+						.filter((d) => stepEnd(step(d.id) ?? {}) != null)
+						.sort((a, b) => stepEnd(step(b.id)) - stepEnd(step(a.id)))[0];
+					if (!prev) break;
+					path.add(prev.id);
+					cur = prev;
+				}
+				return path;
+			}
+
+			function skipReason(node) {
+				const cond = node.deps.map(nodeById).find((d) => d.type === "condition");
+				return cond ? `Skipped · ${cond.name} was true, this is the false branch` : "Skipped";
+			}
+			function waitingOn(node) {
+				return node.deps.filter((d) => !["succeeded", "skipped"].includes(step(d)?.status)).map((d) => nodeById(d).name);
+			}
+
+			function counts() {
+				const c = { succeeded: 0, failed: 0, running: 0, skipped: 0, pending: 0 };
+				for (const n of NODES) c[step(n.id).status]++;
+				return c;
+			}
+
+			function renderHead() {
+				const s = sc();
+				const pill = $("#statusPill");
+				pill.className = `pill ${s.status}`;
+				pill.innerHTML = `<span class="dot ${s.status}"></span>${s.status}`;
+				const dur = s.end != null ? fmtDur(s.end - s.queued) : `${fmtDur(state.now - s.queued)} so far`;
+				$("#headMeta").innerHTML = `
+					<span>Scheduled · <b>Today 09:00:00</b></span>
+					<span>Took <b>${dur}</b></span>
+					<span>Queued <b>${fmtDur(s.queued)}</b></span>
+					<span class="chip" title="This run used version 12. The workflow is now on version 14.">v12 · older than live</span>`;
+				$("#headActions").innerHTML =
+					(s.status === "running" ? `<button class="btn">Cancel run</button>` : "") +
+					`<button class="btn ghost">Back to editor</button>`;
+
+				const banner = $("#banner");
+				if (s.status === "failed") {
+					banner.innerHTML = `<div class="banner"><span class="annot">2</span><div class="msg">
+						<b>Failed at Post summary to Slack</b> <span class="muted">after ${fmtDur(s.end - s.queued)}</span><br/>
+						<code>${esc(POST_FAIL)}</code></div><button class="btn" data-show="post">Show step</button></div>`;
+				} else if (s.status === "succeeded") {
+					const total = s.end - s.queued;
+					const r = step("review");
+					banner.innerHTML = `<div class="banner insight"><span class="annot">2</span><div class="msg">
+						Most of this run was <b>Review riskiest PR</b>: ${fmtDur(r.e - r.s)} of ${fmtDur(total)} (${Math.round(((r.e - r.s) / total) * 100)}%).
+						Summarize PRs finished at ${fmtTick(step("summarize").e)} and waited for it.</div>
+						<button class="btn" data-crit="1">Show critical path</button></div>`;
+				} else banner.innerHTML = "";
+
+				const c = counts();
+				const parts = [
+					c.succeeded && `${c.succeeded} done`,
+					c.failed && `<span style="color:var(--fail)">${c.failed} failed</span>`,
+					c.running && `<span style="color:var(--run)">${c.running} running</span>`,
+					c.pending && `${c.pending} waiting`,
+					c.skipped && `${c.skipped} skipped`,
+				].filter(Boolean);
+				$("#strip").innerHTML = `<div class="bar">${NODES.map((n) => `<i class="${step(n.id).status}" title="${esc(n.name)}"></i>`).join("")}</div><span>${parts.join(" · ")}</span>`;
+			}
+
+			function pickTicks(total, px) {
+				const steps = [0.1, 0.2, 0.5, 1, 2, 5, 10, 15, 30, 60, 120, 300, 600, 900, 1800, 3600];
+				const per = total / px;
+				return steps.find((s) => s / per >= 72) ?? 3600;
+			}
+
+			function renderTimeline() {
+				const s = sc();
+				const pane = $("#pane");
+				const total = nowSec() ?? 0;
+				const crit = state.crit ? criticalPath() : null;
+				pane.innerHTML = `
+					<div class="tl">
+						<div class="tl-labels">
+							<div class="label-head"><span class="annot" style="margin-right:8px">4</span>Step</div>
+							<div class="lrow run-row" data-row="__run"><span class="dot ${s.status}"></span><span class="name">Run</span></div>
+							${NODES.map((n) => {
+								const st = step(n.id);
+								const dim = crit && !crit.has(n.id);
+								return `<div class="lrow${dim ? " dim" : ""}" data-row="${n.id}"><span class="ticon">${TYPE_TAG[n.type]}</span><span class="dot ${st.status}"></span><span class="name">${esc(n.name)}</span></div>`;
+							}).join("")}
+						</div>
+						<div class="tl-scroll"><div class="tl-track" id="track"></div></div>
+					</div>`;
+
+				const scroll = pane.querySelector(".tl-scroll");
+				const width = Math.max(260, scroll.clientWidth * state.zoom - 190);
+				const track = $("#track");
+				track.style.width = `${width + 190}px`;
+				const x = (t) => (t / total) * width + 8;
+				const trackW = width + 190;
+				const label = (left, text, cls = "", anchor = left) => {
+					const fits = left + text.length * 6.8 + 12 < trackW;
+					const pos = fits ? `left:${left}px` : `right:${trackW - anchor + 8}px`;
+					return `<div class="span-label ${cls}" style="${pos}">${esc(text)}</div>`;
+				};
+
+				const tick = pickTicks(total, width);
+				let html = `<div class="axis">`;
+				for (let t = 0; t <= total; t += tick) html += `<span style="left:${x(t)}px">${fmtTick(t)}</span>`;
+				html += `</div>`;
+				for (let t = 0; t <= total; t += tick) html += `<div class="gridline" style="left:${x(t)}px"></div>`;
+				if (s.status === "running") html += `<div class="nowline" style="left:${x(state.now)}px"></div>`;
+
+				const runEnd = nowSec();
+				html += `<div class="trow run-row" data-row="__run">
+					<div class="span queued" style="left:${x(0)}px;width:${x(s.queued) - x(0)}px"></div>
+					<div class="span runspan ${s.status}" style="left:${x(s.queued)}px;width:${x(runEnd) - x(s.queued)}px"></div>
+					<div class="span-label" style="left:${x(runEnd) + 8}px">${fmtDur(runEnd - s.queued)}</div>
+				</div>`;
+
+				for (const n of NODES) {
+					const st = step(n.id);
+					const dim = crit && !crit.has(n.id);
+					let row = "";
+					if (st.status === "skipped") {
+						const condEnd = step("any_prs").e;
+						row = `<div class="ghost-line" style="left:${x(condEnd)}px;width:24px"></div>${label(x(condEnd) + 30, skipReason(n))}`;
+					} else if (st.status === "pending") {
+						const waits = waitingOn(n);
+						row = label(x(state.now) + 8, `Waiting for ${waits.join(", ")}`, "", x(state.now));
+					} else {
+						const end = stepEnd(st);
+						const depEnd = Math.max(...n.deps.map((d) => stepEnd(step(d)) ?? 0), 0);
+						if (n.deps.length && x(st.s) - x(depEnd) > 6)
+							row += `<div class="wait-link" style="left:${x(depEnd)}px;width:${x(st.s) - x(depEnd)}px"></div>`;
+						const w = Math.max(3, x(end) - x(st.s));
+						row += `<div class="span ${st.status}${dim ? " fade" : ""}${crit?.has(n.id) ? " crit" : ""}" data-span="${n.id}" style="left:${x(st.s)}px;width:${w}px"></div>`;
+						const lbl = st.status === "failed" ? `${fmtDur(end - st.s)} · 401 invalid_auth` : st.status === "running" ? `${fmtDur(end - st.s)} · running` : fmtDur(end - st.s);
+						row += label(x(st.s) + w + 8, lbl, st.status === "failed" ? "fail" : "", x(st.s));
+					}
+					html += `<div class="trow${dim ? " dim" : ""}" data-row="${n.id}">${row}</div>`;
+				}
+				track.innerHTML = html;
+				applyRowState();
+			}
+
+			function renderGraph() {
+				const P = {
+					trigger: [210, 20], fetch_prs: [210, 92], any_prs: [210, 164],
+					summarize: [20, 256], review: [210, 256], nothing: [400, 256], post: [115, 348],
+				};
+				const W = 170, H = 46;
+				const edges = [];
+				for (const n of NODES)
+					for (const d of n.deps) {
+						const [x1, y1] = P[d], [x2, y2] = P[n.id];
+						const dropped = n.branch === "false";
+						const sx = x1 + W / 2, sy = y1 + H, tx = x2 + W / 2, ty = y2;
+						const my = (sy + ty) / 2;
+						edges.push(`<path class="gedge${dropped ? " dropped" : ""}" d="M${sx},${sy} C${sx},${my} ${tx},${my} ${tx},${ty}"/>`);
+						if (n.branch) edges.push(`<text class="glabel" x="${(sx + tx) / 2 + 4}" y="${my - 2}">${n.branch}</text>`);
+					}
+				const color = { succeeded: "var(--ok)", failed: "var(--fail)", running: "var(--run)", skipped: "var(--idle)", pending: "var(--idle)" };
+				const nodes = NODES.map((n) => {
+					const st = step(n.id);
+					const [x, y] = P[n.id];
+					const end = stepEnd(st);
+					const sub = st.status === "skipped" ? "skipped" : st.status === "pending" ? "waiting" : `${st.status} · ${fmtDur(end - st.s)}`;
+					const fill = ["skipped", "pending"].includes(st.status) ? "transparent" : color[st.status];
+					return `<g class="gnode${state.sel === n.id ? " sel" : ""}" data-row="${n.id}" opacity="${st.status === "skipped" ? 0.55 : 1}">
+						<rect x="${x}" y="${y}" width="${W}" height="${H}" rx="8"/>
+						<circle cx="${x + 14}" cy="${y + 16}" r="4" fill="${fill}" stroke="${color[st.status]}" stroke-width="1.5" ${st.status === "skipped" ? 'stroke-dasharray="2 2"' : ""}/>
+						<text x="${x + 26}" y="${y + 20}">${esc(n.name)}</text>
+						<text class="sub" x="${x + 26}" y="${y + 36}">${sub}</text></g>`;
+				}).join("");
+				$("#pane").innerHTML = `<div class="graph-wrap"><svg viewBox="0 0 590 410" width="590">${edges.join("")}${nodes}</svg></div>`;
+			}
+
+			function stepFields(_n, st) {
+				const end = stepEnd(st);
+				const rows = [["Status", `<span class="verdict"><span class="dot ${st.status}"></span>${st.status}</span>`]];
+				if (st.s != null) rows.push(["Started", `${fmtClock(st.s)} <span class="muted">· +${fmtTick(st.s)}</span>`]);
+				if (st.e != null) rows.push(["Finished", fmtClock(st.e)]);
+				if (st.s != null) rows.push(["Duration", fmtDur(end - st.s) + (st.status === "running" ? " so far" : "")]);
+				if (st.s != null) rows.push(["Attempt", "1 of 3"]);
+				return rows;
+			}
+
+			function renderSide() {
+				const side = $("#side");
+				const s = sc();
+				if (!state.sel) {
+					const c = counts();
+					side.innerHTML = `
+						<div><h3><span class="annot">5</span>Run overview</h3><div class="sid">run 7f3c…a91e</div></div>
+						<div class="counts">
+							<div><b>${c.succeeded}</b><span>done</span></div>
+							<div><b>${c.failed + c.running}</b><span>${c.running ? "running" : "failed"}</span></div>
+							<div><b>${c.skipped}</b><span>skipped</span></div>
+							<div><b>${s.end != null ? fmtDur(s.end - s.queued) : fmtDur(state.now - s.queued)}</b><span>total</span></div>
+						</div>
+						<dl class="kv"><dt>Trigger</dt><dd>Schedule · Mon–Fri 09:00</dd><dt>Created</dt><dd>${fmtClock(0)}</dd><dt>Started</dt><dd>${fmtClock(s.queued)} <span class="muted">· queued ${fmtDur(s.queued)}</span></dd><dt>Version</dt><dd>12 <span class="muted">(live is 14)</span></dd></dl>
+						<p class="muted" style="margin:0">Pick a step in the timeline or graph to see what it got and returned.</p>`;
+					return;
+				}
+				if (state.sel === "__run") {
+					state.sel = undefined;
+					return renderSide();
+				}
+				const n = nodeById(state.sel);
+				const st = step(n.id);
+				const d = DETAIL[n.id];
+				let html = `<div><h3><span class="annot">5</span><span class="ticon">${TYPE_TAG[n.type]}</span>${esc(n.name)}</h3><div class="sid">${n.id} · ${n.type}</div></div>`;
+
+				if (st.status === "skipped") {
+					html += `<div class="box">${esc(skipReason(n).replace("Skipped · ", "Skipped because "))}.</div>`;
+					html += sections(d.sections, "Would have run");
+					side.innerHTML = html;
+					return;
+				}
+				if (st.status === "pending") {
+					html += `<div class="box">Not started. Waiting for <b>${esc(waitingOn(n).join(", "))}</b> to finish.</div>`;
+					if (d.request) html += `<div><div class="sec-label">Will send</div><div class="reqline"><b>${d.request[0]}</b> ${esc(d.request[1])}</div></div>`;
+					side.innerHTML = html;
+					return;
+				}
+
+				let fields = [...stepFields(n, st), ...(d.fields ?? [])];
+				if (n.id === "post" && st.status === "succeeded") fields = [...fields, ...POST_OK];
+				html += `<dl class="kv">${fields.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>`;
+				if (st.status === "failed") html += `<div><div class="sec-label">Error <a href="#" class="muted">Copy</a></div><div class="box err">${esc(POST_FAIL)}</div></div>`;
+				if (d.request) html += `<div><div class="sec-label">Request</div><div class="reqline"><b>${d.request[0]}</b> ${esc(d.request[1])}</div></div>`;
+				if (d.verdict !== undefined) html += `<div class="verdict"><span class="dot succeeded"></span><b>Result: ${d.verdict}</b></div>`;
+				if (n.id === "review" && st.status === "running") {
+					html += sections(d.sections.slice(0, 1));
+					html += `<div class="box muted">Agent is working. The result shows here when it finishes.</div>`;
+				} else html += sections(d.sections);
+				if (d.note) html += `<p class="muted" style="margin:0;font-size:12px">${esc(d.note)}</p>`;
+				if (d.action) html += `<div><button class="btn">${d.action} ↗</button></div>`;
+				html += `<details class="raw"><summary>Raw input and output</summary><div class="box mono">{ "input": …, "output": … }</div></details>`;
+				side.innerHTML = html;
+			}
+			function sections(list, prefix) {
+				return (list ?? [])
+					.map((sec) => `<div><div class="sec-label">${prefix ? `${prefix}: ` : ""}${sec.label}</div><div class="box${sec.mono ? " mono" : ""}">${esc(sec.text)}</div></div>`)
+					.join("");
+			}
+
+			function applyRowState() {
+				document.querySelectorAll("[data-row]").forEach((el) => {
+					const id = el.dataset.row;
+					el.classList.toggle("is-sel", id === state.sel || (id === "__run" && state.sel === undefined && false));
+					el.classList.toggle("is-hover", id === state.hover);
+				});
+			}
+
+			function render() {
+				renderHead();
+				document.querySelectorAll(".tabs button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === state.tab)));
+				$("#tlTools").style.visibility = state.tab === "timeline" ? "visible" : "hidden";
+				$("#critToggle").checked = state.crit;
+				state.tab === "timeline" ? renderTimeline() : renderGraph();
+				renderSide();
+			}
+
+			function setScenario(name) {
+				state.scenario = name;
+				state.crit = false;
+				state.zoom = 1;
+				clearInterval(ticker);
+				if (name === "running") {
+					state.now = SCENARIOS.running.now;
+					state.sel = "review";
+					ticker = setInterval(() => {
+						state.now = state.now >= 240 ? SCENARIOS.running.now : state.now + 1;
+						renderHead();
+						if (state.tab === "timeline") renderTimeline();
+						if (state.sel === "review" || !state.sel) renderSide();
+					}, 1000);
+				} else {
+					state.now = null;
+					state.sel = name === "failed" ? "post" : undefined;
+				}
+				document.querySelectorAll("#scenario button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.s === name)));
+				render();
+			}
+
+			document.addEventListener("click", (e) => {
+				const sBtn = e.target.closest("#scenario button");
+				if (sBtn) return setScenario(sBtn.dataset.s);
+				const tab = e.target.closest(".tabs button");
+				if (tab) {
+					state.tab = tab.dataset.tab;
+					return render();
+				}
+				const show = e.target.closest("[data-show]");
+				if (show) {
+					state.sel = show.dataset.show;
+					return render();
+				}
+				if (e.target.closest("[data-crit]")) {
+					state.crit = true;
+					state.tab = "timeline";
+					return render();
+				}
+				const row = e.target.closest("#pane [data-row]");
+				if (row) {
+					state.sel = row.dataset.row === state.sel ? undefined : row.dataset.row;
+					if (state.tab === "graph") renderGraph();
+					applyRowState();
+					renderSide();
+				}
+			});
+			$("#critToggle").addEventListener("change", (e) => {
+				state.crit = e.target.checked;
+				renderTimeline();
+			});
+			$("#zoomIn").addEventListener("click", () => {
+				state.zoom = Math.min(16, state.zoom * 2);
+				renderTimeline();
+			});
+			$("#zoomOut").addEventListener("click", () => {
+				state.zoom = Math.max(1, state.zoom / 2);
+				renderTimeline();
+			});
+			$("#zoomFit").addEventListener("click", () => {
+				state.zoom = 1;
+				renderTimeline();
+			});
+			$("#annotToggle").addEventListener("change", (e) => $("#app").classList.toggle("on", e.target.checked));
+
+			const tip = $("#tip");
+			document.addEventListener("mousemove", (e) => {
+				const row = e.target.closest("#pane [data-row]");
+				const id = row?.dataset.row ?? null;
+				if (id !== state.hover) {
+					state.hover = id;
+					applyRowState();
+				}
+				const span = e.target.closest("[data-span]");
+				if (!span) {
+					tip.hidden = true;
+					return;
+				}
+				const n = nodeById(span.dataset.span);
+				const st = step(n.id);
+				const end = stepEnd(st);
+				tip.innerHTML = `<b>${esc(n.name)}</b><br/><span class="k">Status</span>${st.status}<br/><span class="k">Started</span>${fmtClock(st.s)} (+${fmtTick(st.s)})<br/>${st.e != null ? `<span class="k">Finished</span>${fmtClock(st.e)}<br/>` : ""}<span class="k">Duration</span>${fmtDur(end - st.s)}<br/><span class="k">Attempt</span>1`;
+				tip.hidden = false;
+				tip.style.left = `${Math.min(e.clientX + 14, innerWidth - 300)}px`;
+				tip.style.top = `${e.clientY + 14}px`;
+			});
+			document.addEventListener("keydown", (e) => {
+				if (e.target.closest("input")) return;
+				const ids = NODES.map((n) => n.id);
+				const i = ids.indexOf(state.sel);
+				if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+					e.preventDefault();
+					const next = e.key === "ArrowDown" ? Math.min(ids.length - 1, i + 1) : Math.max(0, i - 1);
+					state.sel = ids[i === -1 ? 0 : next];
+					render();
+				} else if (e.key === "Escape") {
+					state.sel = undefined;
+					render();
+				} else if (e.key === "f") {
+					state.zoom = 1;
+					renderTimeline();
+				} else if (e.key === "g" || e.key === "t") {
+					state.tab = e.key === "g" ? "graph" : "timeline";
+					render();
+				}
+			});
+			addEventListener("resize", () => state.tab === "timeline" && renderTimeline());
+
+			setScenario("failed");
+		</script>
+	</body>
+</html>
